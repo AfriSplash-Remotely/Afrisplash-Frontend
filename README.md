@@ -1,7 +1,7 @@
 # Afrisplash-Frontend
 
 # Tech Stack
-React Native 
+React
 
 
 # How to contribute
