@@ -1,7 +1,7 @@
 # Afrisplash-Frontend
 
 # Tech Stack
-React Native 
+React - Nextjs, tailwindCSS, Redux, Sass.
 
 
 # How to contribute
