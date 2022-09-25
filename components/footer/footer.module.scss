@@ -1,0 +1,100 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    background: #1C1D36;
+    color: #F8F8F8;
+    padding: 96px 128px;
+
+    .links {
+        display: flex;
+
+        .talentAboutContainer {
+            display: flex;
+            margin-right: 200px;
+
+        .talents {
+                margin: 0;
+        
+            }
+        }
+
+        .othersSocialContainer {
+            display: flex;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 100px;
+
+            li {
+                margin-bottom: 12px;
+                cursor: pointer;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &:first-child {
+                    font-weight: 600;
+                    margin-bottom: 16px;
+                    text-decoration: none;
+                    cursor: default;
+                }
+
+                a {
+                    color: #F8F8F8;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    
+
+    .copyRightSection {
+        border-top: 2px solid #F8F8F8;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+        margin-top: 30px;
+
+        .policySection {
+            display: flex;
+
+            p {
+                margin-left: 32px;
+                cursor: pointer;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 12px;
+        padding: 96px 30px;
+
+        .links {
+            flex-direction: column;
+
+            .talentAboutContainer {
+                margin: 0;
+
+                .about {
+                    margin-left: 60px;
+                }
+            }
+
+            .othersSocialContainer {
+                margin-top: 40px;
+
+                .others {
+                    margin: 0;
+                }
+            }
+
+        }
+    }
+}

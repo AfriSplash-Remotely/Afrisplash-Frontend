@@ -1,0 +1,121 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1C1D36;
+    font-size: 16px;
+    padding: 15px 80px;
+
+    .navLink {
+        display: flex;
+        list-style: none;
+ 
+        li {
+            margin-left: 32px;
+
+            .resourceImg {
+                border: 1px solid black;
+                margin-left: 10px;
+            }
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            &:first-child  {
+                font-weight: 600;
+            }
+
+            &:nth-child(2) {
+    
+                span {
+                    margin-left: 5px;
+                }
+            }
+
+            a {
+                color: #1C1D36;
+                text-decoration: none;
+
+              
+            }
+        }
+
+       
+    }
+
+    .btnContainer {
+        display: flex;
+       
+        .signupBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #FFFFFF;
+            border: 1px solid #1C1D36;
+            border-radius: 8px;
+            width: 162px;
+            height: 48px;
+            padding: 16px;
+            font-size: 16px;
+            margin-right: 16px;
+            cursor: pointer;
+
+            &:hover {
+                background: #1C1D36;
+                color: #F8F8F8;
+                transition: .5s;
+            }
+        }
+
+        .postjobsBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1C1D36;
+            border: none;
+            border-radius: 8px;
+            color: #F8F8F8;
+            width: 162px;
+            height: 48px;
+            padding: 16px;
+            font-size: 16px;
+            cursor: pointer;
+
+            &:hover {
+                background: #FFFFFF;
+                border: 1px solid #1C1D36;
+                color: #1C1D36;
+                transition: .5s;
+            }
+        }
+    }
+
+    .hamburger {
+        display: none;
+        font-size: 48px;
+        cursor: pointer;
+    }
+
+    // mobile screen
+    @media screen and (max-width: 768px) {
+        justify-content: space-between;
+        padding: 15px 20px;
+
+        .hamburger {
+            display: block;
+        }
+
+        .navLink {
+            display: none;
+        }
+
+        .btnContainer {
+            display: none;
+        }
+    }
+}
+
+
+

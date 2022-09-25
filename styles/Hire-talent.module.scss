@@ -1,0 +1,310 @@
+.section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+   .article1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 96px;
+
+        h1 {
+            font-weight: 500;
+            font-size: 48px;
+            line-height: 64px;
+            text-transform: uppercase;
+            width: 698px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 24px;
+            color: #000000; 
+            width: 385px;
+        }
+   }
+
+   .gallerySection {
+        margin-top: 111px;
+        max-width: 100%;
+        padding: 0;
+
+        .galleryRow1 {
+            min-width: 100%;
+            margin-bottom: -6px;
+
+            img {
+                min-width: 310px;
+                min-height: 320px;
+                margin: 0;
+                padding: -10px;
+            }
+        }
+        
+   }
+
+   .book {
+      display: flex;
+      padding: 96px;
+
+      .bookIllustrator {
+        margin-right: 48px;
+      }
+
+      .bookContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: start;
+        max-width: 501px;
+      
+
+        h3 {
+            align-self: flex-start;
+            margin-bottom: 24px;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 40px;
+        }
+        
+        ul li {
+            margin-bottom: 16px;
+            list-style: none;
+            font-size: 16px;
+            line-height: 22px;
+
+            &::before {
+                content: "•"; color: #0D5520;
+                display: inline-block; width: 1em;
+                margin-left: -1em
+            }
+        }
+
+        .bookBtn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0D5520;
+            border-radius: 8px;
+            color: #FFFFFF;
+            align-self: flex-start;
+            margin-top: 35px;
+            padding: 16px 42px;
+            border: none;
+            cursor: pointer;
+
+            img {
+                margin-right: 18px;
+            }
+        }
+      }
+   }
+}
+
+.section2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   text-align: center;
+    background: #F8F8F8;
+    padding: 60px 0px 100px 0px;
+
+  h3 {
+    max-width: 995px;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 74px;
+    line-height: 44px;
+  }
+
+  .viewTalentBtn {
+    background: #0D5520;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 16px 42px;
+    cursor: pointer;
+    border: none;
+    margin-right: 32px;
+  }
+
+  .requestTalentBtn {
+    border: 1px solid #1C1D36;
+    border-radius: 8px;
+    color: #1C1D36;
+    font-weight: 600;
+    padding: 16px 42px;
+    cursor: pointer;
+  }
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #F8F8F8;
+    padding: 100px 60px;
+
+    h3 {
+        font-weight: 400;
+        font-size: 32px;
+    }
+
+    .cardContainer {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 48px;
+
+        .card {
+            margin-right: 24px;
+        }
+        
+    }
+
+    p {
+        margin-top: 87px;
+        font-size: 24px;
+        align-self: flex-start;
+    }
+    
+    form  {
+        display: flex;
+        margin-top: 48px;
+
+        .email {
+            background: #FFFFFF;
+            border-radius: 8px 0px 0px 8px;
+            padding: 18px 64px;
+            color: #000000;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+            margin-right: 25px;
+        }
+    
+        .emailBtn {
+            background: #0D5520;
+            border-radius: 0px 8px 8px 0px;
+            color: #FFFFFF;
+            display: flex;
+            font-size: 16px;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border: none;
+            cursor: pointer;
+
+            img {
+                margin-left: 11px;
+            }
+        }
+    }
+
+}
+
+.reviewSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+
+    h3 {
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 39px;
+        max-width: 667px;
+        text-align: center;
+        margin-bottom: 136px;
+    }
+
+    .reviewContainer {
+        display: flex;
+        
+
+        :nth-child(1), :nth-child(2) {
+            margin-right: 24px;
+        }
+
+        article {
+            display: flex;
+            justify-content: space-around;
+            width: 396px;
+            height: 480px;
+            flex-direction: column;
+            background: #F8F8F8;
+            border-radius: 32px;
+            padding: 30px;
+
+            p {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 22px;
+                letter-spacing: 0.5px;
+            }
+
+            .profile {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+}
+
+.industrySection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #F8F8F8;
+    padding: 40px 0px 70px 0px;
+    text-align: center;
+
+    h3 {
+        font-size: 32px;
+        line-height: 44px;
+        max-width: 72%;
+        font-weight: 400;
+    }
+
+    .industryImgContainer {
+        margin-top: 80px;
+        padding: 16px;
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+}
+
+.remarkSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+
+    p {
+        align-self: center;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 27px;
+
+        img {
+            margin-right: 24px;
+        }
+    }
+}
