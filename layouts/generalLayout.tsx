@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Footer from '../components/molecules/Footer/Footer'
 import Navigation from '../components/molecules/Navigation/Navigation'
 
 interface GeneralProps{
@@ -10,6 +11,7 @@ const GeneralLayout: NextPage<GeneralProps>=({children})=> {
     <div>
       <Navigation />
         {children}
+      <Footer />
     </div>
   )
 }
