@@ -9,14 +9,20 @@
     .navLink {
         display: flex;
         list-style: none;
+
+
+        .resources {
+
+                :nth-child(1) {
+                margin-right: 3px;
+            }
+
+        }
+
+
  
         li {
             margin-left: 32px;
-
-            .resourceImg {
-                border: 1px solid black;
-                margin-left: 10px;
-            }
 
             &:hover {
                 text-decoration: underline;
