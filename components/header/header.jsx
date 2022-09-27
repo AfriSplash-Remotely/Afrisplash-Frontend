@@ -16,8 +16,10 @@ const Header = () => {
           <li>
             <Link href='/'>Home</Link>
           </li>
-          <li>
-            <Link href='/resources'>Resources</Link>
+          <li className={styles.resources}>
+            <Link  href='/resources'>
+              Resources
+            </Link>
             <Image src={ArrowDown} alt='arrow-down' />
           </li>
           <li>

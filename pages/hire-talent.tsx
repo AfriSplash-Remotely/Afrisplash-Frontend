@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from  '../styles/Hire-talent.module.scss'
 import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
+import InfoCard from '../components/InfoCard/InfoCard'
 import Img1 from '../assets/hire-talent-assets/img_1.png'
 import Img2 from '../assets/hire-talent-assets/img_2.png'
 import Img3 from '../assets/hire-talent-assets/img_3.png'
@@ -15,7 +16,6 @@ import Img8 from '../assets/hire-talent-assets/img_8.png'
 import CallIcon from '../assets/hire-talent-assets/call_calling.svg'
 import BookIllustrator from '../assets/hire-talent-assets/pana.svg'
 import ArrowLeft from '../assets/hire-talent-assets/arrow-left.svg'
-// import InfoCard from '../components/InfoCard/InfoCard'
 import AppleLogo from '../assets/hire-talent-assets/apple-logo.svg'
 import GoogleLogo from '../assets/hire-talent-assets/google-logo.svg'
 import MicrosoftLogo from '../assets/hire-talent-assets/Microsoft-logo.svg'
@@ -23,6 +23,13 @@ import TwitterLogo from '../assets/hire-talent-assets/twitter-logo.svg'
 import Metalogo from '../assets/hire-talent-assets/Meta-Logo.svg'
 import CheckBox from '../assets/hire-talent-assets/box-bold-check.svg'
 import ReviewProfile from '../assets/hire-talent-assets/review-profile.png'
+import ReviewProfile2 from '../assets/hire-talent-assets/review_profile2.png'
+import ReviewProfile3 from '../assets/hire-talent-assets/review_profile3.png'
+import FillForm from '../assets/hire-talent-assets/fill-the-form.svg'
+import GetSchedule from '../assets/hire-talent-assets/get-matched.svg'
+import ScheduleCall from '../assets/hire-talent-assets/schedule-call.svg'
+
+
 
 const HireTalent: NextPage = () => {
   return (
@@ -35,7 +42,19 @@ const HireTalent: NextPage = () => {
       <Header />
       <section className={styles.section1}>
         <article className={styles.article1}>
-          <h1>Find ,Attract and Hire AFRICAN TECH TALENTS 🌍</h1>
+          <h1>
+            <span className={styles.green}>
+              {' '}
+              F<span className={styles.red}>in</span>d
+            </span>{' '}
+            ,
+            <span className={styles.green}>
+              At<span className={styles.red}>trac</span>t
+            </span>{' '}
+            and <span className={styles.green}>H</span>
+            <span className={styles.red}>ire</span>{' '}
+            <span className={styles.downH3}>AFRICAN TECH TALENTS 🌍</span>
+          </h1>
           <p>
             Get matched with remote-ready African talents from Africa's #1
             remote work community🌍.
@@ -77,7 +96,7 @@ const HireTalent: NextPage = () => {
             </ul>
             <button className={styles.bookBtn}>
               {' '}
-              <Image src={CallIcon} alt='' /> Book a call now
+              <Image src={CallIcon} alt='' /> <span className={styles.bookbtncontent}>Book a call now</span>
             </button>
           </div>
         </article>
@@ -99,11 +118,25 @@ const HireTalent: NextPage = () => {
       <section className={styles.infoSection}>
         <h3>Get matched with the best talents</h3>
         <div className={styles.cardContainer}>
-          {/* <InfoCard />
-          <InfoCard />
-          <InfoCard /> */}
+          <InfoCard
+            image={FillForm}
+            header={'Fill the form'}
+            content={`Request for talent (s) by request above with the necessary details.
+          Our team will reach out to you or your team in 3 business days`}
+          />
+          <InfoCard
+            image={ScheduleCall}
+            header={'Schedule call'}
+            content={`Have a strategy session to discuss the desired skills, experience, and personality traits youre looking for. 
+            This also includes the project budget or salary range plus any other matters related to your ideal talent. `}
+          />
+          <InfoCard
+            image={GetSchedule}
+            header={'Get matched'}
+            content={`We do the heavy lifting. Our AIpowered platform evaluates your preference against the best candidates to match you with the top 1%.`}
+          />
         </div>
-        <p>We’re here to assist you:</p>
+        <p className={styles.infoPara}>We’re here to assist you:</p>
         <form>
           <input
             type='email'
@@ -135,7 +168,7 @@ const HireTalent: NextPage = () => {
               <p>Founder @ Rootlo</p>
             </div>
           </article>
-          <article>
+          <article className={styles.centerArticle}>
             <p>
               “Afrisplash Remotely is a great community, the team is super
               fantastic and helped me to find the best talent matching our
@@ -143,12 +176,12 @@ const HireTalent: NextPage = () => {
               contribute as much as we can to grow this community.”
             </p>
             <div className={styles.profile}>
-              <Image src={ReviewProfile} alt='' />
+              <Image src={ReviewProfile2} alt='' />
               <p>Ujjwal Singh</p>
               <p>Founder @ Haulify</p>
             </div>
           </article>
-          <article>
+          <article className={styles.lastArticle}>
             <p>
               “Afrisplash Remotely is a great community, the team is super
               fantastic and helped me to find the best talent matching our
@@ -156,7 +189,7 @@ const HireTalent: NextPage = () => {
               contribute as much as we can to grow this community.”
             </p>
             <div className={styles.profile}>
-              <Image src={ReviewProfile} alt='' />
+              <Image src={ReviewProfile3} alt='' />
               <p>Ujjwal Singh</p>
               <p>Founder @ Haulify</p>
             </div>
@@ -176,22 +209,28 @@ const HireTalent: NextPage = () => {
           <Image src={GoogleLogo} alt='' />
         </div>
       </section>
-      <section className={styles.remarkSection}>
+      <section className={styles.remarkSections}>
         <div>
-          <p>
+          <div className={styles.remarkSection}>
             <Image src={CheckBox} alt='' />
-            More remote talents within the community have access to global
-            remote leaders.
-          </p>
-          <p>
+            <p>
+              More remote talents within the community have access to global
+              remote leaders.
+            </p>
+          </div>
+          <div className={styles.remarkSection}>
             <Image src={CheckBox} alt='' />
-            We don't just offer you the top 1% of talent. We offer you grit,
-            skill, creativity and the right fit.
-          </p>
-          <p>
+            <p>
+              We don't just offer you the top 1% of talent. We offer you grit,
+              skill, creativity and the right fit.
+            </p>
+          </div>
+          <div className={styles.remarkSection}>
             <Image src={CheckBox} alt='' />
-            We build on mutual trust to promote the remote working culture.
-          </p>
+            <p>
+              We build on mutual trust to promote the remote working culture.
+            </p>
+          </div>
         </div>
       </section>
       <Footer />
