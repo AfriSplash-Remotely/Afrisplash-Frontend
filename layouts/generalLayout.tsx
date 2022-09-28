@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
-import React, { FC } from 'react'
+import Footer from '../components/molecules/Footer/Footer'
+import Navigation from '../components/molecules/Navigation/Navigation'
 
 interface GeneralProps{
     children: React.ReactNode
@@ -8,7 +9,9 @@ interface GeneralProps{
 const GeneralLayout: NextPage<GeneralProps>=({children})=> {
   return (
     <div>
+      <Navigation />
         {children}
+      <Footer />
     </div>
   )
 }
