@@ -11,7 +11,7 @@ const Header = () => {
 
 
   const handleToggle = () => {
-      setToggle(toggle => !toggle)
+      setToggle(!toggle)
       console.log(toggle)
   }
 
