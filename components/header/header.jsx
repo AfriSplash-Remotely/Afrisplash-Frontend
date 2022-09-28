@@ -3,8 +3,17 @@ import ArrowDown from '../../assets/hire-talent-assets/arrow-down.svg'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './header.module.scss'
+import { useState } from 'react'
 
 const Header = () => {
+
+  const [toggle, setToggle] = useState(false)
+
+
+  const handleToggle = () => {
+      setToggle(toggle => !toggle)
+      console.log(toggle)
+  }
 
     return (
       <header className={styles.header}>
@@ -12,14 +21,15 @@ const Header = () => {
           <Image src={Logo} alt='Afrisplash Logo' />
         </div>
         {/* page link */}
-        <ul className={styles.navLink}>
+        <ul className={toggle ? styles.navLinkDisplay : styles.navLink}>
+          <div className={styles.times} onClick={handleToggle}>
+            {toggle && <span>&times;</span>}
+          </div>
           <li>
             <Link href='/'>Home</Link>
           </li>
           <li className={styles.resources}>
-            <Link  href='/resources'>
-              Resources
-            </Link>
+            <Link href='/resources'>Resources</Link>
             <Image src={ArrowDown} alt='arrow-down' />
           </li>
           <li>
@@ -41,8 +51,8 @@ const Header = () => {
           <button className={styles.postjobsBtn}>Post jobs</button>
         </div>
 
-        <div className={styles.hamburger}>
-          <span>&#9776;</span>
+        <div className={styles.hamburger} onClick={handleToggle}>
+          {!toggle && <span>&#9776;</span>}
         </div>
       </header>
     )
