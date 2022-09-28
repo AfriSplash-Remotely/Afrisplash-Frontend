@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     color: #1C1D36;
-    font-size: 16px;
+    font-size: 1em;
     padding: 15px 80px;
 
     .navLink {
@@ -64,7 +64,7 @@
             width: 162px;
             height: 48px;
             padding: 16px;
-            font-size: 16px;
+            font-size: 1em;
             margin-right: 16px;
             cursor: pointer;
 
@@ -86,7 +86,7 @@
             width: 162px;
             height: 48px;
             padding: 16px;
-            font-size: 16px;
+            font-size: 1em;
             cursor: pointer;
 
             &:hover {
@@ -100,7 +100,7 @@
 
     .hamburger {
         display: none;
-        font-size: 48px;
+        font-size: 3em;
         cursor: pointer;
     }
 

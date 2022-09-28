@@ -16,10 +16,10 @@
     
             h1 {
                 font-weight: 500;
-                font-size: 48px;
+                font-size: 3em;
                 line-height: 64px;
                 text-transform: uppercase;
-                width: 698px;
+                max-width: 698px;
                 margin-bottom: 24px;
     
                 .green {
@@ -38,10 +38,10 @@
         
     
             p {
-                font-size: 16px;
+                font-size: 1em;
                 line-height: 24px;
                 color: #000000; 
-                width: 385px;
+                max-width: 385px;
             }
        }
     
@@ -84,7 +84,7 @@
             h3 {
                 align-self: flex-start;
                 margin-bottom: 24px;
-                font-size: 24px;
+                font-size: 1.5em;
                 font-weight: 400;
                 line-height: 40px;
             }
@@ -92,7 +92,7 @@
             ul li {
                 margin-bottom: 16px;
                 list-style: none;
-                font-size: 16px;
+                font-size: 1em;
                 line-height: 22px;
     
                 &::before {
@@ -136,7 +136,7 @@
     
       h3 {
         max-width: 995px;
-        font-size: 32px;
+        font-size: 2em;
         font-weight: 400;
         margin-bottom: 74px;
         line-height: 44px;
@@ -174,7 +174,7 @@
     
         h3 {
             font-weight: 400;
-            font-size: 32px;
+            font-size: 2em;
         }
     
         .cardContainer {
@@ -194,13 +194,14 @@
     
         .infoPara {
             margin-top: 87px;
-            font-size: 24px;
+            font-size: 1.5em;
             align-self: flex-start;
         }
         
         form  {
             display: flex;
             margin-top: 48px;
+            max-width: 100%;
     
             .email {
                 background: #FFFFFF;
@@ -209,8 +210,9 @@
                 color: #000000;
                 text-align: center;
                 border: none;
-                font-size: 16px;
+                font-size: 1em;
                 margin-right: 25px;
+                max-width: 356px;
     
             }
             
@@ -232,7 +234,7 @@
                 border-radius: 0px 8px 8px 0px;
                 color: #FFFFFF;
                 display: flex;
-                font-size: 16px;
+                font-size: 1em;
                 align-items: center;
                 justify-content: center;
                 padding: 16px 32px;
@@ -255,7 +257,7 @@
     
         h3 {
             font-weight: 400;
-            font-size: 32px;
+            font-size: 2em;
             line-height: 45px;
             max-width: 667px;
             text-align: center;
@@ -272,10 +274,10 @@
             }
     
             .centerArticle {
-                height: 600px;
+                max-height: 600px;
     
                 :nth-child(2) {
-                    font-size: 24px;
+                    font-size: 1.5em;
                 }
             }
             
@@ -284,7 +286,7 @@
                 justify-content: space-around;
                 align-items: center;
                 width: 396px;
-                height: 480px;
+                max-height: 480px;
                 margin-right: 24px;
                 flex-direction: column;
                 background: #F8F8F8;
@@ -296,7 +298,7 @@
                 
                 p {
                     font-weight: 500;
-                    font-size: 16px;
+                    font-size: 1em;
                     line-height: 22px;
                     letter-spacing: 0.5px;
                 }
@@ -328,7 +330,7 @@
         text-align: center;
     
         h3 {
-            font-size: 32px;
+            font-size: 2em;
             line-height: 44px;
             max-width: 72%;
             font-weight: 400;
@@ -358,7 +360,7 @@
             margin-bottom: 27px;
     
             p {
-                font-size: 24px;
+                font-size: 1.5em;
                 line-height: 29px;
                 margin-left: 24px;
             }
@@ -372,16 +374,56 @@
 
         .section1 {
 
+            .article1 {
+                padding: 60px 20px;
+
+                h1 {
+                    font-size: 2em;
+                }
+            }
+
             .book {
                 flex-direction: column;
+                padding: 30px;
 
                 .bookContent {
                     margin-top: 24px;
+
+                    .bookBtn {
+                        align-self: center;
+                        padding: 16px 32px;
+                    }
                 }
+
+
+            }
+        }
+
+        .section2 {
+
+            padding-right: 20px;
+            padding-left: 20px;
+
+            h3 {
+                font-size: 1.5em;
+            }
+            
+            .viewTalentBtn {
+                margin-right: 0px;
+            }
+
+            .requestTalentBtn {
+                margin-top: 24px;
             }
         }
         
         .infoSection {
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            padding: 30px;
 
             .cardContainer {
                 flex-direction: column;
@@ -390,6 +432,101 @@
                     margin-top: 24px;
                 }
             }
+
+            form  {
+
+                padding: 20px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                .email {
+                    margin: 0px;
+                    padding: 16px 32px;
+                }
+
+                .emailBtn {
+                    margin-top: 30px;
+                    padding: 16px;
+                    max-width: 137px;
+                }
+            }
+        }
+
+        .reviewSection {
+            padding: 30px;
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .reviewContainer {
+                flex-direction: column;
+
+                .lastArticle {
+                    max-height: 100%;
+                }
+
+                .centerArticle {
+                    max-height: 100%;
+        
+                    :nth-child(2) {
+                        font-size: 1.2em;
+                    }
+                }
+
+                article, .lastArticle, .centerArticle {
+                    height: 100%;
+                    max-width: 250px;
+                    padding: 40px 20px;
+                    margin-top: 32px;
+                    margin-right: 0px;
+                }
+
+                article {
+
+                    .profile {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 32px;
+    
+                        :nth-child(2) {
+                            align-self: center;
+                            margin-top: 32px;
+                            margin-bottom: 16px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .industrySection {
+
+            h3 {
+                width: 100%;
+                font-size: 1.5em;
+            }
+
+            .industryImgContainer {
+                width: 100%;
+            }
+        }
+
+        .remarkSections {
+            padding: 20px;
+
+            .remarkSection {
+                
+                p {
+                    line-height: 16px;
+                    margin-left: 16px;
+                    font-size: .8em;
+                }
+            }
+            
         }
 
     }
