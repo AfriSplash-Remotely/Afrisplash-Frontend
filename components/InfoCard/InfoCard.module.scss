@@ -26,4 +26,13 @@
     h3, p {
         text-align: start;
     }
+
+
+        // mobile screen
+    @media screen and (max-width: 768px) {
+
+        margin-right: 0px;
+        margin-top: 24px;
+    }
+
 }
