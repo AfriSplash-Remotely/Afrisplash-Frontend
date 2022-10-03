@@ -1,7 +1,17 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import formReducer from "./candidateOnboarding/formSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    form: formReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActionPaths: ['payload.formData'],
+        ignoredPaths: ['form.imgFile.formData'],
+      },
+    }),
 });
 
 export type AppDispatch = typeof store.dispatch;
