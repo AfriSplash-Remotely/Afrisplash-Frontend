@@ -22,10 +22,10 @@ const Verify = () => {
 
         <Image src={google} alt='google photo mt-9' />
         <h2 className='text-3xl leading-10 font-semibold sm:text-1xl'>Check Your Mail!</h2>
-        <p className='pt-2 leading-8'>We just sent you the instructions to reset your  <br /> password or <a href="#" className='text-green-600 underline leading-8'>resend it.</a>
+        <p className='pt-2 leading-8'>We just sent you the instructions to reset your  <br /> password or <a href="#" className='text-green-600 underline leading-8 font-medium'>resend it.</a>
         </p>
 
-        <button className="rounded-xl bg-dark_blue w-96 p-2 mt-3 mb-24 text-white sm:w-48 md:w-56 mb:p-auto">Login</button>
+        <button className="rounded-xl bg-dark_blue w-96 p-2 mt-3 mb-24 text-white sm:w-48 md:w-80 mb:p-auto">Login</button>
 
       </div>
 
