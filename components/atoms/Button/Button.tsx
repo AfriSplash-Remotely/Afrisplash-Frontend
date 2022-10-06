@@ -5,7 +5,7 @@ interface BtnProps {
   bgColor?: "primary_green" | "primary_yellow" | "dark_blue" | "white-2";
   color: string;
   borderColor?: "primary_green" | "primary_yellow" | "dark_blue" | "white-2";
-  onClick?: ()=>{}
+  onClick?: ()=>void | any
 }
 
 const Button = ({
