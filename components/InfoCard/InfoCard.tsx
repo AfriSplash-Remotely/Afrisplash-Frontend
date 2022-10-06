@@ -1,8 +1,12 @@
 import styles from  './InfoCard.module.scss'
 import Image from 'next/image'
 
-
-const InfoCard = ({image, header, content}) => {
+interface InfoCardProps{
+  image: any,
+  header: string | any,
+  content: string | any,
+}
+const InfoCard = ({image, header, content}: InfoCardProps) => {
     return (
       <article className={styles.card}>
         <Image src={image} alt='' />
