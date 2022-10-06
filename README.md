@@ -19,7 +19,7 @@ npm run dev
 ### Available dependencies to help with project build process :nerd_face:
 
 Dependency :ok_hand: | Link to documentation | What is it used for
-| :--- | ---: | :---:
+| :--- | :--- | :---
 Heroicons  | https://heroicons.com/ , https://unpkg.com/browse/@heroicons/react@2.0.12/24/outline/ , https://unpkg.com/browse/@heroicons/react@2.0.12/24/solid/ | A repository of icons, you can call project icons from here
 Nextjs | https://nextjs.org/docs/getting-started | React framework to run the entire project
 TailwindCSS | https://tailwindcss.com/docs/ | CSS framework for styling
