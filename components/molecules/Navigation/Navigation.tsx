@@ -4,6 +4,7 @@ import Button from "../../atoms/Button/Button";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Bars3Icon } from "@heroicons/react/24/outline";
+import styles from './Navigation.module.scss';
 
 interface headerType {
   title: string;
@@ -67,7 +68,7 @@ const Navigation = () => {
     }
   };
   return (
-    <div className="w-screen h-20">
+    <div className={`w-full h-20 ${styles.wrapper}`}>
       <header className="w-11/12 md:w-11/12 xl:w-10/12 mx-auto h-full flex justify-between  items-center">
         <div className="w-1/12 h-full flex items-center ">
           <Image src="/main_logo.svg" height="70%" width="70%" />
