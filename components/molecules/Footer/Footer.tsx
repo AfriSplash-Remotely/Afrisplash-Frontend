@@ -49,7 +49,7 @@ const Footer = () => {
         <div className="flex w-full justify-between flex-wrap pt-14">
           {footer.map((item: any, index) => (
             <section key={index} className="text-white_2 mx-5 py-3 w-4/12 sm:w-3/12 md:w-max space-y-4">
-              <div className="capitalize font-bold text-sm md:text-base ">{item.title}</div>
+              <div className="capitalize font-bold text-sm md:text-base">{item.title}</div>
               <ul className="space-y-3 text-xs sm:text-sm md:text-base">
                 {item.items.map((subItems: any, index: number) => (
                   <li key={index} className="capitalize">{subItems.title}</li>
