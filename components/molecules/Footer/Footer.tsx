@@ -44,7 +44,7 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="bg-dark_blue w-full py-5 sticky bottom-0">
+    <footer className="bg-dark_blue w-full py-5">
       <div className="w-11/12 md:w-10/12 mx-auto space-y-12">
         <div className="flex w-full justify-between flex-wrap pt-14">
           {footer.map((item: any, index) => (
