@@ -1,0 +1,534 @@
+.hireTalent {
+
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    
+       .article1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 96px;
+    
+            h1 {
+                font-weight: 500;
+                font-size: 3em;
+                line-height: 64px;
+                text-transform: uppercase;
+                max-width: 698px;
+                margin-bottom: 24px;
+    
+                .green {
+                    color: rgba(13, 85, 32, 1);
+                }
+    
+                .red {
+                    color: rgba(190, 0, 0, 1);
+                }
+    
+                .downH3 {
+                    font-weight: 300;
+                }
+            }
+    
+        
+    
+            p {
+                font-size: 1em;
+                line-height: 24px;
+                color: #000000; 
+                max-width: 385px;
+            }
+       }
+    
+       .gallerySection {
+            margin-top: 111px;
+            max-width: 100%;
+            padding: 0;
+    
+            .galleryRow1 {
+                min-width: 100%;
+                margin-bottom: -6px;
+    
+                img {
+                    min-width: 310px;
+                    min-height: 320px;
+                    margin: 0;
+                    padding: -10px;
+                }
+            }
+            
+       }
+    
+       .book {
+          display: flex;
+          padding: 96px;
+    
+          .bookIllustrator {
+            margin-right: 48px;
+          }
+    
+          .bookContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: start;
+            max-width: 501px;
+          
+    
+            h3 {
+                align-self: flex-start;
+                margin-bottom: 24px;
+                font-size: 1.5em;
+                font-weight: 400;
+                line-height: 40px;
+            }
+            
+            ul li {
+                margin-bottom: 16px;
+                list-style: none;
+                font-size: 1em;
+                line-height: 22px;
+    
+                &::before {
+                    content: "•"; color: #0D5520;
+                    display: inline-block; width: 1em;
+                    margin-left: -1em
+                }
+            }
+    
+            .bookBtn {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #0D5520;
+                border-radius: 8px;
+                color: #FFFFFF;
+                align-self: flex-start;
+                margin-top: 35px;
+                padding: 16px 42px;
+                border: none;
+                cursor: pointer;
+    
+                .bookbtncontent {
+                    margin-left: 18px;
+                }
+    
+    
+            }
+          }
+       }
+    }
+    
+    .section2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       text-align: center;
+        background: #F8F8F8;
+        padding: 60px 0px 100px 0px;
+    
+      h3 {
+        max-width: 995px;
+        font-size: 2em;
+        font-weight: 400;
+        margin-bottom: 74px;
+        line-height: 44px;
+      }
+    
+      .viewTalentBtn {
+        background: #0D5520;
+        border-radius: 8px;
+        color: #FFFFFF;
+        font-weight: 600;
+        padding: 16px 42px;
+        cursor: pointer;
+        border: none;
+        margin-right: 32px;
+      }
+    
+      .requestTalentBtn {
+        border: 1px solid #1C1D36;
+        border-radius: 8px;
+        color: #1C1D36;
+        font-weight: 600;
+        padding: 16px 42px;
+        cursor: pointer;
+      }
+    }
+    
+    .infoSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: #F8F8F8;
+        padding: 100px 60px;
+    
+        h3 {
+            font-weight: 400;
+            font-size: 2em;
+        }
+    
+        .cardContainer {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 48px;
+    
+            .card {
+                margin-right: 24px;
+            }
+    
+            :nth-child(3) {
+                margin: 0px;
+            }
+            
+        }
+    
+        .infoPara {
+            margin-top: 87px;
+            font-size: 1.5em;
+            align-self: flex-start;
+        }
+        
+        form  {
+            display: flex;
+            margin-top: 48px;
+            max-width: 100%;
+    
+            .email {
+                background: #FFFFFF;
+                border-radius: 8px 0px 0px 8px;
+                padding: 18px 64px;
+                color: #000000;
+                text-align: center;
+                border: none;
+                font-size: 1em;
+                margin-right: 25px;
+                max-width: 356px;
+    
+            }
+            
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #000000;
+                opacity: 1; /* Firefox */
+            }
+    
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: #000000;
+            }
+    
+            ::-ms-input-placeholder { /* Microsoft Edge */
+                color: #000000;
+            }
+    
+            .emailBtn {
+                background: #0D5520;
+                border-radius: 0px 8px 8px 0px;
+                color: #FFFFFF;
+                display: flex;
+                font-size: 1em;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 32px;
+                border: none;
+                cursor: pointer;
+    
+                img {
+                    margin-left: 11px;
+                }
+            }
+        }
+    
+    }
+    
+    .reviewSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 100px;
+    
+        h3 {
+            font-weight: 400;
+            font-size: 2em;
+            line-height: 45px;
+            max-width: 667px;
+            text-align: center;
+            margin-bottom: 136px;
+        }
+    
+        
+        .reviewContainer {
+            display: flex;
+            align-items: center;
+            
+            .lastArticle {
+                margin: 0px;
+            }
+    
+            .centerArticle {
+                max-height: 600px;
+    
+                :nth-child(2) {
+                    font-size: 1.5em;
+                }
+            }
+            
+            article {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 396px;
+                max-height: 480px;
+                margin-right: 24px;
+                flex-direction: column;
+                background: #F8F8F8;
+                border-radius: 32px;
+                padding: 32px 37px 64px;
+                box-shadow: 1px 1px 10px 8px #F8F8F8;
+    
+    
+                
+                p {
+                    font-weight: 500;
+                    font-size: 1em;
+                    line-height: 22px;
+                    letter-spacing: 0.5px;
+                }
+    
+                .profile {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 32px;
+    
+                    :nth-child(2) {
+                        margin-top: 32px;
+                        margin-bottom: 16px;
+                    }
+                }
+            }
+        }
+    
+    }
+    
+    .industrySection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #F8F8F8;
+        padding: 40px 0px 70px 0px;
+        text-align: center;
+    
+        h3 {
+            font-size: 2em;
+            line-height: 44px;
+            max-width: 72%;
+            font-weight: 400;
+        }
+    
+        .industryImgContainer {
+            margin-top: 80px;
+            padding: 16px;
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+        }
+    }
+    
+    .remarkSections {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 80px;
+    
+        .remarkSection {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 27px;
+    
+            p {
+                font-size: 1.5em;
+                line-height: 29px;
+                margin-left: 24px;
+            }
+        }
+    
+    }
+
+      // mobile screen
+    @media screen and (max-width: 768px) {
+
+
+        .section1 {
+
+            .article1 {
+                padding: 60px 20px;
+
+                h1 {
+                    font-size: 2em;
+                }
+            }
+
+            .book {
+                flex-direction: column;
+                padding: 30px;
+
+                .bookContent {
+                    margin-top: 24px;
+
+                    .bookBtn {
+                        align-self: center;
+                        padding: 16px 32px;
+                    }
+                }
+
+
+            }
+        }
+
+        .section2 {
+
+            padding-right: 20px;
+            padding-left: 20px;
+
+            h3 {
+                font-size: 1.5em;
+            }
+            
+            .viewTalentBtn {
+                margin-right: 0px;
+            }
+
+            .requestTalentBtn {
+                margin-top: 24px;
+            }
+        }
+        
+        .infoSection {
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            padding: 30px;
+
+            .cardContainer {
+                flex-direction: column;
+
+                :nth-child(3) {
+                    margin-top: 24px;
+                }
+            }
+
+            form  {
+
+                padding: 20px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                .email {
+                    margin: 0px;
+                    padding: 16px 32px;
+                }
+
+                .emailBtn {
+                    margin-top: 30px;
+                    padding: 16px;
+                    max-width: 137px;
+                }
+            }
+        }
+
+        .reviewSection {
+            padding: 30px;
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            .reviewContainer {
+                flex-direction: column;
+
+                .lastArticle {
+                    max-height: 100%;
+                }
+
+                .centerArticle {
+                    max-height: 100%;
+        
+                    :nth-child(2) {
+                        font-size: 1.2em;
+                    }
+                }
+
+                article, .lastArticle, .centerArticle {
+                    height: 100%;
+                    max-width: 250px;
+                    padding: 40px 20px;
+                    margin-top: 32px;
+                    margin-right: 0px;
+                }
+
+                article {
+
+                    .profile {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 32px;
+    
+                        :nth-child(2) {
+                            align-self: center;
+                            margin-top: 32px;
+                            margin-bottom: 16px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .industrySection {
+
+            h3 {
+                width: 100%;
+                font-size: 1.5em;
+            }
+
+            .industryImgContainer {
+                width: 100%;
+            }
+        }
+
+        .remarkSections {
+            padding: 20px;
+
+            .remarkSection {
+                
+                p {
+                    line-height: 16px;
+                    margin-left: 16px;
+                    font-size: .8em;
+                }
+            }
+            
+        }
+
+    }
+
+}
