@@ -1,10 +1,45 @@
 import Header from "components/molecules/Header/Header";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import GeneralLayout from "../layouts/generalLayout";
+import chipper from "assets/icons/chipper.svg";
+import haulify from "assets/icons/haulify.svg";
+import nextford from "assets/icons/nextford.svg";
+import panther from "assets/icons/panther.svg";
+import rootlo from "assets/icons/rootlo.svg";
+import scopic from "assets/icons/scopic.svg";
 import styles from "../styles/Home.module.scss";
 
+const Jobs = () => {
+  return (
+    <section className={`w-full ${styles.job_wrapper}`}>
+      <div className="w-10/12 mx-auto py-28">
+        <section>
+          <div className="text-center space-y-3">
+            <h2 className="text-4xl font-semibold">Popular job categories</h2>
+            <p className="text-gray-500">224 live | 49 added today</p>
+          </div>
+        </section>
+        <section>
+          <div className="text-center space-y-3">
+            <h2 className="text-4xl font-semibold">Featured jobs</h2>
+            <div className="text-gray-500">
+              <p>Your dream remote job is an application away.</p>
+              <p>
+                Start applying to accessible opportunities that allows you live,
+                work and succeed from anywhere.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  );
+};
+
 const Home: NextPage = () => {
+  const globalCompanies = [chipper, nextford, haulify, panther, rootlo, scopic];
   return (
     <GeneralLayout>
       <Head>
@@ -13,6 +48,19 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <section className="w-full my-10 mt-32">
+        <div className="w-10/12 mx-auto space-y-10">
+          <h3 className="text-center text-gray-400 text-2xl font-light">
+            Trusted by these global companies
+          </h3>
+          <div className="flex justify-between ">
+            {globalCompanies.map((item: any, index: number) => (
+              <Image key={index} src={item} alt="global companies" />
+            ))}
+          </div>
+        </div>
+      </section>
+      <Jobs />
     </GeneralLayout>
   );
 };

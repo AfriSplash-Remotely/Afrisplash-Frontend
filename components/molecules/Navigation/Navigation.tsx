@@ -73,12 +73,14 @@ const Navigation = () => {
     }
   };
   return (
-    <div className={`w-screen h-20 sticky top-0 z-50 bg-white`}>
+    <div className={`w-full h-20 sticky top-0 z-50 bg-white`}>
       <div className={`relative h-20 ${styles.wrapper}`}>
         <header className="w-11/12 relative z-50 md:w-11/12 xl:w-10/12 mx-auto h-full flex justify-between  items-center">
-          <div className={`w-1/12 h-full flex items-center ${styles.logo}`}>
+          <Link href="/">
+          <div className={`w-1/12 h-full flex items-center cursor-pointer ${styles.logo}`}>
             <img src="/main_logo.svg" alt="logo" className={styles.logo_img} />
           </div>
+          </Link>
           <nav className="hidden lg:flex items-center h-full ">
             <ul className="flex lg:space-x-3 xl:space-x-5">
               {header.map((item: any, index: number) => (
