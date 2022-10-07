@@ -1,10 +1,11 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-<<<<<<< HEAD
 import formReducer from "./candidateOnboarding/formSlice";
+import rootReducer from "./reducers";
 
 export const store = configureStore({
   reducer: {
     form: formReducer,
+    rootReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -13,13 +14,7 @@ export const store = configureStore({
         ignoredPaths: ['form.imgFile.formData'],
       },
     }),
-=======
-import rootReducer from "./reducers";
-
-export const store = configureStore({
-  reducer: rootReducer,
->>>>>>> e3577e8f7a98a8ade8332f8257f03a575db16aab
-});
+})
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
