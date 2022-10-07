@@ -8,7 +8,7 @@ interface GeneralProps{
 
 const GeneralLayout: NextPage<GeneralProps>=({children})=> {
   return (
-    <div className="w-screen">
+    <div className="w-full">
       <Navigation />
         {children}
       <Footer />
