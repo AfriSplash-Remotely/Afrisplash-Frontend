@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { bioAction, imgUploadAction } from "../../store/candidateOnboarding/formSlice"
 import type { RootState } from "../../store/store"
 import { useDropzone } from "react-dropzone"
-
-import upload from "../../assets/candidateOnboarding/upload.png"
+import { ArrowUpTrayIcon } from "@heroicons/react/24/outline"
 
 const Bio = () => {
     const { imgURL }: any = useSelector(
@@ -57,10 +56,11 @@ const Bio = () => {
                             alt="profile pic"
                         />
                         <div
-                            className="absolute bottom-0 right-2"
+                            className="absolute bottom-1 right-2 bg-indigo-500 bg-opacity-50 p-1 rounded-md cursor-pointer"
                             {...getRootProps()}
                         >
-                            <Image src={upload} width={35} height={35} alt="icon"/>
+                            <ArrowUpTrayIcon className="w-6 text-slate-100"/>
+                            
                         </div>
                     </div>
                     <ul className="list-disc text-gray-500">
