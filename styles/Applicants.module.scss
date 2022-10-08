@@ -1,0 +1,34 @@
+// Styles for components
+
+@import '../components/atoms/SearchBar/SearchBar.scss';
+@import '../components/atoms/CheckBox/CheckBox.scss';
+@import '../components/atoms/DropDown/DropDown.scss';
+
+.applicantWrapper {
+    display: grid;
+    grid-column-start: span 6;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 38px 64px;
+    border: 1px solid #eee;
+    justify-self: start;
+
+    .applicantDetails {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column: 1/3;
+        padding: 4px;
+        text-transform: capitalize;
+    }
+
+    .actionButtons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column: 4/6;
+        place-items: center center;
+
+        button {
+            margin-left: 25px;
+        }
+    }
+}
