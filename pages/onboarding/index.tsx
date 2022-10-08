@@ -14,7 +14,7 @@ import Skills from "./Skills"
 
 import { useSelector } from "react-redux"
 import type { RootState } from "../../store/store"
-
+import { ArrowLeftIcon } from "@heroicons/react/24/outline"
 
 const Onboarding = () => {
     const [step, setStep] = useState(1)
@@ -27,19 +27,24 @@ const Onboarding = () => {
     ]
     const formData = useSelector((state: RootState) => state.form)
     const handleSubmit = () => {
-        console.log(formData);
+        console.log(formData)
     }
     return (
         <div className={styles.bg}>
             <div className="max-w-5xl mx-auto mt-5 pb-10 bg-white shadow-xl rounded-xl px-3">
                 <div className="flex mb-14 justify-center items-center">
-                    <Link href="#">
-                        <a className="w-6 ml-4">
-                            <Image src={prev} width="100%" height="100%" alt="icon"/>
+                    <Link href="/">
+                        <a>
+                            <ArrowLeftIcon className="w-6 ml-4" />
                         </a>
                     </Link>
                     <div className="flex items-center justify-center flex-1">
-                        <Image src={logo} width="100%" height="100%"  alt="logo"/>
+                        <Image
+                            src={logo}
+                            width="100%"
+                            height="100%"
+                            alt="logo"
+                        />
                         <p className="text-sm">AfriSplashRemotely</p>
                     </div>
                 </div>
@@ -54,7 +59,10 @@ const Onboarding = () => {
                 <div className="px-12 mb-8">
                     <div className="flex justify-evenly flex-wrap gap-3 mb-10 sm:mb-16 md:mb-20">
                         {arr.map((item, index) => (
-                            <div className="flex flex-col flex-shrink-0 basis-40" key={index}>
+                            <div
+                                className="flex flex-col flex-shrink-0 basis-40"
+                                key={index}
+                            >
                                 <div
                                     className={`h-1 rounded-full ${
                                         item.id <= step
@@ -64,7 +72,12 @@ const Onboarding = () => {
                                 />
                                 <div className="flex">
                                     <div className="flex-shrink-0">
-                                        <Image src={checked} width={15} height={15} alt="icon"/>
+                                        <Image
+                                            src={checked}
+                                            width={15}
+                                            height={15}
+                                            alt="icon"
+                                        />
                                     </div>
                                     <p className="text-sm font-medium text-gray-600 ml-1">
                                         {item.name}
@@ -100,12 +113,12 @@ const Onboarding = () => {
                         </Link>
                     )}
                     {step === 4 && (
-                            <button
-                                className="bg-indigo-900 text-gray-400 general-btn"
-                                onClick={handleSubmit}
-                            >
-                                Submit
-                            </button>
+                        <button
+                            className="bg-indigo-900 text-gray-400 general-btn"
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </button>
                     )}
                 </div>
             </div>

@@ -1,11 +1,12 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+// import rootReducer from "./reducers";
 import formReducer from "./candidateOnboarding/formSlice";
-import rootReducer from "./reducers";
+
 
 export const store = configureStore({
   reducer: {
     form: formReducer,
-    rootReducer
+    // rootReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

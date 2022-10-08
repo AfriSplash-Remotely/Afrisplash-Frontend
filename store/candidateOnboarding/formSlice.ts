@@ -24,7 +24,7 @@ export interface formState {
 
 const initialState: formState = {
     imgFile: {imgURL: '', file: ''},
-    bio: "",
+    bio: "Pussy",
     companyName: "",
     positionHeld: "",
     location: "eg. Nigeria, Cairo, Zambia",
