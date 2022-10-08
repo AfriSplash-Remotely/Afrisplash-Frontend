@@ -1,0 +1,9 @@
+.checkbox {
+    width: 20px;
+    grid-column-start: span 1;
+    margin: 1.5rem;
+}
+
+.checkbox:checked {
+    accent-color: rgba(13, 85, 32, 1);
+}
