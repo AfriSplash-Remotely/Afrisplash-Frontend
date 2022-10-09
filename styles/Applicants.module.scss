@@ -6,11 +6,11 @@
 
 .applicantWrapper {
     display: grid;
-    grid-column-start: span 6;
+    grid-column: 2/8;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding: 38px 64px;
     border: 1px solid #eee;
-    justify-self: start;
+    justify-self: stretch;
 
     .applicantDetails {
         display: grid;
