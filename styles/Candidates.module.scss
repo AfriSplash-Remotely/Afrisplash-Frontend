@@ -4,7 +4,7 @@
 @import '../components/atoms/CheckBox/CheckBox.scss';
 @import '../components/atoms/DropDown/DropDown.scss';
 
-.applicantWrapper {
+.candidateWrapper {
     display: grid;
     grid-column: 2/8;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -12,7 +12,7 @@
     border: 1px solid #eee;
     justify-self: stretch;
 
-    .applicantDetails {
+    .candidateDetails {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
