@@ -1,7 +1,8 @@
 .checkbox {
     width: 20px;
     grid-column-start: span 1;
-    margin: 1.5rem;
+    margin: auto 0.5rem;
+    cursor: pointer;
 }
 
 .checkbox:checked {
