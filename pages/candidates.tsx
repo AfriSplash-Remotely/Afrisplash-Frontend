@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import styles from '../styles/Applicants.module.scss';
+import styles from '../styles/Candidates.module.scss';
 import Image from 'next/image';
 import { BellIcon, GiftIcon } from '@heroicons/react/24/outline';
 
@@ -11,7 +11,7 @@ import SearchBar from 'components/atoms/SearchBar/SearchBar';
 import ProfileImage from '../assets/applications/ProfilePic.png';
 import FrontDevLady from '../assets/applications/FrontDevLady.png';
 
-const Applicants: NextPage = () => {
+const Candidates: NextPage = () => {
 
     const colorOfButton = "rgba(13, 85, 32, 1)";
 
@@ -48,8 +48,8 @@ const Applicants: NextPage = () => {
                     <div className='grid grid-flow-col grid-cols-7 col-span-full gap-2 grid-rows-auto justify-items-end mb-[52px]'>
 
                         <CheckBox classes={styles.checkbox} />
-                        <div className={styles.applicantWrapper}>
-                            <span className={styles.applicantDetails}>
+                        <div className={styles.candidateWrapper}>
+                            <span className={styles.candidateDetails}>
                                 <span className="w-16 h-16 col-span-1">
                                     <Image src={FrontDevLady} />
                                 </span>
@@ -84,8 +84,8 @@ const Applicants: NextPage = () => {
                     <div className='grid grid-flow-col grid-cols-7 col-span-full gap-2 grid-rows-auto justify-items-end mb-[52px]'>
 
                         <CheckBox classes={styles.checkbox} />
-                        <div className={styles.applicantWrapper}>
-                            <span className={styles.applicantDetails}>
+                        <div className={styles.candidateWrapper}>
+                            <span className={styles.candidateDetails}>
                                 <span className="w-16 h-16 col-span-1">
                                     <Image src={FrontDevLady} />
                                 </span>
@@ -120,8 +120,8 @@ const Applicants: NextPage = () => {
                     <div className='grid grid-flow-col grid-cols-7 col-span-full gap-2 grid-rows-auto justify-items-end mb-[52px]'>
 
                         <CheckBox classes={styles.checkbox} />
-                        <div className={styles.applicantWrapper}>
-                            <span className={styles.applicantDetails}>
+                        <div className={styles.candidateWrapper}>
+                            <span className={styles.candidateDetails}>
                                 <span className="w-16 h-16 col-span-1">
                                     <Image src={FrontDevLady} />
                                 </span>
@@ -161,4 +161,4 @@ const Applicants: NextPage = () => {
 
 
 
-export default Applicants;
+export default Candidates;
