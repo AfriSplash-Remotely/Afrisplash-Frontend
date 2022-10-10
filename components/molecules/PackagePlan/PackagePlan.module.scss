@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik&display=swap");
+
+.headerWrapper {
+    color: #33344a;
+    .header {
+      text-align: center;
+      margin-top: 56px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 64px;
+    }
+  
+    .subHeader {
+      text-align: center;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 72px;
+    }
+  }
+
+  .midSection {
+    margin: 33px 400px;
+    color: #000;
+    .h3 {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 8px;
+    }
+    .midSectionContent {
+      width: 510px;
+      .p {
+        line-height: 24px;
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .table {
+    margin: 33px 400px;
+    border-collapse: collapse;
+    width: 826px;
+
+    .thead {
+      font-family: 'Inter';
+      background-color: #0D5520;
+      color: #F8F8F8;
+    }
+
+    th, td {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 150%;
+      text-align: left;
+      padding: 8px;
+      cursor: pointer;
+    }
+      
+      tr:nth-child(even) {
+        background-color: #F8F8F8;
+      }
+
+      .selectTableRow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+  }
+
+  .btnContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 64px 0px 104px 0px;
+
+    .backbtn {
+      padding: 16px 77px;
+      color: #1C1D36;
+      border: 1px solid #1C1D36;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      width: 224px;
+      height: 56px;
+      justify-content: flex-start;
+    }
+
+    .nextBtn {
+      padding: 16px 77px;
+      color: #fff;
+      border: 1px solid #0D5520;
+      background-color: #0D5520;;
+      border-radius: 8px;
+      width: 224px;
+      height: 56px;
+      margin-left: 440px;
+    }
+  
+}
