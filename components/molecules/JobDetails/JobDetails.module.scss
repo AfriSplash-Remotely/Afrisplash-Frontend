@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik&display=swap");
+
+
+.headerWrapper {
+    color: #33344a;
+    .header {
+      text-align: center;
+      margin-top: 56px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 64px;
+    }
+  
+    .subHeader {
+      text-align: center;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 72px;
+    }
+  }
+
+
+
+
+
+.midSection {
+    margin: 0px 400px;
+    color: #000;
+    .h3 {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 8px;
+      margin-top: 80px;
+    }
+    .midSectionContent {
+      width: 510px;
+      height: 70px;
+      .p {
+        line-height: 24px;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .formContainer {
+      margin: 0px 400px;
+      
+      .label {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #1C1D36;
+        margin-bottom: 3px;
+      }
+      .formFieldWrap {
+        padding: 16px;
+        border: 1px solid #B6BBB2;
+        border-radius: 4px;
+        background: #FFFFFF;
+        width: 826px;
+        height: 56px;
+        margin-bottom: 32px;
+      }
+      .CompanyformFieldWrap {
+        padding: 16px;
+        border: 1px solid #B6BBB2;
+        border-radius: 4px;
+        background: #FFFFFF;
+        width: 826px;
+        height: 56px;
+        margin-bottom: 32px;
+        background-image: url('../assets/attach-circle.svg');
+        background-repeat: no-repeat;
+        background-position: 99% 59%;
+      }
+
+      .textAreaContainer {
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 826px;
+        height: 164px;
+        padding: 16px;
+        margin-bottom: 32px;
+
+        .textArea {
+            width: 300px;
+        }
+      }
+
+      .required:after {
+        content: ' *';
+        color: #dd0000;
+      }
+  }
+
+    .btnContainer {
+      display: flex;
+      justify-content: space-between;
+      margin: 64px 0px 104px 0px;
+
+      .backbtn {
+        padding: 16px 77px;
+        color: #1C1D36;
+        border: 1px solid #1C1D36;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        width: 224px;
+        height: 56px;
+        justify-content: flex-start;
+      }
+
+      .nextBtn {
+        padding: 16px 77px;
+        color: #fff;
+        border: 1px solid #0D5520;
+        background-color: #0D5520;;
+        border-radius: 8px;
+        width: 224px;
+        height: 56px;
+        margin-left: 440px;
+      }
+    
+  }
