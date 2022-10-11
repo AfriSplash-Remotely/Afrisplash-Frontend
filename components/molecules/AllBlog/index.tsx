@@ -5,15 +5,22 @@ import MagnifyingGlassIcon, {
   ArrowRightIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+<<<<<<< HEAD
 import Button from "components/atoms/Button/Button";
 
 import FeaturedImage from "../../../assets/blog/laptop_office.jpg";
+=======
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
 
 import { ArticleProp } from "./interface";
 
 const mockdata: ArticleProp[] = [
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -27,7 +34,11 @@ const mockdata: ArticleProp[] = [
     },
   },
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -41,7 +52,11 @@ const mockdata: ArticleProp[] = [
     },
   },
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -55,7 +70,11 @@ const mockdata: ArticleProp[] = [
     },
   },
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -69,7 +88,11 @@ const mockdata: ArticleProp[] = [
     },
   },
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -83,7 +106,11 @@ const mockdata: ArticleProp[] = [
     },
   },
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -97,7 +124,11 @@ const mockdata: ArticleProp[] = [
     },
   },
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -111,7 +142,11 @@ const mockdata: ArticleProp[] = [
     },
   },
   {
+<<<<<<< HEAD
     featuredImage: FeaturedImage,
+=======
+    featuredImage: "/images/laptop_office.jpg",
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
     title: "product design ",
     category: "Product management",
     excerpt: `5 tips for a Product manager to ensure great collaboration... `,
@@ -129,7 +164,11 @@ const mockdata: ArticleProp[] = [
 const AllBlog = () => {
   return (
     <div>
+<<<<<<< HEAD
       <div className="flex flex-row items-center justify-between bg-[#FDF1C9] py-4 px-4 md:px-10 xl:px-[110px]">
+=======
+      <div className="flex flex-row items-center justify-between bg-[#FDF1C9] py-4 px-4 md:px-10 xl:px-[96px]">
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
         <h2 className="text-[32px]">All Blogs</h2>
         <Link href="/blogs">
           <a className="flex flex-row items-center font-bold text-[#0D5520]">
@@ -138,7 +177,11 @@ const AllBlog = () => {
           </a>
         </Link>
       </div>
+<<<<<<< HEAD
       <div className="md-items-center mt-[4rem] flex flex-col items-start gap-2 py-4 px-4 md:flex-row md:px-10 xl:px-[110px]">
+=======
+      <div className="md-items-center mt-[4rem] flex flex-col items-start gap-2 py-4 px-4 md:flex-row md:px-10 xl:px-[96px]">
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
         <div className="flex w-[430px] max-w-[100%] flex-row items-center rounded-lg bg-[#F8F8F8] p-4">
           <button className="border-none bg-transparent outline-none">
             <svg
@@ -163,6 +206,7 @@ const AllBlog = () => {
           />
         </div>
         <Link href="/blogs">
+<<<<<<< HEAD
           <Button tag="a" classes="flex flex-row items-center rounded-lg bg-[#0D5520] p-4 px-6 text-white">
             <span className="mr-2">All blogs</span>
             <ChevronDownIcon className="h-5 w-7" />
@@ -171,6 +215,16 @@ const AllBlog = () => {
       </div>
 
       <div className="grid grid-cols-1 items-center justify-center gap-x-4 gap-y-8 py-4  px-4  md:grid-cols-2  md:px-10 lg:grid-cols-3 xl:grid-cols-4 xl:px-[110px]">
+=======
+          <a className="flex flex-row items-center rounded-lg bg-[#0D5520] p-3 px-6 text-white">
+            <span className="mr-2">All blogs</span>
+            <ChevronDownIcon className="h-5 w-7" />
+          </a>
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 items-center justify-center gap-x-4 gap-y-8 py-4  px-4  md:grid-cols-2  md:px-10 lg:grid-cols-3 xl:grid-cols-4 xl:px-[96px]">
+>>>>>>> 06ce0d1117f9bb3e2c36fc3f9210a4d37508ef4c
         {mockdata.map((article, index) => (
           <AllBlogCard article={article} key={index} />
         ))}
