@@ -1,13 +1,13 @@
 interface CheckBoxProps {
     classes?: string;
-    onSelect?: () => void | any;
+    onChange?: (e:any) => void | any;
 }
 
 
-const CheckBox = ({ classes, onSelect }: CheckBoxProps) => {
+const CheckBox = ({ classes, onChange }: CheckBoxProps) => {
     return (
         <>
-            <input type="checkbox" className={`${classes}`} onSelect={onSelect} />
+            <input type="checkbox" className={`${classes}`} onChange={onChange}  />
         </>
     )
 }

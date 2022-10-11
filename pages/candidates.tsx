@@ -12,6 +12,8 @@ import ProfileImage from '../assets/applications/ProfilePic.png';
 import FrontDevLady from '../assets/applications/FrontDevLady.png';
 import { useState } from 'react';
 
+
+
 const Candidates: NextPage = () => {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -66,6 +68,35 @@ const Candidates: NextPage = () => {
         }
     ])
 
+    // Handle action function
+    const handleAcceptCandidates = () => {
+        // Obtain store of candidates from store
+        // Clear list of applicants
+        // Show notification on the process to the next page
+    }
+
+    // Handle reject function
+    const handleRejectCandidates = () => {
+        // Obtain store of candidates from store
+        // Clear list of applicants
+        // Show notification on the process to the next page
+    }
+
+    // Handle candidate selection function
+    const handleCandidateSelectionById = (e: any, _id: Number): void => {
+
+        // If item is checked
+        console.log(e.target.checked);
+        // Obtain the list of candidates
+        // Pick by id match
+        // Set a selection on the UI
+        // Store the object 
+        // Or remove the candidate's name from the list
+
+        // if id is -1
+        // Select all items to store.
+    }
+
 
     return (
         <>
@@ -82,9 +113,8 @@ const Candidates: NextPage = () => {
                 </section>
 
                 <section className="grid grid-flow-row grid-cols-7 gap-6 mb-[50px]">
-
                     {candidateLabels.map(({ label, isOpen }) => (
-                        <DropDown classes={styles.dropDown} text={label} onClick={() => {
+                        <DropDown key={label} classes={styles.dropDown} text={label} onClick={() => {
                             let newCandidateLabels: any[] = candidateLabels.map((candidate: { label: String, isOpen: Boolean }) => {
                                 if (candidate.label === label) candidate.isOpen = !isOpen;
                                 return candidate;
@@ -92,13 +122,12 @@ const Candidates: NextPage = () => {
                             setCandidateLabels([...newCandidateLabels]);
                         }} isOpen={isOpen} />
                     ))}
-
                 </section>
 
                 <section className="grid grid-flow-row grid-cols-8">
                     <header className='grid grid-flow-col col-start-6 col-span-3 grid-rows-auto justify-self-end mb-10  place-items-center'>
                         <p className="m-4 col-span-1 text-primary_green hover:cursor-pointer text-center">
-                            <CheckBox classes={styles.checkbox} />
+                            <CheckBox classes={styles.checkbox} onChange={(e) => { handleCandidateSelectionById(e, -1) }} />
                             Select all
                         </p>
                         <p className="m-4 col-span-1 text-primary_green hover:cursor-pointer">Accept</p>
@@ -108,7 +137,7 @@ const Candidates: NextPage = () => {
                     {candidates.map(({ id, name, role, imageUrl }) => (
                         <div key={id} className='grid grid-flow-col grid-cols-7 col-span-full gap-2 grid-rows-auto justify-items-end mb-[52px]'>
 
-                            <CheckBox classes={styles.checkbox} />
+                            <CheckBox classes={styles.checkbox} onChange={(e) => { handleCandidateSelectionById(e, id) }} />
                             <div className={styles.candidateWrapper}>
                                 <span className={styles.candidateDetails}>
                                     <span className="w-16 h-16 col-span-1">
@@ -116,7 +145,7 @@ const Candidates: NextPage = () => {
                                     </span>
                                     <section className='col-span-3'>
                                         <h3 className='text-base font-semibold mb-[16px] '>{name}</h3>
-                                        <p className="text-base mb-[22px] font-normal capitalize">{role}r</p>
+                                        <p className="text-base mb-[22px] font-normal capitalize">{role}</p>
                                         <a href={id.toString()} className='text-sm underline font-semibold text-primary_green'>View Profile</a>
                                     </section>
                                 </span>
