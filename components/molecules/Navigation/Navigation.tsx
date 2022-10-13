@@ -38,7 +38,7 @@ const Navigation = () => {
     {
       title: "candidates",
       icon: "",
-      link: "/candidates",
+      link: "/onboarding",
       active: false,
       dropDown: [{ title: "item", href: "#" }],
     },
