@@ -1,0 +1,33 @@
+.wrapper {
+  background-image: url("../../../assets/home-page/pattern.svg");
+  margin: 3em 0;
+}
+
+.imageWrapper {
+  background-image: url(../../../assets/home-page/rect.jpg);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  height: 80vh;
+  display: flex;
+  &_image{
+    position: absolute;
+    width: 22em;
+    cursor: pointer;
+    flex-grow: 1;
+    &:hover{
+        flex-grow: 2;
+    }
+    &_1 {
+      top: 0px;
+      left: 30%;
+    }
+    &_2 {
+      top: 30%;
+      left: -20%;
+    }
+    &_3 {
+      bottom: 0px;
+      left: 30%;
+    }
+  }
+}
