@@ -2,26 +2,26 @@
 
 .headerWrapper {
   color: #33344a;
+  
   .header {
-    text-align: center;
     margin-top: 56px;
     margin-bottom: 16px;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 54px;
     line-height: 64px;
+    text-align: center;
   }
 
   .subHeader {
-    text-align: center;
     font-weight: 400;
     font-size: 20px;
     line-height: 26px;
     margin-bottom: 72px;
+    text-align: center;
   }
 }
 
 .midSection {
-  margin: 33px 400px;
   color: #000;
   .h3 {
     font-weight: 500;
@@ -42,14 +42,16 @@
 }
 
 .inputIcons {
-  margin: 23px 400px 0px 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #1c1d36;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 0 10px;
   .input {
-    width: 826px;
+    width: 100%;
     height: 64px;
-    background-color: #fff;
-    border: 1px solid #1c1d36;
-    border-radius: 16px;
-    position: relative;
     background-image: url("../assets/clipboard.svg");
     background-repeat: no-repeat;
     background-position: 2% 50%;
@@ -60,17 +62,16 @@
     padding-left: 1px;
   }
   .button {
-    width: 224px;
-    height: 48px;
+    width: 25%;
+    height: 80%;
     background: #0d5520;
     border-radius: 8px;
     color: #fff;
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    position: relative;
-    top:-55px;
-    right:-93%
+    position: absolute;
+    right: 10px;
   }
 }
 
@@ -80,14 +81,10 @@
     font-size: 16px;
     line-height: 24px;
     color: #1C1D36;
-    padding-bottom: 48px;
     position: relative;
-    top: -24px;
-
     .createPost {
         color: #0D5520;
         text-decoration: underline;
-        margin-left: 10px;
     }
 }
 

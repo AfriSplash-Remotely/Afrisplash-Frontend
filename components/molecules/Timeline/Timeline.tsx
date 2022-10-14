@@ -40,13 +40,13 @@ const Timeline = (props:any) => {
   };
   return (
     <div className={styles.timelineContainer}>
-      <div>
+      <div className="w-4/12">
         <div
           className={styles.JobDetails}
           style={{
-            backgroundColor: !isJobDetails ? "gray" : "green",
-            color: !isJobDetails ? "gray" : "green",
-            border: !isJobDetails ? "1px solid gray" : "1px solid green",
+            backgroundColor: !isJobDetails ? "#D9DEDC" : "green",
+            color: !isJobDetails ? "#D9DEDC" : "green",
+            border: !isJobDetails ? "1px solid #D9DEDC" : "1px solid green",
           }}
         ></div>
 
@@ -72,13 +72,13 @@ const Timeline = (props:any) => {
         )}
       </div>
 
-      <div className={styles.packagePlan}>
+      <div className={`w-4/12 ${styles.packagePlan}`}>
         <div
           className={styles.JobDetails}
           style={{
-            backgroundColor: !isPackagePlan ? "gray" : "green",
-            color: !isPackagePlan ? "gray" : "green",
-            border: !isPackagePlan ? "1px solid grey" : "1px solid green",
+            backgroundColor: !isPackagePlan ? "#D9DEDC" : "green",
+            color: !isPackagePlan ? "#D9DEDC" : "green",
+            border: !isPackagePlan ? "1px solid #D9DEDC" : "1px solid green",
           }}
         ></div>
         {!isPackagePlan ? (
@@ -102,13 +102,13 @@ const Timeline = (props:any) => {
           </div>
         )}
       </div>
-      <div className={styles.confirmation}>
+      <div className={`w-4/12 ${styles.confirmation}`}>
         <div
           className={styles.JobDetails}
           style={{
-            backgroundColor: !isConfirmation ? "gray" : "green",
-            color: !isConfirmation ? "gray" : "green",
-            border: !isConfirmation ? "1px solid grey" : "1px solid green",
+            backgroundColor: !isConfirmation ? "#D9DEDC" : "green",
+            color: !isConfirmation ? "#D9DEDC" : "green",
+            border: !isConfirmation ? "1px solid #D9DEDC" : "1px solid green",
           }}
         ></div>
         {!isConfirmation? (
