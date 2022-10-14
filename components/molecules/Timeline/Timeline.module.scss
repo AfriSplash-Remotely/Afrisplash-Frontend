@@ -1,11 +1,12 @@
 .timelineContainer {
   display: flex;
   justify-content: space-between;
-  gap:10px;
-  margin: 0px 400px;
+
+  margin: 0px auto;
+  width: 90%;
 
   .JobDetails {
-      width: 244.67px;
+      width: 98%;
       height: 4px;
   }
 
