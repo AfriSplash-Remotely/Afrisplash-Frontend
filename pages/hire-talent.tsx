@@ -78,7 +78,7 @@ const HireTalent: NextPage = () => {
             <Image src={BookIllustrator} alt='Book Ilustrator' />
           </div>
           <div className={styles.bookContent}>
-            <h3>Get the best candidate profiles straight to your inbox</h3>
+            <h3>Get the best applicant profiles straight to your inbox</h3>
             <ul>
               <li>
                 Connect with your next remote-ready African talent for full-time
@@ -86,7 +86,7 @@ const HireTalent: NextPage = () => {
               </li>
               <li>
                 Reduce time-to-hire 55% by filling your direct sourcing pipeline
-                with ready-to-work candidates.
+                with ready-to-work applicants.
               </li>
               <li>
                 Increase the quality of your hires by matching with skills,
@@ -132,7 +132,7 @@ const HireTalent: NextPage = () => {
           <InfoCard
             image={GetSchedule}
             header={'Get matched'}
-            content={`We do the heavy lifting. Our AIpowered platform evaluates your preference against the best candidates to match you with the top 1%.`}
+            content={`We do the heavy lifting. Our AIpowered platform evaluates your preference against the best applicants to match you with the top 1%.`}
           />
         </div>
         <p className={styles.infoPara}>We’re here to assist you:</p>
