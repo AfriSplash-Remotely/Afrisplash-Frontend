@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import styles from '../styles/Applicants.module.scss';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { BellIcon, GiftIcon } from '@heroicons/react/24/outline';
 
 import Button from 'components/atoms/Button/Button';
@@ -12,6 +12,14 @@ import ProfileImage from '../assets/applications/ProfilePic.png';
 import FrontDevLady from '../assets/applications/FrontDevLady.png';
 import { useState } from 'react';
 
+
+export type Applicant = {
+    id: number;
+    name: string;
+    imageUrl: StaticImageData;
+    role: string;
+    isSelected: boolean;
+}
 
 
 const Applicants: NextPage = () => {
@@ -70,7 +78,7 @@ const Applicants: NextPage = () => {
 
 
     // Obtain store of Applicants from store
-    const getSelectedApplicants = (id: Number): any[] => {
+    const getSelectedApplicants = (id: Number): Applicant[] => {
         return applicants.filter((applicant) => (applicant.id === id && applicant.isSelected === true) || applicant.isSelected === true);
     }
 
@@ -88,6 +96,20 @@ const Applicants: NextPage = () => {
         let selectedRejectedApplicants = getSelectedApplicants(id);
         console.log("Handling Rejected Applicants", selectedRejectedApplicants);
         // Show notification on the process to the next page
+    }
+
+    // Obtain the applicant by id
+    // Apply appropriate action
+    const handleApplicantByIdWithAppropriateAction = (action: string, id: number) => {
+        let applicantFound: any = applicants.find((applicant) => applicant.id === id);
+        applicantFound.isSelected = true;
+
+        // Accepted or rejected
+        if (action === "Accept")
+            console.log("Accepted...", applicantFound,);
+
+        if (action === "Reject")
+            console.log("Rejected...", applicantFound);
     }
 
     // Handle Applicant selection function
@@ -179,7 +201,7 @@ const Applicants: NextPage = () => {
 
                                 <span className={styles.actionButtons}>
                                     <Button
-                                        onClick={() => handleAcceptApplicants(id)}
+                                        onClick={() => handleApplicantByIdWithAppropriateAction("Accept", id)}
                                         type="filled"
                                         bgColor="primary_green"
                                         color="white"
@@ -189,7 +211,7 @@ const Applicants: NextPage = () => {
                                     />
 
                                     <Button
-                                        onClick={() => handleRejectApplicants(id)}
+                                        onClick={() => handleApplicantByIdWithAppropriateAction("Reject", id)}
                                         type="bordered"
                                         bgColor="white-2"
                                         color="green"
