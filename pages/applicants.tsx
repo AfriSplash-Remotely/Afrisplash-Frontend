@@ -105,16 +105,19 @@ const Applicants: NextPage = () => {
         applicantFound.isSelected = true;
 
         // Accepted or rejected
-        if (action === "Accept")
-            console.log("Accepted...", applicantFound,);
+        if (action === "Accept") {
+            console.log("Accepted...", applicantFound);
+            setApplicants([...applicants.filter((applicant) => applicant.id !== id)])
+        }
 
-        if (action === "Reject")
+        if (action === "Reject") {
             console.log("Rejected...", applicantFound);
+            setApplicants([...applicants.filter((applicant) => applicant.id !== id)])
+        }
     }
 
     // Handle Applicant selection function
     const handleApplicantSelectionById = ({ e, _id }: { e: any; _id: Number; }): void => {
-
         // Obtain the list of Applicants
         let applicantsStatuses = applicants.map((applicant) => {
             // If item is checked
@@ -130,12 +133,14 @@ const Applicants: NextPage = () => {
 
         // if id is -1
         // Select all items to store.
-        if (_id === -1 && e.target.checked)
-            setApplicants([...applicants.map((applicant) => { applicant.isSelected = true; return applicant })])
-        else
-            setApplicants([...applicants.map((applicant) => { applicant.isSelected = false; return applicant })])
-
+        if (_id === -1) {
+            if (e.target.checked)
+                setApplicants([...applicants.map((applicant) => { applicant.isSelected = true; return applicant })])
+            else
+                setApplicants([...applicants.map((applicant) => { applicant.isSelected = false; return applicant })])
+        }
     }
+
 
 
     return (
@@ -181,13 +186,13 @@ const Applicants: NextPage = () => {
                         )}
                     </header>
 
-                    {applicants.map(({ id, name, role, imageUrl }) => (
+                    {applicants.length > 0 && applicants.map(({ id, name, role, imageUrl, isSelected }) => (
                         <div key={id} className='grid grid-flow-col grid-cols-7 col-span-full gap-2 grid-rows-auto justify-items-end mb-[52px]'>
 
                             {makeSelectOptionsVisible &&
                                 <CheckBox classes={styles.checkbox} onChange={(e) => { handleApplicantSelectionById({ e, _id: id }) }} />
                             }
-                            <div className={styles.applicantWrapper}>
+                            <div className={styles.applicantWrapper} style={{ background: isSelected ? ' rgba(217, 222, 220, 1)' : 'none' }}>
                                 <span className={styles.applicantDetails}>
                                     <span className="w-16 h-16 col-span-1">
                                         <Image src={imageUrl} />
@@ -195,7 +200,7 @@ const Applicants: NextPage = () => {
                                     <section className='col-span-3'>
                                         <h3 className='text-base font-semibold mb-[16px] '>{name}</h3>
                                         <p className="text-base mb-[22px] font-normal capitalize">{role}</p>
-                                        <a href={id.toString()} className='text-sm underline font-semibold text-primary_green'>View Resume</a>
+                                        <a href={`applicants/${id.toString()}`} className='text-sm underline font-semibold text-primary_green'>View Resume</a>
                                     </section>
                                 </span>
 
@@ -220,6 +225,7 @@ const Applicants: NextPage = () => {
                                  text-sm capitalize text-primary_green bg-white hover:opacity-80 leading-[22px]"
                                     />
                                 </span>
+
                             </div>
                         </div>
                     ))
