@@ -9,12 +9,12 @@ import AdminLayout from "layouts/adminLayout";
 
 const Blog: NextPage = () => {
   return (
-    <AdminLayout>
+    <GeneralLayout>
       <Hero />
       <FeaturedPost />
       <AllBlog />
       <Newsletter />
-    </AdminLayout>
+    </GeneralLayout>
   );
 };
 
