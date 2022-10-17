@@ -1,39 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik&display=swap");
 
-.headerWrapper {
-    color: #33344a;
-    .header {
-      text-align: center;
-      margin-top: 56px;
-      margin-bottom: 16px;
-      font-weight: 500;
-      font-size: 40px;
-      line-height: 64px;
-    }
-  
-    .subHeader {
-      text-align: center;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 26px;
-      margin-bottom: 72px;
-    }
+.confirmationContainer {
+  margin: 0%;
+  padding: 0%;
 }
 
 
-.imageWrapper {
-    margin: 42px 350px 48px 450px;
-
-    .confirmationText {
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 24px;
-        width: 700px;
-        height: 48px;
-        margin-top: 38px;
-        padding-left: 15px;
-    }
-    .supportEmail {
-        margin-left: 170px;
-    }
-}

@@ -1,18 +1,10 @@
-import Timeline from "components/molecules/Timeline/Timeline";
-import GeneralLayout from "layouts/generalLayout";
 import React from "react";
 import styles from "../JobDetails/JobDetails.module.scss";
 
-const JobDetails = () => {
+const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
   return (
-    <GeneralLayout>
-      <div className={styles.headerWrapper}>
-        <h2 className={styles.header}>Post a new job</h2>
-        <p className={styles.subHeader}>Find your next great hire</p>
-      </div>
-
-      <Timeline />
-      <div className={styles.midSection}>
+    <div className={styles.jobDetailsContainer}>
+      <div className={`${styles.midSection} my-5 space-y-3`}>
         <h3 className={styles.h3}>Job details</h3>
         <div className={styles.midSectionContent}>
           <p className={styles.p}>
@@ -42,9 +34,11 @@ const JobDetails = () => {
 
         {/**Job description */}
         <div>
-          <label className={`${styles.label} ${styles.required}`}>Job description</label>
+          <label className={`${styles.label} ${styles.required}`}>
+            Job description
+          </label>
           <div className={styles.textAreaContainer}>
-            <textarea 
+            <textarea
               className={styles.textArea}
               placeholder="Type your job description here"
             ></textarea>
@@ -53,9 +47,11 @@ const JobDetails = () => {
 
         {/**Requirements */}
         <div>
-          <label className={`${styles.label} ${styles.required}`}>Requirements</label>
+          <label className={`${styles.label} ${styles.required}`}>
+            Requirements
+          </label>
           <div className={styles.textAreaContainer}>
-            <textarea 
+            <textarea
               className={styles.textArea}
               placeholder="Type your job requirements here"
             ></textarea>
@@ -66,7 +62,7 @@ const JobDetails = () => {
         <div>
           <label className={styles.label}>Benefits</label>
           <div className={styles.textAreaContainer}>
-            <textarea 
+            <textarea
               className={styles.textArea}
               placeholder="Type the job benefits here"
             ></textarea>
@@ -74,11 +70,11 @@ const JobDetails = () => {
         </div>
 
         <div className={styles.btnContainer}>
-          <button className={styles.backbtn}>Back</button>
-          <button className={styles.nextBtn}>Next</button>
+          <button className={styles.backbtn} onClick={renderPreviousForm}>Back</button>
+          <button className={styles.nextBtn} onClick={renderNextForm}>Next</button>
         </div>
       </form>
-    </GeneralLayout>
+    </div>
   );
 };
 
