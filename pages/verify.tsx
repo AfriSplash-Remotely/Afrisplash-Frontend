@@ -1,37 +1,50 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
-import google from '../assets/authentication/check-mail.svg'
+import google from "../assets/authentication/check-mail.svg";
 
 const Verify = () => {
-  return <>
-
-    <div className="flex items-center">
-      <span className='mx-auto items-center flex '>
-        <Image src="/main_logo.svg" height="70%" width="70%" className='flex-none' />
-        <p className="font-bold flex-none">AfriSplashRemotely</p>
-      </span>
-    </div>
-
-
-    <div className='container w-1/2 rounded-xl m-auto shadow-none md:shadow-2xl '>
-
-
-      <div className=" text-center sm:text-center md:text-center mt-28 mb-24 pt-44 pb-12 md:pt-30 md:pb-8 sm:pt-22 sm:pb-6">
-
-
-        <Image src={google} alt='google photo mt-9' />
-        <h2 className='text-3xl leading-10 font-semibold sm:text-1xl'>Check Your Mail!</h2>
-        <p className='pt-2 leading-8'>We just sent you the instructions to reset your  <br /> password or <a href="#" className='text-green-600 underline leading-8 font-medium'>resend it.</a>
-        </p>
-
-        <button className="rounded-xl bg-dark_blue w-96 p-2 mt-3 mb-24 text-white sm:w-48 md:w-80 mb:p-auto">Login</button>
-
+  return (
+    <div className="space-y-8 md:space-y-14">
+      <div className="flex items-center">
+        <Link href="/">
+          <span className="mx-auto items-center flex ">
+            <Image
+              src="/main_logo.svg"
+              height="70%"
+              width="70%"
+              className="flex-none"
+            />
+            <p className="font-bold flex-none">AfriSplashRemotely</p>
+          </span>
+        </Link>
       </div>
 
+      <div className="container w-10/12 mx-auto">
+        <div className=" w-11/12 lg:w-8/12 xl:w-6/12 rounded-xl mx-auto shadow-none lg:shadow-2xl py-20 text-center space-y-5">
+          <Image src={google} alt="google photo " />
+          <div>
+            <h2 className="text-3xl text-center leading-10 font-semibold sm:text-1xl">
+              Check Your Mail!
+            </h2>
+            <p className="pt-2 ">
+              We just sent you the instructions to reset your <br /> password or{" "}
+              <a
+                href="#"
+                className="text-green-600 underline leading-8 font-medium"
+              >
+                resend it.
+              </a>
+            </p>
+          </div>
+
+          <button className="rounded-xl bg-dark_blue w-11/12 md:w-7/12 h-12 text-white">
+            Login
+          </button>
+        </div>
+      </div>
     </div>
-  </>
+  );
+};
 
-}
-
-export default Verify
+export default Verify;
