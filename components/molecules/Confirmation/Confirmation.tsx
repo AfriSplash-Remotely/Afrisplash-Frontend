@@ -1,30 +1,24 @@
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Button from "components/atoms/Button/Button";
-import GeneralLayout from "layouts/generalLayout";
 import Image from "next/image";
 import React from "react";
 import ConfirmationBackgroundImage from "../../../assets/confirmation.svg";
-import Timeline from "../Timeline/Timeline";
 import styles from "./Confirmation.module.scss";
 
 const Confirmation = () => {
   return (
-    <GeneralLayout>
-      <div className={styles.headerWrapper}>
-        <h2 className={styles.header}>Post a new job</h2>
-        <p className={styles.subHeader}>Find your next great hire</p>
-      </div>
-
-      <Timeline />
-      <div className={styles.imageWrapper}>
+    <div className={styles.confirmationContainer}>
+      <div className="w-6/12 mx-auto">
         <Image src={ConfirmationBackgroundImage} alt="" width={825} />
-        <p className={styles.confirmationText}>
-          Thank you for submitting, your job has been posted. if you need help
-          please contact us via
-          <p className={styles.supportEmail}>
-            Email support: hiretalent@afrisplash.com
+        <div className='text-center my-5 font-thin'>
+          <p>
+            Thank you for submitting, your job has been posted. if you need help
+            please contact us via
+            <p>
+              Email support: hiretalent@afrisplash.com
+            </p>
           </p>
-        </p>
+        </div>
       </div>
 
       <div className="flex space-x-4 items-center justify-center mb-5">
@@ -48,7 +42,7 @@ const Confirmation = () => {
           <Bars3Icon className="w-8 h-6" />
         </div>
       </div>
-    </GeneralLayout>
+    </div>
   );
 };
 

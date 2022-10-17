@@ -1,30 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Timeline.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Timeline = (props:any) => {
-  const [isJobDetails, setIsJobDetails] = useState(false);
-  const [isPackagePlan, setIsPackagePlan] = useState(false);
-  const [isConfirmation, setIsConfirmation] = useState(false);
-  
+const Timeline = ({ 
+  isJobDetails,
+  isPackagePlan,
+  isConfirmation,
+  setIsJobDetails,
+  setIsPackagePlan,
+  setIsConfirmation,
+  jobDetails,
+  packagePlan,
+  confirmation
+} : any) => {
+
   const changeJobDetailsColor = () => {
     setIsJobDetails(true);
     setIsPackagePlan(false);
     setIsConfirmation(false);
+    jobDetails()
   };
+
   const changePackagePlanColor = () => {
     setIsJobDetails(true);
     setIsPackagePlan(true);
     setIsConfirmation(false);
+    packagePlan()
   };
+
   const changeConfirmationColor = () => {
     setIsJobDetails(true);
     setIsPackagePlan(true);
     setIsConfirmation(true);
+    confirmation()
   };
   const handleRadioChange = (e: any) => {
-  
     switch (e.target.value) {
       case "job-details":
         changeJobDetailsColor();
@@ -44,9 +55,9 @@ const Timeline = (props:any) => {
         <div
           className={styles.JobDetails}
           style={{
-            backgroundColor: !isJobDetails ? "#D9DEDC" : "green",
-            color: !isJobDetails ? "#D9DEDC" : "green",
-            border: !isJobDetails ? "1px solid #D9DEDC" : "1px solid green",
+            backgroundColor: !isJobDetails ? "#D9DEDC" : "#0D5520",
+            color: !isJobDetails ? "#D9DEDC" : "#0D5520",
+            border: !isJobDetails ? "1px solid #D9DEDC" : "1px solid #0D5520",
           }}
         ></div>
 
@@ -76,9 +87,9 @@ const Timeline = (props:any) => {
         <div
           className={styles.JobDetails}
           style={{
-            backgroundColor: !isPackagePlan ? "#D9DEDC" : "green",
-            color: !isPackagePlan ? "#D9DEDC" : "green",
-            border: !isPackagePlan ? "1px solid #D9DEDC" : "1px solid green",
+            backgroundColor: !isPackagePlan ? "#D9DEDC" : " #0D5520",
+            color: !isPackagePlan ? "#D9DEDC" : " #0D5520",
+            border: !isPackagePlan ? "1px solid #D9DEDC" : "1px solid  #0D5520",
           }}
         ></div>
         {!isPackagePlan ? (
@@ -106,9 +117,9 @@ const Timeline = (props:any) => {
         <div
           className={styles.JobDetails}
           style={{
-            backgroundColor: !isConfirmation ? "#D9DEDC" : "green",
-            color: !isConfirmation ? "#D9DEDC" : "green",
-            border: !isConfirmation ? "1px solid #D9DEDC" : "1px solid green",
+            backgroundColor: !isConfirmation ? "#D9DEDC" : "#0D5520",
+            color: !isConfirmation ? "#D9DEDC" : "#0D5520",
+            border: !isConfirmation ? "1px solid #D9DEDC" : "1px solid #0D5520",
           }}
         ></div>
         {!isConfirmation? (
