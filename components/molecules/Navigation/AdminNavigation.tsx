@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import briefcase from "assets/admin_icons/briefcase.svg";
 import directsend from "assets/admin_icons/direct-send.svg";
 import messages from "assets/admin_icons/messages.svg";
@@ -9,8 +9,10 @@ import styles from "./Navigation.module.scss";
 import Link from "next/link";
 import router from "next/router";
 import Image from "next/image";
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 export default function AdminNavigation() {
+  const [navSwitch, setNavSwitch] = useState(false);
   const nav = [
     {
       title: "Profile",
@@ -61,14 +63,20 @@ export default function AdminNavigation() {
     }
   };
 
+  const handleNavSwitch = () => {
+    setNavSwitch(!navSwitch);
+  };
+
   return (
-    <div className={`w-full h-20  z-50 bg-white`}>
-      <div className={`relative h-20 ${styles.wrapper}`}>
-        <header className="w-4/12 relative z-50 h-full flex flex-col justify-between  items-center">
+    <aside
+      className={`${
+        navSwitch === true ? "w-max" : "w-2/12"
+      } h-screen relative px-5 z-50`}
+    >
+      <div className={`relative w-full ${styles.wrapper}`}>
+        <header className="w-full relative z-50 h-full flex flex-col space-y-10">
           <Link href="/">
-            <div
-              className={` flex items-center cursor-pointer ${styles.logo}`}
-            >
+            <div className={`flex cursor-pointer ${styles.logo}`}>
               <img
                 src="/main_logo.svg"
                 alt="logo"
@@ -82,14 +90,23 @@ export default function AdminNavigation() {
                 <Link href={item.link} key={index}>
                   <li
                     onClick={() => handleMenuClick(item, index)}
-                    className={`text-sm flex capitalize cursor-pointer space-x-2 hover:text-primary_green hover:underline hover:underline-offset-4 ${
-                      item.active &&
-                      "text-primary_green underline underline-offset-4"
+                    className={`text-sm  flex capitalize cursor-pointer ${navSwitch === true? 'px-5':'px-5 pr-8'} py-2 space-x-2 hover:text-primary_green hover:bg-light_green hover:rounded-lg ${
+                      item.active && "text-primary_green"
                     }`}
                   >
-                    <span><Image src={item.icon ? item.icon : ""} /></span>
-                    <span>{item.title}</span>
-                    
+                    <div className="flex space-x-2 items-center">
+                      <span>
+                        <Image
+                          src={item.icon ? item.icon : ""}
+                          height={18}
+                          width={18}
+                          layout="fixed"
+                        />
+                      </span>
+                      <span className={`${navSwitch === true ? "hidden" : ""}`}>
+                        {item.title}
+                      </span>
+                    </div>
                   </li>
                 </Link>
               ))}
@@ -97,6 +114,14 @@ export default function AdminNavigation() {
           </nav>
         </header>
       </div>
-    </div>
+      <div
+        onClick={handleNavSwitch}
+        className={`absolute top-16 cursor-pointer hover:bg-light_green ${navSwitch === true? 'bg-[#f8f8f8]': 'bg-white'} -right-3 drop-shadow-lg rounded-full p-1 ${
+          navSwitch === true ? "transform rotate-180" : ""
+        }`}
+      >
+        <ChevronLeftIcon className="w-4 h-4 " />
+      </div>
+    </aside>
   );
 }
