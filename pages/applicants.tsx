@@ -77,6 +77,15 @@ const Applicants: NextPage = () => {
     ])
 
 
+    // QuerySearch on Applicant list
+    const handleQueryApplicantsInList = (e: any) => {
+        // Obtain the values from the search bar
+        let queryValue = e.target.value;
+        // Obtain applicants based on  the query
+        // Update list
+        // Hence displaying query results
+    }
+
     // Obtain store of Applicants from store
     const getSelectedApplicants = (id: Number): Applicant[] => {
         return applicants.filter((applicant) => (applicant.id === id && applicant.isSelected === true) || applicant.isSelected === true);
@@ -142,13 +151,12 @@ const Applicants: NextPage = () => {
     }
 
 
-
     return (
         <>
             <main className='grid grid-flow-row grid-cols-1 grid-rows-1 gap-2 pt-8 px-16 '>
                 <section className='grid  grid-flow-row grid-cols-6 gap-3 grid-rows-1 mb-[60px]'>
                     <SearchBar classes={styles.searchBar}
-                        onChange={(): any => console.log("VL from Search")} />
+                        onChange={(e): any => handleQueryApplicantsInList(e)} />
                     <div className="grid grid-flow-col col-start-5 col-end-7 place-items-center">
                         <GiftIcon className="h-6 w-6 hover:cursor-pointer" />
                         <BellIcon className="h-6 w-6 hover:cursor-pointer" />
