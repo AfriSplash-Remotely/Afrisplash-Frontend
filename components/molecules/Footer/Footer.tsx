@@ -52,24 +52,28 @@ const Footer = () => {
               <div className="capitalize font-bold text-sm md:text-base">{item.title}</div>
               <ul className="space-y-3 text-xs sm:text-sm md:text-base">
                 {item.items.map((subItems: any, index: number) => (
-                  <li key={index} className="capitalize">{subItems.title}</li>
+                  <li key={index} className="capitalize">
+                    {subItems.title}
+                  </li>
                 ))}
               </ul>
             </section>
           ))}
         </div>
         <div className="text-white_2 flex items-center flex-col md:flex-row md:justify-between border-t border-white_2/20 py-10">
-            <section>
-                <span>&copy;</span>
-                <span className="capitalize xs:text-xs md:text-sm lg:text-base">afrisplash remotely. all rights reserved</span>
-            </section>
-            <section>
-                <ul className="flex space-x-3  text-sm lg:text-base">
-                    <li>Terms of use</li>
-                    <li>Privacy policy</li>
-                    <li>Copyright policy</li>
-                </ul>
-            </section>
+          <section>
+            <span>&copy;</span>
+            <span className="capitalize xs:text-xs md:text-sm lg:text-base">
+              afrisplash remotely. all rights reserved
+            </span>
+          </section>
+          <section>
+            <ul className="flex space-x-3  text-sm lg:text-base">
+              <li>Terms of use</li>
+              <li>Privacy policy</li>
+              <li>Copyright policy</li>
+            </ul>
+          </section>
         </div>
       </div>
     </footer>
