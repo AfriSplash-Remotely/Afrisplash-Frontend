@@ -1,30 +1,40 @@
+import React from "react";
+
 interface BtnProps {
   classes?: string;
-  type: "filled" | "bordered";
+  type?: "filled" | "bordered";
+  tag?: React.ElementType;
+  children: React.ReactNode;
   text: string;
   bgColor?: "primary_green" | "primary_yellow" | "dark_blue" | "white-2";
-  color: string;
+  color?: string;
   borderColor?: "primary_green" | "primary_yellow" | "dark_blue" | "white-2";
-  onClick?: ()=>void | any
+  [x: string]: any;
 }
 
-const Button = ({
-  classes,
-  type,
-  text,
-  bgColor,
-  color,
-  borderColor,
-  onClick,
-}: BtnProps) => {
-  return (
-    <button
-      className={`${classes}`}
-      onClick={onClick}
-    >
-      {text}
-    </button>
-  );
-};
+const Button = React.forwardRef(
+  (
+    {
+      classes,
+      type,
+      children,
+      text,
+      tag,
+      bgColor,
+      color,
+      borderColor,
+      ...restProps
+    }: BtnProps,
+    ref
+  ) => {
+    let Tag = tag ? tag : "button";
+
+    return (
+      <Tag {...restProps} className={`${classes}`} ref={ref}>
+        {text ? text : children}
+      </Tag>
+    );
+  }
+);
 
 export default Button;

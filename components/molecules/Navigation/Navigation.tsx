@@ -18,7 +18,7 @@ interface headerType {
   }[];
 }
 
-const Navigation = () => {
+const Navigation = ():JSX.Element => {
   const router = useRouter();
 
   let header: headerType[] = [
@@ -38,7 +38,7 @@ const Navigation = () => {
     {
       title: "candidates",
       icon: "",
-      link: "/candidates",
+      link: "/onboarding",
       active: false,
       dropDown: [{ title: "item", href: "#" }],
     },
