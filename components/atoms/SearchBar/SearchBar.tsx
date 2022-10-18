@@ -1,6 +1,6 @@
 interface SearchProps {
     classes?: string,
-    onChange?: () => void | any;
+    onChange?: (e: any) => void | any;
 }
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
