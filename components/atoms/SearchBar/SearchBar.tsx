@@ -11,7 +11,7 @@ const SearchBar = ({ classes, onChange }: SearchProps) => {
         <>
             <div className="relative col-span-2">
                 <MagnifyingGlassIcon className='z-20 absolute left-2 top-3 h-6 w-6' />
-                <input className={classes} placeholder="Search" onChange={onChange}
+                <input className={classes} placeholder="Search by name or role..." onChange={onChange}
                 />
             </div>
         </>
