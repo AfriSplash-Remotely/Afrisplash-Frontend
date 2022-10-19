@@ -27,9 +27,9 @@ export default function AdminNavigation() {
       active: false,
     },
     {
-      title: "applied",
+      title: "applicants",
       icon: directsend,
-      link: "/",
+      link: "/applicants",
       active: false,
     },
     {
