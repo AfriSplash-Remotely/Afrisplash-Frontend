@@ -68,18 +68,22 @@ const Applicants: NextPage = () => {
     const [applicantLabels, setApplicantLabels] = useState([
         {
             label: 'Location',
+            attributes: ["10km", "50km", "100km", "anywhere"],
             isOpen: false
         },
         {
             label: 'Salary',
+            attributes: ["$0-$40,000", "$41,000-65,0000", "66,000-159,000", "160,000-above"],
             isOpen: false
         },
         {
             label: 'Job type',
+            attributes: ["All Job Type", "Full-time", "Part-time", "Contract", "Internship", "Temporary", "Entry-Level"],
             isOpen: false
         },
         {
             label: 'Job Category',
+            attributes: ["Intern", "Junior", "Senior", "Lead"],
             isOpen: false
         }
     ])
@@ -173,7 +177,7 @@ const Applicants: NextPage = () => {
                 <AdminNavigation />
 
                 <main className='grid grid-cols-1 gap-2 pt-8 px-16'>
-                    <section className='grid  grid-flow-row grid-cols-6 gap-3 mb-[60px] max-h-5'>
+                    <section className='grid grid-flow-row grid-cols-6 gap-3 mb-[60px] max-h-5'>
                         <SearchBar classes={styles.searchBar}
                             onChange={(e): any => handleQueryApplicantsInList(e)} />
                         <div className="grid grid-flow-col col-start-5 col-end-7 place-items-center">
@@ -185,14 +189,14 @@ const Applicants: NextPage = () => {
                     </section>
 
                     <section className="grid grid-flow-row grid-cols-6 gap-4 mb-[50px] max-h-5">
-                        {applicantLabels.map(({ label, isOpen }) => (
+                        {applicantLabels.map(({ label, isOpen, attributes }) => (
                             <DropDown key={label} classes={styles.dropDown} text={label} onClick={() => {
                                 let newApplicantLabels: any[] = applicantLabels.map((applicant: { label: String, isOpen: Boolean }) => {
                                     if (applicant.label === label) applicant.isOpen = !isOpen;
                                     return applicant;
                                 });
                                 setApplicantLabels([...newApplicantLabels]);
-                            }} isOpen={isOpen} />
+                            }} isOpen={isOpen} options={attributes} />
                         ))}
                     </section>
 
@@ -266,7 +270,8 @@ const Applicants: NextPage = () => {
                             <header className='grid grid-flow-col col-start-1 col-span-5 justify-self-start py-10'>
                                 <p className="text-xl opacity-75">Sorry, no match found!</p>
                             </header>
-                        </section>)}
+                        </section>
+                    )}
                 </main>
 
             </div>
