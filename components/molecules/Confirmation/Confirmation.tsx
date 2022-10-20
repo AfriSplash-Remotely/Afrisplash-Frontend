@@ -1,4 +1,4 @@
-import { Bars3Icon } from "@heroicons/react/24/outline";
+
 import Button from "components/atoms/Button/Button";
 import Image from "next/image";
 import React from "react";
@@ -37,9 +37,6 @@ const Confirmation = () => {
             text="View jobs"
             classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"
           />
-        </div>
-        <div className="flex lg:hidden h-full items-center">
-          <Bars3Icon className="w-8 h-6" />
         </div>
       </div>
     </div>

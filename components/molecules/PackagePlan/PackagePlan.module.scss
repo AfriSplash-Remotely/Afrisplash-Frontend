@@ -5,7 +5,6 @@
   padding: 0;
 
   .midSection {
-    margin: 33px 400px;
     color: #000;
     .h3 {
       font-weight: 500;
@@ -25,9 +24,7 @@
   }
 
   .table {
-    margin: 33px 400px;
     border-collapse: collapse;
-    width: 826px;
 
     .thead {
       font-family: "Inter";
@@ -56,13 +53,7 @@
     }
   }
 
-  .btnContainer {
-    display: flex;
-    justify-content: space-between;
-    margin: 64px 0px 104px 0px;
-  }
-
   .continueBtn {
-    margin-left: 9rem !important;
+    margin-left: 8rem !important;
   }
 }

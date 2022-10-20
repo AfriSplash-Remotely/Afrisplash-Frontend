@@ -94,7 +94,7 @@ const Timeline = ({
         ></div>
         {!isPackagePlan ? (
           <label className={styles.container}>
-            <span className={styles.description}>Package & plan</span>
+            <span className={`${styles.description}`}>Package & plan</span>
             <input
               type="radio"
               name="radio"
@@ -109,7 +109,7 @@ const Timeline = ({
               icon={faCheckCircle}
               className={styles.fontIcon}
             />
-            <span className={styles.description}>Package & plan</span>
+            <span className={`${styles.description} md:text-sm sm:text-xs`}>Package & plan</span>
           </div>
         )}
       </div>
