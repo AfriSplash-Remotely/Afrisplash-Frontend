@@ -73,7 +73,7 @@ const Applicants: NextPage = () => {
         },
         {
             label: 'Salary',
-            attributes: ["$0-$40,000", "$41,000-65,0000", "66,000-159,000", "160,000-above"],
+            attributes: ["$0 - $40k", "$41k - $65k", "$66k - $159k", "$160k - above"],
             isOpen: false
         },
         {
@@ -188,7 +188,7 @@ const Applicants: NextPage = () => {
                         </div>
                     </section>
 
-                    <section className="grid grid-flow-row grid-cols-6 gap-4 mb-[50px] max-h-5">
+                    <section className="grid grid-flow-row grid-cols-6 gap-4 mb-[50px] max-h-5 z-10">
                         {applicantLabels.map(({ label, isOpen, attributes }) => (
                             <DropDown key={label} classes={styles.dropDown} text={label} onClick={() => {
                                 let newApplicantLabels: any[] = applicantLabels.map((applicant: { label: String, isOpen: Boolean }) => {
@@ -227,7 +227,7 @@ const Applicants: NextPage = () => {
                                     <div className={styles.applicantWrapper} style={{ background: isSelected ? ' rgba(217, 222, 220, 1)' : 'none' }}>
                                         <span className={styles.applicantDetails}>
                                             <span className="w-16 h-16 col-span-1">
-                                                <Image src={imageUrl} />
+                                                <Image src={imageUrl} alt={name}/>
                                             </span>
                                             <section className='col-span-3'>
                                                 <h3 className='text-base font-semibold mb-[16px] '>{name}</h3>

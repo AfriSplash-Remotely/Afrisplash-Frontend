@@ -29,15 +29,16 @@ const DropDown = ({ text, classes, isOpen, imageUrl, onClick, options }: DropDow
                     active:duration-50 active:ease-out  h-5 w-5 bold-200 mx-2" />)
                     }
                 </span>
+
+                {/*  Options on toggle */}
+                {isOpen && (
+                    <div className="absolute top-8 left-0 border-1 shadow-green bg-green-200 px-4 pb-1 w-[100%] mt-4 rounded-sm">
+                        {options?.map((optText) => (
+                            <span key={optText} className="text-sm block capitalize w-100 my-4 hover:cursor-pointer hover:underline"> {optText} </span>
+                        ))}
+                    </div>
+                )}
             </div>
-            {/*  Options on toggle */}
-            {isOpen && (
-                <div className="absolute border-1">
-                    {options?.map((optText) => (
-                        <span className="text-sm"> {optText} </span>
-                    ))}
-                </div>
-            )}
         </>
     )
 }
