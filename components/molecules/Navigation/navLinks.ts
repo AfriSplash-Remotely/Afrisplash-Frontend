@@ -9,32 +9,32 @@ const navLinks = [
   {
     title: "Profile",
     icon: user,
-    route: "/recruiter",
+    route: "/dashboard",
   },
   {
     title: "Jobs",
     icon: briefcase,
-    route: "/recruiter/jobs",
+    route: "/dashboard/jobs",
   },
   {
     title: "Applicants",
     icon: directsend,
-    route: "/recruiter/applicants",
+    route: "/dashboard/applicants",
   },
   {
     title: "Messages",
     icon: messages,
-    route: "/recruiter/messages",
+    route: "/dashboard/messages",
   },
   {
     title: "Forum",
     icon: messages_2,
-    route: "/recruiter/forum",
+    route: "/dashboard/forum",
   },
   {
     title: "settings",
     icon: setting_3,
-    route: "/recruiter/settings",
+    route: "/dashboard/settings",
   },
 ];
 
