@@ -3,12 +3,15 @@ import { NextPage } from "next";
 import AdminNavigation from "../components/molecules/Navigation/AdminNavigation";
 import styles from "./Layout.module.scss";
 import avatar from "assets/admin_avatars/admin_avatar.svg";
+import PropTypes, { InferProps } from "prop-types";
 
-interface AdminProps {
-  children: React.ReactNode;
-}
+const AdminLayoutProps = {
+  children: PropTypes.node.isRequired,
+};
 
-const AdminLayout: NextPage<AdminProps> = ({ children }) => {
+const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
+  children,
+}) => {
   return (
     <div className="w-full flex">
       <AdminNavigation />
