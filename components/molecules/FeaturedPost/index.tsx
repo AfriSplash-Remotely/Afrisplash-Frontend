@@ -1,10 +1,8 @@
 import React from "react";
-import FeaturedPostCard from "./FeaturedPostCard";
-
-import FeaturedImage from "../../../assets/blog/laptop_office.jpg";
-import AuthorImage from "../../../assets/blog/author.png";
-
+import AuthorImage from "assets/blog/author.png";
+import FeaturedImage from "assets/blog/laptop_office.jpg";
 import { ArticleProp } from "./ArticleInterface";
+import FeaturedPostCard from "./FeaturedPostCard";
 
 const mockdata: ArticleProp[] = [
   {
