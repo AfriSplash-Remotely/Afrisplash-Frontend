@@ -1,5 +1,5 @@
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import PropTypes, { InferProps } from "prop-types";
 
 const SearchProps = {
