@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { ArticleProp } from "./interface";
 import { InferProps } from "prop-types";
+import { ArticleProp } from "./interface";
 interface AllBlogCardProps {
   article: InferProps<ArticleProp>;
 }

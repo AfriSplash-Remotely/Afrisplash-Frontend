@@ -5,7 +5,7 @@ const BtnProps = {
   classes: PropTypes.string,
   type: PropTypes.oneOf(["filled", "bordered"]),
   tag: PropTypes.elementType,
-  children: PropTypes.element,
+  children: PropTypes.node,
   text: PropTypes.string,
   bgColor: PropTypes.oneOf([
     "primary_green",

@@ -9,10 +9,9 @@ const counterReducer = createSlice({
     },
     addTwo(state, action) {
       return state + 2;
-    }
+    },
   },
 });
-
 
 const { actions, reducer } = counterReducer;
 

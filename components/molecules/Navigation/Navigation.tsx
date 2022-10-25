@@ -1,11 +1,9 @@
 import React from "react";
-import Image from "next/image";
-import Button from "../../atoms/Button/Button";
-import Link from "next/link";
-import styles from "./Navigation.module.scss";
-import { useRouter } from "next/router";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import Pattern from "assets/home-page/pattern.svg";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import styles from "./Navigation.module.scss";
+import Button from "../../atoms/Button/Button";
 
 interface headerType {
   title: string;
