@@ -1,7 +1,7 @@
 import { NextPage } from "next";
-import Footer from "../components/molecules/Footer/Footer";
-import Navigation from "../components/molecules/Navigation/Navigation";
 import PropTypes, { InferProps } from "prop-types";
+import Footer from "components/molecules/Footer/Footer";
+import Navigation from "components/molecules/Navigation/Navigation";
 
 const GeneralProps = {
   children: PropTypes.node.isRequired,
