@@ -8,7 +8,7 @@ import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import navLinks from "./navLinks";
 import { motion } from "framer-motion";
 
-export default function AdminNavigation() {
+export default function AdminNavigation(): JSX.Element {
   const router = useRouter();
 
   const [navSwitch, setNavSwitch] = useState(false);
