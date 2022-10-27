@@ -1,11 +1,9 @@
 import React from "react";
-import Image from "next/image";
-import Button from "../../atoms/Button/Button";
-import Link from "next/link";
-import styles from "./Navigation.module.scss";
-import { useRouter} from "next/router";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import Pattern from "assets/home-page/pattern.svg";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import styles from "./Navigation.module.scss";
+import Button from "../../atoms/Button/Button";
 
 interface headerType {
   title: string;
@@ -18,7 +16,7 @@ interface headerType {
   }[];
 }
 
-const Navigation = ():JSX.Element => {
+const Navigation = (): JSX.Element => {
   const router = useRouter();
 
   let header: headerType[] = [
@@ -62,9 +60,9 @@ const Navigation = ():JSX.Element => {
     },
   ];
 
-  const changePath=(path: string)=>{
-    router.push(path)
-  }
+  const changePath = (path: string) => {
+    router.push(path);
+  };
 
   const handleMenuClick = (item: headerType, index: number) => {
     header.map((item) => (item.active = false));
@@ -77,9 +75,15 @@ const Navigation = ():JSX.Element => {
       <div className={`relative h-20 ${styles.wrapper}`}>
         <header className="w-11/12 relative z-50 md:w-11/12 xl:w-10/12 mx-auto h-full flex justify-between  items-center">
           <Link href="/">
-          <div className={`w-1/12 h-full flex items-center cursor-pointer ${styles.logo}`}>
-            <img src="/main_logo.svg" alt="logo" className={styles.logo_img} />
-          </div>
+            <div
+              className={`w-1/12 h-full flex items-center cursor-pointer ${styles.logo}`}
+            >
+              <img
+                src="/main_logo.svg"
+                alt="logo"
+                className={styles.logo_img}
+              />
+            </div>
           </Link>
           <nav className="hidden lg:flex items-center h-full ">
             <ul className="flex lg:space-x-3 xl:space-x-5">
@@ -101,14 +105,14 @@ const Navigation = ():JSX.Element => {
           </nav>
           <div className="flex space-x-4 items-center">
             <div className="hidden md:flex space-x-4">
-                <Button
-                  type="filled"
-                  bgColor="dark_blue"
-                  color="white"
-                  text="sign in"
-                  classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
-                  onClick={()=> changePath('/auth/login')}
-                />
+              <Button
+                type="filled"
+                bgColor="dark_blue"
+                color="white"
+                text="sign in"
+                classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
+                onClick={() => changePath("/auth/login")}
+              />
               <Button
                 type="bordered"
                 color="dark_blue"

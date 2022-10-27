@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-import styles from "./Navigation.module.scss";
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import { ChevronLeftIcon } from "@heroicons/react/24/outline";
+import styles from "./Navigation.module.scss";
 import navLinks from "./navLinks";
-import { motion } from "framer-motion";
 
-export default function AdminNavigation() {
+export default function AdminNavigation(): JSX.Element {
   const router = useRouter();
 
   const [navSwitch, setNavSwitch] = useState(false);

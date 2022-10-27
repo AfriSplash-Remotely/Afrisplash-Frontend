@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { InferProps } from "prop-types";
 import { ArticleProp } from "./ArticleInterface";
 
-interface props {
-  article: ArticleProp;
+interface FeaturedPostCardProps {
+  article: InferProps<ArticleProp>;
 }
 
-const FeaturedPostCard = ({ article }: props): JSX.Element => {
+const FeaturedPostCard = ({ article }: FeaturedPostCardProps): JSX.Element => {
   return (
     <article className="relative flex max-w-[400px] flex-col">
       <Image
@@ -26,6 +27,7 @@ const FeaturedPostCard = ({ article }: props): JSX.Element => {
         <h3 className="my-2 text-lg">{article.title}</h3>
         <div className="flex flex-row items-center">
           <Image
+            alt={article.title}
             src={article?.author?.image}
             layout="fixed"
             width={50}

@@ -1,13 +1,12 @@
-import styles from "./Header.module.scss";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import card_1 from "assets/home-page/card_1.png";
 import card_2 from "assets/home-page/card_2.png";
 import card_3 from "assets/home-page/card_3.png";
-import Image from "next/image";
+import styles from "./Header.module.scss";
 import Button from "../../atoms/Button/Button";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
-
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <div className={`${styles.wrapper} w-full`}>
       <div className="w-10/12 mx-auto flex justify-between">
@@ -18,21 +17,26 @@ const Header = () => {
               africa's remote workforce
             </h1>
             <div className="space-y-12">
-            <p className="w-10/12 leading-7">
-              We put the <strong>A</strong> back in <strong>EMEA</strong>. Find
-              the best remote jobs at truly inclusive and remote-friendly
-              companies
-            </p>
-            <div className="flex space-x-5">
-              <Button
-                type="filled"
-                bgColor="dark_blue"
-                color="white"
-                text="join the community"
-                classes="w-max px-3 h-10  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
-              />
-              <button className="flex space-x-2 items-center text-dark_blue"><span>Post a job</span><span><ArrowRightIcon className="w-5 h-4 "/></span> </button>
-            </div>
+              <p className="w-10/12 leading-7">
+                We put the <strong>A</strong> back in <strong>EMEA</strong>.
+                Find the best remote jobs at truly inclusive and remote-friendly
+                companies
+              </p>
+              <div className="flex space-x-5">
+                <Button
+                  type="filled"
+                  bgColor="dark_blue"
+                  color="white"
+                  text="join the community"
+                  classes="w-max px-3 h-10  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
+                />
+                <button className="flex space-x-2 items-center text-dark_blue">
+                  <span>Post a job</span>
+                  <span>
+                    <ArrowRightIcon className="w-5 h-4 " />
+                  </span>{" "}
+                </button>
+              </div>
             </div>
           </div>
         </section>
