@@ -1,5 +1,4 @@
 import React from "react";
-import { NextPage } from "next";
 import {
   ClockIcon,
   MagnifyingGlassIcon,
@@ -7,23 +6,24 @@ import {
   Squares2X2Icon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { NextPage } from "next";
 import Image from "next/image";
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import GoogleMapApi from "components/googleMap";
 
-import GeneralLayout from "layouts/generalLayout";
-import CompanyImage from "assets/company/companyLogo.png";
-import styles from "./index.module.sass";
 import JobCard from "components/jobCard";
-import GoogleLogo from "assets/company/googleLogo.png";
-import JacobImage from "assets/teams/jacob.png";
-import CameronImage from "assets/teams/cameron.png";
-import WadeImage from "assets/teams/wade.png";
-import RobertImage from "assets/teams/robert.png";
-import StandardImage from "assets/company/standard.png";
+import GeneralLayout from "layouts/generalLayout";
 import AlatImage from "assets/company/alat.png";
+import CompanyImage from "assets/company/companyLogo.png";
+import GoogleLogo from "assets/company/googleLogo.png";
 import HotelImage from "assets/company/hotels.png";
 import PandascrowImage from "assets/company/pandascrow.png";
+import StandardImage from "assets/company/standard.png";
+import CameronImage from "assets/teams/cameron.png";
+import JacobImage from "assets/teams/jacob.png";
+import RobertImage from "assets/teams/robert.png";
+import WadeImage from "assets/teams/wade.png";
+import styles from "./index.module.sass";
 
 const jobData = [
   {
@@ -197,7 +197,7 @@ const Company: NextPage = () => {
               </div>
             </div>
 
-            <div className="md:w-[35%] grid grid-cols-1 ">
+            <div className="md:w-[35%]">
               <div className="border border-solid border-[#D9DEDC] p-3 rounded-[20px]">
                 <div>
                   <GoogleMapApi />
