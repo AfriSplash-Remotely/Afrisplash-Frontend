@@ -1,28 +1,29 @@
 import React from "react";
 
-import Image from "next/image";
 import {
   CheckCircleIcon,
   ChevronRightIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import PropTypes, { InferProps } from "prop-types";
 import Button from "components/atoms/Button/Button";
 
-interface jobDataProps {
-  datas: Array<any>;
-  alt?: string;
-}
+const jobDataProps = {
+  datas: Array<any>,
+  alt: PropTypes.string,
+};
 
-const JobCard = ({ datas, alt }: jobDataProps) => {
+const JobCard = ({ datas, alt }: InferProps<typeof jobDataProps>) => {
   return (
     <div>
-      {datas.flatMap((data): any => {
+      {datas.flatMap((data: any) => {
         return (
           <div className="border border-solid border-gray-300 rounded-3xl p-3  mt-5">
             <div className="flex justify-between ">
               <div className="flex items-center gap-3">
                 <div>
-                  <Image src={data.image} alt={alt} />
+                  <Image src={data.image} alt={alt as string} />
                 </div>
                 <div>
                   <h1 className="font-semibold text-base">{data.company}</h1>
