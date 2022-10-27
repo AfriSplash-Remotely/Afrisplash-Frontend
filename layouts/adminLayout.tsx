@@ -1,14 +1,17 @@
-import TopAdmin from "components/molecules/TopAdmin/TopAdmin";
 import { NextPage } from "next";
-import AdminNavigation from "../components/molecules/Navigation/AdminNavigation";
-import styles from "./Layout.module.scss";
+import PropTypes, { InferProps } from "prop-types";
+import AdminNavigation from "components/molecules/Navigation/AdminNavigation";
+import TopAdmin from "components/molecules/TopAdmin/TopAdmin";
 import avatar from "assets/admin_avatars/admin_avatar.svg";
+import styles from "./Layout.module.scss";
 
-interface AdminProps {
-  children: React.ReactNode;
-}
+const AdminLayoutProps = {
+  children: PropTypes.node.isRequired,
+};
 
-const AdminLayout: NextPage<AdminProps> = ({ children }) => {
+const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
+  children,
+}) => {
   return (
     <div className="w-full flex">
       <AdminNavigation />

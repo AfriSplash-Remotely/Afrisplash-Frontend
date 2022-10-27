@@ -1,15 +1,15 @@
-import Header from "components/molecules/Header/Header";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import GeneralLayout from "../layouts/generalLayout";
+import Header from "components/molecules/Header/Header";
+import GeneralLayout from "layouts/generalLayout";
+import styles from "styles/Home.module.scss";
 import chipper from "assets/icons/chipper.svg";
 import haulify from "assets/icons/haulify.svg";
 import nextford from "assets/icons/nextford.svg";
 import panther from "assets/icons/panther.svg";
 import rootlo from "assets/icons/rootlo.svg";
 import scopic from "assets/icons/scopic.svg";
-import styles from "../styles/Home.module.scss";
 
 const Jobs = () => {
   return (
