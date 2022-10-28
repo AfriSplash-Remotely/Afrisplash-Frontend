@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { ArticleProp } from "./ArticleInterface";
 import { InferProps } from "prop-types";
+import { ArticleProp } from "./ArticleInterface";
 
 interface FeaturedPostCardProps {
   article: InferProps<ArticleProp>;

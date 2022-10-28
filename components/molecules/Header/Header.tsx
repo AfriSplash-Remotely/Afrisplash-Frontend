@@ -1,10 +1,10 @@
-import styles from "./Header.module.scss";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import card_1 from "assets/home-page/card_1.png";
 import card_2 from "assets/home-page/card_2.png";
 import card_3 from "assets/home-page/card_3.png";
-import Image from "next/image";
+import styles from "./Header.module.scss";
 import Button from "../../atoms/Button/Button";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const Header = (): JSX.Element => {
   return (
