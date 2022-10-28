@@ -13,87 +13,9 @@ import GoogleMapApi from "components/googleMap";
 
 import JobCard from "components/jobCard";
 import GeneralLayout from "layouts/generalLayout";
-import AlatImage from "assets/company/alat.png";
-import CompanyImage from "assets/company/companyLogo.png";
-import GoogleLogo from "assets/company/googleLogo.png";
-import HotelImage from "assets/company/hotels.png";
-import PandascrowImage from "assets/company/pandascrow.png";
-import StandardImage from "assets/company/standard.png";
-import CameronImage from "assets/teams/cameron.png";
-import JacobImage from "assets/teams/jacob.png";
-import RobertImage from "assets/teams/robert.png";
-import WadeImage from "assets/teams/wade.png";
-import styles from "./index.module.sass";
-
-const jobData = [
-  {
-    image: GoogleLogo,
-    company: "GOOGLE ",
-    service: "Google search and other services",
-    employees: "10-20  EMPLOYEES",
-    hiring: true,
-    promoted: true,
-    offer: "UI/UX Designer",
-    priceRange: "$100k - $300k",
-    postDate: "2 MONTHS AGO",
-  },
-];
-
-const teamData = [
-  {
-    name: "Jacob Jones",
-    image: JacobImage,
-    job: "Recruiter",
-  },
-  {
-    name: "Cameron Williamson",
-    image: CameronImage,
-    job: "Recruiter",
-  },
-  {
-    name: "Wade Warren",
-    image: WadeImage,
-    job: "Recruiter",
-  },
-  {
-    name: "Robert Fox",
-    image: RobertImage,
-    job: "Recruiter",
-  },
-];
-
-const jobOpeneingsData = [
-  {
-    image: PandascrowImage,
-    position: "Product Manager",
-    name: "Pandascrow",
-    duration: "Contract/Hybrid",
-  },
-  {
-    image: StandardImage,
-    position: "Data Analyst",
-    name: "Standard Chartered Bank Nigeria",
-    duration: "Part time/Remote",
-  },
-  {
-    image: StandardImage,
-    position: "Product Designer",
-    name: "Standard Chartered Bank Nigeria",
-    duration: "Full time/Remote",
-  },
-  {
-    image: HotelImage,
-    position: "Network Analyst",
-    name: "Hotels.ng",
-    duration: "Contract/Hybrid",
-  },
-  {
-    image: AlatImage,
-    position: "Security Engineer",
-    name: "ALAT by Wema",
-    duration: "Full time/Onsite",
-  },
-];
+import { jobData, teamData, jobOpeneingsData } from "utils/fakeData";
+import styles from "./index.module.scss";
+// import GoogleLogo from "assets/company/googleLogo.png";
 
 const Company: NextPage = () => {
   return (
@@ -119,9 +41,14 @@ const Company: NextPage = () => {
 
         <div className="mt-16">
           <div className="flex items-center gap-5 border-solid border border-gray-300 rounded-xl py-2 pl-2">
-            <div className="w-16 h-16">
+            <div className="w-16 h-16 bg-[#F2F2F7] flex items-center justify-center rounded-xl ">
               {" "}
-              <Image src={CompanyImage} alt="company-image" />
+              <Image
+                src="/company/firstbank.png"
+                alt="company-image"
+                width="35px"
+                height="35px"
+              />
             </div>
             <h2 className="font-semibold text-3xl">First Bank of Nigeria</h2>
           </div>
@@ -171,8 +98,24 @@ const Company: NextPage = () => {
 
               <div className="mt-20">
                 <h2 className="text-[#0D5520] text-[2rem]">Open jobs</h2>
-                <JobCard datas={jobData} alt={"google image"} />
-                <JobCard datas={jobData} alt={"google image"} />
+                {jobData.flatMap((data): JSX.Element => {
+                  return (
+                    <div>
+                      <JobCard
+                        image={data.image}
+                        alt={"company image"}
+                        company={data.company}
+                        service={data.service}
+                        employees={data.employees}
+                        offer={data.offer}
+                        priceRange={data.priceRange}
+                        postDate={data.postDate}
+                        hiring={data.hiring}
+                        promoted={data.promoted}
+                      />
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="mt-14 ">
@@ -232,7 +175,14 @@ const Company: NextPage = () => {
                   {jobOpeneingsData.flatMap((data): any => {
                     return (
                       <div className="flex items-center gap-3">
-                        <Image src={data.image} alt="job image" />
+                        <div className="bg-[#E5E5E5] rounded-xl p-3">
+                          <Image
+                            src={data.image}
+                            alt="job image"
+                            width="64px"
+                            height="64px"
+                          />
+                        </div>
                         <div>
                           <p className="text-xl">{data.position}</p>
                           <p className="text-[#606172] text-sm">{data.name}</p>
