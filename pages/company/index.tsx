@@ -15,7 +15,6 @@ import JobCard from "components/jobCard";
 import GeneralLayout from "layouts/generalLayout";
 import { jobData, teamData, jobOpeneingsData } from "utils/fakeData";
 import styles from "./index.module.scss";
-// import GoogleLogo from "assets/company/googleLogo.png";
 
 const Company: NextPage = () => {
   return (
@@ -123,7 +122,7 @@ const Company: NextPage = () => {
                   <h2 className="text-[#0D5520] text-[2rem]">Teams</h2>
                 </div>
                 <div className="grid grid-cols-2 gap-4 mt-4">
-                  {teamData.flatMap((data): any => {
+                  {teamData.flatMap((data): JSX.Element => {
                     return (
                       <div className="flex items-center gap-4">
                         <div>
@@ -172,7 +171,7 @@ const Company: NextPage = () => {
               <div className="mt-14 ">
                 <h2 className="pl-2 text-xl font-medium">Similar jobs</h2>
                 <div className="grid grid-cols-1 gap-5 border border-solid border-[#D9DEDC] p-3 rounded-[20px] mt-4">
-                  {jobOpeneingsData.flatMap((data): any => {
+                  {jobOpeneingsData.flatMap((data): JSX.Element => {
                     return (
                       <div className="flex items-center gap-3">
                         <div className="bg-[#E5E5E5] rounded-xl p-3">
