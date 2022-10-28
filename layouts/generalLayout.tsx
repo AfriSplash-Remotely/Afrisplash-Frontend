@@ -13,7 +13,9 @@ const GeneralLayout: NextPage<InferProps<typeof GeneralProps>> = ({
   return (
     <div className="w-full">
       <Navigation />
-      {children}
+      <main className="relative xl:w-10/12 md:w-11/12 w-11/12   mx-auto">
+        {children}
+      </main>
       <Footer />
     </div>
   );
