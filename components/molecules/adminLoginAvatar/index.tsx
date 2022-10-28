@@ -1,6 +1,6 @@
+import React from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import React from "react";
 import PropTypes, { InferProps } from "prop-types";
 
 const AdminLoginAvatarProps = {
