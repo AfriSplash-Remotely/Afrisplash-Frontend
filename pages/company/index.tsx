@@ -19,7 +19,7 @@ import styles from "./index.module.scss";
 const Company: NextPage = () => {
   return (
     <GeneralLayout>
-      <section className="px-5 md:px-20 mb-20 pt-10">
+      <section className="mb-20 pt-10">
         <div className="flex sm:flex-col md:flex-row items-center gap-4 ">
           <div className="flex items-center  gap-3 border-solid border border-gray-300 rounded-xl w-full max-w-lg p-3">
             <MagnifyingGlassIcon className="w-6 h-6 text-[#1C1D36]" />
