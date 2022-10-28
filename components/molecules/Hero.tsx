@@ -1,9 +1,9 @@
 import React from "react";
-import Link from "next/link";
-import Button from "../atoms/Button/Button";
-import HeroImage from "../../assets/blog/hero.png";
-import Image from "next/image";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import Link from "next/link";
+import HeroImage from "assets/blog/hero.png";
+import Button from "../atoms/Button/Button";
 
 const Hero = (): JSX.Element => {
   return (

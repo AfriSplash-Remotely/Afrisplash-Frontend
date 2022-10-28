@@ -1,6 +1,6 @@
-import styles from "./InfoCard.module.scss";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
+import styles from "./InfoCard.module.scss";
 
 const InfoCardProps = {
   image: PropTypes.string.isRequired,

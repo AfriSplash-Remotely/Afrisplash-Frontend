@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import google from "../assets/authentication/check-mail.svg";
+import Link from "next/link";
+import google from "assets/authentication/check-mail.svg";
 
 const Verify = () => {
   return (

@@ -1,13 +1,8 @@
 import React from "react";
+import { ArrowRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import FeaturedImage from "assets/blog/laptop_office.jpg";
 import AllBlogCard from "./AllBlogCard";
-import MagnifyingGlassIcon, {
-  ArrowRightIcon,
-  ChevronDownIcon,
-} from "@heroicons/react/24/outline";
-import Button from "components/atoms/Button/Button";
-
-import FeaturedImage from "../../../assets/blog/laptop_office.jpg";
 
 import { ArticleProp } from "./interface";
 
