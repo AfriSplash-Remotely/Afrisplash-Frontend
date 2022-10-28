@@ -1,7 +1,3 @@
-// import AlatImage from "assets/company/alat.png";
-// import HotelImage from "assets/company/hotels.png";
-// import PandascrowImage from "assets/company/pandascrow.png";
-// import StandardImage from "assets/company/standard.png";
 import CameronImage from "assets/teams/cameron.png";
 import JacobImage from "assets/teams/jacob.png";
 import RobertImage from "assets/teams/robert.png";
