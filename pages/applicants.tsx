@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
-import styles from '../styles/Applicants.module.scss';
-import Image, { StaticImageData } from 'next/image';
+import styles from 'styles/Applicants.module.scss';
+import PropTypes, { InferProps } from "prop-types";
+import Image from 'next/image';
 import { BellIcon, GiftIcon } from '@heroicons/react/24/outline';
 import AdminNavigation from 'components/molecules/Navigation/AdminNavigation';
 
@@ -10,17 +11,17 @@ import CheckBox from 'components/atoms/CheckBox/CheckBox';
 import DropDown from 'components/atoms/DropDown/DropDown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
 
-import ProfileImage from '../assets/applications/ProfilePic.png';
-import FrontDevLady from '../assets/applications/FrontDevLady.png';
+import ProfileImage from 'assets/applications/ProfilePic.png';
+import FrontDevLady from 'assets/applications/FrontDevLady.png';
 import { useState } from 'react';
 
 
-export type Applicant = {
-    id: number;
-    name: string;
-    imageUrl: StaticImageData;
-    role: string;
-    isSelected: boolean;
+const Applicant = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    imageUrl: PropTypes.string,
+    role: PropTypes.string,
+    isSelected: PropTypes.bool
 }
 
 
@@ -106,12 +107,12 @@ const Applicants: NextPage = () => {
     }
 
     // Obtain store of Applicants from store
-    const getSelectedApplicants = (id: Number): Applicant[] => {
+    const getSelectedApplicants = (id: Number): InferProps<typeof Applicant[]> => {
         return applicants.filter((applicant) => (applicant.id === id && applicant.isSelected === true) || applicant.isSelected === true);
     }
 
     // Handle action function
-    const handleAcceptApplicants = (id: Number): any => {
+    const handleAcceptApplicants = (id: Number) => {
         // Clear list of applicants
         let selectedAcceptedApplicants = getSelectedApplicants(id);
         console.log("Handling Acceptance", selectedAcceptedApplicants);
@@ -119,7 +120,7 @@ const Applicants: NextPage = () => {
     }
 
     // Handle reject function
-    const handleRejectApplicants = (id: Number): any => {
+    const handleRejectApplicants = (id: Number) => {
         // Clear list of applicants
         let selectedRejectedApplicants = getSelectedApplicants(id);
         console.log("Handling Rejected Applicants", selectedRejectedApplicants);
@@ -227,7 +228,7 @@ const Applicants: NextPage = () => {
                                     <div className={styles.applicantWrapper} style={{ background: isSelected ? ' rgba(217, 222, 220, 1)' : 'none' }}>
                                         <span className={styles.applicantDetails}>
                                             <span className="w-16 h-16 col-span-1">
-                                                <Image src={imageUrl} alt={name}/>
+                                                <Image src={imageUrl} alt={name} />
                                             </span>
                                             <section className='col-span-3'>
                                                 <h3 className='text-base font-semibold mb-[16px] '>{name}</h3>
