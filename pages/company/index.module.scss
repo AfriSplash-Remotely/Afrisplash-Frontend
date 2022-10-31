@@ -1,0 +1,28 @@
+.icons {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.divContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 5rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.font_h6 {
+  font-size: 0.7rem;
+  color: #606172;
+}
+.font_p {
+  font-size: 1.5rem;
+}
+.inputDiv {
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 0.8rem 0.75rem;
+}
+.inputDiv :focus {
+  outline: none;
+}
