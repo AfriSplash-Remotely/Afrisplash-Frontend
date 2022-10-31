@@ -1,10 +1,12 @@
-.checkbox {
-    width: 20px;
-    grid-column-start: span 1;
-    margin: auto 0.5rem;
-    cursor: pointer;
-}
+@tailwind components;
 
-.checkbox:checked {
-    accent-color: rgba(13, 85, 32, 1);
+@layer components{
+    .checkbox {
+        @apply w-5 col-span-1 mx-auto my-2 cursor-pointer;
+    }
+    
+    .checkbox:checked {
+        @apply accent-primary_green;
+    }
+
 }
