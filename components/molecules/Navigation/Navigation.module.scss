@@ -1,0 +1,9 @@
+.wrapper{
+    background-image: url('../../../assets/home-page/pattern.svg');
+}
+.logo{
+    &_img{
+        width:4em;
+        height:4em;
+    }
+}
