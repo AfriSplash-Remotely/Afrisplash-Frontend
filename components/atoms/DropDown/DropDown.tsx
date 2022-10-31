@@ -6,21 +6,19 @@ const DropDownProps = {
     classes: PropTypes.string,
     onClick: PropTypes.func,
     text: PropTypes.string,
-    imageUrl: PropTypes.string,
+    imageUrl: PropTypes.any,
     isOpen: PropTypes.bool,
     options: PropTypes.array
 }
-
-// Imports
 
 const DropDown = ({ text, classes, isOpen, imageUrl, onClick, options }: InferProps<typeof DropDownProps>) => {
 
     return (
         <>
             <div className={`${classes}`}>
-                {imageUrl ? (<span className="h-8 w-8 ml-2 -mr-5">
+                {imageUrl && <span className="h-8 w-8 ml-2 -mr-5">
                     <Image src={imageUrl} alt="" />
-                </span>) : ""}
+                </span>}
                 <span className="text-sm ml-6">{text}</span>
                 <span className="arrow hover:cursor-pointer
                     hover:opacity-100 opacity-80" onClick={onClick}>

@@ -2,24 +2,21 @@ import type { NextPage } from 'next';
 import styles from 'styles/Applicants.module.scss';
 import PropTypes, { InferProps } from "prop-types";
 import Image from 'next/image';
-import { BellIcon, GiftIcon } from '@heroicons/react/24/outline';
 import AdminNavigation from 'components/molecules/Navigation/AdminNavigation';
-
-
+import { BellIcon, GiftIcon } from '@heroicons/react/24/outline';
 import Button from 'components/atoms/Button/Button';
 import CheckBox from 'components/atoms/CheckBox/CheckBox';
 import DropDown from 'components/atoms/DropDown/DropDown';
 import SearchBar from 'components/atoms/SearchBar/SearchBar';
-
 import ProfileImage from 'assets/applications/ProfilePic.png';
 import FrontDevLady from 'assets/applications/FrontDevLady.png';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 
 const Applicant = {
     id: PropTypes.number,
     name: PropTypes.string,
-    imageUrl: PropTypes.string,
+    imageUrl: PropTypes.any,
     role: PropTypes.string,
     isSelected: PropTypes.bool
 }
@@ -91,6 +88,15 @@ const Applicants: NextPage = () => {
 
     const [queriedApplicants, setQueriedApplicants] = useState([...applicants])
 
+    const displayDropDownLabel = (_label: string) => {
+        let newApplicantLabels: any[] = applicantLabels.map((applicant: { label: String, isOpen: Boolean }) => {
+            if (applicant.label === _label) applicant.isOpen = !isOpen;
+            return applicant;
+        });
+        setApplicantLabels([...newApplicantLabels]);
+    }
+
+
     // QuerySearch on Applicant list
     const handleQueryApplicantsInList = (e: any) => {
         // Obtain the values from the search bar
@@ -101,7 +107,6 @@ const Applicants: NextPage = () => {
             // Obtain applicants based on  the query
             queryApplicants = applicants.filter((applicant) => (applicant.name.includes(queryValue) || applicant.role.includes(queryValue)));
             // Update list 
-            // Hence displaying query results
             setQueriedApplicants([...queryApplicants]);
         }
     }
@@ -128,7 +133,6 @@ const Applicants: NextPage = () => {
     }
 
     // Obtain the applicant by id
-    // Apply appropriate action
     const handleApplicantByIdWithAppropriateAction = (action: string, id: number) => {
         let applicantFound: any = applicants.find((applicant) => applicant.id === id);
         applicantFound.isSelected = true;
@@ -149,8 +153,6 @@ const Applicants: NextPage = () => {
     const handleApplicantSelectionById = ({ e, _id }: { e: any; _id: Number; }): void => {
         // Obtain the list of Applicants
         let applicantsStatuses = applicants.map((applicant) => {
-            // If item is checked
-            // Pick by id match
             if (e.target.checked && applicant.id === _id) applicant.isSelected = true
             // Set a selection on the UI
             else
@@ -160,7 +162,6 @@ const Applicants: NextPage = () => {
         // Store the object 
         setApplicants([...applicantsStatuses]);
 
-        // if id is -1
         // Select all items to store.
         if (_id === -1) {
             if (e.target.checked)
@@ -173,14 +174,13 @@ const Applicants: NextPage = () => {
 
     return (
         <>
-            {/* AdminNavigation */}
             <div className='grid grid-flow-col'>
                 <AdminNavigation />
 
-                <main className='grid grid-cols-1 gap-2 pt-8 px-16'>
+                <div className='grid grid-cols-1 gap-2 pt-8 px-16'>
                     <section className='grid grid-flow-row grid-cols-6 gap-3 mb-[60px] max-h-5'>
                         <SearchBar classes={styles.searchBar}
-                            onChange={(e): any => handleQueryApplicantsInList(e)} />
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleQueryApplicantsInList(e)} />
                         <div className="grid grid-flow-col col-start-5 col-end-7 place-items-center">
                             <GiftIcon className="h-6 w-6 hover:cursor-pointer" />
                             <BellIcon className="h-6 w-6 hover:cursor-pointer" />
@@ -191,13 +191,7 @@ const Applicants: NextPage = () => {
 
                     <section className="grid grid-flow-row grid-cols-6 gap-4 mb-[50px] max-h-5 z-10">
                         {applicantLabels.map(({ label, isOpen, attributes }) => (
-                            <DropDown key={label} classes={styles.dropDown} text={label} onClick={() => {
-                                let newApplicantLabels: any[] = applicantLabels.map((applicant: { label: String, isOpen: Boolean }) => {
-                                    if (applicant.label === label) applicant.isOpen = !isOpen;
-                                    return applicant;
-                                });
-                                setApplicantLabels([...newApplicantLabels]);
-                            }} isOpen={isOpen} options={attributes} />
+                            <DropDown key={label} classes={styles.dropDown} text={label} onClick={() => displayDropDownLabel(label)} isOpen={isOpen} options={attributes} />
                         ))}
                     </section>
 
@@ -210,7 +204,7 @@ const Applicants: NextPage = () => {
                                 </p>}
                                 {makeSelectOptionsVisible && (<>
                                     <p className="m-4 col-span-1 text-primary_green hover:cursor-pointer text-center">
-                                        <CheckBox classes={styles.checkbox} onChange={(e) => { handleApplicantSelectionById({ e, _id: -1 }) }} />
+                                        <CheckBox classes={styles.checkbox} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { handleApplicantSelectionById({ e, _id: -1 }) }} />
                                         Select all
                                     </p>
                                     <p className="m-4 col-span-1 text-primary_green hover:cursor-pointer" onClick={() => handleAcceptApplicants(-1)}>Accept</p>
@@ -223,7 +217,7 @@ const Applicants: NextPage = () => {
                                 <div key={id} className='grid grid-flow-col grid-cols-7 col-span-full gap-2 grid-rows-auto justify-items-end mb-[52px]'>
 
                                     {makeSelectOptionsVisible &&
-                                        <CheckBox classes={styles.checkbox} onChange={(e) => { handleApplicantSelectionById({ e, _id: id }) }} />
+                                        <CheckBox classes={styles.checkbox} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { handleApplicantSelectionById({ e, _id: id }) }} />
                                     }
                                     <div className={styles.applicantWrapper} style={{ background: isSelected ? ' rgba(217, 222, 220, 1)' : 'none' }}>
                                         <span className={styles.applicantDetails}>
@@ -258,12 +252,10 @@ const Applicants: NextPage = () => {
                                  text-sm capitalize text-primary_green bg-white hover:opacity-80 leading-[22px]"
                                             />
                                         </span>
-
                                     </div>
                                 </div>
                             ))
                             }
-
                         </section>
                     )}
                     {queriedApplicants.length === 0 && (
@@ -273,8 +265,7 @@ const Applicants: NextPage = () => {
                             </header>
                         </section>
                     )}
-                </main>
-
+                </div>
             </div>
         </>
     )
