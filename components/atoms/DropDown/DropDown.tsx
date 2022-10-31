@@ -1,21 +1,23 @@
-interface DropDownProps {
-    classes?: string,
-    onClick?: () => void | any;
-    text: string;
-    imageUrl?: any;
-    isOpen?: true | false,
-    options?: string[]
-}
-
-// Imports
+import PropTypes, { InferProps } from "prop-types";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
-const DropDown = ({ text, classes, isOpen, imageUrl, onClick, options }: DropDownProps) => {
+const DropDownProps = {
+    classes: PropTypes.string,
+    onClick: PropTypes.func,
+    text: PropTypes.string,
+    imageUrl: PropTypes.string,
+    isOpen: PropTypes.bool,
+    options: PropTypes.array
+}
+
+// Imports
+
+const DropDown = ({ text, classes, isOpen, imageUrl, onClick, options }: InferProps<typeof DropDownProps>) => {
 
     return (
         <>
-            <div className={classes}>
+            <div className={`${classes}`}>
                 {imageUrl ? (<span className="h-8 w-8 ml-2 -mr-5">
                     <Image src={imageUrl} alt="" />
                 </span>) : ""}
