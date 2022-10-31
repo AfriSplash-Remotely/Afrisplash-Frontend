@@ -1,11 +1,7 @@
-.dropDown {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    position: relative;
-    height: 48px;
-    border: 1px solid rgba(80, 79, 79, 0.404);
-    border-radius: 8px;    
-}
+@tailwind components;
 
+@layer components {
+    .dropDown {
+        @apply flex flex-row content-between items-center relative h-24 border border-solid border-slate-900 rounded-lg;
+    }
+}
