@@ -14,7 +14,7 @@ import scopic from "assets/icons/scopic.svg";
 const Jobs = () => {
   return (
     <section className={`w-full ${styles.job_wrapper}`}>
-      <div className="w-10/12 mx-auto py-28">
+      <div className="py-28">
         <section>
           <div className="text-center space-y-3">
             <h2 className="text-4xl font-semibold">Popular job categories</h2>
