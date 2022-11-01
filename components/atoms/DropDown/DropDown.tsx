@@ -32,7 +32,7 @@ const DropDown = ({ text, classes, isOpen, imageUrl, onClick, options }: InferPr
 
                 {/*  Options on toggle */}
                 {isOpen && (
-                    <div className="absolute top-8 left-0 border-1 shadow-green bg-green-200 px-4 pb-1 w-[100%] mt-4 rounded-sm">
+                    <div className="absolute top-8 left-0 border-1 shadow-green bg-green-100 px-4 pb-1 w-[100%] mt-4 rounded-sm">
                         {options?.map((optText) => (
                             <span key={optText} className="text-sm block capitalize w-100 my-4 hover:cursor-pointer hover:underline"> {optText} </span>
                         ))}
