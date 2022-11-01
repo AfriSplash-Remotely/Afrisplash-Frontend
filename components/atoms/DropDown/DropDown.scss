@@ -2,6 +2,7 @@
 
 @layer components {
     .dropDown {
-        @apply flex flex-row content-between items-center relative h-24 border border-solid border-slate-900 rounded-lg;
+        @apply flex flex-row justify-between items-center shadow
+         relative h-11 border border-solid rounded-lg;
     }
 }
