@@ -171,12 +171,13 @@ const Applicants: NextPage = () => {
         <>
             <AdminLayout>
                 <div className='grid grid-cols-1 gap-2 pt-8'>
-                    <section className="grid grid-flow-row grid-cols-6 gap-4 mb-[50px] max-h-5 z-10">
+                    <section className="md:grid md:grid-flow-col md:grid-cols-3 lg:grid-cols-5 lg:grid-flow-col xl:grid-cols-6
+                    gap-4 mb-[50px] max-h-5 z-20">
                         {applicantLabels.map(({ label, isOpen, attributes }) => (
-                            <DropDown key={label} classes={styles.dropDown} text={label} onClick={() => displayDropDownLabel(label)} isOpen={isOpen} options={attributes} />
+                            <DropDown key={label} classes={styles.dropDownWrapper} text={label} onClick={() => displayDropDownLabel(label)} isOpen={isOpen} options={attributes} />
                         ))}
                     </section>
-
+{/* 
                     {applicants.length > 0 && (
                         <section className="grid grid-flow-row grid-cols-8">
                             <header className='grid grid-flow-col col-start-6 col-span-3 grid-rows-auto justify-self-end  place-items-center'>
@@ -246,7 +247,7 @@ const Applicants: NextPage = () => {
                                 <p className="text-xl opacity-50">Sorry, no appplicants found!</p>
                             </header>
                         </section>
-                    )}
+                    )} */}
                 </div>
             </AdminLayout>
         </>
