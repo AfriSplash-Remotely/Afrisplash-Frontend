@@ -16,25 +16,30 @@ const DropDown = ({ text, classes, isOpen, imageUrl, onClick, options }: InferPr
     return (
         <>
             <div className={`${classes}`}>
-                {imageUrl && <span className="h-8 w-8 ml-2 -mr-5">
-                    <Image src={imageUrl} alt="" />
-                </span>}
-                <span className="text-sm ml-6">{text}</span>
-                <span className="arrow hover:cursor-pointer
+                <div className="flex flex-row justify-between items-center shadow
+                    h-11 border border-solid rounded-lg z-20 mt-3 mb-1">
+                    {imageUrl && <span className="h-8 w-8 ml-2 -mr-5">
+                        <Image src={imageUrl} alt="" />
+                    </span>}
+                    <span className="text-sm ml-6">{text}</span>
+                    <span className="arrow hover:cursor-pointer
                     hover:opacity-100 opacity-80" onClick={onClick}>
-                    {!isOpen ? (
-                        <ChevronDownIcon className="active:transition active:rotate-180
+                        {!isOpen ? (
+                            <ChevronDownIcon className="active:transition active:rotate-180
                     active:duration-50 active:ease-out h-5 w-5 bold-200  mx-2" />) : (
-                        <ChevronUpIcon className="active:transition active:rotate-180
+                            <ChevronUpIcon className="active:transition active:rotate-180
                     active:duration-50 active:ease-out  h-5 w-5 bold-200 mx-2" />)
-                    }
-                </span>
+                        }
+                    </span>
 
+                </div>
                 {/*  Options on toggle */}
                 {isOpen && (
-                    <div className="absolute top-8 left-0 border-1 shadow-green bg-green-100 px-4 pb-1 w-[100%] mt-4 rounded-sm">
+                    <div className="border-1 shadow-green
+                     bg-slate-200 px-4 py-1 w-[100%]  my-0 rounded-sm">
                         {options?.map((optText) => (
-                            <span key={optText} className="text-sm block capitalize w-100 my-4 hover:cursor-pointer hover:underline"> {optText} </span>
+                            <span key={optText} className="text-sm block capitalize w-100 my-4
+                             hover:cursor-pointer hover:underline"> {optText} </span>
                         ))}
                     </div>
                 )}
