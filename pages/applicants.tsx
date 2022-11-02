@@ -170,47 +170,55 @@ const Applicants: NextPage = () => {
     return (
         <>
             <AdminLayout>
-                <div className='grid grid-cols-1 gap-2 pt-8'>
-                    <section className="md:grid md:grid-flow-col md:grid-cols-3 lg:grid-cols-5 lg:grid-flow-col xl:grid-cols-6
-                    gap-4 mb-[50px] max-h-5 z-20">
+                <div className='grid grid-cols-1 gap-2 pt-8 grid-flow-row'>
+                    <section className="md:grid md:grid-flow-col md:grid-cols-3 lg:grid-cols-4 lg:grid-flow-col xl:grid-cols-6
+                    gap-4 mb-[50px] md:max-h-5 z-20 overflow-visible">
                         {applicantLabels.map(({ label, isOpen, attributes }) => (
                             <DropDown key={label} classes={styles.dropDownWrapper} text={label} onClick={() => displayDropDownLabel(label)} isOpen={isOpen} options={attributes} />
                         ))}
                     </section>
-{/* 
+
                     {applicants.length > 0 && (
                         <section className="grid grid-flow-row grid-cols-8">
-                            <header className='grid grid-flow-col col-start-6 col-span-3 grid-rows-auto justify-self-end  place-items-center'>
-                                {!makeSelectOptionsVisible && <p className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer text-center"
+                            <header className='grid grid-flow-col col-start-1 md:col-start-4 col-span-full 
+                            grid-rows-auto justify-self-end place-items-center leading-3 md:leading-2 md:pt-9'>
+                                {!makeSelectOptionsVisible && <p className="mx-5 mb-5 col-span-1 text-primary_green 
+                                hover:cursor-pointer hover:underline"
                                     onClick={() => setMakeSelectOptionsVisible(!makeSelectOptionsVisible)}>
                                     Select
                                 </p>}
                                 {makeSelectOptionsVisible && (<>
-                                    <p className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer text-center">
+                                    <p className="mx-2 md:mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer 
+                                    text-center capitalize hover:underline">
                                         <CheckBox classes={styles.checkbox} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { handleApplicantSelectionById({ e, _id: -1 }) }} />
                                         Select all
                                     </p>
-                                    <p className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer" onClick={() => handleAcceptApplicants(-1)}>Accept</p>
-                                    <p className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer" onClick={() => handleRejectApplicants(-1)}>Reject</p>
+                                    <p className="mx-2 md:mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer
+                                    hover:underline" onClick={() => handleAcceptApplicants(-1)}>Accept</p>
+                                    <p className="mx-2 md:mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer 
+                                    hover:underline" onClick={() => handleRejectApplicants(-1)}>Reject</p>
                                 </>
                                 )}
                             </header>
 
                             {applicants.map(({ id, name, role, imageUrl, isSelected }) => (
-                                <div key={id} className='grid grid-flow-col grid-cols-12 col-span-full gap-2 grid-rows-auto justify-content-start mb-6 place-items-end'>
+                                <div key={id} className='grid grid-flow-col grid-cols-1  md:grid-cols-12 col-span-full 
+                                gap-2 grid-rows-auto justify-content-start mb-6 place-items-end
+                                '>
                                     {makeSelectOptionsVisible &&
                                         <CheckBox classes={styles.checkbox} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { handleApplicantSelectionById({ e, _id: id }) }} />
                                     }
 
                                     <div className={styles.applicantWrapper} style={{ background: isSelected ? ' rgba(217, 222, 220, 1)' : 'none' }}>
                                         <span className={styles.applicantDetails}>
-                                            <span className="w-18 h-18 col-span-1">
+                                            <span className="w-18 h-18 col-span-1 block">
                                                 <Image src={imageUrl} alt={name?.toLocaleLowerCase()} />
                                             </span>
-                                            <section className='col-span-3'>
-                                                <h3 className='text-base font-semibold pb-1 pt-2'>{name}</h3>
-                                                <p className="text-base mb-1 font-normal capitalize opacity-75">{role}</p>
-                                                <a href={`applicants/${id?.toString()}`} className='text-sm underline font-semibold text-primary_green'>View Resume</a>
+                                            <section className='col-span-3 text-center md:text-left md:py-4'>
+                                                <h3 className='text-base font-semibold py-2 sm:pb-1 md:pb-0'>{name}</h3>
+                                                <p className="text-sm mb-2 sm:mb-0 font-normal capitalize opacity-60">{role}</p>
+                                                <a href={`applicants/${id?.toString()}`} className='inline-block pb-2 text-sm underline font-semibold 
+                                                text-primary_green'>View Resume</a>
                                             </section>
                                         </span>
 
@@ -221,8 +229,8 @@ const Applicants: NextPage = () => {
                                                 bgColor="primary_green"
                                                 color="white"
                                                 text="Accept"
-                                                classes="w-100 px-10  h-10 rounded-md text-sm 
-                                    capitalize text-white bg-primary_green hover:opacity-80 leading-[22px]"
+                                                classes="w-100 px-5 h-8 md:px-7 md:h-9 rounded-md text-sm capitalize 
+                                                text-white bg-primary_green hover:opacity-80 leading-[22px]"
                                             />
 
                                             <Button
@@ -231,8 +239,8 @@ const Applicants: NextPage = () => {
                                                 bgColor="white-2"
                                                 color="green"
                                                 text="Reject"
-                                                classes="w-100 px-10  h-10 ml-6 rounded-md border-2 border-green-900
-                                 text-sm capitalize text-primary_green bg-white hover:opacity-80 leading-[22px]"
+                                                classes="w-100 px-5 h-8 ml-2 md:px-7 md:h-9 rounded-md border-2 border-green-900 
+                                                text-sm capitalize text-primary_green bg-white hover:opacity-80 leading-[22px]"
                                             />
                                         </span>
                                     </div>
@@ -247,7 +255,7 @@ const Applicants: NextPage = () => {
                                 <p className="text-xl opacity-50">Sorry, no appplicants found!</p>
                             </header>
                         </section>
-                    )} */}
+                    )}
                 </div>
             </AdminLayout>
         </>
