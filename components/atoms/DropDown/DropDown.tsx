@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useState } from "react";
 
 const DropDownProps = {
-    classes: PropTypes.string,
-    onClick: PropTypes.func,
-    text: PropTypes.string,
-    imageUrl: PropTypes.any,
-    isOpen: PropTypes.bool,
-    options: PropTypes.array
-}
+  classes: PropTypes.string,
+  onClick: PropTypes.func,
+  text: PropTypes.string,
+  imageUrl: PropTypes.any,
+  isOpen: PropTypes.bool,
+  options: PropTypes.array,
+};
 
 const DropDown = ({ text, classes, isOpen, imageUrl, onClick, options }: InferProps<typeof DropDownProps>): JSX.Element => {
     let [makeSelectOption, setMakeSelectOption] = useState<string | null | undefined>(text);

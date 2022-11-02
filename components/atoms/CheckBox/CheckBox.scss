@@ -9,4 +9,7 @@
         @apply accent-primary_green;
     }
 
+  .checkbox:checked {
+    @apply accent-primary_green;
+  }
 }
