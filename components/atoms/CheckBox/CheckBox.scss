@@ -2,7 +2,7 @@
 
 @layer components{
     .checkbox {
-        @apply w-5 col-span-1 mx-2 my-auto cursor-pointer;
+        @apply w-5 col-span-1 mx-2 my-auto cursor-pointer hidden md:inline-block;
     }
     
     .checkbox:checked {
