@@ -92,21 +92,7 @@ const Applicants: NextPage = () => {
         setApplicantLabels([...newApplicantLabels]);
     }
 
-    // QuerySearch on Applicant list function
-    const handleQueryApplicantsInList = (e: React.ChangeEvent<HTMLInputElement>) => {
-        // Obtain the values from the search bar
-        let queryValue = e.target.value;
-        let queryApplicants;
-
-        if (queryValue !== null) {
-            // Obtain applicants based on  the query
-            queryApplicants = applicants.filter((applicant) => (applicant.name.includes(queryValue) || applicant.role.includes(queryValue)));
-            // Update list 
-            setQueriedApplicants([...queryApplicants]);
-        }
-    }
-
-    // Obtain store of Applicants from store
+     // Obtain store of Applicants from store
     const getSelectedApplicants = (id: Number): InferProps<typeof Applicant[]> => {
         return applicants.filter((applicant) => (applicant.id === id && applicant.isSelected === true) || applicant.isSelected === true);
     }
