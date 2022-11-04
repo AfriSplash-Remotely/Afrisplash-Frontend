@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+
 import Link from 'next/link'
 
 import Image from 'next/image'
-// import errorImage from 'assets/authentication/error-image.svg'
+
 import errorPage from '../../assets/authentication/error-page.svg'
 import GeneralLayout from 'layouts/generalLayout'
 
@@ -21,7 +21,7 @@ const ErrorPage = (props: { statusCode: number }) => {
 
         404: {
             errorTitle: "",
-            errorMessage: "It’s a 404. Unfortunately we couldn’t find what you’re looking for. "
+            errorMessage: "It’s a 404. Unfortunately we couldn’t find what you’re looking for."
         },
         405: {
             errorTitle: "Uhmm....",
@@ -42,14 +42,14 @@ const ErrorPage = (props: { statusCode: number }) => {
 
         <GeneralLayout>
 
-            {/* navbar */}
+
             <div className=" p-6 mx-10">
 
 
-                <div className='flex flex-col items-center pt-48 pb-52'>
+                <div className='flex flex-col items-center md:pt-38 pt-48 pb-52'>
 
 
-                    {/* hero section  */}
+
                     <div className="items-center">
 
                         <Image src={errorPage} alt='google photo' className='items-center' />

@@ -20,9 +20,10 @@ module.exports = {
         white_2: "#F8F8F8",
         secondary_yellow: "#FFC42D73",
         dark_blue: "#1C1D36",
-        white_2: "#F8F8F8"
-      }
-    }
+        white_2: "#F8F8F8",
+        light_green: "#D6ECDC",
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };
