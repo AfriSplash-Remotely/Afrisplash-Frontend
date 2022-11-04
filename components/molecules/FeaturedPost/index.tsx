@@ -1,51 +1,48 @@
 import React from "react";
+import AuthorImage from "assets/blog/author.png";
+import FeaturedImage from "assets/blog/laptop_office.jpg";
+import { ArticleProp } from "./ArticleInterface";
 import FeaturedPostCard from "./FeaturedPostCard";
 
-import FeaturedImage from "../../../assets/blog/laptop_office.jpg";
-import AuthorImage from "../../../assets/blog/author.png";
-
-import { ArticleProp } from "./ArticleInterface";
-
-const mockdata: ArticleProp[] = [
-  {
-    featuredImage: FeaturedImage,
-    title: "5 tips for a Product manager to ensure great collaboration... ",
-    category: "Product management",
-    author: {
-      image: AuthorImage,
-      fullname: "Abdulbasit Ibrahim",
-    },
-    meta: {
-      publishedDate: "may 30",
-      readTime: "5min read",
-    },
+const mockdata: ArticleProp[] = [{
+  featuredImage: FeaturedImage,
+  title: "5 tips for a Product manager to ensure great collaboration... ",
+  category: "Product management",
+  author: {
+    fullname: "Abdulbasit Ibrahim",
+    image: AuthorImage,
   },
-  {
-    featuredImage: FeaturedImage,
-    title: "5 tips for a Product manager to ensure great collaboration... ",
-    category: "Product management",
-    author: {
-      image: AuthorImage,
-      fullname: "Abdulbasit Ibrahim",
-    },
-    meta: {
-      publishedDate: "may 30",
-      readTime: "5min read",
-    },
+  meta: {
+    publishedDate: "may 30",
+    readTime: "5min read",
   },
-  {
-    featuredImage: FeaturedImage,
-    title: "5 tips for a Product manager to ensure great collaboration... ",
-    category: "Product management",
-    author: {
-      image: AuthorImage,
-      fullname: "Abdulbasit Ibrahim",
-    },
-    meta: {
-      publishedDate: "may 30",
-      readTime: "5min read",
-    },
+},
+{
+  featuredImage: FeaturedImage,
+  title: "5 tips for a Product manager to ensure great collaboration... ",
+  category: "Product management",
+  author: {
+    image: AuthorImage,
+    fullname: "Abdulbasit Ibrahim",
   },
+  meta: {
+    publishedDate: "may 30",
+    readTime: "5min read",
+  },
+},
+{
+  featuredImage: FeaturedImage,
+  title: "5 tips for a Product manager to ensure great collaboration... ",
+  category: "Product management",
+  author: {
+    image: AuthorImage,
+    fullname: "Abdulbasit Ibrahim",
+  },
+  meta: {
+    publishedDate: "may 30",
+    readTime: "5min read",
+  },
+},
 ];
 
 const FeaturedPost = () => {
