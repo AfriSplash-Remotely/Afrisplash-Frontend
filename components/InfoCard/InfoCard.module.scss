@@ -1,38 +1,36 @@
 .card {
-    background: #FFFFFF;
-    box-shadow: 4px 4px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(24px);
-    border-radius: 32px;
-    max-width: 396px;
-    min-height: 500px;
-    padding: 60px 30px;
-    margin-right: 24px;
+  background: #ffffff;
+  box-shadow: 4px 4px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  border-radius: 32px;
+  max-width: 396px;
+  min-height: 500px;
+  padding: 60px 30px;
+  margin-right: 24px;
 
-    div {
-        margin-top: 48px;
-    }
+  div {
+    margin-top: 48px;
+  }
 
-    h3 {
-        font-weight: 600;
-        margin-bottom: 24px;
-        font-size: 1.5em;
-    }
+  h3 {
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-size: 1.5em;
+  }
 
-    p {
-        font-size: 1em;
-        line-height: 22px;
-    }
-    
-    h3, p {
-        text-align: start;
-    }
+  p {
+    font-size: 1em;
+    line-height: 22px;
+  }
 
+  h3,
+  p {
+    text-align: start;
+  }
 
-        // mobile screen
-    @media screen and (max-width: 768px) {
-
-        margin-right: 0px;
-        margin-top: 24px;
-    }
-
+  // mobile screen
+  @media screen and (max-width: 768px) {
+    margin-right: 0px;
+    margin-top: 24px;
+  }
 }
