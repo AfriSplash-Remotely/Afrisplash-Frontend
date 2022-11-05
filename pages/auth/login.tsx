@@ -68,7 +68,7 @@ const Login: NextPage = () => {
             <p className="text-center mt-4">
               Don&apos;t have an account?{" "}
               <span className="text-[#0D5520] underline font-[700]">
-                <Link href={"/auth/signup"}>Join now</Link>{" "}
+                <Link href={"/auth/verify-email"}>Join now</Link>{" "}
               </span>
             </p>
           </div>
