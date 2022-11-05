@@ -1,17 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import Mailbox from "assets/authentication/Mailbox.png";
+import Letter from "assets/authentication/Letter.png";
 
-function VectorBox() {
+function VectorBox2() {
   return (
     <div className="max-w-[271.02px] w-full h-56 mt-32 mr-auto ml-auto">
       <Image
         className="max-w-full h-auto ml-auto"
-        src={Mailbox}
-        alt="Mailbox.png"
+        src={Letter}
+        alt="Letter.png"
       />
     </div>
   );
 }
 
-export default VectorBox;
+export default VectorBox2;
