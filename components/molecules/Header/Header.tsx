@@ -34,7 +34,7 @@ const Header = (): JSX.Element => {
                   <span>Post a job</span>
                   <span>
                     <ArrowRightIcon className="w-5 h-4 " />
-                  </span>{" "}
+                  </span>
                 </button>
               </div>
             </div>

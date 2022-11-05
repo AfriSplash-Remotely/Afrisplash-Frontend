@@ -2,6 +2,7 @@ import React, { Ref } from "react";
 import PropTypes, { InferProps } from "prop-types";
 
 const BtnProps = {
+  onClick: PropTypes.func,
   classes: PropTypes.string,
   type: PropTypes.oneOf(["filled", "bordered"]),
   tag: PropTypes.elementType,

@@ -1,0 +1,18 @@
+@import "components/atoms/CheckBox/CheckBox.scss";
+@import "components/atoms/DropDown/DropDown.scss";
+@tailwind components;
+
+@layer components {
+  .applicantWrapper {
+    @apply grid col-start-2 col-span-full grid-cols-5 justify-self-stretch border border-solid 
+        overflow-visible px-3 py-4 place-self-start rounded-xl place-items-center;
+
+    .applicantDetails {
+      @apply grid col-start-1 col-end-3 grid-cols-4 grid-rows-1 justify-self-stretch p-4 capitalize place-items-center;
+    }
+
+    .actionButtons {
+      @apply grid col-start-3 grid-cols-2 col-span-full place-items-center;
+    }
+  }
+}

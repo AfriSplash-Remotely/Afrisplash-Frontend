@@ -31,7 +31,6 @@ const Company: NextPage = () => {
           </div>
           <div>
             <button className="flex items-center gap-3 bg-[#0D5520] px-3 py-3 w-44 rounded-xl">
-              {" "}
               <MagnifyingGlassIcon className="w-6 h-6 text-gray-50" />
               <span className="text-base text-gray-50"> Find Employer</span>
             </button>
@@ -41,7 +40,6 @@ const Company: NextPage = () => {
         <div className="mt-16">
           <div className="flex items-center gap-5 border-solid border border-gray-300 rounded-xl py-2 pl-2">
             <div className="w-16 h-16 bg-[#F2F2F7] flex items-center justify-center rounded-xl ">
-              {" "}
               <Image
                 src="/company/firstbank.png"
                 alt="company-image"
@@ -91,7 +89,7 @@ const Company: NextPage = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.{" "}
+                  laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
               </div>
 
