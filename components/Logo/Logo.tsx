@@ -7,9 +7,8 @@ class Logo extends Component {
   render() {
     return (
       <div className={styles.logo_main}>
-        {" "}
-        <Image src={logo} alt="logo.png" />{" "}
-        <p className={styles.logo_text}>AfriSplashRemotely</p>{" "}
+        <Image src={logo} alt="logo.png" />
+        <p className={styles.logo_text}>AfriSplashRemotely</p>
       </div>
     );
   }
