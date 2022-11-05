@@ -54,8 +54,7 @@ const DropDown = ({
                 key={optText}
                 className="text-sm block capitalize w-100 my-4 hover:cursor-pointer hover:underline"
               >
-                {" "}
-                {optText}{" "}
+                {optText}
               </span>
             ))}
           </div>
