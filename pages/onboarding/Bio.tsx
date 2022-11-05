@@ -37,7 +37,7 @@ const Bio = () => {
         >
           <input {...getInputProps()} />
           <p className="text-center">
-            Drag & drop your files here or{" "}
+            Drag & drop your files here or
             <span className="font-semibold underline cursor-pointer">
               browse
             </span>

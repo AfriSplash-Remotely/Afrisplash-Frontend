@@ -41,15 +41,14 @@ const HireTalent: NextPage = () => {
           <article className={styles.article1}>
             <h1>
               <span className={styles.green}>
-                {" "}
                 F<span className={styles.red}>in</span>d
-              </span>{" "}
+              </span>
               ,
               <span className={styles.green}>
                 At<span className={styles.red}>trac</span>t
-              </span>{" "}
+              </span>
               and <span className={styles.green}>H</span>
-              <span className={styles.red}>ire</span>{" "}
+              <span className={styles.red}>ire</span>
               <span className={styles.downH3}>AFRICAN TECH TALENTS 🌍</span>
             </h1>
             <p>
@@ -92,8 +91,7 @@ const HireTalent: NextPage = () => {
                 </li>
               </ul>
               <button className={styles.bookBtn}>
-                {" "}
-                <Image src={CallIcon} alt="" />{" "}
+                <Image src={CallIcon} alt="" />
                 <span className={styles.bookbtncontent}>Book a call now</span>
               </button>
             </div>
@@ -197,7 +195,7 @@ const HireTalent: NextPage = () => {
         <section className={styles.industrySection}>
           <h3>
             Work with remote-ready talents who learn how to do remote work right
-            from industry leaders{" "}
+            from industry leaders
           </h3>
           <div className={styles.industryImgContainer}>
             <Image src={MicrosoftLogo} alt="" />
