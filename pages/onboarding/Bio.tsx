@@ -17,8 +17,8 @@ const Bio = () => {
     accept: {
       "image/*": [".jpeg", ".png", ".svg"],
     },
-    onDrop: (acceptedFiles) => {
-      acceptedFiles.map((file) => {
+    onDrop: (acceptedFiles: any) => {
+      acceptedFiles.map((file: any) => {
         const imgURL = URL.createObjectURL(file);
         const formData = new FormData();
         formData.append("profile-picture", file, file.name);
