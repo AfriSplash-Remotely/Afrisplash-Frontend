@@ -31,9 +31,8 @@ const Login: NextPage = () => {
               className={`flex justify-center items-center ${styles.button}`}
             >
               <span className="mr-2">
-                {" "}
                 <Image src={google} alt="google icon" />
-              </span>{" "}
+              </span>
               Log in with Google
             </button>
 
@@ -66,9 +65,9 @@ const Login: NextPage = () => {
               Log in
             </button>
             <p className="text-center mt-4">
-              Don&apos;t have an account?{" "}
+              Don&apos;t have an account?
               <span className="text-[#0D5520] underline font-[700]">
-                <Link href={"/auth/signup"}>Join now</Link>{" "}
+                <Link href={"/auth/signup"}>Join now</Link>
               </span>
             </p>
           </div>
