@@ -4,45 +4,46 @@ import FeaturedImage from "assets/blog/laptop_office.jpg";
 import { ArticleProp } from "./ArticleInterface";
 import FeaturedPostCard from "./FeaturedPostCard";
 
-const mockdata: ArticleProp[] = [{
-  featuredImage: FeaturedImage,
-  title: "5 tips for a Product manager to ensure great collaboration... ",
-  category: "Product management",
-  author: {
-    fullname: "Abdulbasit Ibrahim",
-    image: AuthorImage,
+const mockdata: ArticleProp[] = [
+  {
+    featuredImage: FeaturedImage,
+    title: "5 tips for a Product manager to ensure great collaboration... ",
+    category: "Product management",
+    author: {
+      image: AuthorImage,
+      fullname: "Abdulbasit Ibrahim",
+    },
+    meta: {
+      publishedDate: "may 30",
+      readTime: "5min read",
+    },
   },
-  meta: {
-    publishedDate: "may 30",
-    readTime: "5min read",
+  {
+    featuredImage: FeaturedImage,
+    title: "5 tips for a Product manager to ensure great collaboration... ",
+    category: "Product management",
+    author: {
+      image: AuthorImage,
+      fullname: "Abdulbasit Ibrahim",
+    },
+    meta: {
+      publishedDate: "may 30",
+      readTime: "5min read",
+    },
   },
-},
-{
-  featuredImage: FeaturedImage,
-  title: "5 tips for a Product manager to ensure great collaboration... ",
-  category: "Product management",
-  author: {
-    image: AuthorImage,
-    fullname: "Abdulbasit Ibrahim",
+  {
+    featuredImage: FeaturedImage,
+    title: "5 tips for a Product manager to ensure great collaboration... ",
+    category: "Product management",
+    author: {
+      image: AuthorImage,
+      fullname: "Abdulbasit Ibrahim",
+    },
+    meta: {
+      publishedDate: "may 30",
+      readTime: "5min read",
+    },
   },
-  meta: {
-    publishedDate: "may 30",
-    readTime: "5min read",
-  },
-},
-{
-  featuredImage: FeaturedImage,
-  title: "5 tips for a Product manager to ensure great collaboration... ",
-  category: "Product management",
-  author: {
-    image: AuthorImage,
-    fullname: "Abdulbasit Ibrahim",
-  },
-  meta: {
-    publishedDate: "may 30",
-    readTime: "5min read",
-  },
-},
 ];
 
 const FeaturedPost = () => {

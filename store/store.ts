@@ -5,16 +5,16 @@ import counterReducer from "./general/counterSlice";
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    form: formReducer
+    form: formReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActionPaths: ["payload.formData"],
-        ignoredPaths: ["form.imgFile.formData"]
-      }
-    })
+        ignoredPaths: ["form.imgFile.formData"],
+      },
+    }),
 });
 // import rootReducer from "./reducers";
 

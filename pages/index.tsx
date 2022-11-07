@@ -1,4 +1,3 @@
-
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -38,8 +37,6 @@ const Jobs = () => {
     </section>
   );
 };
-
-
 
 const Home: NextPage = () => {
   const globalCompanies = [chipper, nextford, haulify, panther, rootlo, scopic];
