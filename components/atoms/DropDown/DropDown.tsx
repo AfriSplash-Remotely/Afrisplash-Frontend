@@ -40,8 +40,9 @@ const DropDown = ({
             {makeSelectOption}
           </span>
           <span
-            className="arrow hover:cursor-pointer hover:opacity-100 opacity-80"
-            onClick={() => onClick}
+            className="arrow hover:cursor-pointer
+                    hover:opacity-100 opacity-80"
+            onClick={() => onClick && onClick()}
           >
             {!isOpen ? (
               <ChevronDownIcon
