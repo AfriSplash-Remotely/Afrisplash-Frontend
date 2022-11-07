@@ -91,9 +91,10 @@ const Navigation = (): JSX.Element => {
                 <Link href={item.link} key={index}>
                   <li
                     onClick={() => handleMenuClick(item, index)}
-                    className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${item.active &&
+                    className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${
+                      item.active &&
                       "text-primary_green underline underline-offset-4"
-                      }`}
+                    }`}
                   >
                     <span>{item.title}</span>
                     <span>{item.icon ? item.icon : ""}</span>
@@ -124,9 +125,9 @@ const Navigation = (): JSX.Element => {
               <Bars3Icon className="w-8 h-6" />
             </div>
           </div>
-        </header >
-      </div >
-    </div >
+        </header>
+      </div>
+    </div>
   );
 };
 
