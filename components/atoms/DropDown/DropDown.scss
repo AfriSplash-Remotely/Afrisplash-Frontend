@@ -1,8 +1,7 @@
 @tailwind components;
 
 @layer components {
-  .dropDown {
-    @apply flex flex-row justify-between items-center shadow
-         relative h-11 border border-solid rounded-lg;
-  }
+    .dropDownWrapper {
+        @apply md:flex md:flex-col;
+ }
 }
