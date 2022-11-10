@@ -10,19 +10,30 @@ import nextford from "assets/icons/nextford.svg";
 import panther from "assets/icons/panther.svg";
 import rootlo from "assets/icons/rootlo.svg";
 import scopic from "assets/icons/scopic.svg";
+import { jobCat, jobData, talentDets, toArrayOfObjects } from "utils/fakeData";
+import JobCard from "components/jobCard";
+import JobCategory from "components/molecules/jobCategory";
+import TalentSummary from "components/molecules/TalentSummary";
 
-const Jobs = () => {
+const HomeJobs = () => {
+  const homeJobData = toArrayOfObjects(jobData[0], 5);
+  const homeJobCat = toArrayOfObjects(jobCat, 9);
   return (
     <section className={`w-full ${styles.job_wrapper}`}>
-      <div className="py-28">
-        <section>
-          <div className="text-center space-y-3">
+      <div className="py-28 space-y-24 w-11/12 xl:w-10/12 mx-auto">
+        <section className="space-y-10">
+          <div className="text-center space-y-5">
             <h2 className="text-4xl font-semibold">Popular job categories</h2>
             <p className="text-gray-500">224 live | 49 added today</p>
           </div>
+          <div className="w-full flex flex-wrap justify-between ">
+            {homeJobCat.map((data: any, index: number) => (
+              <JobCategory key={index} data={data} />
+            ))}
+          </div>
         </section>
-        <section>
-          <div className="text-center space-y-3">
+        <section className="space-y-16 ">
+          <div className="text-center space-y-8">
             <h2 className="text-4xl font-semibold">Featured jobs</h2>
             <div className="text-gray-500">
               <p>Your dream remote job is an application away.</p>
@@ -31,6 +42,55 @@ const Jobs = () => {
                 work and succeed from anywhere.
               </p>
             </div>
+          </div>
+          <div className="w-full">
+            {homeJobData.map(
+              (data, index): JSX.Element => (
+                <div key={index}>
+                  <JobCard
+                    image={data.image}
+                    alt={"company image"}
+                    company={data.company}
+                    service={data.service}
+                    employees={data.employees}
+                    offer={data.offer}
+                    priceRange={data.priceRange}
+                    postDate={data.postDate}
+                    hiring={data.hiring}
+                    promoted={data.promoted}
+                  />
+                </div>
+              )
+            )}
+          </div>
+        </section>
+      </div>
+    </section>
+  );
+};
+
+const Talents = () => {
+  const homeTalents = toArrayOfObjects(talentDets, 12);
+
+  return (
+    <section className="w-full ">
+      <div className="py-28 space-y-24 w-11/12 xl:w-10/12 mx-auto">
+        <section>
+          <div className="text-center space-y-5">
+            <h3 className="capitalize font-semibold text-4xl">
+              our top talents
+            </h3>
+            <div className="text-gray-500 flex justify-center">
+              <p className="w-5/12">
+                Browse through the talent pool from our community and partners.
+                Find tech and non-tech talents in weeks, not months.
+              </p>
+            </div>
+          </div>
+          <div className="w-full flex flex-wrap justify-between ">
+            {homeTalents.flatMap((item: any, index: number) => (
+              <TalentSummary key={index} data={item} />
+            ))}
           </div>
         </section>
       </div>
@@ -60,7 +120,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <Jobs />
+      <HomeJobs />
+      <Talents />
     </GeneralLayout>
   );
 };
