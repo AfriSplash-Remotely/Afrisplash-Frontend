@@ -2,7 +2,31 @@ import CameronImage from "assets/teams/cameron.png";
 import JacobImage from "assets/teams/jacob.png";
 import RobertImage from "assets/teams/robert.png";
 import WadeImage from "assets/teams/wade.png";
+import TalentImage from "assets/home-page/talent_1.jpg";
+import { FiBriefcase } from "react-icons/fi";
 
+export const toArrayOfObjects = (objectDetails: any, length: number) => {
+  let data: Array<any> = [];
+  for (let i = 0; i < length; i++) {
+    data = [...data, objectDetails];
+  }
+  return data;
+};
+export const jobCat = {
+  Icon: FiBriefcase,
+  name: "engineering",
+  openPositions: 20,
+};
+
+export const talentDets = {
+  image: TalentImage,
+  name: "Mubarak Show",
+  role: "Senior developer",
+  jobType: "Full time",
+  jobLocation: "Remote, hybrid",
+  rating: "gold",
+  flag: "ghana",
+};
 export const jobData = [
   {
     image: "/company/google.png",
@@ -51,7 +75,7 @@ export const teamData = [
   },
 ];
 
-export const jobOpeneingsData = [
+export const jobOpeningsData = [
   {
     image: "/company/standard.png",
     position: "Product Manager",

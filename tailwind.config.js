@@ -2,14 +2,14 @@
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
       sm: "380px",
       md: "740px",
       lg: "980px",
-      xl: "1440px"
+      xl: "1440px",
     },
     extend: {
       colors: {
@@ -22,6 +22,7 @@ module.exports = {
         dark_blue: "#1C1D36",
         white_2: "#F8F8F8",
         light_green: "#D6ECDC",
+        dark_500: "rgba(0, 0, 0, 0.67)",
       },
     },
   },
