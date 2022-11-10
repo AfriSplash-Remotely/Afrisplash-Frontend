@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
+import { HiBolt } from "react-icons/hi2";
 import Button from "components/atoms/Button/Button";
 
 const jobDataProps = {
@@ -20,6 +21,7 @@ const jobDataProps = {
   alt: PropTypes.string,
   hiring: PropTypes.bool,
   promoted: PropTypes.bool,
+  isDirectApply: PropTypes.bool,
   forDashboard: PropTypes.bool,
 };
 
@@ -32,6 +34,7 @@ const JobCard = ({
   priceRange,
   postDate,
   alt,
+  isDirectApply,
   hiring,
   promoted,
   forDashboard = false,
@@ -91,6 +94,11 @@ const JobCard = ({
           {promoted === true && !forDashboard && (
             <div className="bg-amber-500/20 py-3 px-5 rounded-full text-xs font-medium">
               PROMOTED
+            </div>
+          )}
+          {isDirectApply === true && (
+            <div className="flex gap-2 bg-blue-500/20 text-blue-800 py-3 px-5 rounded-full text-xs font-medium">
+              <HiBolt size="1rem" /> Direct Apply
             </div>
           )}
         </div>
