@@ -1,0 +1,49 @@
+import React from "react";
+import PropTypes, { InferProps } from "prop-types";
+import { HiStar } from "react-icons/hi";
+import { HiOutlinePencilSquare } from "react-icons/hi2";
+
+import PositionCard from "./PositionCard";
+
+const ExperienceCardProps = {
+  positions: PropTypes.array.isRequired,
+};
+
+function ExperienceCard({
+  positions,
+}: InferProps<typeof ExperienceCardProps>): JSX.Element {
+  return (
+    <div className="rounded-xl bg-white">
+      <div className="flex w-full items-center p-4">
+        <div className="w-9 h-9">
+          <div className="flex items-center justify-center flex-1 h-full p-1.5 bg-green-900 rounded-xl">
+            <div className="flex-1 h-full text-white">
+              <HiStar size="1rem" />
+            </div>
+          </div>
+        </div>
+        <p className="text-lg font-bold w-full mx-1">Experience</p>
+        <div className="w-6 h-6">
+          <div className="flex items-center justify-center flex-1 h-full p-1 border rounded-lg border-gray-400">
+            <div className="flex-1 h-full rounded-full">
+              <HiOutlinePencilSquare size="1rem" />
+            </div>
+          </div>
+        </div>
+      </div>
+      {positions &&
+        positions.map((position, index) => {
+          return (
+            <div key={position.id + index}>
+              <PositionCard {...position} />
+              {positions.length > index + 1 && (
+                <hr className="h-0 w-full border-b border-gray-100" />
+              )}
+            </div>
+          );
+        })}
+    </div>
+  );
+}
+
+export default ExperienceCard;
