@@ -36,10 +36,10 @@ const JobCard = ({
 }: InferProps<typeof jobDataProps>) => {
   return (
     <div>
-      <div className="border border-solid border-gray-300 rounded-3xl p-3  mt-5">
+      <div className="bg-white rounded-xl border border-gray-200 p-3  mt-5">
         <div className="flex justify-between ">
-          <div className="flex items-center gap-3">
-            <div className="p-4 bg-gray-50  border border-solid border-[#C4C4C4] rounded-xl">
+          <div className="flex items-start gap-3">
+            <div className="py-2 px-3 flex items-center bg-gray-50  border border-solid border-[#C4C4C4] rounded-xl">
               <Image
                 src={image as string}
                 alt={alt as string}
@@ -64,20 +64,20 @@ const JobCard = ({
         <div className="flex items-center gap-6 mt-6">
           <div>
             {hiring === true ? (
-              <div className="flex items-center gap-2 bg-[#CFDDD2] p-2 rounded-full">
-                <CheckCircleIcon className="w-5 h-5 bg-[#0D5520] text-gray-200 rounded-full" />
+              <div className="flex items-center gap-2 bg-[#CFDDD2] py-2 px-2 rounded-3xl">
+                <CheckCircleIcon className="w-4 h-4 bg-[#0D5520] text-gray-200 rounded-full" />
                 <p className="text-[#0D5520] text-xs font-medium">
                   ACTIVELY HIRING
                 </p>
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <CheckCircleIcon className="w-5 h-5" />
+                <CheckCircleIcon className="w-4 h-4" />
                 <p>NOT HIRING</p>
               </div>
             )}
           </div>
-          <div className="bg-[#FFC42D33] py-3 px-5 rounded-full text-xs font-medium">
+          <div className="bg-[#FFC42D33] py-2 px-3 rounded-3xl text-xs font-medium">
             {promoted === true ? "PROMOTED" : ""}
           </div>
         </div>
@@ -93,12 +93,14 @@ const JobCard = ({
               <Button
                 text={"Save"}
                 classes={
-                  "border border-solid border-[#0D5520] px-4 py-1.5 rounded-lg"
+                  "border border-solid text-sm border-[#0D5520] px-4 py-1.5 rounded-lg"
                 }
               />
               <Button
                 text={"Apply"}
-                classes={"bg-[#0D5520] text-[white] px-4 py-1.5 rounded-lg"}
+                classes={
+                  "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg"
+                }
               />
             </div>
           </div>
