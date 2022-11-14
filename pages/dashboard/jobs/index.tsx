@@ -47,9 +47,9 @@ const Jobs: NextPage = () => {
         </div>
       </div>
       <div className="my-8 font-medium">Jobs Found (45)</div>
-      {jobData.flatMap((data): JSX.Element => {
+      {jobData.flatMap((data, index): JSX.Element => {
         return (
-          <div>
+          <div key={index}>
             <JobCard
               forDashboard={true}
               image={data.image}
