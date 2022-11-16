@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
-import Tabs from "components/Forum/TabComponent/Tabs"
+import Tabs from "components/Forum/Tabs"
 import AdminLayout from "layouts/adminLayout";
 
 

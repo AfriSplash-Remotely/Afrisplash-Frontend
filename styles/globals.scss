@@ -21,3 +21,18 @@
   }
 }
 
+.active{
+  color: #0D5520;
+
+}
+.active::after{
+  content: "";
+  width: 100px;
+  height: 4px;
+  border-radius: 12px;
+  position: absolute;
+  background-color: #0D5520;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
