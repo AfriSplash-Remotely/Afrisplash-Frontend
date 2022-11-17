@@ -6,6 +6,7 @@ import {
   HiOutlineClock,
   HiOutlineBriefcase,
 } from "react-icons/hi2";
+import ToggleButton from "components/atoms/ToggleButton";
 import ExperienceCard from "components/ExperienceCard";
 import AdminLayout from "layouts/adminLayout";
 
@@ -51,27 +52,32 @@ const Blog: NextPage = () => {
                 className="w-16 h-16 border-4 rounded-full border-white"
                 src="https://via.placeholder.com/70.875x72"
               />
-              <div>
-                <p className="text-lg font-bold mb-4 ">Adaeze Ruby</p>
-                <div className="flex space-x-2 items-center w-24 h-4 mb-2 ">
-                  <div className="w-1/6 h-4">
-                    <div className="h-full p-0.5 bg-green-100 rounded">
-                      <HiOutlineClock size="1rem" />
+              <div className="w-full">
+                <ProfileCardHeader title="Adaeze Ruby" />
+                <div className="flex w-full">
+                  <div className="w-full">
+                    <div className="flex space-x-2 items-center w-24 h-4 mb-2 ">
+                      <div className="w-1/6 h-4">
+                        <div className="h-full p-0.5 bg-green-100 rounded">
+                          <HiOutlineClock size="1rem" />
+                        </div>
+                      </div>
+                      <p className="text-sm text-black text-opacity-60">
+                        Full - Time
+                      </p>
+                    </div>
+                    <div className="flex space-x-1.5 items-center w-36 h-4">
+                      <div className="w-4 h-4">
+                        <div className="h-full p-0.5 bg-green-100 rounded">
+                          <HiOutlineBriefcase size="1rem" />
+                        </div>
+                      </div>
+                      <p className="text-sm text-black text-opacity-60">
+                        Product Designer
+                      </p>
                     </div>
                   </div>
-                  <p className="text-sm text-black text-opacity-60">
-                    Full - Time
-                  </p>
-                </div>
-                <div className="flex space-x-1.5 items-center w-36 h-4">
-                  <div className="w-4 h-4">
-                    <div className="h-full p-0.5 bg-green-100 rounded">
-                      <HiOutlineBriefcase size="1rem" />
-                    </div>
-                  </div>
-                  <p className="text-sm text-black text-opacity-60">
-                    Product Designer
-                  </p>
+                  <ToggleButton onChange={console.log} />
                 </div>
               </div>
             </div>
@@ -81,7 +87,7 @@ const Blog: NextPage = () => {
             <div className="p-4">
               <ProfileCardHeader title="Bio" />
               <div>
-                <p className="w-80 text-base leading-snug text-gray-500">
+                <p className=" text-base leading-snug text-gray-500">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Voluptatum cumque possimus laboriosam iste blanditiis laborum
                   omnis tempora est eos minus veniam molestias sapiente
@@ -93,13 +99,13 @@ const Blog: NextPage = () => {
 
             <div className="p-4">
               <ProfileCardHeader title="Contact" />
-              <div className="w-80 text-base leading-snug text-gray-500">
+              <div className=" text-base leading-snug text-gray-500">
                 <span className="font-semibold">Email:</span> someone@email.com
               </div>
-              <div className="w-80 text-base leading-snug text-gray-500">
+              <div className=" text-base leading-snug text-gray-500">
                 <span className="font-semibold">Phone:</span> +234 8130312056
               </div>
-              <div className="w-80 text-base leading-snug text-gray-500">
+              <div className=" text-base leading-snug text-gray-500">
                 <span className="font-semibold">Location:</span> Nigeria
               </div>
             </div>
@@ -118,7 +124,7 @@ const Blog: NextPage = () => {
             <div className="p-4">
               <ProfileCardHeader title="Languages" />
               <div>
-                <div className="w-80 text-base leading-snug text-gray-500 flex gap-2">
+                <div className=" text-base leading-snug text-gray-500 flex gap-2">
                   <div>
                     <span className="font-semibold">English - </span> Fluent
                   </div>

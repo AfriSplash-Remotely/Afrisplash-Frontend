@@ -17,9 +17,11 @@ function PositionCard({
   return (
     <div className="py-6 px-4">
       <p className="text-base font-bold">{year}</p>
-      <p className="text-base font-bold text-green-900">{company}</p>
-      <p className="text-base leading-snug text-gray-500 my-2">{jobTitle}</p>
-      <p className="w-80 text-base leading-snug text-gray-500 ">
+      <p className="text-base font-bold text-green-900 break-all">{company}</p>
+      <p className="text-base leading-snug text-gray-500 my-2 break-all">
+        {jobTitle}
+      </p>
+      <p className=" text-base leading-snug text-gray-500 break-all">
         {description}
       </p>
     </div>
