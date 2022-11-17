@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { MentorCard, MentorTab } from './MentorCardComponent'
 import { TabContent, TabNavItem } from './TabComponent'
 
 export default function Tabs() {
@@ -14,11 +15,16 @@ export default function Tabs() {
                 <TabNavItem title='Splash rooms' id='tab2' activeTab={activeTab} setActiveTab={setActiveTab} />
                 <TabNavItem title='Mentors' id='tab3' activeTab={activeTab} setActiveTab={setActiveTab} />
             </ul>
-
             <div className='mt-4'>
                 <TabContent id='tab1' activeTab={activeTab}>Trending topics</TabContent>
                 <TabContent id='tab2' activeTab={activeTab}>splash rooms</TabContent>
-                <TabContent id='tab3' activeTab={activeTab}>tab3</TabContent>
+                <TabContent id='tab3' activeTab={activeTab}>
+                    <MentorTab />
+                    <div className='grid gap-3 lg:grid-cols-3'>
+                        <MentorCard />
+
+                    </div>
+                </TabContent>
             </div>
         </div>
     )
