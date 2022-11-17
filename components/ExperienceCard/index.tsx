@@ -1,8 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
-import { HiStar } from "react-icons/hi";
 import { HiOutlinePencilSquare } from "react-icons/hi2";
-
+import AwardIcon from "assets/admin_icons/award.svg";
 import PositionCard from "./PositionCard";
 
 const ExperienceCardProps = {
@@ -18,7 +18,14 @@ function ExperienceCard({
         <div className="w-9 h-9">
           <div className="flex items-center justify-center flex-1 h-full p-1.5 bg-green-900 rounded-xl">
             <div className="flex-1 h-full text-white">
-              <HiStar size="1rem" />
+              <div className="h-6 w-6 relative">
+                <Image
+                  src={AwardIcon}
+                  alt="award-icon"
+                  aria-hidden="true"
+                  layout="fill"
+                />
+              </div>
             </div>
           </div>
         </div>
