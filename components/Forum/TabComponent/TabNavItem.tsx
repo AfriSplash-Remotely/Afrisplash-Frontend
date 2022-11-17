@@ -10,7 +10,7 @@ export default function TabNavItem({ id, title, activeTab, setActiveTab }:
     return (
         <li
             onClick={handleClick}
-            className={activeTab === id ? "active text-lg font-bold  cursor-pointer mb-2" : "list-none mb-2 text-right text-gray-300 text-lg font-bold relative cursor-pointer"}>
+            className={activeTab === id ? "active text-lg font-bold cursor-pointer mb-2" : "list-none mb-2 text-right text-gray-300 text-lg font-bold relative cursor-pointer"}>
             {title}
         </li>
     )
