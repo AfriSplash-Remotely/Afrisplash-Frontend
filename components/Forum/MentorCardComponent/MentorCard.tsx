@@ -14,7 +14,7 @@ const MentorCardProps = {
     src: PropTypes.string
 }
 
-export default function MentorCard({ name, role, position, flag, src }: InferProps<typeof MentorCardProps>) {
+export default function MentorCard({ name, role, position, flag, src }: InferProps<typeof MentorCardProps>): JSX.Element {
     return (
         <div
             className='w-full rounded-xl p-4 shadow-sm  bg-no-repeat space-y-40 mt-2'
