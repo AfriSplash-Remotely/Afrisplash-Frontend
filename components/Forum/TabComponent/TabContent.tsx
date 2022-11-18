@@ -7,7 +7,7 @@ const TabContentProps = {
     children: PropTypes.any
 }
 
-export default function TabContent({ id, activeTab, children }: InferProps<typeof TabContentProps>) {
+export default function TabContent({ id, activeTab, children }: InferProps<typeof TabContentProps>): JSX.Element | null {
     return (
         activeTab === id ? <div>
             {/* content */}
