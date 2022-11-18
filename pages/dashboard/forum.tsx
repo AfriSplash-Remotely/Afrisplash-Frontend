@@ -9,8 +9,6 @@ const Forum: NextPage = () => {
     <div className="mt-4">
       <Tabs />
     </div>
-
-
   </AdminLayout>;
 };
 

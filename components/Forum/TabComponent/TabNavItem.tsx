@@ -1,8 +1,14 @@
 import React from 'react'
+import PropTypes, { InferProps } from "prop-types";
 
+const TabNavItemProps = {
+    id: PropTypes.string,
+    title: PropTypes.string,
+    activeTab: PropTypes.string,
+    setActiveTab: PropTypes.any
+}
 
-export default function TabNavItem({ id, title, activeTab, setActiveTab }:
-    { id: string, title: string, activeTab: string, setActiveTab: any }) {
+export default function TabNavItem({ id, title, activeTab, setActiveTab }: InferProps<typeof TabNavItemProps>) {
 
     const handleClick = () => {
         setActiveTab(id)
