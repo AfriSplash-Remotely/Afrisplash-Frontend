@@ -8,7 +8,7 @@ const TabNavItemProps = {
     setActiveTab: PropTypes.any
 }
 
-export default function TabNavItem({ id, title, activeTab, setActiveTab }: InferProps<typeof TabNavItemProps>) {
+export default function TabNavItem({ id, title, activeTab, setActiveTab }: InferProps<typeof TabNavItemProps>): JSX.Element {
 
     const handleClick = () => {
         setActiveTab(id)

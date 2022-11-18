@@ -90,7 +90,7 @@ const mentorsData = [
 
 ]
 
-export default function Tabs() {
+export default function Tabs(): JSX.Element {
 
     const [activeTab, setActiveTab] = useState<string>("tab1")
 
