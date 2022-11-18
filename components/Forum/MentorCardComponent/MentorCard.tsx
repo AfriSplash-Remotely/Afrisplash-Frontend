@@ -2,24 +2,19 @@ import React from 'react'
 import Image from 'next/image'
 import PropTypes, { InferProps } from "prop-types";
 
-
-
 const MentorCardProps = {
     name: PropTypes.string,
     role: PropTypes.string,
     position: PropTypes.string,
-    flag: PropTypes.any
+    flag: PropTypes.any,
+    src: PropTypes.string
 }
 
-export default function MentorCard({ name, role, position, flag }: InferProps<typeof MentorCardProps>) {
+export default function MentorCard({ name, role, position, flag, src }: InferProps<typeof MentorCardProps>) {
     return (
         <div
             className='w-full rounded-xl p-4 shadow-sm  bg-no-repeat space-y-40 mt-2'
-            style={{ backgroundImage: `url('https://res.cloudinary.com/ddfbgvxgw/image/upload/v1666091375/cld-sample-3.jpg')` }}
-            // style={{ backgroundImage: `url(/hire-talent-assets/img_1.png')` }}
-
-            // style={{ backgroundImage: `url(${ddjd})` }}
-
+            style={{ backgroundImage: `url(${src})` }}
         >
             <div className='flex justify-between'>
                 <div className='p-2  rounded-full mentorCardBtn cursor-pointer'>
@@ -53,7 +48,7 @@ export default function MentorCard({ name, role, position, flag }: InferProps<ty
                             <path d="M3 15.055v-.684c.126.053.255.1.39.142 2.092.642 4.313.987 6.61.987 2.297 0 4.518-.345 6.61-.987.135-.041.264-.089.39-.142v.684c0 1.347-.985 2.53-2.363 2.686a41.454 41.454 0 01-9.274 0C3.985 17.585 3 16.402 3 15.055z" />
                         </svg>
                     </div>
-                    <h5 className='pl-2 text-lg text-white_2'>{position}</h5>
+                    <h5 className='pl-2 text-lg text-white_2 font-medium'>{position}</h5>
                 </div>
                 <div className='mt-2 flex items-center'>
                     <div className='p-2  rounded-md mentorCardBtn'>
@@ -62,7 +57,7 @@ export default function MentorCard({ name, role, position, flag }: InferProps<ty
                             <path d="M3 15.055v-.684c.126.053.255.1.39.142 2.092.642 4.313.987 6.61.987 2.297 0 4.518-.345 6.61-.987.135-.041.264-.089.39-.142v.684c0 1.347-.985 2.53-2.363 2.686a41.454 41.454 0 01-9.274 0C3.985 17.585 3 16.402 3 15.055z" />
                         </svg>
                     </div>
-                    <h5 className='pl-2 text-lg truncate text-white_2'>{role}</h5>
+                    <h5 className='pl-2 text-lg truncate text-white_2 font-medium' >{role}</h5>
                 </div>
             </div>
         </div>
