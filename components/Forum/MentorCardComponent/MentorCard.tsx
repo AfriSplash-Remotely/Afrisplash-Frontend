@@ -17,7 +17,7 @@ const MentorCardProps = {
 export default function MentorCard({ name, role, position, flag, src }: InferProps<typeof MentorCardProps>): JSX.Element {
     return (
         <div
-            className='w-full rounded-xl p-4 shadow-sm  bg-no-repeat space-y-40 mt-2'
+            className='w-full rounded-xl p-4 bg-cover shadow-sm  bg-no-repeat space-y-40 mt-2'
             style={{ backgroundImage: `url(${src})` }}
         >
             <div className='flex justify-between'>
