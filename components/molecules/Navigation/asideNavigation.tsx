@@ -21,7 +21,7 @@ const TopMembers: Links[] = [
   },
   {
     icon: User,
-    name: "Sam 001",
+    name: "Sam Beast",
   },
   {
     icon: User,
