@@ -1,23 +1,24 @@
 import React from 'react'
+import Link from 'next/link';
 import PropTypes, { InferProps } from "prop-types";
 
 const TabNavItemProps = {
-    id: PropTypes.string,
     title: PropTypes.string,
-    activeTab: PropTypes.string,
-    setActiveTab: PropTypes.any
+    isActive: PropTypes.bool.isRequired,
+    routeLink: PropTypes.string.isRequired
 }
 
-export default function TabNavItem({ id, title, activeTab, setActiveTab }: InferProps<typeof TabNavItemProps>): JSX.Element {
+export default function TabNavItem({ title, isActive, routeLink }: InferProps<typeof TabNavItemProps>): JSX.Element {
 
-    const handleClick = () => {
-        setActiveTab(id)
-    }
     return (
-        <li
-            onClick={handleClick}
-            className={activeTab === id ? "active text-lg font-bold cursor-pointer mb-2" : "list-none mb-2 text-right text-gray-300 text-lg font-bold relative cursor-pointer"}>
-            {title}
-        </li>
+        <Link href={routeLink}>
+            <a>
+                <div
+                    className={isActive ? "active text-lg font-bold cursor-pointer mb-2" : "list-none mb-2 text-right text-gray-300 text-lg font-bold relative cursor-pointer"}>
+                    {title}
+                </div>
+            </a>
+        </Link>
+
     )
 }
