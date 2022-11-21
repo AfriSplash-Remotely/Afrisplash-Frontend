@@ -2,14 +2,15 @@
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
       sm: "380px",
       md: "740px",
       lg: "980px",
-      xl: "1440px"
+      xx: "1200px",
+      xl: "1440px",
     },
     extend: {
       colors: {
