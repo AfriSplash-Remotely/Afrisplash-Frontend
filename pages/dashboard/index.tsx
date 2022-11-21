@@ -1,14 +1,13 @@
 import React from "react";
 import { NextPage } from "next";
+import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
-import {
-  HiOutlinePencilSquare,
-  HiOutlineClock,
-  HiOutlineBriefcase,
-} from "react-icons/hi2";
 import ToggleButton from "components/atoms/ToggleButton";
 import ExperienceCard from "components/ExperienceCard";
 import AdminLayout from "layouts/adminLayout";
+import BrifecaseIcon from "assets/admin_icons/brifecase-cross.svg";
+import ClockIcon from "assets/admin_icons/clock.svg";
+import EditIcon from "assets/admin_icons/edit-2.svg";
 
 const positions = [
   {
@@ -30,8 +29,13 @@ function ProfileCardHeader({
       <p className="text-lg font-bold w-full mx-1">{title}</p>
       <div className="w-6 h-6">
         <div className="flex items-center justify-center flex-1 h-full p-1 border rounded-lg border-gray-400">
-          <div className="flex-1 h-full rounded-full">
-            <HiOutlinePencilSquare size="1rem" />
+          <div className="flex-1 h-6 w-6 relative rounded-full">
+            <Image
+              src={EditIcon}
+              alt="edit-icon"
+              aria-hidden="true"
+              layout="fill"
+            />
           </div>
         </div>
       </div>
@@ -58,8 +62,13 @@ const Blog: NextPage = () => {
                   <div className="w-full">
                     <div className="flex space-x-2 items-center w-24 h-4 mb-2 ">
                       <div className="w-1/6 h-4">
-                        <div className="h-full p-0.5 bg-green-100 rounded">
-                          <HiOutlineClock size="1rem" />
+                        <div className="h-4 w-4 relative p-0.5 bg-green-100 rounded">
+                          <Image
+                            src={ClockIcon}
+                            alt="edit-icon"
+                            aria-hidden="true"
+                            layout="fill"
+                          />{" "}
                         </div>
                       </div>
                       <p className="text-sm text-black text-opacity-60">
@@ -68,8 +77,13 @@ const Blog: NextPage = () => {
                     </div>
                     <div className="flex space-x-1.5 items-center w-36 h-4">
                       <div className="w-4 h-4">
-                        <div className="h-full p-0.5 bg-green-100 rounded">
-                          <HiOutlineBriefcase size="1rem" />
+                        <div className="h-4 w-4 relative p-0.5 bg-green-100 rounded">
+                          <Image
+                            src={BrifecaseIcon}
+                            alt="edit-icon"
+                            aria-hidden="true"
+                            layout="fill"
+                          />{" "}
                         </div>
                       </div>
                       <p className="text-sm text-black text-opacity-60">
