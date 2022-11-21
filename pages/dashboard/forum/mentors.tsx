@@ -1,29 +1,31 @@
 import React from "react";
 import { NextPage } from "next";
-import { MentorCard, MentorTab } from 'components/Forum/MentorCardComponent';
+import { MentorCard, MentorTab } from "components/Forum/MentorCardComponent";
 import ForumLayout from "layouts/forumLayout";
-import { mentorsData } from 'utils/fakeData';
-
+import styles from "styles/Forum.module.scss";
+import { mentorsData } from "utils/fakeData";
 
 const Mentors: NextPage = () => {
-    return (
-        <ForumLayout>
-            <MentorTab />
+  return (
+    <ForumLayout>
+      <div className={` ${styles.fill} w-full sm:pr-10 lg:pr-8 xl:pr-44`}>
+        <MentorTab />
 
-            <div className='grid gap-6 lg:grid-cols-3'>
-                {mentorsData.map(mentor => (
-                    <MentorCard
-                        key={mentor.id}
-                        name={mentor.name}
-                        position={mentor.position}
-                        role={mentor.role}
-                        flag={mentor.flag}
-                        src={mentor.src} />
-                ))}
-            </div>
-
-        </ForumLayout>
-    );
+        <div className="grid gap-6 lg:grid-cols-3">
+          {mentorsData.map((mentor) => (
+            <MentorCard
+              key={mentor.id}
+              name={mentor.name}
+              position={mentor.position}
+              role={mentor.role}
+              flag={mentor.flag}
+              src={mentor.src}
+            />
+          ))}
+        </div>
+      </div>
+    </ForumLayout>
+  );
 };
 
 export default Mentors;
