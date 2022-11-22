@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Timeline.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
+
 
 const Timeline = ({ 
   isJobDetails,
@@ -50,8 +50,8 @@ const Timeline = ({
     }
   };
   return (
-    <div className={styles.timelineContainer}>
-      <div className="w-4/12">
+    <div className={`${styles.timelineContainer} w-full flex align-center justify-between px-5`}>
+      <div className="sm:w-4/12">
         <div
           className={styles.JobDetails}
           style={{
@@ -62,23 +62,20 @@ const Timeline = ({
         ></div>
 
         {!isJobDetails ? (
-          <label className={styles.container}>
-            <span className={styles.description}>Job details</span>
+          <label className={`${styles.container} md:flex md:align-center`}>
             <input
               type="radio"
               name="radio"
               value="job-details"
               onChange={handleRadioChange}
             />
+            <span className={`${styles.description}`}>Job details</span>
             <span className={styles.checkmark}></span>
           </label>
         ) : (
-          <div className={styles.container}>
-            <FontAwesomeIcon
-              icon={faCheckCircle}
-              className={styles.fontIcon}
-            />
-            <span className={styles.description}>Job details</span>
+          <div className={`{styles.container} flex align-center my-3 mx-1`}>
+            <CheckCircleIcon className='h-5 w-5 mr-1 fill-[#0D5520] stroke-white' />
+            <span className={`${styles.description}`}>Job details</span>
           </div>
         )}
       </div>
@@ -94,7 +91,7 @@ const Timeline = ({
         ></div>
         {!isPackagePlan ? (
           <label className={styles.container}>
-            <span className={`${styles.description}`}>Package & plan</span>
+            <span className={`${`${styles.packagePlan}`}`}>Package & plan</span>
             <input
               type="radio"
               name="radio"
@@ -104,12 +101,9 @@ const Timeline = ({
             <span className={styles.checkmark}></span>
           </label>
         ) : (
-          <div className={styles.container}>
-            <FontAwesomeIcon
-              icon={faCheckCircle}
-              className={styles.fontIcon}
-            />
-            <span className={`${styles.description} md:text-sm sm:text-xs`}>Package & plan</span>
+          <div className='flex align-center my-3 mx-1'>
+            <CheckCircleIcon className='h-5 w-5 mr-1 fill-[#0D5520] stroke-white' />
+            <span className={`${`${styles.packagePlan}`}`}>Package & plan</span>
           </div>
         )}
       </div>
@@ -124,7 +118,7 @@ const Timeline = ({
         ></div>
         {!isConfirmation? (
           <label className={styles.container}>
-            <span className={styles.description}>Confirmation</span>
+            <span className={`${styles.description}`}>Confirmation</span>
             <input
               type="radio"
               name="radio"
@@ -134,12 +128,9 @@ const Timeline = ({
             <span className={styles.checkmark}></span>
           </label>
         ) : (
-          <div className={styles.container}>
-            <FontAwesomeIcon
-              icon={faCheckCircle}
-              className={styles.fontIcon}
-            />
-            <span className={styles.description}>Confirmation</span>
+          <div className='flex align-center my-3 mx-1'>
+            <CheckCircleIcon className='h-5 w-5 mr-1 fill-[#0D5520] stroke-white' />
+            <span className={`${styles.description}`}>Confirmation</span>
           </div>
         )}
       </div>

@@ -3,14 +3,14 @@ import Button from "components/atoms/Button/Button";
 import Image from "next/image";
 import React from "react";
 import ConfirmationBackgroundImage from "../../../assets/confirmation.svg";
-import styles from "./Confirmation.module.scss";
+import styles from "./JobConfirmation.module.scss";
 
 const Confirmation = () => {
   return (
     <div className={styles.confirmationContainer}>
       <div className="w-6/12 mx-auto">
         <Image src={ConfirmationBackgroundImage} alt="" width={825} />
-        <div className='text-center my-5 font-thin'>
+        <div className='text-center my-5 font-[400]'>
           <p>
             Thank you for submitting, your job has been posted. if you need help
             please contact us via

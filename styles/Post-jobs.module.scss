@@ -1,29 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik&display=swap");
 
-
-// .parentContainer {
-//   width: 65%;
-//   margin: 0 auto;
-// }
-
 .headerWrapper {
   color: #33344a;
-  
+
   .header {
-    margin-top: 56px;
-    margin-bottom: 16px;
     font-weight: 500;
-    font-size: 54px;
     line-height: 64px;
-    text-align: center;
   }
 
   .subHeader {
     font-weight: 400;
-    font-size: 20px;
     line-height: 26px;
-    margin-bottom: 72px;
-    text-align: center;
   }
 }
 
@@ -31,18 +18,52 @@
   color: #000;
   .h3 {
     font-weight: 500;
-    font-size: 28px;
     line-height: 36px;
     margin-bottom: 8px;
+    font-size: 1.75rem;
   }
-  .midSectionContent {
-    width: 510px;
-    height: 168px;
+  @media screen and (max-width: 600px) {
+    .h3 {
+      font-weight: 500;
+      line-height: 2.25rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  //smaller screen
+  @media screen and (max-width: 400px) {
+    .h3 {
+      font-weight: 500;
+      line-height: 2.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.midSectionContent {
+  .p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  @media screen and (max-width: 600px) {
     .p {
-      line-height: 24px;
       font-weight: 400;
-      font-size: 16px;
-      margin-bottom: 20px;
+      line-height: 1.3rem;
+      margin-bottom: 1rem;
+      font-size: .8rem;
+    }
+  }
+
+  //smaller screen
+  @media screen and (max-width: 400px) {
+    .p {
+      font-weight: 400;
+      line-height: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
     }
   }
 }
@@ -61,14 +82,12 @@
     background-image: url("../assets/clipboard.svg");
     background-repeat: no-repeat;
     background-position: 2% 50%;
-    padding-left:50px;
     outline: none;
   }
   ::placeholder {
     padding-left: 1px;
   }
   .button {
-    width: 25%;
     height: 80%;
     background: #0d5520;
     border-radius: 8px;
@@ -79,37 +98,79 @@
     position: absolute;
     right: 10px;
   }
+
+  @media (max-width: 780px) {
+    .input {
+      background-image: url("../assets/clipboard.svg");
+      background-repeat: no-repeat;
+      background-position: 2% 50%;
+      padding-left: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .input {
+      background-image: url("../assets/clipboard.svg");
+      background-repeat: no-repeat;
+      background-position: 2% 50%;
+      padding-left: 2.5rem;
+
+      ::placeholder {
+        padding-left: 1px;
+        font-size: 0.8rem;
+      }
+    }
+
+    .button {
+      width: 8rem;
+      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
+    }
+  }
+
+  //smaller screen
+  @media screen and (max-width: 400px) {
+    .input {
+      background-image: none;
+      outline: none;
+      padding: 0;
+      font-size: 0.8rem;
+    }
+
+    .button {
+      width: 6rem;
+      font-size: 0.7rem;
+      padding: 0.4rem 1rem;
+    }
+  }
 }
 
-.create {
+.createPostWrapper {
+  .create {
     text-align: center;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #1C1D36;
-    position: relative;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #1c1d36;
+
     .createPost {
-        color: #0D5520;
-        text-decoration: underline;
+      color: #0d5520;
+      text-decoration: underline;
     }
+  }
+
+  @media screen and (max-width: 600px) {
+    .create {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .create {
+      font-size: 0.8rem;
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
