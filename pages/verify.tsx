@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import google from "../assets/authentication/check-mail.svg";
+import Link from "next/link";
+import google from "assets/authentication/check-mail.svg";
 
 const Verify = () => {
   return (
@@ -28,7 +28,7 @@ const Verify = () => {
               Check Your Mail!
             </h2>
             <p className="pt-2 ">
-              We just sent you the instructions to reset your <br /> password or{" "}
+              We just sent you the instructions to reset your <br /> password or
               <a
                 href="#"
                 className="text-green-600 underline leading-8 font-medium"

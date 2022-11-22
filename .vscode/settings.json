@@ -1,0 +1,13 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.format": true
+    },
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "${workspaceRoot}/.github/workflows/deploy.yml"
+    }
+}

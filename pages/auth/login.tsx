@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "styles/Login.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "assets/logo.png";
+import styles from "styles/Login.module.scss";
 import africanwomansmiling from "assets/africanwomansmiling.png";
+import logo from "assets/logo.png";
 import person1 from "assets/person1.png";
 import person2 from "assets/person2.png";
 import google from "assets/svg/google.svg";
@@ -31,9 +31,8 @@ const Login: NextPage = () => {
               className={`flex justify-center items-center ${styles.button}`}
             >
               <span className="mr-2">
-                {" "}
                 <Image src={google} alt="google icon" />
-              </span>{" "}
+              </span>
               Log in with Google
             </button>
 
@@ -66,9 +65,9 @@ const Login: NextPage = () => {
               Log in
             </button>
             <p className="text-center mt-4">
-              Don&apos;t have an account?{" "}
+              Don&apos;t have an account?
               <span className="text-[#0D5520] underline font-[700]">
-                <Link href={"/auth/signup"}>Join now</Link>{" "}
+                <Link href={"/auth/signup"}>Join now</Link>
               </span>
             </p>
           </div>
@@ -79,7 +78,9 @@ const Login: NextPage = () => {
           >
             <div
               className="absolute rounded-[24px] bg-white py-4 px-6 top-48 right-14"
-              style={{ boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.1)" }}
+              style={{
+                boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.1)",
+              }}
             >
               <Image src={person2} alt="africanwomansmiling.png" />
             </div>
@@ -89,7 +90,9 @@ const Login: NextPage = () => {
             </p>
             <div
               className="absolute rounded-[24px] bg-white py-4 px-6 bottom-60 left-14"
-              style={{ boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.1)" }}
+              style={{
+                boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.1)",
+              }}
             >
               <Image src={person1} alt="africanwomansmiling.png" />
             </div>
