@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import { InferProps } from "prop-types";
 import { ArticleProp } from "./interface";
-
-interface props {
-  article: ArticleProp;
+interface AllBlogCardProps {
+  article: InferProps<ArticleProp>;
 }
 
-const AllBlogCard = ({ article }: props): JSX.Element => {
+const AllBlogCard = ({ article }: AllBlogCardProps): JSX.Element => {
   return (
     <article className="relative flex max-w-[400px] flex-col">
       <Image
