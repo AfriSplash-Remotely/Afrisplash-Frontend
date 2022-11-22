@@ -1,19 +1,23 @@
 .timelineContainer {
-  display: flex;
-  justify-content: space-between;
+  width:75%;
   margin: 0 auto;
-  width: 60%;
 
   .JobDetails {
-    width: 98%;
+    width: 95%;
     height: 4px;
   }
 
   .description {
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: .8rem;
     color: #3c4257;
+  }
+
+  .packagePlan {
+      font-weight: 500;
+      font-size: .8rem;
+      line-height: 2rem;
+      color: #3c4257;
   }
   .container input {
     position: absolute;
@@ -26,7 +30,7 @@
   .checkmark {
     position: absolute;
     top: 13px;
-    left: 16px;
+    left: 3px;
     height: 12px;
     width: 12px;
     border: 1px solid #1c1d36;
@@ -56,13 +60,14 @@
     border-radius: 50%;
     background: #fff;
   }
+  
   .container {
     display: block;
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 12px;
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1.3rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -75,13 +80,32 @@
   }
 
   // Mobile view
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     .description {
       font-weight: 500;
-      font-size: 13px;
+      font-size: .6rem;
       line-height: 20px;
       color: #3c4257;
-      padding-left: 2px;
+      padding-left: 1px;
+    }
+
+    .packagePlan {
+      font-size: .6rem;
+    }
+  }
+
+  //smaller screen
+  @media screen and (max-width: 400px) {
+    .description {
+      font-weight: 500;
+      font-size: .5rem;
+      line-height: 20px;
+      color: #3c4257;
+      padding-left: 1px;
+    }
+
+    .packagePlan {
+      font-size: .48rem;
     }
   }
 }

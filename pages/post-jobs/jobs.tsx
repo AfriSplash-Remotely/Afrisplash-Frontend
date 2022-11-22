@@ -1,4 +1,4 @@
-import Confirmation from "components/molecules/Confirmation/Confirmation";
+import Confirmation from "components/molecules/JobConfirmation/JobConfirmation";
 import JobDetails from "components/molecules/JobDetails/JobDetails";
 import PackagePlan from "components/molecules/PackagePlan/PackagePlan";
 import Timeline from "components/molecules/Timeline/Timeline";
@@ -42,16 +42,16 @@ const PostJobsNotSigned = () => {
       return <Confirmation />;
     } else if(currentFormKey == 0)
       return (
-        <div className="w-7/12 mx-auto">
+        <div className="w-7/12 md:w-1/2 sm:w-3/4 mx-auto">
           <div className={`${styles.midSection} my-5 space-y-3`}>
-            <h3 className={styles.h3}>Unroll job post</h3>
+            <h3 className={`${styles.h3}`}>Unroll job post</h3>
             <div className={styles.midSectionContent}>
-              <p className={styles.p}>
+              <p className={`${styles.p} lg:w-4/6 sm:3/4 mb-7`}>
                 Paste the link of the job you posted on your company&apos;s
                 website or job recruiting platforms (Linkedin, indeed, Monster
                 etc)
               </p>
-              <p>
+              <p className={`${styles.p}`}>
                 We&apos;ll fetch the details and list it on the career page as
                 your new job post
               </p>
@@ -60,15 +60,17 @@ const PostJobsNotSigned = () => {
 
           <form>
             <div className={styles.inputIcons}>
-              <input placeholder="Paste link here" className={styles.input} />
-              <button className={styles.button}>Get details</button>
+              <input placeholder="Paste link here" className={`${styles.input} lg:pl-12 md:pl-10 sm:bg-none sm:pl-1`} />
+              <button className={`${styles.button} w-1/4 lg:w-1/4 sm:w-1/2`}>Get details</button>
             </div>
-            <p className={`mt-5 mb-10 ${styles.create}`}>
-              Or you can still{" "}
-              <a href=" " className={styles.createPost}>
-                create your own post
-              </a>
-            </p>
+            <div className={styles.createPostWrapper}>
+              <p className={`${styles.create} mt-5 mb-10`}>
+                Or you can still{" "}
+                <a href=" " className={styles.createPost}>
+                  create your own post
+                </a>
+              </p>
+            </div>
           </form>
         </div>
       );
@@ -93,10 +95,10 @@ const PostJobsNotSigned = () => {
   return (
     <>
       <GeneralLayout>
-        <div className={`${styles.parentContainer}`}>
+        <div className= 'w-full lg:w-full md:w-full sm:3/4 mx-auto'>
           <div className={styles.headerWrapper}>
-            <h2 className={styles.header}>Post a new job</h2>
-            <p className={styles.subHeader}>Find your next great hire</p>
+            <h2 className={`${styles.header} mt-5 text-center lg:text-5xl md:text-3xl sm:text-sm xs:text-xs`}>Post a new job</h2>
+            <p className={`${styles.subHeader} my-5 text-center lg:text-xl md:text-base sm:text-sm xs:text-xs`}>Find your next great hire</p>
           </div>
           <div>
             <Timeline

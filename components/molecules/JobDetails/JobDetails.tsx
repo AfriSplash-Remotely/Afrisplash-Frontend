@@ -28,9 +28,21 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
           </div>
         </div>
 
-        {/**Company's name */}
+        {/**Comapny name */}
+        <div className='mx-auto'>
+          <label className={styles.label}>Company&apos;s name</label>
+          <div className={`${styles.formFieldWrap} w-full lg:w-11/12 md:w-full sm:w-11/12`}>
+            <input
+              className='w-full'
+              type="text"
+              placeholder="Type your company’s name"
+            />
+          </div>
+        </div>
+
+        {/**Company's logo */}
         <div>
-          <label className={styles.label}>Company’s name</label>
+          <label className={styles.label}>Company&apos;s logo</label>
           <div className={`${styles.CompanyformFieldWrap} w-full lg:w-11/12 md:w-full sm:w-11/12`}>
             <input type="text" placeholder="Attach a .png or .jpg file" className='w-3/4' />
           </div>
@@ -43,7 +55,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
           </label>
           <div className={`${styles.textAreaContainer} w-full lg:w-11/12 md:w-full sm:w-11/12`}>
             <textarea
-              className={styles.textArea}
+              className='w-full'
               placeholder="Type your job description here"
             ></textarea>
           </div>
@@ -56,7 +68,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
           </label>
           <div className={`${styles.textAreaContainer} w-full lg:w-11/12 md:w-full sm:w-11/12`}>
             <textarea
-              className={styles.textArea}
+              className='w-full'
               placeholder="Type your job requirements here"
             ></textarea>
           </div>
@@ -67,7 +79,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
           <label className={styles.label}>Benefits</label>
           <div className={`${styles.textAreaContainer} w-full lg:w-11/12 md:w-full sm:w-11/12`}>
             <textarea
-              className={styles.textArea}
+              className='w-full'
               placeholder="Type the job benefits here"
             ></textarea>
           </div>
