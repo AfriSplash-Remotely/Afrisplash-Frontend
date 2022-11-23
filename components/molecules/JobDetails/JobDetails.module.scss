@@ -27,9 +27,10 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 150%;
-      color: #1c1d36;
       margin-bottom: 3px;
+      font-family: "Inter";
     }
+
     .formFieldWrap {
       padding: 16px;
       border: 1px solid #b6bbb2;
@@ -38,6 +39,7 @@
       height: 56px;
       margin-bottom: 32px;
     }
+
     .CompanyformFieldWrap {
       padding: 16px;
       border: 1px solid #b6bbb2;
@@ -56,7 +58,7 @@
       border-radius: 4px;
       height: 164px;
       padding: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 4rem;
     }
 
     .required:after {
@@ -92,4 +94,16 @@
       margin-left: 440px;
     }
   }
+}
+
+.react-switch {
+  background-color: #d9dedc !important;
+}
+
+.react-switch-bg {
+  background-color: #0c561f !important;
+}
+
+.redirectInput {
+  padding-left: 0.7rem;
 }
