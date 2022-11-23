@@ -12,7 +12,9 @@ const Employer: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <GeneralLayout>
-                <div>hellle</div>
+                <div>
+                    <div></div>
+                </div>
             </GeneralLayout>
 
         </div>
