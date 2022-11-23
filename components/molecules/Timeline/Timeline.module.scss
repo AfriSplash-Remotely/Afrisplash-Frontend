@@ -1,5 +1,4 @@
 .timelineContainer {
-  width:75%;
   margin: 0 auto;
 
   .JobDetails {
@@ -9,15 +8,14 @@
 
   .description {
     font-weight: 500;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: #3c4257;
   }
 
   .packagePlan {
-      font-weight: 500;
-      font-size: .8rem;
-      line-height: 2rem;
-      color: #3c4257;
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #3c4257;
   }
   .container input {
     position: absolute;
@@ -60,7 +58,7 @@
     border-radius: 50%;
     background: #fff;
   }
-  
+
   .container {
     display: block;
     position: relative;
@@ -83,14 +81,14 @@
   @media screen and (max-width: 600px) {
     .description {
       font-weight: 500;
-      font-size: .6rem;
+      font-size: 0.6rem;
       line-height: 20px;
       color: #3c4257;
       padding-left: 1px;
     }
 
     .packagePlan {
-      font-size: .6rem;
+      font-size: 0.6rem;
     }
   }
 
@@ -98,14 +96,14 @@
   @media screen and (max-width: 400px) {
     .description {
       font-weight: 500;
-      font-size: .5rem;
+      font-size: 0.5rem;
       line-height: 20px;
       color: #3c4257;
       padding-left: 1px;
     }
 
     .packagePlan {
-      font-size: .48rem;
+      font-size: 0.48rem;
     }
   }
 }

@@ -1,28 +1,25 @@
-
-import Button from "components/atoms/Button/Button";
-import Image from "next/image";
 import React from "react";
-import ConfirmationBackgroundImage from "../../../assets/confirmation.svg";
+import Image from "next/image";
+import Button from "components/atoms/Button/Button";
 import styles from "./JobConfirmation.module.scss";
+import ConfirmationBackgroundImage from "../../../assets/confirmation.svg";
 
 const Confirmation = () => {
   return (
     <div className={styles.confirmationContainer}>
       <div className="w-6/12 mx-auto">
         <Image src={ConfirmationBackgroundImage} alt="" width={825} />
-        <div className='text-center my-5 font-[400]'>
-          <p>
+        <div className="text-center my-5 font-[400]">
+          <p className={`text-sm lg:text-base`}>
             Thank you for submitting, your job has been posted. if you need help
             please contact us via
-            <p>
-              Email support: hiretalent@afrisplash.com
-            </p>
+            <p>Email support: hiretalent@afrisplash.com</p>
           </p>
         </div>
       </div>
 
       <div className="flex space-x-4 items-center justify-center mb-5">
-        <div className="hidden md:flex space-x-4">
+        <div className="flex lg:flex space-x-4">
           <Button
             type="bordered"
             color="dark_blue"

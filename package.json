@@ -27,7 +27,8 @@
     "react-icons": "^4.6.0",
     "react-redux": "^8.0.2",
     "react-router": "^6.4.1",
-    "react-select": "^5.4.0"
+    "react-select": "^5.6.1",
+    "react-switch": "^7.0.0"
   },
   "devDependencies": {
     "@types/node": "18.7.18",

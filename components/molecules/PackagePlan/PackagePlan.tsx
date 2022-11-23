@@ -1,9 +1,9 @@
-import Button from "components/atoms/Button/Button";
 import React from "react";
+import Image from "next/image";
+import Button from "components/atoms/Button/Button";
 import styles from "./PackagePlan.module.scss";
 import ArrowDown from "../../../assets/icons/arrow-down.png";
 import TickSquareIcon from "../../../assets/icons/tick-square.png";
-import Image from "next/image";
 
 const PackagePlan = ({ renderNextForm }: any) => {
   return (
@@ -12,16 +12,18 @@ const PackagePlan = ({ renderNextForm }: any) => {
         <div
           className={`${styles.midSection} lg:mr-64 lg:ml-64 mx-16 px-8 my-5 space-y-3`}
         >
-          <h3 className={styles.h3}>Buy job posting package</h3>
+          <h3 className={`text-[20px] lg:text-[28px] ${styles.h3}`}>
+            Buy job posting package
+          </h3>
           <div className={styles.midSectionContent}>
             <p className={styles.p}>Please select your preferred package</p>
           </div>
         </div>
 
         <table
-          className={`${styles.table}  mx-16 px-8 my-5 space-y-3 lg:mr-64 lg:ml-64 lg:w-7/12  md:w-5/6 sm:w-11/12`}
+          className={`${styles.table}  mx-16 px-8 my-5 space-y-3 lg:mr-64 lg:ml-64 lg:w-7/12  md:w-5/6`}
         >
-          <thead className={styles.thead}>
+          <thead className={`${styles.thead} text-[11px] lg:text-[16px]`}>
             <tr>
               <th>Select</th>
               <th>Title</th>
@@ -32,7 +34,9 @@ const PackagePlan = ({ renderNextForm }: any) => {
             </tr>
           </thead>
 
-          <tbody className="lg:w-7/12 md:w-5/6 sm:w-11/12">
+          <tbody
+            className={`lg:w-7/12 md:w-5/6 sm:w-11/12 text-[11px] lg:text-[16px]`}
+          >
             <tr>
               <td>
                 <Image src={TickSquareIcon} alt="tick-square-con" />
