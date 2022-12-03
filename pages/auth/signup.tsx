@@ -24,13 +24,15 @@ const Signup: NextPage = () => {
   };
   return (
     <div className={`flex ${styles.container}`}>
-      <div className={`bg-white mt-8 ml-[8.5rem] ${styles.row}`}>
+      <div className={`bg-white mt-8 ml-[2rem] lg:ml-[8.5rem] ${styles.row}`}>
         <nav className={`flex items-center`}>
           <Image src={logo} alt="afrisplash" />
           <h2 className={`font-[500] text-base`}>AfriSplashRemotely</h2>
         </nav>
         <div className={`mt-[4.75rem] mx-auto`}>
-          <h2 className={`font-[500] text-[2rem] leading-9 mb-4`}>
+          <h2
+            className={`font-[500] text-[1.5rem] lg:text-[2rem] leading-9 mb-4`}
+          >
             Join The Community
           </h2>
           <p className={`w-[25rem] font-light text-base mb-14`}>
@@ -39,13 +41,13 @@ const Signup: NextPage = () => {
           </p>
         </div>
         <button
-          className={`flex items-center gap-2 py-[1rem] px-[9rem] mb-8 ${styles.googleContainer}`}
+          className={`flex items-center gap-2 py-[1rem] pl-[7rem] pr-0 lg:px-[6rem] mb-8 max-w-[381px] lg:max-w-[455px] w-[95%] ${styles.googleContainer}`}
         >
           <Image src={google} alt="google" />
           <p className={`font-[500] text-[0.875rem]`}>Sign up with Google</p>
         </button>
 
-        <h2 className={`${styles.divider}`}>
+        <h2 className={`w-[92%] lg:w-[69%] ${styles.divider}`}>
           <span
             className={`text-light_grey bg-white font-[400] text-[0.875rem] ${styles.emailSpan}`}
           >
@@ -55,7 +57,7 @@ const Signup: NextPage = () => {
         <form className={`mt-9`}>
           <div className={`${styles.nameContainer}`}>
             {/**First Name */}
-            <div className={`${styles.firstNameContainer}`}>
+            <div className={`w-[46%] lg:w-[35%]`}>
               <div className={`${styles.separator}`}>
                 <div className={`${styles.inputContainer}`}>
                   <span className={`${styles.userIcon}`}>
@@ -71,7 +73,7 @@ const Signup: NextPage = () => {
             </div>
 
             {/**Surname */}
-            <div className={`${styles.firstNameContainer}`}>
+            <div className={`w-[46%] lg:w-[35%]`}>
               <div className={`${styles.inputContainer}`}>
                 <span className={`${styles.userIcon}`}>
                   <UserIcon className="w-4 h-4 " />
@@ -86,7 +88,7 @@ const Signup: NextPage = () => {
           </div>
 
           {/**Email */}
-          <div className={`mt-5 w-[70%] ${styles.inputContainer}`}>
+          <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
             <span className={`${styles.userIcon}`}>
               <EnvelopeIcon className="w-4 h-4 " />
             </span>
@@ -98,7 +100,7 @@ const Signup: NextPage = () => {
           </div>
 
           {/**Password */}
-          <div className={`mt-5 w-[70%] ${styles.inputContainer}`}>
+          <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
             <span className={`${styles.userIcon}`}>
               <LockClosedIcon className="w-4 h-4 " />
             </span>
@@ -116,7 +118,7 @@ const Signup: NextPage = () => {
           </div>
 
           {/**Talent account */}
-          <div className={`mt-5 w-[70%]`}>
+          <div className={`mt-5 w-[92%] lg:w-[70%]`}>
             {/* <span className={`relative top-[1.8rem] z-50 ${styles.userIcon}`}>
               <UserCircleIcon className="w-4 h-4 ml-[.9rem]" />
             </span> */}
@@ -126,7 +128,7 @@ const Signup: NextPage = () => {
           {/**Join now */}
           <Link href={"/auth/check-email"}>
             <button
-              className={`mt-8 w-[70%] bg-dark_blue p-[10px] text-white rounded-[0.625rem] ${styles.joinNowBtn}`}
+              className={`mt-8 w-[92%] lg:w-[70%] bg-dark_blue p-[10px] text-white rounded-[0.625rem] ${styles.joinNowBtn}`}
             >
               Join now
             </button>
@@ -143,7 +145,7 @@ const Signup: NextPage = () => {
           </div>
         </form>
       </div>
-      <div className={`bg-primary_yellow ${styles.row}`}>
+      <div className={`bg-primary_yellow hidden lg:flex ${styles.row}`}>
         <div className={`${styles.span2} relative col-span-3 bg-[#FDF1C9]`}>
           <div
             className={`${styles.bg}  pt-10 mt-[8.5rem] px-8 w-[80%] rounded-[24px] mx-auto`}
