@@ -26,13 +26,13 @@ const BtnProps = {
 const ButtonComponent = (
   {
     classes,
-    type,
+    // type,
     children,
     text,
     tag,
-    bgColor,
-    color,
-    borderColor,
+    // bgColor,
+    // color,
+    // borderColor,
     ...restProps
   }: InferProps<typeof BtnProps>,
   ref: Ref<HTMLInputElement>
