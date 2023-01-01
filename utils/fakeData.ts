@@ -11,6 +11,7 @@ export const jobData = [
     employees: "10-20  EMPLOYEES",
     hiring: true,
     promoted: true,
+    isDirectApply: true,
     offer: "UI/UX Designer",
     priceRange: "$100k - $300k",
     postDate: "2 MONTHS AGO",
@@ -22,6 +23,7 @@ export const jobData = [
     employees: "10-20  EMPLOYEES",
     hiring: true,
     promoted: true,
+    isDirectApply: false,
     offer: "UI/UX Designer",
     priceRange: "$100k - $300k",
     postDate: "2 MONTHS AGO",
@@ -51,7 +53,7 @@ export const teamData = [
   },
 ];
 
-export const jobOpeneingsData = [
+export const jobOpeningsData = [
   {
     image: "/company/standard.png",
     position: "Product Manager",
