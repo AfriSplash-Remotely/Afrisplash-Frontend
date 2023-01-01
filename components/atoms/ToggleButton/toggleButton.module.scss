@@ -1,0 +1,14 @@
+@tailwind components;
+
+@layer components {
+  .toggleCheckbox ~ .toggleLabel {
+    @apply bg-gray-300 right-0;
+  }
+  .toggleCheckbox:checked {
+    @apply right-0 border-2	 border-primary_green;
+    transition: all 0.4s ease-in 0s;
+  }
+  .toggleCheckbox:checked + .toggleLabel {
+    @apply bg-primary_green;
+  }
+}
