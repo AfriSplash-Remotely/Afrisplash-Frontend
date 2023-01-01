@@ -1,3 +1,3 @@
 import CompHiringCard from "./compHiringCard";
-
-export { CompHiringCard };
+import EmployerSideBar from "./EmployerSideBar";
+export { CompHiringCard, EmployerSideBar };
