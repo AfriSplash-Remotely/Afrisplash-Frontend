@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image"
+import DropDown from "components/atoms/DropDown/DropDown";
 import GeneralLayout from 'layouts/generalLayout';
-
-
+import employerImg from "assets/general/employer-team.svg"
+import CompHiringCard from '../components/Employer/compHiringCard';
 const Employer: NextPage = () => {
     return (
         <div>
@@ -12,8 +14,30 @@ const Employer: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <GeneralLayout>
-                <div>
-                    <div></div>
+
+                <div className="relative" >
+                    <Image src={employerImg}
+                        alt="img"
+                    />
+                </div>
+
+                <div className="mt-12  w-11/12 mx-auto">
+                    <div className="grid  grid-cols-3 gap-4">
+                        <div >hello</div>
+                        <div className="col-span-2" >
+                            <div className="flex items-center justify-between">
+                                <div className="mt-2 font-medium">Discover companies hiring remotely </div>
+
+                                <div>
+                                    <DropDown />
+                                </div>
+                            </div>
+
+                            <div>
+                                <CompHiringCard />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </GeneralLayout>
 
