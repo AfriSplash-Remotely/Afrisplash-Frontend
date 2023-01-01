@@ -13,13 +13,13 @@ import GoogleMapApi from "components/googleMap";
 
 import JobCard from "components/jobCard";
 import GeneralLayout from "layouts/generalLayout";
-import { jobData, teamData, jobOpeneingsData } from "utils/fakeData";
+import { jobData, teamData, jobOpeningsData } from "utils/fakeData";
 import styles from "./index.module.scss";
 
 const Company: NextPage = () => {
   return (
     <GeneralLayout>
-      <section className="mb-20 pt-10">
+      <section className="w-11/12 xl:w-10/12 mx-auto my-14">
         <div className="flex sm:flex-col md:flex-row items-center gap-4 ">
           <div className="flex items-center  gap-3 border-solid border border-gray-300 rounded-xl w-full max-w-lg p-3">
             <MagnifyingGlassIcon className="w-6 h-6 text-[#1C1D36]" />
@@ -95,9 +95,9 @@ const Company: NextPage = () => {
 
               <div className="mt-20">
                 <h2 className="text-[#0D5520] text-[2rem]">Open jobs</h2>
-                {jobData.flatMap((data): JSX.Element => {
+                {jobData.flatMap((data, index): JSX.Element => {
                   return (
-                    <div>
+                    <div key={index}>
                       <JobCard
                         image={data.image}
                         alt={"company image"}
@@ -120,9 +120,9 @@ const Company: NextPage = () => {
                   <h2 className="text-[#0D5520] text-[2rem]">Teams</h2>
                 </div>
                 <div className="grid grid-cols-2 gap-4 mt-4">
-                  {teamData.flatMap((data): JSX.Element => {
+                  {teamData.flatMap((data, index): JSX.Element => {
                     return (
-                      <div className="flex items-center gap-4">
+                      <div key={index} className="flex items-center gap-4">
                         <div>
                           <Image src={data.image} alt="team" />
                         </div>
@@ -169,9 +169,9 @@ const Company: NextPage = () => {
               <div className="mt-14 ">
                 <h2 className="pl-2 text-xl font-medium">Similar jobs</h2>
                 <div className="grid grid-cols-1 gap-5 border border-solid border-[#D9DEDC] p-3 rounded-[20px] mt-4">
-                  {jobOpeneingsData.flatMap((data): JSX.Element => {
+                  {jobOpeningsData.flatMap((data, index): JSX.Element => {
                     return (
-                      <div className="flex items-center gap-3">
+                      <div key={index} className="flex items-center gap-3">
                         <div className="bg-[#E5E5E5] rounded-xl p-3">
                           <Image
                             src={data.image}
