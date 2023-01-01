@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image"
 import DropDown from "components/atoms/DropDown/DropDown";
 import GeneralLayout from 'layouts/generalLayout';
+import { employerData } from "utils";
 import employerImg from "assets/general/employer-team.svg"
 import CompHiringCard from '../components/Employer/compHiringCard';
 const Employer: NextPage = () => {
@@ -21,20 +22,26 @@ const Employer: NextPage = () => {
                     />
                 </div>
 
-                <div className="mt-12  w-11/12 mx-auto">
+                <div className="mt-12  w-11/12 mx-auto py-8">
                     <div className="grid  grid-cols-3 gap-4">
                         <div >hello</div>
                         <div className="col-span-2" >
                             <div className="flex items-center justify-between">
                                 <div className="mt-2 font-medium">Discover companies hiring remotely </div>
 
-                                <div>
+                                <div className="flex justify-center  items-center gap-3">
+                                    <h4 className="font-medium">Sort by: </h4>
                                     <DropDown />
                                 </div>
                             </div>
 
-                            <div>
-                                <CompHiringCard />
+                            <div className="grid grid-cols-2 gap-8 mt-4">
+                                {employerData.map(employer => {
+                                    return (
+                                        <CompHiringCard key={employer.id} title={employer.title} location={employer.location} desc={employer.desc} inst={employer.inst} people={employer.people} />
+
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>
