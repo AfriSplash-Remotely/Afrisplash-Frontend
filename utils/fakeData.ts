@@ -53,7 +53,7 @@ export const teamData = [
   },
 ];
 
-export const jobOpeneingsData = [
+export const jobOpeningsData = [
   {
     image: "/company/standard.png",
     position: "Product Manager",
