@@ -50,6 +50,7 @@
     outline: none;
     color: #979797;
     font-size: 0.9rem;
+    width: 100%;
   }
 
   .joinNowBtn:hover {
@@ -61,10 +62,9 @@
   height: 100vh;
   padding: 0 2rem;
 }
+
 .bg {
-  background: radial-gradient(
-    103.02% 103.02% at 50% 0%,
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(255, 255, 255, 0.67) 100%
-  );
+  background: radial-gradient(103.02% 103.02% at 50% 0%,
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(255, 255, 255, 0.67) 100%);
 }
