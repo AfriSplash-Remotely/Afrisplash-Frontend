@@ -20,7 +20,7 @@ export default function CompHiringCard({ title, desc, inst, location, people }: 
     return (
         <div className='border-2 border-primary_grey  rounded-lg p-14'>
             <div className='flex flex-col justify-center  items-center'>
-                <Image src={LogoWhite} alt='logo' height='30%' />
+                <Image src={LogoWhite} alt='logo' height='100%' />
 
                 <div className='mt-4 py-2'>
                     <h2 className='text-2xl text-center font-medium'>{title}</h2>
