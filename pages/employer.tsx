@@ -21,7 +21,7 @@ const Employer: NextPage = () => {
                 <div className="relative flex justify-center items-center w-full" >
                     <Image src={employerImg}
                         alt="img"
-                        className="w-full h-full mt-20 xl:mt-0 md:mt-0"
+                        className="w-full h-full  mt-20 xl:mt-0 md:mt-0 "
                     />
                     <div className="absolute">
                         <div className=" flex gap-4">
@@ -32,13 +32,10 @@ const Employer: NextPage = () => {
                                 color='white'
                                 text='Find Employer'
                                 classes="w-64 h-12  md:w-64 xl:w-64 rounded-md text-sm capitalize  text-white bg-primary_green hover:opacity-80"
-
                             />
                         </div>
-
                     </div>
                 </div>
-
                 <div className="mt-12  w-11/12 mx-auto py-8">
                     <div className="grid  grid-cols-3 gap-4">
                         <div className="mt-4" >
@@ -53,7 +50,6 @@ const Employer: NextPage = () => {
                                     <DropDown />
                                 </div>
                             </div>
-
                             <div className="grid grid-cols-2 gap-8 mt-4">
                                 {employerData.map(employer => {
                                     return (
@@ -64,7 +60,6 @@ const Employer: NextPage = () => {
                                             desc={employer.desc}
                                             inst={employer.inst}
                                             people={employer.people} />
-
                                     )
                                 })}
                             </div>
