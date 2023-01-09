@@ -1,7 +1,7 @@
-import PropTypes, { InferProps } from "prop-types";
+import { useState } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { useState } from "react";
+import PropTypes, { InferProps } from "prop-types";
 
 const DropDownProps = {
   classes: PropTypes.string,

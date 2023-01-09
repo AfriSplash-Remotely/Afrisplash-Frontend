@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  gap: 8%;
+  padding-bottom: 5em;
+}
+
+.container > div {
+  padding-left: 30px;
+}
+
+@media (min-width: 1200px) {
+  .container > div {
+    padding-left: 48px;
+  }
+}
+
+.fill {
+  grid-column: span 2;
+}
+.imageContainer {
+  transition: scale 0.7s ease;
+}
+
+.imageContainer:focus::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  border-radius: 15px;
+  position: absolute;
+  background: -webkit-linear-gradient(rgb(41, 40, 40), rgb(3, 3, 3));
+  opacity: 0.5;
+  z-index: 3;
+}
+.imageContainer:hover {
+  scale: 1.02;
+}
+.imageContainer h3 {
+  transition: all 0.5s ease;
+}
+.imageContainer:focus h3 {
+  font-weight: 600;
+  z-index: 10;
+  font-size: 1.3rem;
+  bottom: 25px;
+}
