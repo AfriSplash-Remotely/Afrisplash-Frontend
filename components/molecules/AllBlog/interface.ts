@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 export interface ArticleProp {
-  featuredImage: string;
+  featuredImage: string | StaticImageData;
   title: string;
   excerpt: string;
   category: string;
