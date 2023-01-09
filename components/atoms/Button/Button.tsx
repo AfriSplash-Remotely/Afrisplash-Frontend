@@ -8,19 +8,19 @@ const BtnProps = {
   tag: PropTypes.elementType,
   children: PropTypes.node,
   text: PropTypes.string,
-  bgColor: PropTypes.oneOf([
-    "primary_green",
-    "primary_yellow",
-    "dark_blue",
-    "white-2",
-  ]),
+  // bgColor: PropTypes.oneOf([
+  //   "primary_green",
+  //   "primary_yellow",
+  //   "dark_blue",
+  //   "white-2",
+  // ]),
   color: PropTypes.string,
-  borderColor: PropTypes.oneOf([
-    "primary_green",
-    "primary_yellow",
-    "dark_blue",
-    "white-2",
-  ]),
+  // borderColor: PropTypes.oneOf([
+  //   "primary_green",
+  //   "primary_yellow",
+  //   "dark_blue",
+  //   "white-2",
+  // ]),
 };
 
 const ButtonComponent = (
