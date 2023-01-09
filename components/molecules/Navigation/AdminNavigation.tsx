@@ -22,8 +22,7 @@ export default function AdminNavigation(): JSX.Element {
     <aside
       className={`${
         navSwitch === true ? "w-max" : "w-2/12"
-      } h-screen relative px-5 z-50`}
-    >
+      } h-screen relative px-5 z-50`}>
       <div className={`relative w-full ${styles.wrapper}`}>
         <header className="w-full relative z-50 h-full flex flex-col space-y-10">
           <Link href="/">
@@ -37,8 +36,7 @@ export default function AdminNavigation(): JSX.Element {
           </Link>
           <nav
             className="flex items-center h-full "
-            onMouseLeave={() => setFocused(null)}
-          >
+            onMouseLeave={() => setFocused(null)}>
             <ul className="flex flex-col space-y-5">
               {navLinks.map((item: any, index: number) => (
                 <li key={index}>
@@ -50,8 +48,7 @@ export default function AdminNavigation(): JSX.Element {
                       } py-2 rounded-lg ${
                         router.pathname === item.route &&
                         "text-primary_green bg-light_green"
-                      }`}
-                    >
+                      }`}>
                       <div className="flex space-x-2 items-center z-10">
                         <span>
                           <Image
@@ -63,8 +60,7 @@ export default function AdminNavigation(): JSX.Element {
                           />
                         </span>
                         <span
-                          className={`${navSwitch === true ? "hidden" : ""}`}
-                        >
+                          className={`${navSwitch === true ? "hidden" : ""}`}>
                           {item.title}
                         </span>
                       </div>
@@ -94,9 +90,8 @@ export default function AdminNavigation(): JSX.Element {
           navSwitch === true ? "bg-[#f8f8f8]" : "bg-white"
         } -right-3 drop-shadow-lg rounded-full p-1 ${
           navSwitch === true ? "transform rotate-180" : ""
-        }`}
-      >
-        <ChevronLeftIcon className="w-4 h-4 " />
+        }`}>
+        <ChevronLeftIcon className="w-4 h-4 z-50" />
       </div>
     </aside>
   );
