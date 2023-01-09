@@ -42,7 +42,7 @@ const ErrorPage = (props: { statusCode: number }) => {
               className="items-center"
             />
           </div>
-          <div className="w-full flex flex-col text-center w-10/12 lg:w-6/12">
+          <div className="flex flex-col text-center w-10/12 lg:w-6/12">
             <p className="text-2xl my-5">{errorMessageToShow.errorTitle}</p>
             <p className="">{errorMessageToShow.errorMessage}</p>
           </div>

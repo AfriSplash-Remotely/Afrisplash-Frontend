@@ -52,7 +52,7 @@ const HireTalent: NextPage = () => {
               <span className={styles.downH3}>AFRICAN TECH TALENTS 🌍</span>
             </h1>
             <p>
-              Get matched with remote-ready African talents from Africa's #1
+              Get matched with remote-ready African talents from Africa&apos;s #1
               remote work community🌍.
             </p>
           </article>
@@ -217,7 +217,7 @@ const HireTalent: NextPage = () => {
             <div className={styles.remarkSection}>
               <Image src={CheckBox} alt="" />
               <p>
-                We don't just offer you the top 1% of talent. We offer you grit,
+                We don&apos;t just offer you the top 1% of talent. We offer you grit,
                 skill, creativity and the right fit.
               </p>
             </div>
