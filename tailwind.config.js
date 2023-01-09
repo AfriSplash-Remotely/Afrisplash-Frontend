@@ -22,6 +22,7 @@ module.exports = {
         secondary_yellow: "#FFC42D73",
         dark_blue: "#1C1D36",
         light_green: "#D6ECDC",
+        primary_grey: "#B6BBB2",
         white: "#FFF",
         grey: "#BBBBC3",
         light_grey: "#B6BBB2",

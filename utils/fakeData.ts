@@ -174,6 +174,60 @@ export const applicantsList = [
     isSelected: false,
   },
 ];
+
+
+
+export const employerData = [
+  {
+    id: 1,
+    title: "Afrisplash Remotely",
+    desc: "The gateway to Africa s remote workforce: Africa s #1 remote work communityand largest open source remote work marketplace",
+    inst: "Fintech",
+    location: "Lagos, Nigeria",
+    people: "12- 40 employees",
+  },
+  {
+    id: 2,
+    title: "Afrisplash Remotely",
+    desc: "The gateway to Africa s remote workforce: Africa s #1 remote work communityand largest open source remote work marketplace",
+    inst: "Fintech",
+    location: "Lagos, Nigeria",
+    people: "12- 40 employees",
+  },
+  {
+    id: 3,
+    title: "Afrisplash Remotely",
+    desc: "The gateway to Africa s remote workforce: Africa s #1 remote work communityand largest open source remote work marketplace",
+    inst: "Fintech",
+    location: "Lagos, Nigeria",
+    people: "12- 40 employees",
+  },
+  {
+    id: 4,
+    title: "Afrisplash Remotely",
+    desc: "The gateway to Africa s remote workforce: Africa s #1 remote work communityand largest open source remote work marketplace",
+    inst: "Fintech",
+    location: "Lagos, Nigeria",
+    people: "12- 40 employees",
+  },
+  {
+    id: 5,
+    title: "Afrisplash Remotely",
+    desc: "The gateway to Africa s remote workforce: Africa s #1 remote work communityand largest open source remote work marketplace",
+    inst: "Fintech",
+    location: "Lagos, Nigeria",
+    people: "12- 40 employees",
+  },
+  {
+    id: 6,
+    title: "Afrisplash Remotely",
+    desc: "The gateway to Africa s remote workforce: Africa s #1 remote work communityand largest open source remote work marketplace",
+    inst: "Fintech",
+    location: "Lagos, Nigeria",
+    people: "12- 40 employees",
+  },
+];
+=======
 export const mentorsData = [
   {
     id: "eeed",
