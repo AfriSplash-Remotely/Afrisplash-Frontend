@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import GeneralLayout from "layouts/generalLayout";
-import errorPage from "../../assets/authentication/error-page.svg";
 
+import GeneralLayout from "layouts/generalLayout";
+import errorPage from "assets/authentication/error-page.svg";
 
 type ErrorMessage = Record<
   number,
