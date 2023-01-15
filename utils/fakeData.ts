@@ -227,7 +227,7 @@ export const employerData = [
     people: "12- 40 employees",
   },
 ];
-=======
+
 export const mentorsData = [
   {
     id: "eeed",

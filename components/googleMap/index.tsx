@@ -1,9 +1,9 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import styles from "./index.module.scss";
 
 function Map() {
-  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
+  // const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
   return (
     <GoogleMap
       zoom={5}
