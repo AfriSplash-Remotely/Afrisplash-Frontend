@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const path = require("path");
 const nextConfig = {
+  swcMinify: false,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
@@ -12,7 +13,7 @@ const nextConfig = {
     return config;
   },
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true,
   images: {
     domains: ["images.unsplash.com"],
   },

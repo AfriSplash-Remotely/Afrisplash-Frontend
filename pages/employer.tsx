@@ -28,7 +28,7 @@ const Employer: NextPage = () => {
                             <Search placeholder={"Search open roles"} />
                             <Button
                                 type='filled'
-                                bgColor='primary_green'
+                                // bgColor='primary_green'
                                 color='white'
                                 text='Find Employer'
                                 classes="w-64 h-12  md:w-64 xl:w-64 rounded-md text-sm capitalize  text-white bg-primary_green hover:opacity-80"
