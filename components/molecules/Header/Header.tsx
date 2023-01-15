@@ -25,7 +25,7 @@ const Header = (): JSX.Element => {
               <div className="flex space-x-5">
                 <Button
                   type="filled"
-                  bgColor="dark_blue"
+                  // bgColor="dark_blue"
                   color="white"
                   text="join the community"
                   classes="w-max px-3 h-10  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"

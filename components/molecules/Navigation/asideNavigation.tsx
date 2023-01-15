@@ -9,10 +9,10 @@ import Savedicon from "assets/icons/save-add.svg";
 import TagIcon from "assets/icons/tag.svg";
 import TrendingIcon from "assets/icons/trend-up.svg";
 import TrophyIcon from "assets/icons/trophy.svg";
-interface Links {
-  icon: string;
-  name: string;
-}
+// interface Links {
+//   icon: string;
+//   name: string;
+// }
 
 const sideLinks = [
   {

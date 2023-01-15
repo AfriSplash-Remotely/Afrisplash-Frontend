@@ -19,7 +19,7 @@ const GeneralLayout: NextPage<InferProps<typeof GeneralProps>> = ({
   return (
     <div className="w-full">
       <Navigation />
-      <main className={router.pathname === '/employer' ? "relative " : "relative xl:w-10/12 md:w-11/12 w-11/12   mx-auto"}>
+      <main className={router.pathname === '/employer' ? "relative " : "relative"}>
         {children}
       </main>
       <Footer />

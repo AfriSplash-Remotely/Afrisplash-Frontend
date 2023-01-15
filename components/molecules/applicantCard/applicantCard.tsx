@@ -51,7 +51,7 @@ function ApplicantCard({
         <Button
           onClick={acceptFn}
           type="filled"
-          bgColor="primary_green"
+          // bgColor="primary_green"
           color="white"
           text="Accept"
           classes="w-100 px-10  h-10 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80 leading-[22px]"
@@ -60,7 +60,7 @@ function ApplicantCard({
         <Button
           onClick={rejectFn}
           type="bordered"
-          bgColor="white-2"
+          // bgColor="white-2"
           color="green"
           text="Reject"
           classes="w-100 px-10  h-10 ml-6 rounded-md border-2 border-green-900 text-sm capitalize text-primary_green bg-white hover:opacity-80 leading-[22px]"

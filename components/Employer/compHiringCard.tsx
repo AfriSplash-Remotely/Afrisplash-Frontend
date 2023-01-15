@@ -48,7 +48,7 @@ export default function CompHiringCard({ title, desc, inst, location, people }: 
                 <div className='mt-6'>
                     <Button
                         type='filled'
-                        bgColor='primary_green'
+                        // bgColor='primary_green'
                         color='white'
                         text='12 open roles'
                         classes="w-64 h-10  md:w-64 xl:w-64 rounded-md text-sm capitalize  text-white bg-primary_green hover:opacity-80"

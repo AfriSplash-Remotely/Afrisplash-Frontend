@@ -71,7 +71,7 @@ export default function EmployerSideBar() {
                 <div className='mt-6 flex justify-center'>
                     <Button
                         type='filled'
-                        bgColor='primary_green'
+                        // bgColor='primary_green'
                         color='white'
                         text='Apply filters'
                         classes="w-64 h-12  md:w-64 xl:w-full rounded-md text-sm capitalize  text-white bg-primary_green hover:opacity-80"
