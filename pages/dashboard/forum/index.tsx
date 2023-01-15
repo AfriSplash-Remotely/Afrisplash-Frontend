@@ -5,7 +5,7 @@ import BoxInput from "components/atoms/Input/BoxInput";
 import AsideNavigation from "components/molecules/Navigation/asideNavigation";
 import Post from "components/molecules/Post/Post";
 import ForumLayout from "layouts/forumLayout";
-import { trending } from "utils/fakeData";
+import {trending} from 'utils/fakeData'
 import ChatIcon from "assets/icons/chat.svg";
 import DotIcon from "assets/icons/dots.svg";
 import LikeIcon from "assets/icons/like.svg";
