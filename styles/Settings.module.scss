@@ -1,0 +1,39 @@
+.settingsbg {
+  background: #FFFFFF;
+border-radius: 12px;
+}
+
+@media (max-width : 1000px) {
+  .media {
+    width: 100%;
+  }
+}
+
+@media (max-width : 950px) {
+  .col {
+    flex-direction: column;
+  }
+
+  .full {
+    width: 100%;
+    align-items: stretch;
+  }
+}
+
+@media (max-width : 950px) {
+  .card_column {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width : 550px) {
+  .Break {
+    column-gap: 2rem;
+  }
+  .Pad {
+    padding : 1rem;
+  }
+}
+
+
