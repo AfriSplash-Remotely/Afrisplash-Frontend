@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+    .dropDownWrapper {
+        @apply md:flex md:flex-col;
+ }
+}
