@@ -1,38 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Afrisplash-Frontend
 
-## Getting Started
+# Tech Stack
+React - Nextjs :smiley:, tailwindCSS :hugs:, Redux :relieved:, Sass :wink:.
 
-First, run the development server:
+Please run the following after cloning:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+To install dependencies;
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run project;
+```
+npm run dev
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Available dependencies to help with project build process :nerd_face:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Dependency :ok_hand: | Link to documentation | What is it used for
+| :--- | :--- | :---
+Heroicons  | https://heroicons.com/ , https://unpkg.com/browse/@heroicons/react@2.0.12/24/outline/ , https://unpkg.com/browse/@heroicons/react@2.0.12/24/solid/ | A repository of icons, you can call project icons from here
+Nextjs | https://nextjs.org/docs/getting-started | React framework to run the entire project
+TailwindCSS | https://tailwindcss.com/docs/ | CSS framework for styling
+Typescript | https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html | For strict typing and error handling for type checking
+Sass | https://sass-lang.com/documentation/ | For better style handling, **Please use the SCSS syntax**
+Redux | https://redux.js.org/tutorials/essentials/part-1-overview-concepts | For state management
+Axios | https://axios-http.com/docs/api_intro | For API calls
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+**Please do not re-install any of the dependencies above because they all install when `npm install` is ran**
 
-To learn more about Next.js, take a look at the following resources:
+# How to contribute
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Read this read me file :thumbsup:.
+* Pick an issue in the issues section.
+    * Pick an issue by commenting on the issue you are currently working on
+* Clone project to your machine.
+    * `git clone <get_link_from_github_page>`
+* When you're done solving & implementing.
+* Checkout to a new branch.
+* When your code is in good shape, send a PR merge request to the branch called "development".
+    * Remember to update your codebase 
+* Project mainter will then review & merge to "master" or reach out with feedback.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+# Task
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<img width="525" alt="Screen Shot 2022-09-05 at 4 42 01 PM" src="https://user-images.githubusercontent.com/31111116/188484041-37e233ef-3374-4b8a-833c-eeab6a97751c.png">
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Join The Afrisplash Community
+
+https://linktr.ee/afrisplashremotely
