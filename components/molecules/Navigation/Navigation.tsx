@@ -83,7 +83,8 @@ const Navigation = (): JSX.Element => {
                 src="/main_logo.svg"
                 alt="logo"
                 className={styles.logo_img}
-                fill
+                width={200}
+                height={200}
               />
             </div>
           </Link>
