@@ -33,8 +33,8 @@ const Hero = (): JSX.Element => {
         <h1 className="text-[2rem] leading-[44px] md:max-w-[410px]">
           How to get International Remote Jobs easily without stress
         </h1>
-        <div className="items-cente my-7 flex flex-row">
-          <img src="/images/afrisplash_logo.svg" alt="" />
+        <div className="items-center my-7 flex flex-row">
+          <Image src="/images/afrisplash_logo.svg" alt="" fill />
           <div>
             <p className="mb-1">Afrisplash Remotely</p>
             <p className="text-sm">

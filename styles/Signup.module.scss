@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik&display=swap");
+
+.container {
+  font-family: "Inter", sans-serif;
+
+  .row {
+    flex: 50%;
+  }
+
+  .googleContainer {
+    border: 1px solid #bbbbc3;
+    border-radius: 10px;
+  }
+
+  .divider {
+    text-align: center;
+    border-bottom: 1px solid #d9dedc;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+
+    .emailSpan {
+      padding: 0 10px;
+    }
+  }
+
+  .nameContainer {
+    display: inline-flex;
+    width: 100%;
+  }
+
+  .separator {
+    width: 95%;
+  }
+
+  .inputContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #bbbbc3;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 0.2rem;
+  }
+
+  .userIcon {
+    color: #bbbbc3;
+    fill: currentColor;
+  }
+
+  .inputField {
+    outline: none;
+    color: #979797;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .joinNowBtn:hover {
+    background-color: #0d5520;
+  }
+}
+
+.span2 {
+  height: 100vh;
+  padding: 0 2rem;
+}
+
+.bg {
+  background: radial-gradient(103.02% 103.02% at 50% 0%,
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(255, 255, 255, 0.67) 100%);
+}

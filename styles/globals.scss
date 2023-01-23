@@ -21,4 +21,18 @@
   .general-btn {
     @apply px-10 py-2 rounded-xl sm:px-20 sm:py-4 sm:rounded-2xl;
   }
+  .mentorCardBtn {
+    background: radial-gradient(
+      103.02% 103.02% at 50% 0%,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.67) 100%
+    );
+  }
+  .active {
+    color: text-primary_green;
+  }
+  .active::after {
+    @apply w-full rounded-xl absolute bg-primary_green flex h-1 content-['']	justify-items-center	items-center;
+  }
+
 }

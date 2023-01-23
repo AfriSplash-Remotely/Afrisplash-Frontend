@@ -35,7 +35,7 @@ const Onboarding = () => {
             </a>
           </Link>
           <div className="flex items-center justify-center flex-1">
-            <Image src={logo} width="100%" height="100%" alt="logo" />
+            <Image src={logo} fill alt="logo" />
             <p className="text-sm">AfriSplashRemotely</p>
           </div>
         </div>

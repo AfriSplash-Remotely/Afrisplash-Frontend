@@ -44,8 +44,8 @@ const Company: NextPage = () => {
                 <Image
                   src="/company/firstbank.png"
                   alt="company-image"
-                  width="35px"
-                  height="35px"
+                  width={35}
+                  height={35}
                 />
               </div>
               <h2 className="font-semibold text-3xl">First Bank of Nigeria</h2>
@@ -178,8 +178,8 @@ const Company: NextPage = () => {
                             <Image
                               src={data.image}
                               alt="job image"
-                              width="64px"
-                              height="64px"
+                              width={64}
+                              height={64}
                             />
                           </div>
                           <div>

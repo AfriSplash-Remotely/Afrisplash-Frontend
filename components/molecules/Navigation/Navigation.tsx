@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -78,10 +79,12 @@ const Navigation = (): JSX.Element => {
             <div
               className={`w-1/12 h-full flex items-center cursor-pointer ${styles.logo}`}
             >
-              <img
+              <Image
                 src="/main_logo.svg"
                 alt="logo"
                 className={styles.logo_img}
+                width={200}
+                height={200}
               />
             </div>
           </Link>
@@ -107,7 +110,7 @@ const Navigation = (): JSX.Element => {
             <div className="hidden md:flex space-x-4">
               <Button
                 type="filled"
-                bgColor="dark_blue"
+                // bgColor="dark_blue"
                 color="white"
                 text="sign in"
                 classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
@@ -117,7 +120,7 @@ const Navigation = (): JSX.Element => {
                 type="bordered"
                 color="dark_blue"
                 text="Post jobs"
-                borderColor="dark_blue"
+                // borderColor="dark_blue"
                 classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
               />
             </div>

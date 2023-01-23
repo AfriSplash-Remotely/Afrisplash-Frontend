@@ -14,7 +14,7 @@ const Header = (): JSX.Element => {
           <div className="space-y-4">
             <h1 className="capitalize text-6xl font-bold text-dark_blue">
               The <span className="text-primary_green">gateway</span> to
-              africa's remote workforce
+              africa&apos;s remote workforce
             </h1>
             <div className="space-y-12">
               <p className="w-10/12 leading-7">
@@ -25,7 +25,7 @@ const Header = (): JSX.Element => {
               <div className="flex space-x-5">
                 <Button
                   type="filled"
-                  bgColor="dark_blue"
+                  // bgColor="dark_blue"
                   color="white"
                   text="join the community"
                   classes="w-max px-3 h-10  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
