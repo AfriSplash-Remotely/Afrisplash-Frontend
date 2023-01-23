@@ -241,7 +241,7 @@ const Applicants: NextPage = () => {
         {applicants.length === 0 && (
           <section className="grid grid-flow-row grid-cols-8">
             <header className="grid grid-flow-col col-start-1 col-span-full justify-self-start py-10">
-              <p className="text-xl opacity-50">Sorry, no appplicants found!</p>
+              <p className="text-xl opacity-50">Sorry, no Appplicants found!</p>
             </header>
           </section>
         )}
