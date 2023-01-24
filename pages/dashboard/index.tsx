@@ -55,6 +55,9 @@ const Blog: NextPage = () => {
                 alt="profile-avater"
                 className="w-16 h-16 border-4 rounded-full border-white"
                 src="https://via.placeholder.com/70.875x72"
+                layout="fill"
+
+
               />
               <div className="w-full">
                 <ProfileCardHeader title="Adaeze Ruby" />
