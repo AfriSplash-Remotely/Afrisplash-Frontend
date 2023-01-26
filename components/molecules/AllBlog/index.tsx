@@ -126,11 +126,13 @@ const AllBlog = () => {
     <div>
       <div className="flex flex-row items-center justify-between bg-[#FDF1C9] py-4 px-4 md:px-10 xl:px-[96px]">
         <h2 className="text-[32px]">All Blogs</h2>
-        <Link href="/blogs">
-          <a className="flex flex-row items-center font-bold text-[#0D5520]">
-            <span className="mr-2">See more</span>
-            <ArrowRightIcon className="h-5 w-7" />
-          </a>
+        <Link
+          href="/blogs"
+          className="flex flex-row items-center font-bold text-[#0D5520]">
+
+          <span className="mr-2">See more</span>
+          <ArrowRightIcon className="h-5 w-7" />
+
         </Link>
       </div>
       <div className="md-items-center mt-[4rem] flex flex-col items-start gap-2 py-4 px-4 md:flex-row md:px-10 xl:px-[96px]">
@@ -157,11 +159,13 @@ const AllBlog = () => {
             placeholder="Search for post"
           />
         </div>
-        <Link href="/blogs">
-          <a className="flex flex-row items-center rounded-lg bg-[#0D5520] p-3 px-6 text-white">
-            <span className="mr-2">All blogs</span>
-            <ChevronDownIcon className="h-5 w-7" />
-          </a>
+        <Link
+          href="/blogs"
+          className="flex flex-row items-center rounded-lg bg-[#0D5520] p-3 px-6 text-white">
+
+          <span className="mr-2">All blogs</span>
+          <ChevronDownIcon className="h-5 w-7" />
+
         </Link>
       </div>
 

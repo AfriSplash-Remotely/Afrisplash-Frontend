@@ -49,7 +49,7 @@ const Header = (): JSX.Element => {
                   // bgColor="dark_blue"
                   color="white"
                   text="join the community"
-                  classes="w-max px-3 h-10  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
+                  classes="w-max px-5 h-12  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
                 />
                 <button className="flex space-x-2 items-center text-dark_blue">
                   <span>Post a job</span>

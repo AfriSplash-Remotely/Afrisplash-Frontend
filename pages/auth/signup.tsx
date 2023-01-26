@@ -126,7 +126,7 @@ const Signup: NextPage = () => {
           </div>
 
           {/**Join now */}
-          <Link href={"/auth/check-email"}>
+          <Link href={"/auth/check-email"} legacyBehavior>
             <button
               className={`mt-8 w-[92%] lg:w-[70%] bg-dark_blue p-[10px] text-white rounded-[0.625rem] ${styles.joinNowBtn}`}
             >
@@ -139,8 +139,8 @@ const Signup: NextPage = () => {
             className={`flex mt-12 ml-[5rem] items-center text-center gap-[0.375rem] mb-[6rem]`}
           >
             <p className={`text-[14px] font-[500]`}>Already have an account?</p>
-            <Link href="/auth/login">
-              <a className={`text-sunglow font-[14px] font-[500]`}>Log in</a>
+            <Link href="/auth/login" className={`text-sunglow font-[14px] font-[500]`}>
+              Log in
             </Link>
           </div>
         </form>

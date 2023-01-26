@@ -57,7 +57,7 @@ const Login: NextPage = () => {
                 <input type="checkbox" />
                 <p className="ml-2">Keep me logged in</p>
               </div>
-              <Link href={"/reset-pasword"}>
+              <Link href={"/reset-pasword"} legacyBehavior>
                 <p>Forgot Password?</p>
               </Link>
             </div>

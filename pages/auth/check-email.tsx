@@ -28,12 +28,12 @@ const checkEmail = () => {
           </p>
           <p className={`font-light ml-[5rem]`}>
             password or
-            <Link href="">
-              <a className={`text-sunglow underline`}> resend it</a>
+            <Link href="" className={`text-sunglow underline`}>
+               resend it
             </Link>
             .
           </p>
-          <Link href={"/auth/login"}>
+          <Link href={"/auth/login"} legacyBehavior>
             <button
               className={`mt-8 w-full bg-dark_blue p-[10px] text-white rounded-[1rem] ${styles.joinNowBtn}`}
             >

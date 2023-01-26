@@ -41,15 +41,15 @@ function ProfileCardHeader({
 const Blog: NextPage = () => {
   return (
     <AdminLayout>
-      <div className="flex flex-wrap gap-2 lg:gap-4	">
+      {/* <div className="flex flex-wrap gap-2 lg:gap-4	">
         <div className="w-full lg:w-[31.6%]">
-          {/* profile */}
           <div className="rounded-xl bg-white">
             <div className="flex gap-4 p-4">
               <Image
                 alt="profile-avater"
                 className="w-16 h-16 border-4 rounded-full border-white"
                 src="https://via.placeholder.com/70.875x72"
+                fill
               />
               <div className="w-full">
                 <ProfileCardHeader title="Adaeze Ruby" />
@@ -92,7 +92,7 @@ const Blog: NextPage = () => {
             </div>
             <hr className="h-0 w-full border-b border-gray-100" />
 
-            {/* bio */}
+          
             <div className="p-4">
               <ProfileCardHeader title="Bio" />
               <div>
@@ -163,7 +163,7 @@ const Blog: NextPage = () => {
             positions={Array.from({ length: 5 }, (_, _elem) => positions[0])}
           />
         </div>
-      </div>
+      </div> */}
     </AdminLayout>
   );
 };
