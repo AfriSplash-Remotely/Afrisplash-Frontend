@@ -19,7 +19,6 @@ import CameronImage from "assets/teams/cameron.png";
 import JacobImage from "assets/teams/jacob.png";
 import RobertImage from "assets/teams/robert.png";
 import WadeImage from "assets/teams/wade.png";
-import TalentImage from "assets/home-page/talent_1.jpg";
 import { FiBriefcase } from "react-icons/fi";
 
 export const toArrayOfObjects = (objectDetails: any, length: number) => {

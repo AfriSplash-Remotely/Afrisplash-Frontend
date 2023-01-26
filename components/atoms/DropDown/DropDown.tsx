@@ -33,7 +33,7 @@ const DropDown = ({
         >
           {imageUrl && (
             <span className="h-8 w-8 ml-2 -mr-5">
-              <Image src={imageUrl} alt="" />
+              <Image src={imageUrl} alt="" fill/>
             </span>
           )}
           <span className="text-sm ml-6 capitalize leading-3">
@@ -63,9 +63,9 @@ const DropDown = ({
             className="border-1 shadow-md shadow-green 
                      bg-slate-200 px-4 py-1 w-[100%]  my-0 rounded-sm"
           >
-            {options?.map((optText, index) => (
+            {options?.map((optText) => (
               <span
-                key={optText + index}
+                key={Math.random()}
                 className="text-sm block capitalize w-100 my-4
                              hover:cursor-pointer hover:underline"
                 onClick={() => setMakeSelectOption(optText)}

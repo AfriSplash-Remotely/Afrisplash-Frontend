@@ -25,12 +25,12 @@ export default function MentorCard({ name, role, position, flag, src }: InferPro
         <div className="flex justify-between">
           <div className="p-4  rounded-full mentorCardBtn cursor-pointer">
             <div className="relative h-6 w-6">
-              <Image src={chatIcon} alt="chatIcon" layout="fill" />
+              <Image src={chatIcon} alt="chatIcon" fill />
             </div>
           </div>
           <div className="p-4 rounded-full mentorCardBtn cursor-pointer">
             <div className="relative h-6 w-6">
-              <Image src={heartIcon} alt="heartIcon" />
+              <Image src={heartIcon} alt="heartIcon" fill />
             </div>
           </div>
         </div>
@@ -38,19 +38,13 @@ export default function MentorCard({ name, role, position, flag, src }: InferPro
           <div className="flex  items-center">
             <h3 className="text-xl text-white_2 font-bold">{name}</h3>
             <div className="pl-2 pt-2">
-              <Image
-                alt={"ghana flag"}
-                src={flag}
-                height={20}
-                width={20}
-                layout="fixed"
-              />
+              <Image alt={"ghana flag"} src={flag} height={20} width={20} />
             </div>
           </div>
           <div className="mt-2 flex items-center">
             <div className="p-2  rounded-md mentorCardBtn">
-              <div className="relative h-5">
-                <Image src={bagIcon} alt="bagIcon" />
+              <div className="relative w-5 h-5">
+                <Image src={bagIcon} alt="bagIcon" fill />
               </div>
             </div>
             <h5 className="pl-2 text-lg text-white_2 font-medium">
@@ -59,8 +53,8 @@ export default function MentorCard({ name, role, position, flag, src }: InferPro
           </div>
           <div className="mt-2 flex items-center">
             <div className="p-2  rounded-md mentorCardBtn">
-              <div className="relative h-5">
-                <Image src={supportIcon} alt="supportIcon" />
+              <div className="relative w-5 h-5">
+                <Image src={supportIcon} alt="supportIcon" fill/>
               </div>
             </div>
             <h5 className="pl-2 text-lg truncate text-white_2 font-medium">

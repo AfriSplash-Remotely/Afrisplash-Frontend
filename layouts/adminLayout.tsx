@@ -20,7 +20,7 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
       <AdminNavigation />
 
       <div className={`${styles.main} w-full `}>
-        <div>
+        <div className="w-11/12 mx-auto">
           <TopAdmin
             placeholder={`${
               router.pathname == "/dashboard/forum"

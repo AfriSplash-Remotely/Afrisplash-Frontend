@@ -98,9 +98,9 @@ const Login: NextPage = () => {
             </div>
             <span className="">
               <Image
-                layout="responsive"
                 src={africanwomansmiling}
                 alt="africanwomansmiling.png"
+                layout="responsive"
               />
             </span>
           </div>

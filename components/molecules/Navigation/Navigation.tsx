@@ -97,7 +97,7 @@ const Navigation = (): JSX.Element => {
           <nav className="hidden lg:flex items-center h-full ">
             <ul className="flex lg:space-x-3 xl:space-x-5">
               {header.map((item: any, index: number) => (
-                <Link href={item.link} key={index} legacyBehavior>
+                <Link href={item.link} key={Math.random()}>
                   <li
                     onClick={() => handleMenuClick(item, index)}
                     className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${

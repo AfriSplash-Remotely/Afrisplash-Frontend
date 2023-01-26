@@ -14,16 +14,12 @@ const Hero = (): JSX.Element => {
       <div className="md:w-1/2 xl:w-1/3">
         <div className="my-7 mt-10 flex flex-row flex-wrap items-center gap-2">
           <Link href="" passHref legacyBehavior>
-            <Button
-              classes=" border-[1px] bg-[#FFC42D73] text-white rounded-lg text-sm w-[142px] max-w-[100%] h-[40px] flex flex-row items-center justify-center cursor-pointer hover:opacity-70"
-            >
+            <Button classes=" border-[1px] bg-[#FFC42D73] text-white rounded-lg text-sm w-[142px] max-w-[100%] h-[40px] flex flex-row items-center justify-center cursor-pointer hover:opacity-70">
               Remote Jobs
             </Button>
           </Link>
           <Link href="" passHref legacyBehavior>
-            <Button
-              classes=" border-[1px] bg-[#FFC42D73] text-white rounded-lg text-sm w-[142px] h-[40px] flex flex-row items-center justify-center cursor-pointer hover:opacity-70"
-            >
+            <Button classes=" border-[1px] bg-[#FFC42D73] text-white rounded-lg text-sm w-[142px] h-[40px] flex flex-row items-center justify-center cursor-pointer hover:opacity-70">
               International Jobs
             </Button>
           </Link>
@@ -32,7 +28,12 @@ const Hero = (): JSX.Element => {
           How to get International Remote Jobs easily without stress
         </h1>
         <div className="items-center my-7 flex flex-row">
-          <Image src="/images/afrisplash_logo.svg" alt="" width={70} height={70} />
+          <Image
+            src="/images/afrisplash_logo.svg"
+            alt=""
+            width={70}
+            height={70}
+          />
           <div>
             <p className="mb-1">Afrisplash Remotely</p>
             <p className="text-sm">
@@ -44,9 +45,7 @@ const Hero = (): JSX.Element => {
         </div>
 
         <Link href="" passHref legacyBehavior>
-          <Button
-            classes=" border-[1px] py-4 px-2 mb-12 bg-primary_green text-white rounded-lg text-sm w-[100%] h-[56px] md:max-w-[100%] flex flex-row items-center justify-center cursor-pointer hover:opacity-80"
-          >
+          <Button classes=" border-[1px] py-4 px-2 mb-12 bg-primary_green text-white rounded-lg text-sm w-[100%] h-[56px] md:max-w-[100%] flex flex-row items-center justify-center cursor-pointer hover:opacity-80">
             <span className="mr-2">Read blog</span>
             <ArrowRightIcon className="h-5 w-6" />
           </Button>
