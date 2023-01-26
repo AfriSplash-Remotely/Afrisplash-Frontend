@@ -29,7 +29,7 @@ const FeaturedPostCard = ({ article }: FeaturedPostCardProps): JSX.Element => {
           <Image
             alt={article.title}
             src={article?.author?.image}
-            layout="fixed"
+            layout="responsive"
             width={50}
             height={50}
             className="rounded-full"
