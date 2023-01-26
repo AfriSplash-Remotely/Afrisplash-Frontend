@@ -139,7 +139,10 @@ const Signup: NextPage = () => {
             className={`flex mt-12 ml-[5rem] items-center text-center gap-[0.375rem] mb-[6rem]`}
           >
             <p className={`text-[14px] font-[500]`}>Already have an account?</p>
-            <Link href="/auth/login" className={`text-sunglow font-[14px] font-[500]`}>
+            <Link
+              href="/auth/login"
+              className={`text-sunglow text-base font-semibold`}
+            >
               Log in
             </Link>
           </div>
@@ -166,9 +169,9 @@ const Signup: NextPage = () => {
             </div>
             <span className="relative left-[6rem]">
               <Image
-                layout="responsive"
                 src={africanwomansmiling}
                 alt="africanwomansmiling.png"
+                layout="responsive"
               />
             </span>
           </div>

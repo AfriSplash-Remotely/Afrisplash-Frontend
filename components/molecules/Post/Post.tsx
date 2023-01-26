@@ -79,8 +79,8 @@ const Post = (): JSX.Element => {
             <Image
               priority
               alt="link icon"
-              aria-hidden="true"
               layout="responsive"
+              aria-hidden="true"
               src={LinkIcon}
             />
           </div>
@@ -99,9 +99,9 @@ const Post = (): JSX.Element => {
           <div className="w-5 h-5 relative">
             <Image
               priority
+              layout="responsive"
               alt="link icon"
               aria-hidden="true"
-              layout="responsive"
               src={LinkIcon}
             />
           </div>

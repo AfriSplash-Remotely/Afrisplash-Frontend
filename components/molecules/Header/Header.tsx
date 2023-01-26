@@ -73,7 +73,7 @@ const Header = (): JSX.Element => {
                 transition={{ duration: 0.8 }}
                 className={`${styles.imageWrapper_image} ${styles.imageWrapper_image_1}`}
               >
-                <Image src={card_1} alt="card_1" />
+                <Image src={card_1} alt="card_1" fill/>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.1 }}
@@ -88,6 +88,7 @@ const Header = (): JSX.Element => {
                   className="absolute top-48 left-0"
                   src={card_2}
                   alt="card_2"
+                  fill
                 />
               </motion.div>
               <motion.div
@@ -103,6 +104,7 @@ const Header = (): JSX.Element => {
                   className="absolute bottom-0 left-48"
                   src={card_3}
                   alt="card_3"
+                  fill
                 />
               </motion.div>
             </div>

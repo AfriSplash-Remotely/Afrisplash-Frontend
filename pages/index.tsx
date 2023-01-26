@@ -24,7 +24,7 @@ import talentUser from "assets/home-page/talent_user.svg";
 import { MentorCard } from "@/components/Forum/MentorCardComponent";
 import Button from "@/components/atoms/Button/Button";
 import Link from "next/link";
-import HomeMap from 'assets/home-page/home_map.svg';
+import HomeMap from "assets/home-page/home_map.svg";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const HomeJobs = () => {
@@ -39,8 +39,8 @@ const HomeJobs = () => {
             <p className="text-gray-500">224 live | 49 added today</p>
           </div>
           <div className="w-full flex flex-wrap justify-between ">
-            {homeJobCat.map((data: any, index: number) => (
-              <JobCategory key={index} data={data} />
+            {homeJobCat.map((data: any) => (
+              <JobCategory key={Math.random()} data={data} />
             ))}
           </div>
         </section>
@@ -57,8 +57,8 @@ const HomeJobs = () => {
           </div>
           <div className="w-full">
             {homeJobData.map(
-              (data, index): JSX.Element => (
-                <div key={index}>
+              (data): JSX.Element => (
+                <div key={Math.random()}>
                   <JobCard
                     image={data.image}
                     alt={"company image"}
@@ -147,7 +147,9 @@ const Talents = () => {
             </div>
           </div>
           <div className="w-max mx-auto">
-            <Link href="/" className=" text-gray-400 leading-8 border-b-2">See more</Link>
+            <Link href="/" className=" text-gray-400 leading-8 border-b-2">
+              See more
+            </Link>
           </div>
         </section>
       </div>
@@ -155,7 +157,7 @@ const Talents = () => {
   );
 };
 
-const MapWorkSpace = () =>{
+const MapWorkSpace = () => {
   return (
     <section className={`w-full ${styles.bg_gray} py-28`}>
       <div className="w-10/12 mx-auto flex justify-between items-center">
@@ -188,15 +190,10 @@ const MapWorkSpace = () =>{
       </div>
     </section>
   );
-}
+};
 
 const Home: NextPage = () => {
   const globalCompanies = [chipper, nextford, haulify, panther, rootlo, scopic];
-
-  const boxVariant = {
-    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-    hidden: { opacity: 0, scale: 0 },
-  };
 
   return (
     <GeneralLayout>
@@ -213,8 +210,13 @@ const Home: NextPage = () => {
             Trusted by these global companies
           </h3>
           <div className="flex justify-between ">
-            {globalCompanies.map((item: any, index: number) => (
-              <Image key={index} src={item} alt="global companies" />
+            {globalCompanies.map((item: any) => (
+              <Image
+                key={Math.random()}
+                src={item}
+                alt="global companies"
+                fill
+              />
             ))}
           </div>
         </div>

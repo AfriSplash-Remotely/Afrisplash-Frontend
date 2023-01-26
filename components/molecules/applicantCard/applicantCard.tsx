@@ -29,9 +29,13 @@ function ApplicantCard({
         background: isSelected ? " rgba(217, 222, 220, 1)" : "none",
       }}
     >
-      <span className={styles.applicantDetails}>
+      <div className={styles.applicantDetails}>
         <span className="w-20 h-20 col-span-1 relative rounded-xl	overflow-hidden">
-          <Image src={imageUrl} alt={name.toLocaleLowerCase()} layout="fill" />
+          <Image
+            src={imageUrl}
+            alt={name.toLocaleLowerCase()}
+            fill
+          />
         </span>
         <section className="col-span-3">
           <h3 className="text-base font-semibold pb-1 pt-2">{name}</h3>
@@ -45,9 +49,9 @@ function ApplicantCard({
             View Resume
           </a>
         </section>
-      </span>
+      </div>
 
-      <span className={styles.actionButtons}>
+      <div className={`flex relative right-0`}>
         <Button
           onClick={acceptFn}
           type="filled"
@@ -65,7 +69,7 @@ function ApplicantCard({
           text="Reject"
           classes="w-100 px-10  h-10 ml-6 rounded-md border-2 border-green-900 text-sm capitalize text-primary_green bg-white hover:opacity-80 leading-[22px]"
         />
-      </span>
+      </div>
     </div>
   );
 }

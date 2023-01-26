@@ -15,7 +15,7 @@ export default function TopAdmin({
   avatarText,
 }: TopAdminProps) {
   return (
-    <div className="h-20 flex items-center sticky top-0 z-20 bg-[#f8f8f8] w-full px-8 xx:px-12 justify-between">
+    <div className="h-20 flex items-center sticky top-0 z-20 w-full justify-between">
       <div className="w-5/12">
         <Search placeholder={placeholder} />
       </div>
