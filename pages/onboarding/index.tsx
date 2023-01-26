@@ -30,9 +30,9 @@ const Onboarding = () => {
       <div className="max-w-5xl mx-auto mt-5 pb-10 bg-white shadow-xl rounded-xl px-3">
         <div className="flex mb-14 justify-center items-center">
           <Link href="/">
-            <a>
-              <ArrowLeftIcon className="w-6 ml-4" />
-            </a>
+
+            <ArrowLeftIcon className="w-6 ml-4" />
+
           </Link>
           <div className="flex items-center justify-center flex-1">
             <Image src={logo} fill alt="logo" />
@@ -71,7 +71,7 @@ const Onboarding = () => {
         {step === 3 && <Education />}
         {step === 4 && <Skills />}
         <div className="flex justify-center items-center gap-4 md:gap-12 font-medium">
-          <Link href="#">
+          <Link href="#" legacyBehavior>
             <button
               className="border-gray-400 border general-btn"
               onClick={() => step > 1 && setStep(step - 1)}
@@ -80,7 +80,7 @@ const Onboarding = () => {
             </button>
           </Link>
           {step !== 4 && (
-            <Link href="#">
+            <Link href="#" legacyBehavior>
               <button
                 className="bg-indigo-900 text-gray-400 general-btn"
                 onClick={() => {
