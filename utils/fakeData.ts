@@ -35,15 +35,6 @@ export const jobCat = {
   openPositions: 20,
 };
 
-export const talentDets = {
-  image: TalentImage,
-  name: "Mubarak Show",
-  role: "Senior developer",
-  jobType: "Full time",
-  jobLocation: "Remote, hybrid",
-  rating: "gold",
-  flag: "ghana",
-};
 interface Splash {
   tag: string;
   imgUrl: string | StaticImageData;
@@ -252,6 +243,33 @@ export const employerData = [
   },
 ];
 
+export const topTalentData = [
+  {
+    id: "eeevfd",
+    name: "Mubarak Show",
+    position: "Senior Developer",
+    role: "Job search, Career, Leadership,...",
+    flag: GhanaFlag,
+    src: "https://images.unsplash.com/photo-1606415918835-88d0614e75ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+  },
+  {
+    id: "eeewqd",
+    name: "Mubarak Show",
+    position: "Senior Developer",
+    role: "Job search, Career, Leadership,...",
+    flag: GhanaFlag,
+    src: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80",
+  },
+  {
+    id: "eecd",
+    name: "Mubarak Show",
+    position: "Senior Developer",
+    role: "Job search, Career, Leadership,...",
+    flag: GhanaFlag,
+    src: "https://images.unsplash.com/photo-1563132337-f159f484226c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+  },
+];
+
 export const mentorsData = [
   {
     id: "eeed",
@@ -332,6 +350,22 @@ export const mentorsData = [
     role: "Job search, Career, Leadership,...",
     flag: GhanaFlag,
     src: "https://images.unsplash.com/photo-1628149321186-7d4c5b1170f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+  },
+  {
+    id: "eeedf",
+    name: "Mubarak Show",
+    position: "Senior Developer",
+    role: "Job search, Career, Leadership,...",
+    flag: GhanaFlag,
+    src: "https://images.unsplash.com/photo-1507038732509-8b1a9623223a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+  },
+  {
+    id: "ewwed",
+    name: "Mubarak Show",
+    position: "Senior Developer",
+    role: "Job search, Career, Leadership,...",
+    flag: GhanaFlag,
+    src: "https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
   },
 ];
 
