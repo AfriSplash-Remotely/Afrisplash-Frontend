@@ -24,19 +24,19 @@ function ApplicantCard({
 }: InferProps<typeof ApplicantCardProps>) {
   return (
     <div
-      className={styles.applicantWrapper}
+      className={`w-full border rounded-xl flex items-center p-5 px-10 `}
       style={{
         background: isSelected ? " rgba(217, 222, 220, 1)" : "none",
       }}
     >
-      <div className={styles.applicantDetails}>
-        <span className="w-20 h-20 col-span-1 relative rounded-xl	overflow-hidden">
+      <div className={`w-full flex items-center `}>
+        <div className="w-20 h-16 mr-12 col-span-1 relative rounded-xl	overflow-hidden">
           <Image
             src={imageUrl}
             alt={name.toLocaleLowerCase()}
             fill
           />
-        </span>
+        </div>
         <section className="col-span-3">
           <h3 className="text-base font-semibold pb-1 pt-2">{name}</h3>
           <p className="text-base mb-1 font-normal capitalize opacity-75">
@@ -44,14 +44,14 @@ function ApplicantCard({
           </p>
           <a
             href={`applicants/${id.toString()}`}
-            className="text-sm underline font-semibold text-primary_green"
+            className="text-sm font-semibold text-primary_green"
           >
             View Resume
           </a>
         </section>
       </div>
 
-      <div className={`flex relative right-0`}>
+      <div className={`flex w-full justify-end`}>
         <Button
           onClick={acceptFn}
           type="filled"
