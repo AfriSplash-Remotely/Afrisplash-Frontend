@@ -7,6 +7,7 @@ import Post from "components/molecules/Post/Post";
 import ForumLayout from "layouts/forumLayout";
 import styles from "styles/Forum.module.scss";
 import { splash } from "utils/fakeData";
+import { generateUniqueId } from "@/utils/helper";
 
 const Splash: NextPage = () => {
   return (
@@ -22,15 +23,10 @@ const Splash: NextPage = () => {
             {splash.map((s) => (
               <Link
                 href=""
-                key={s.tag[0] + Math.random()}
+                key={generateUniqueId()}
                 className={`block rounded-lg bg-white relative ${styles.imageContainer}`}
               >
-                <Image
-                  src={s.imgUrl}
-                  alt={s.tag}
-                  fill
-                  priority
-                />
+                <Image src={s.imgUrl} alt={s.tag} fill priority />
                 <h3 className="absolute text-white bottom-3 w-full left-0 text-center">
                   {s.tag}
                 </h3>

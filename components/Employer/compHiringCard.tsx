@@ -30,16 +30,16 @@ export default function CompHiringCard({ title, desc, inst, location, people }: 
           <div className="mt-4">
             <div className="flex items-center justify-around  gap-8">
               <div className="flex">
-                <Image src={Institution} alt="icon" layout="responsive" />
+                <Image src={Institution} alt="icon" />
                 <h4>{inst}</h4>
               </div>
               <div className="flex ">
-                <Image src={Locattion} alt="icon" layout="responsive" />
+                <Image src={Locattion} alt="icon" />
                 <h4>{location}</h4>
               </div>
             </div>
             <div className="flex justify-center items-center mt-6">
-              <Image src={People} alt="icon" layout="responsive" />
+              <Image src={People} alt="icon" />
               <h4>{people}</h4>
             </div>
           </div>

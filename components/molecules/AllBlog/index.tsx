@@ -135,7 +135,7 @@ const AllBlog = () => {
 
         </Link>
       </div>
-      <div className="md-items-center mt-[4rem] flex flex-col items-start gap-2 py-4 px-4 md:flex-row md:px-10 xl:px-[96px]">
+      <div className="md-items-center mt-[4rem] flex flex-col items-center gap-2 py-4 px-4 md:flex-row md:px-10 xl:px-[96px]">
         <div className="flex w-[430px] max-w-[100%] flex-row items-center rounded-lg bg-[#F8F8F8] p-4">
           <button className="border-none bg-transparent outline-none">
             <svg
@@ -169,7 +169,7 @@ const AllBlog = () => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 items-center justify-center gap-x-4 gap-y-8 py-4  px-4  md:grid-cols-2  md:px-10 lg:grid-cols-3 xl:grid-cols-4 xl:px-[96px]">
+      <div className="grid grid-cols-1 items-center justify-center gap-x-4 gap-y-20 py-4  px-4  md:grid-cols-2  md:px-10 lg:grid-cols-3 xl:grid-cols-4 xl:px-[96px]">
         {mockdata.map((article, index) => (
           <AllBlogCard article={article} key={index} />
         ))}

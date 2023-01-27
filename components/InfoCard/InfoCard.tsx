@@ -14,7 +14,7 @@ const InfoCard = ({
 }: InferProps<typeof InfoCardProps>): JSX.Element => {
   return (
     <article className={styles.card}>
-      <Image src={image} alt="" layout="responsive" />
+      <Image src={image} alt="" />
       <div>
         <h3>{header}</h3>
         <p>{content}</p>
