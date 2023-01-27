@@ -211,9 +211,9 @@ const Home: NextPage = () => {
             Trusted by these global companies
           </h3>
           <div className="flex justify-between ">
-            {globalCompanies.map((item: any, index) => (
+            {globalCompanies.map((item: any) => (
               <Image
-                key={index}
+                key={generateUniqueId()}
                 src={item}
                 alt="global companies"
                 fill
