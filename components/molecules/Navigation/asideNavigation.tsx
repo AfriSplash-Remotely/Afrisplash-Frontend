@@ -103,14 +103,14 @@ const AsideNavigation = (): JSX.Element => {
               )}
             </div>
             {section.elements.map((m) => (
-              <Link href="" key={m.name}>
-                <a className="flex items-center gap-2.5 px-1 py-2  ">
-                  <Image src={m.icon} alt={m.name} width={18} height={18} />
-                  <h3 className="text-[0.75rem] w-7/12 text-ellipsis whitespace-nowrap">
-                    {m.name}
-                  </h3>
-                </a>
-              </Link>
+              (<Link href="" key={m.name} className="flex items-center gap-2.5 px-1 py-2  ">
+
+                <Image src={m.icon} alt={m.name} width={18} height={18} />
+                <h3 className="text-[0.75rem] w-7/12 text-ellipsis whitespace-nowrap">
+                  {m.name}
+                </h3>
+
+              </Link>)
             ))}
           </section>
         );

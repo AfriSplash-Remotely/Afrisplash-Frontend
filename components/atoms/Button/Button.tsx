@@ -40,7 +40,11 @@ const ButtonComponent = (
   let Tag = tag ? tag : "button";
 
   return (
-    <Tag {...restProps} className={`${classes}`} ref={ref}>
+    <Tag
+      {...restProps}
+      className={`${classes}`}
+      ref={ref}
+    >
       {text ? text : children}
     </Tag>
   );

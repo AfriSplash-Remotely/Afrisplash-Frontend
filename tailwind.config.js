@@ -9,7 +9,6 @@ module.exports = {
       sm: "380px",
       md: "740px",
       lg: "980px",
-      xx: "1200px",
       xl: "1440px",
     },
     extend: {
@@ -20,8 +19,8 @@ module.exports = {
         dark_blue: "#1C1D36",
         white_2: "#F8F8F8",
         secondary_yellow: "#FFC42D73",
-        dark_blue: "#1C1D36",
         light_green: "#D6ECDC",
+        dark_500: "rgba(0, 0, 0, 0.67)",
         primary_grey: "#B6BBB2",
         white: "#FFF",
         grey: "#BBBBC3",
