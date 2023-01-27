@@ -212,12 +212,9 @@ const Home: NextPage = () => {
           </h3>
           <div className="flex justify-between ">
             {globalCompanies.map((item: any) => (
-              <Image
-                key={generateUniqueId()}
-                src={item}
-                alt="global companies"
-                fill
-              />
+              <div key={generateUniqueId()}>
+                <Image src={item} alt="global companies" />
+              </div>
             ))}
           </div>
         </div>
