@@ -15,7 +15,7 @@ function VerifyEmail() {
           below.
         </p>
         <div className="mx-auto w-fit">
-          <Link href="/auth/email-verified" passHref>
+          <Link href="/auth/email-verified" passHref legacyBehavior>
             <Button classes="w-[343px] rounded-2xl my-8 w-full h-10 bg-gray-900 m-auto">
               <span className="font-['Inter'] font-bold text-sm leading-4 text-gray-100 text-center mr-auto ml-auto ">
                 Verify Email

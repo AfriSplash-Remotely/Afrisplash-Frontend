@@ -58,13 +58,13 @@ const HireTalent: NextPage = () => {
             </p>
           </article>
           <section className={styles.gallerySection}>
-            <div className={styles.galleryRow1}>
+            <div className={` flex ${styles.galleryRow1}`}>
               <Image src={Img1} alt="" />
               <Image src={Img2} alt="" />
               <Image src={Img3} alt="" />
               <Image src={Img4} alt="" />
             </div>
-            <div className={styles.galleryRow2}>
+            <div className={styles.galleryRow1}>
               <Image src={Img5} alt="" />
               <Image src={Img6} alt="" />
               <Image src={Img7} alt="" />
