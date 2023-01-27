@@ -18,7 +18,7 @@ function EmailVerified() {
         </p>
       </div>
       <div className="mx-auto w-fit">
-        <Link href="/auth/login" passHref>
+        <Link href="/auth/login" passHref legacyBehavior>
           <Button classes="w-[343px] rounded-2xl my-8 w-full h-10 bg-gray-900 m-auto">
             <span className="font-['Inter'] w-30 h-4 font-bold text-sm leading-4 text-gray-100 text-center mr-auto ml-auto ">
               Go To Login

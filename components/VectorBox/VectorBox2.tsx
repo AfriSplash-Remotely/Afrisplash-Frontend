@@ -9,6 +9,7 @@ function VectorBox2() {
         className="max-w-full h-auto ml-auto"
         src={Letter}
         alt="Letter.png"
+        fill
       />
     </div>
   );

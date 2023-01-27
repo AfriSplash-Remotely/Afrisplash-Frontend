@@ -7,7 +7,7 @@ const Verify = () => {
   return (
     <div className="space-y-8 md:space-y-14">
       <div className="flex items-center">
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <span className="mx-auto items-center flex ">
             <Image
               src="/main_logo.svg"
