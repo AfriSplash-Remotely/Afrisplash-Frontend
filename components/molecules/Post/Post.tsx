@@ -9,13 +9,13 @@ import styles from "./Post.module.scss";
 
 const Post = (): JSX.Element => {
   return (
-    <div className="flex flex-col rounded-md px-3 pt-3 bg-white">
+    <div className="flex flex-col rounded-md py-5 px-6 bg-white">
       <div className="flex items-center justify-between gap-5">
         <Image priority src={User} width={36} height={36} alt="user icon" />
 
         <RoundedInput
           placeholder="What would you like to discuss?"
-          className="mr-5"
+          className=""
         />
       </div>
       <div

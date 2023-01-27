@@ -86,7 +86,7 @@ const sideLinks = [
 
 const AsideNavigation = (): JSX.Element => {
   return (
-    <aside className="px-7 bg-white mt-12 pt-4 pb-8 flex flex-col justify-between h-fit gap-7 sticky top-20">
+    <aside className="px-7 bg-white py-10 flex flex-col justify-between h-fit gap-7 sticky top-20">
       {sideLinks.map((section) => {
         return (
           <section key={section.Header}>

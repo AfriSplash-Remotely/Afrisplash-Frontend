@@ -30,7 +30,7 @@ const DropDown = ({
       <div className={`${classes}`}>
         <div
           className="flex flex-row justify-between items-center shadow
-                    h-11 border border-solid rounded-lg z-20 mt-3 mb-1"
+                    h-11 border border-solid rounded-lg relative z-20 mt-3 mb-1"
         >
           {imageUrl && (
             <span className="h-8 w-8 ml-2 -mr-5">

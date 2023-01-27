@@ -157,7 +157,7 @@ const Applicants: NextPage = () => {
   return (
     <AdminLayout>
       <div className="w-full pt-8">
-        <section className=" w-full  flex  mb-[50px] max-h-5 z-10">
+        <section className=" w-full  flex  mb-[50px] max-h-5 relative  z-30">
           {applicantLabels.map(({ label, isOpen, attributes }) => (
             <DropDown
               key={label}
@@ -175,7 +175,7 @@ const Applicants: NextPage = () => {
             <header className="w-full justify-end">
               {!makeSelectOptionsVisible && (
                 <p
-                  className="mx-5 mb-5 text-primary_green hover:cursor-pointer text-right"
+                  className="mx-5 mb-5 text-primary_green font-semibold hover:cursor-pointer text-right"
                   onClick={() =>
                     setMakeSelectOptionsVisible(!makeSelectOptionsVisible)
                   }
@@ -184,36 +184,36 @@ const Applicants: NextPage = () => {
                 </p>
               )}
               {makeSelectOptionsVisible && (
-                <>
-                  <p className=" w-full mb-5 text-primary_green hover:cursor-pointer text-center">
+                <div className="flex w-full justify-end items-center h-12">
+                  <div className="flex items-center text-primary_green hover:cursor-pointer ">
                     <CheckBox
-                      classes={styles.checkbox}
+                      classes={`mr-2`}
+                      text="Select all"
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         handleApplicantSelectionById({ e, _id: "all" });
                       }}
                     />
-                    Select all
-                  </p>
-                  <p
-                    className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer"
+                  </div>
+                  <div
+                    className="mx-5 col-span-1 text-primary_green hover:cursor-pointer"
                     onClick={() => handleAcceptApplicants("all")}
                   >
                     Accept
-                  </p>
-                  <p
-                    className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer"
+                  </div>
+                  <div
+                    className="mx-5 col-span-1 text-primary_green hover:cursor-pointer"
                     onClick={() => handleRejectApplicants("all")}
                   >
                     Reject
-                  </p>
-                </>
+                  </div>
+                </div>
               )}
             </header>
 
             {applicants.map((applicant: Applicant) => (
               <div
                 key={applicant.id}
-                className="w-full flex space-x-5 mb-7 place-items-end"
+                className="w-full flex items-center space-x-5 mb-7 "
               >
                 {makeSelectOptionsVisible && (
                   <CheckBox
