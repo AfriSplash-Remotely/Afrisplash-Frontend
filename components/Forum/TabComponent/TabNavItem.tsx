@@ -14,18 +14,18 @@ export default function TabNavItem({
   routeLink,
 }: InferProps<typeof TabNavItemProps>): JSX.Element {
   return (
-    <Link href={routeLink}>
-      <a>
-        <div
-          className={`relative ${
-            isActive
-              ? "active text-lg font-medium	text-primary_green cursor-pointer mb-2"
-              : "list-none mb-2 text-right text-gray-400 text-lg font-medium	 relative cursor-pointer"
-          }`}
-        >
-          {title}
-        </div>
-      </a>
-    </Link>
+    (<Link href={routeLink}>
+
+      <div
+        className={`relative ${
+          isActive
+            ? "active text-lg font-medium	text-primary_green cursor-pointer mb-2"
+            : "list-none mb-2 text-right text-gray-400 text-lg font-medium	 relative cursor-pointer"
+        }`}
+      >
+        {title}
+      </div>
+
+    </Link>)
   );
 }
