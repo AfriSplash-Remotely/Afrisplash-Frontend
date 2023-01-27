@@ -32,8 +32,8 @@ const Trending: NextPage = () => {
                     <Image
                       src={DotIcon}
                       alt="more"
-                      width="18"
-                      height="20"
+                      width={18}
+                      height={20}
                       className="block"
                     />
                   </button>

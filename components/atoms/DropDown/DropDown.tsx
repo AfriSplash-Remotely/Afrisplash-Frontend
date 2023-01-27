@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
+import { generateUniqueId } from "@/utils/helper";
 
 const DropDownProps = {
   classes: PropTypes.string,
@@ -33,7 +34,7 @@ const DropDown = ({
         >
           {imageUrl && (
             <span className="h-8 w-8 ml-2 -mr-5">
-              <Image src={imageUrl} alt="" />
+              <Image src={imageUrl} alt="" fill/>
             </span>
           )}
           <span className="text-sm ml-6 capitalize leading-3">
@@ -65,7 +66,7 @@ const DropDown = ({
           >
             {options?.map((optText) => (
               <span
-                key={optText}
+                key={generateUniqueId()}
                 className="text-sm block capitalize w-100 my-4
                              hover:cursor-pointer hover:underline"
                 onClick={() => setMakeSelectOption(optText)}

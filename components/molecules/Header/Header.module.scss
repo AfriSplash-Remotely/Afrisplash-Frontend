@@ -11,7 +11,7 @@
   display: flex;
   &_image {
     position: absolute;
-    width: 22em;
+    width: 22em !important;
     cursor: pointer;
     flex-grow: 1;
     &:hover {
@@ -19,15 +19,15 @@
     }
     &_1 {
       top: 0px;
-      left: 30%;
+      left: 9em;
     }
     &_2 {
-      top: 30%;
-      left: -20%;
+      top: 0em;
+      left: -25%;
     }
     &_3 {
-      bottom: 0px;
-      left: 30%;
+      bottom: -3em;
+      left: -2em;
     }
   }
 }

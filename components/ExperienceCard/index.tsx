@@ -23,7 +23,7 @@ function ExperienceCard({
                   src={AwardIcon}
                   alt="award-icon"
                   aria-hidden="true"
-                  layout="fill"
+                  fill
                 />
               </div>
             </div>
@@ -33,12 +33,7 @@ function ExperienceCard({
         <div className="w-6 h-6">
           <div className="flex items-center justify-center flex-1 h-full p-1 border rounded-lg border-gray-400">
             <div className="flex-1 h-6 w-6 relative rounded-full">
-              <Image
-                src={EditIcon}
-                alt="edit-icon"
-                aria-hidden="true"
-                layout="fill"
-              />
+              <Image src={EditIcon} alt="edit-icon" aria-hidden="true" fill />
             </div>
           </div>
         </div>
