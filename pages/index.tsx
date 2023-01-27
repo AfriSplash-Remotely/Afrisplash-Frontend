@@ -26,6 +26,7 @@ import Button from "@/components/atoms/Button/Button";
 import Link from "next/link";
 import HomeMap from "assets/home-page/home_map.svg";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { generateUniqueId } from "@/utils/helper";
 
 const HomeJobs = () => {
   const homeJobData = toArrayOfObjects(jobData[0], 5);
@@ -40,7 +41,7 @@ const HomeJobs = () => {
           </div>
           <div className="w-full flex flex-wrap justify-between ">
             {homeJobCat.map((data: any) => (
-              <JobCategory key={Math.random()} data={data} />
+              <JobCategory key={generateUniqueId()} data={data} />
             ))}
           </div>
         </section>
@@ -58,7 +59,7 @@ const HomeJobs = () => {
           <div className="w-full">
             {homeJobData.map(
               (data): JSX.Element => (
-                <div key={Math.random()}>
+                <div key={generateUniqueId()}>
                   <JobCard
                     image={data.image}
                     alt={"company image"}
@@ -210,9 +211,9 @@ const Home: NextPage = () => {
             Trusted by these global companies
           </h3>
           <div className="flex justify-between ">
-            {globalCompanies.map((item: any) => (
+            {globalCompanies.map((item: any, index) => (
               <Image
-                key={Math.random()}
+                key={index}
                 src={item}
                 alt="global companies"
                 fill

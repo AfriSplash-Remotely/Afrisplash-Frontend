@@ -59,7 +59,6 @@ export default function AdminNavigation(): JSX.Element {
                           src={item.icon ? item.icon : ""}
                           height={18}
                           width={18}
-                          layout="responsive"
                         />
                       </span>
                       <span className={`${navSwitch === true ? "hidden" : ""}`}>

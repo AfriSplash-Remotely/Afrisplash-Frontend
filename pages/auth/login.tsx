@@ -100,7 +100,6 @@ const Login: NextPage = () => {
               <Image
                 src={africanwomansmiling}
                 alt="africanwomansmiling.png"
-                layout="responsive"
               />
             </span>
           </div>

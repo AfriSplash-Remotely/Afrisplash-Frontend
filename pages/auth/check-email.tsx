@@ -7,35 +7,33 @@ import styles from "../../styles/CheckMail.module.scss";
 
 const checkEmail = () => {
   return (
-    <div>
+    <div className="w-full">
       <div>
-        <nav className={`flex items-center justify-center mb-[7.438rem]`}>
+        <nav className={`flex items-center justify-center mb-10`}>
           <Image src={logo} alt="afrisplash" />
           <h2 className={`text-base font-[600]`}>AfriSplashRemotely</h2>
         </nav>
       </div>
 
-      <div className={`${styles.mail} `}>
-        <div className={`${styles.mailImg}`}>
-          <Image src={mail} alt="mail" layout="responsive" />
+      <div className={`${styles.mail} w-full `}>
+        <div className={`${styles.mailImg} `}>
+          <Image src={mail} alt="mail" />
           <h2
             className={`text-center font-[600] text-[1.5rem] w-[16.2rem] pb-[1.375rem] pt-8`}
           >
             Check Your Mail!
           </h2>
-          <p className={`font-light w-[24rem]`}>
+          <p className={`font-light w-[24rem] text-center`}>
             We just emailed you the instructions to reset your
-          </p>
-          <p className={`font-light ml-[5rem]`}>
-            password or
-            <Link href="" className={`text-sunglow underline`}>
-              resend it
+            password or 
+            <Link href="" className={`text-sunglow underline ml-1`}>
+               resend it
             </Link>
             .
           </p>
-          <Link href={"/auth/login"} >
+          <Link href={"/auth/login"} className="w-full flex justify-center">
             <button
-              className={`mt-8 w-full bg-dark_blue p-[10px] text-white rounded-[1rem] ${styles.joinNowBtn}`}
+              className={`mt-8 w-10/12 bg-dark_blue p-[10px] text-white rounded-[1rem] ${styles.joinNowBtn}`}
             >
               Login
             </button>
