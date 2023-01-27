@@ -4,6 +4,7 @@ import PropTypes, { InferProps } from "prop-types";
 import Tabs from "components/Forum/Tabs";
 import AdminLayout from "layouts/adminLayout";
 import styles from "styles/Forum.module.scss";
+import AsideNavigation from "@/components/molecules/Navigation/asideNavigation";
 
 const tabs = [
   { title: "Trending topics", routeLink: "/dashboard/forum" },
@@ -19,8 +20,17 @@ const ForumLayout: NextPage<InferProps<typeof ForumLayoutProps>> = ({
 }) => {
   return (
     <AdminLayout>
-      <Tabs tabItems={tabs} />
-      <div className={`${styles.container}`}>{children}</div>{" "}
+      <section className=" w-full">
+        <div className="w-7/12 flex justify-start">
+          <Tabs tabItems={tabs} />
+        </div>
+        <div className="w-full flex justify-between">
+          <div className={`w-7/12`}>{children}</div>
+          <div className="w-4/12">
+            <AsideNavigation />
+          </div>
+        </div>
+      </section>
     </AdminLayout>
   );
 };

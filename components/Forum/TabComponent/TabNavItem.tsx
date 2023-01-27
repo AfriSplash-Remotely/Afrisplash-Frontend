@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import PropTypes, { InferProps } from "prop-types";
+import styles from "../Tabs.module.scss";
 
 const TabNavItemProps = {
   title: PropTypes.string,
@@ -14,13 +15,13 @@ export default function TabNavItem({
   routeLink,
 }: InferProps<typeof TabNavItemProps>): JSX.Element {
   return (
-    (<Link href={routeLink}>
+    (<Link href={routeLink} className="h-full">
 
       <div
-        className={`relative ${
+        className={`relative h-full ${
           isActive
-            ? "active text-lg font-medium	text-primary_green cursor-pointer mb-2"
-            : "list-none mb-2 text-right text-gray-400 text-lg font-medium	 relative cursor-pointer"
+            ? `${styles.active} text-lg font-medium	text-primary_green cursor-pointer`
+            : "list-none text-right text-gray-400 text-lg font-medium cursor-pointer"
         }`}
       >
         {title}

@@ -35,7 +35,6 @@ const Splash: NextPage = () => {
           </div>
         </div>
       </div>
-      <AsideNavigation />
     </ForumLayout>
   );
 };

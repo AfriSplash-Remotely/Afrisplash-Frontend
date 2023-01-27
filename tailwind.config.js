@@ -26,6 +26,7 @@ module.exports = {
         grey: "#BBBBC3",
         light_grey: "#B6BBB2",
         sunglow: "#0D5520",
+        lighter_green: "rgba(214, 236, 220, 0.4)",
       },
     },
   },

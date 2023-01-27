@@ -8,7 +8,7 @@ import { mentorsData } from "utils/fakeData";
 const Mentors: NextPage = () => {
   return (
     <ForumLayout>
-      <div className={` ${styles.fill} w-full sm:pr-10 lg:pr-8 xl:pr-44`}>
+      <div className={` ${styles.fill} w-full`}>
         <MentorTab />
 
         <div className="grid gap-6 lg:grid-cols-3">

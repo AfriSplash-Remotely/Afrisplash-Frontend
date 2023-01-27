@@ -2,7 +2,6 @@ import React from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import BoxInput from "components/atoms/Input/BoxInput";
-import AsideNavigation from "components/molecules/Navigation/asideNavigation";
 import Post from "components/molecules/Post/Post";
 import ForumLayout from "layouts/forumLayout";
 import {trending} from 'utils/fakeData'
@@ -79,7 +78,7 @@ const Trending: NextPage = () => {
           ))}
         </div>
       </div>
-      <AsideNavigation />
+      
     </ForumLayout>
   );
 };
