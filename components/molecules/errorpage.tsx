@@ -46,7 +46,7 @@ const ErrorPage = (props: { statusCode: number }) => {
             <p className="text-2xl my-5">{errorMessageToShow.errorTitle}</p>
             <p className="">{errorMessageToShow.errorMessage}</p>
           </div>
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <button className="border-primary_green border rounded-md text-primary_green w-10/12 md:w-7/12 lg:w-4/12 p-4 mt-5">
               Take me home
             </button>

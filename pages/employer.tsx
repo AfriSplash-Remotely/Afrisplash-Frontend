@@ -22,6 +22,7 @@ const Employer: NextPage = () => {
                     <Image src={employerImg}
                         alt="img"
                         className="w-full h-full  mt-20 xl:mt-0 md:mt-0 "
+                        fill
                     />
                     <div className="absolute">
                         <div className=" flex gap-4">

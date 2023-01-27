@@ -36,7 +36,7 @@ const Post = (): JSX.Element => {
               priority
               alt="photo icon"
               aria-hidden="true"
-              layout="responsive"
+              fill
               src={PhotoIcon}
             />
           </div>
@@ -58,7 +58,7 @@ const Post = (): JSX.Element => {
               priority
               alt="video icon"
               aria-hidden="true"
-              layout="responsive"
+              fill
               src={VideoIcon}
             />
           </div>
@@ -79,8 +79,8 @@ const Post = (): JSX.Element => {
             <Image
               priority
               alt="link icon"
+              fill
               aria-hidden="true"
-              layout="responsive"
               src={LinkIcon}
             />
           </div>
@@ -99,9 +99,9 @@ const Post = (): JSX.Element => {
           <div className="w-5 h-5 relative">
             <Image
               priority
+              fill
               alt="link icon"
               aria-hidden="true"
-              layout="responsive"
               src={LinkIcon}
             />
           </div>
