@@ -3,6 +3,7 @@ import AuthorImage from "assets/blog/author.png";
 import FeaturedImage from "assets/blog/laptop_office.jpg";
 import { ArticleProp } from "./ArticleInterface";
 import FeaturedPostCard from "./FeaturedPostCard";
+import { generateUniqueId } from "@/utils/helper";
 
 const mockdata: ArticleProp[] = [
   {
@@ -48,11 +49,13 @@ const mockdata: ArticleProp[] = [
 
 const FeaturedPost = () => {
   return (
-    <section className="bg-[#F8F8F8] py-[5rem] px-4 md:px-10 xl:px-[110px]">
-      <h2 className="mb-4 text-[32px]">Featured Posts</h2>
-      <div className="grid grid-cols-1 items-center justify-center gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-        {mockdata.map((article, index) => (
-          <FeaturedPostCard article={article} key={index} />
+    <section className="bg-[#F8F8F8] py-[5rem] px-4 md:px-10 xl:px-[110px] h-max">
+      <h2 className="mb-10 text-[32px]">Featured Posts</h2>
+      <div className="flex justify-between w-full h-max flex-wrap ">
+        {mockdata.map((article) => (
+          <div key={generateUniqueId()} className="w-3/12 ">
+            <FeaturedPostCard article={article} />
+          </div>
         ))}
       </div>
     </section>

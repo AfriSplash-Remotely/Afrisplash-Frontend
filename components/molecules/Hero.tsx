@@ -9,7 +9,7 @@ const Hero = (): JSX.Element => {
   return (
     <div className="flex flex-col items-center justify-between bg-primary_yellow  px-4 md:flex-row-reverse md:px-10 xl:px-[110px]">
       <div className="h[100%] relative my-10 block w-[100%] md:w-[60%]">
-        <Image src={HeroImage} alt="hero" priority layout="responsive" />
+        <Image src={HeroImage} alt="hero" priority  />
       </div>
       <div className="md:w-1/2 xl:w-1/3">
         <div className="my-7 mt-10 flex flex-row flex-wrap items-center gap-2">
