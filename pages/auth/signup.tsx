@@ -15,13 +15,32 @@ import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
 import google from "../../assets/svg/google.svg";
 import styles from "../../styles/Signup.module.scss";
+import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const Signup: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const [passwordFieldType, setPasswordFieldType] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordFieldType(!passwordFieldType);
   };
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    axios.post(
+      "https://api.afrisplash.com/api/v1/auth/register", data
+    ).then((res)=>{
+      console.log(res);
+      return res;
+    })
+  };
+  console.log(watch("first_name"));
   return (
     <div className={`flex ${styles.container}`}>
       <div className={`bg-white mt-8 ml-[2rem] lg:ml-[8.5rem] ${styles.row}`}>
@@ -54,7 +73,7 @@ const Signup: NextPage = () => {
             or with email
           </span>
         </h2>
-        <form className={`mt-9`}>
+        <form className={`mt-9`} onSubmit={handleSubmit(onSubmit)}>
           <div className={`${styles.nameContainer}`}>
             {/**First Name */}
             <div className={`w-[46%] lg:w-[35%]`}>
@@ -65,11 +84,18 @@ const Signup: NextPage = () => {
                   </span>
                   <input
                     type="text"
-                    placeholder="Firstname"
+                    placeholder="First Name"
                     className={`${styles.inputField}`}
+                    {...register("first_name", { required: true })}
+                    aria-invalid={errors.first_name ? "true" : "false"}
                   />
                 </div>
               </div>
+              {errors.first_name?.type === "required" && (
+                <p role="alert" className="error_message pl-2 py-2">
+                  First name is required
+                </p>
+              )}
             </div>
 
             {/**Surname */}
@@ -82,39 +108,74 @@ const Signup: NextPage = () => {
                   type="text"
                   placeholder="Surname"
                   className={`${styles.inputField}`}
+                  {...register("last_name", { required: true })}
+                  aria-invalid={errors.last_name ? "true" : "false"}
                 />
               </div>
+              {errors.last_name?.type === "required" && (
+                <p role="alert" className="error_message pl-2 py-2">
+                  Surname is required
+                </p>
+              )}
             </div>
           </div>
 
           {/**Email */}
-          <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
-            <span className={`${styles.userIcon}`}>
-              <EnvelopeIcon className="w-4 h-4 " />
-            </span>
-            <input
-              type="email"
-              placeholder="Email"
-              className={`${styles.inputField}`}
-            />
+          <div>
+            <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
+              <span className={`${styles.userIcon}`}>
+                <EnvelopeIcon className="w-4 h-4 " />
+              </span>
+              <input
+                type="email"
+                placeholder="Email"
+                className={`${styles.inputField}`}
+                {...register("email", { required: true })}
+                aria-invalid={errors.email ? "true" : "false"}
+              />
+            </div>
+            {errors.email?.type === "required" && (
+              <p role="alert" className="error_message pl-2 py-2">
+                Email is required
+              </p>
+            )}
           </div>
 
           {/**Password */}
-          <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
-            <span className={`${styles.userIcon}`}>
-              <LockClosedIcon className="w-4 h-4 " />
-            </span>
-            <input
-              type={passwordFieldType ? "text" : "password"}
-              placeholder="Password"
-              className={`${styles.inputField}`}
-            />
-            <span
-              className={`ml-auto ${styles.userIcon}`}
-              onClick={togglePasswordVisibility}
-            >
-              <EyeIcon className="w-4 h-4 cursor-pointer" />
-            </span>
+          <div>
+            <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
+              <span className={`${styles.userIcon}`}>
+                <LockClosedIcon className="w-4 h-4 " />
+              </span>
+              <input
+                type={passwordFieldType ? "text" : "password"}
+                placeholder="Password"
+                className={`${styles.inputField}`}
+                {...register("password", {
+                  required: true,
+                  pattern:
+                    /^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{6,}$/i,
+                })}
+                aria-invalid={errors.password ? "true" : "false"}
+              />
+              <span
+                className={`ml-auto ${styles.userIcon}`}
+                onClick={togglePasswordVisibility}
+              >
+                <EyeIcon className="w-4 h-4 cursor-pointer" />
+              </span>
+            </div>
+            {errors.password?.type === "required" && (
+              <p role="alert" className="error_message  pl-2 py-2">
+                Password is required
+              </p>
+            )}
+            {errors.password?.type === "pattern" && (
+              <p role="alert" className="error_message w-8/12 pl-2 py-2">
+                Minimum six(6) characters, at least one letter, one number and
+                one special character
+              </p>
+            )}
           </div>
 
           {/**Talent account */}
@@ -126,27 +187,23 @@ const Signup: NextPage = () => {
           </div>
 
           {/**Join now */}
-          <Link href={"/auth/check-email"} legacyBehavior>
-            <button
-              className={`mt-8 w-[92%] lg:w-[70%] bg-dark_blue p-[10px] text-white rounded-[0.625rem] ${styles.joinNowBtn}`}
-            >
-              Join now
-            </button>
-          </Link>
-
-          {/**log in */}
-          <div
-            className={`flex mt-12 ml-[5rem] items-center text-center gap-[0.375rem] mb-[6rem]`}
-          >
-            <p className={`text-[14px] font-[500]`}>Already have an account?</p>
-            <Link
-              href="/auth/login"
-              className={`text-sunglow text-base font-semibold`}
-            >
-              Log in
-            </Link>
-          </div>
+          <input
+            type="submit"
+            value="Join Now"
+            className={`mt-8 w-[92%] lg:w-[70%] bg-dark_blue p-[10px] text-white rounded-[0.625rem] ${styles.joinNowBtn}`}
+          />
         </form>
+        <div
+          className={`flex mt-12 ml-[5rem] items-center text-center gap-[0.375rem] mb-[6rem]`}
+        >
+          <p className={`text-[14px] font-[500]`}>Already have an account?</p>
+          <Link
+            href="/auth/login"
+            className={`text-sunglow text-base font-semibold`}
+          >
+            Log in
+          </Link>
+        </div>
       </div>
       <div className={`bg-primary_yellow hidden lg:flex ${styles.row}`}>
         <div className={`${styles.span2} relative col-span-3 bg-[#FDF1C9]`}>
@@ -168,10 +225,7 @@ const Signup: NextPage = () => {
               <Image src={person1} alt="africanwomansmiling.png" />
             </div>
             <span className="relative left-[6rem]">
-              <Image
-                src={africanwomansmiling}
-                alt="africanwomansmiling.png"
-              />
+              <Image src={africanwomansmiling} alt="africanwomansmiling.png" />
             </span>
           </div>
         </div>
