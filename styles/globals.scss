@@ -13,6 +13,10 @@
 .dark_500 {
   background: #00000099;
 }
+.error_message{
+  font-size: 11px !important;
+  color: rgb(168, 1, 1);
+}
 
 @layer components {
   .input-el {

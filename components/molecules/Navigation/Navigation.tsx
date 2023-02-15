@@ -120,7 +120,7 @@ const Navigation = (): JSX.Element => {
                 // bgColor="dark_blue"
                 color="white"
                 text="sign in"
-                classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
+                classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
                 onClick={() => changePath("/auth/login")}
               />
               <Button
@@ -128,7 +128,7 @@ const Navigation = (): JSX.Element => {
                 color="dark_blue"
                 text="Post jobs"
                 // borderColor="dark_blue"
-                classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
+                classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-primary_green hover:text-white"
               />
             </div>
             <div className="flex lg:hidden h-full items-center">
