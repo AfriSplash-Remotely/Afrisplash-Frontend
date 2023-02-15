@@ -1,61 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik&display=swap");
 
-.container {
-  font-family: "Inter", sans-serif;
+.googleContainer {
+  border: 1px solid #bbbbc3;
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .row {
-    flex: 50%;
+.divider {
+  text-align: center;
+  border-bottom: 1px solid #d9dedc;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+
+  .emailSpan {
+    padding: 0 10px;
   }
+}
 
-  .googleContainer {
-    border: 1px solid #bbbbc3;
-    border-radius: 10px;
-  }
+.nameContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 
-  .divider {
-    text-align: center;
-    border-bottom: 1px solid #d9dedc;
-    line-height: 0.1em;
-    margin: 10px 0 20px;
 
-    .emailSpan {
-      padding: 0 10px;
-    }
-  }
+.inputContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid #bbbbc3;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 0.2rem;
+}
 
-  .nameContainer {
-    display: inline-flex;
-    width: 100%;
-  }
+.userIcon {
+  color: #bbbbc3;
+  fill: currentColor;
+}
 
-  .separator {
-    width: 95%;
-  }
+.inputField {
+  outline: none;
+  color: #979797;
+  font-size: 0.9rem;
+  padding: 3px 0;
+  width: 100%;
+}
 
-  .inputContainer {
-    display: flex;
-    align-items: center;
-    border: 1px solid #bbbbc3;
-    border-radius: 10px;
-    padding: 10px;
-    gap: 0.2rem;
-  }
-
-  .userIcon {
-    color: #bbbbc3;
-    fill: currentColor;
-  }
-
-  .inputField {
-    outline: none;
-    color: #979797;
-    font-size: 0.9rem;
-    width: 100%;
-  }
-
-  .joinNowBtn:hover {
-    background-color: #0d5520;
-  }
+.joinNowBtn:hover {
+  background-color: #0d5520;
 }
 
 .span2 {
@@ -64,7 +60,9 @@
 }
 
 .bg {
-  background: radial-gradient(103.02% 103.02% at 50% 0%,
-      rgba(255, 255, 255, 0.65) 0%,
-      rgba(255, 255, 255, 0.67) 100%);
+  background: radial-gradient(
+    103.02% 103.02% at 50% 0%,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.67) 100%
+  );
 }
