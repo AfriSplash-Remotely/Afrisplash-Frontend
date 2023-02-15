@@ -15,140 +15,202 @@ import person1 from "../../assets/person1.png";
 import person2 from "../../assets/person2.png";
 import google from "../../assets/svg/google.svg";
 import styles from "../../styles/Signup.module.scss";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Signup: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
   const [passwordFieldType, setPasswordFieldType] = useState(false);
-
+  const passwordValidation =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
   const togglePasswordVisibility = () => {
     setPasswordFieldType(!passwordFieldType);
   };
-  return (
-    <div className={`flex ${styles.container}`}>
-      <div className={`bg-white mt-8 ml-[2rem] lg:ml-[8.5rem] ${styles.row}`}>
-        <nav className={`flex items-center`}>
-          <Image src={logo} alt="afrisplash" />
-          <h2 className={`font-[500] text-base`}>AfriSplashRemotely</h2>
-        </nav>
-        <div className={`mt-[4.75rem] mx-auto`}>
-          <h2
-            className={`font-[500] text-[1.5rem] lg:text-[2rem] leading-9 mb-4`}
-          >
-            Join The Community
-          </h2>
-          <p className={`w-[25rem] font-light text-base mb-14`}>
-            Find your dream remote job. Get skilled mentors. Connect with other
-            professionals
-          </p>
-        </div>
-        <button
-          className={`flex items-center gap-2 py-[1rem] pl-[7rem] pr-0 lg:px-[6rem] mb-8 max-w-[381px] lg:max-w-[455px] w-[95%] ${styles.googleContainer}`}
-        >
-          <Image src={google} alt="google" />
-          <p className={`font-[500] text-[0.875rem]`}>Sign up with Google</p>
-        </button>
 
-        <h2 className={`w-[92%] lg:w-[69%] ${styles.divider}`}>
-          <span
-            className={`text-light_grey bg-white font-[400] text-[0.875rem] ${styles.emailSpan}`}
+  const onSubmit = (data: any) => {
+    console.log(data);
+    axios
+      .post("https://api.afrisplash.com/api/v1/auth/register", data)
+      .then((res) => {
+        console.log(res);
+        return res;
+      });
+  };
+
+  const customStyles = {
+    control: (base: any, state: any) => ({
+      ...base,
+      height: "50px",
+      borderRadius: "10px",
+    }),
+  };
+
+  return (
+    <div className={`flex w-full`}>
+      <div className={`bg-white w-6/12`}>
+        <div className="w-9/12 mx-auto">
+          <nav className={`flex items-center h-32`}>
+            <Image src="/admin_logo.svg" alt="afrisplash" width={150} height={150}/>
+          </nav>
+          <div className={`mt-4 mx-auto`}>
+            <h2
+              className={`font-semibold text-[1.5rem] lg:text-[2rem] leading-9 mb-4`}
+            >
+              Join The Community
+            </h2>
+            <p className={` text-base mb-14`}>
+              Find your dream remote job. Get skilled mentors. Connect with
+              other professionals
+            </p>
+          </div>
+          <button
+            className={`flex items-center w-full mb-6 ${styles.googleContainer}`}
           >
-            or with email
-          </span>
-        </h2>
-        <form className={`mt-9`}>
-          <div className={`${styles.nameContainer}`}>
-            {/**First Name */}
-            <div className={`w-[46%] lg:w-[35%]`}>
-              <div className={`${styles.separator}`}>
-                <div className={`${styles.inputContainer}`}>
+            <Image src={google} alt="google" />
+            <p className={`font-[500] text-[0.875rem]`}>Sign up with Google</p>
+          </button>
+
+          <h2 className={` ${styles.divider}`}>
+            <span
+              className={`text-light_grey bg-white font-[400] text-[0.875rem] ${styles.emailSpan}`}
+            >
+              or with email
+            </span>
+          </h2>
+          <form className={`mt-9 w-full`} onSubmit={handleSubmit(onSubmit)}>
+            <div className="space-y-5">
+              <div className={`${styles.nameContainer} w-full space-x-4`}>
+                {/**First Name */}
+                <div className={`${styles.inputContainer} w-6/12`}>
                   <span className={`${styles.userIcon}`}>
                     <UserIcon className="w-4 h-4 " />
                   </span>
                   <input
                     type="text"
-                    placeholder="Firstname"
+                    placeholder="First Name"
                     className={`${styles.inputField}`}
+                    {...register("first_name", { required: true })}
+                    aria-invalid={errors.first_name ? "true" : "false"}
+                  />
+
+                  {errors.first_name?.type === "required" && (
+                    <p role="alert" className="error_message pl-2 py-2">
+                      First name is required
+                    </p>
+                  )}
+                </div>
+
+                {/**Surname */}
+                <div className={`${styles.inputContainer} w-6/12`}>
+                  <span className={`${styles.userIcon}`}>
+                    <UserIcon className="w-4 h-4 " />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Surname"
+                    className={`${styles.inputField}`}
+                    {...register("last_name", { required: true })}
+                    aria-invalid={errors.last_name ? "true" : "false"}
                   />
                 </div>
+                {errors.last_name?.type === "required" && (
+                  <p role="alert" className="error_message pl-2 py-2">
+                    Surname is required
+                  </p>
+                )}
               </div>
-            </div>
 
-            {/**Surname */}
-            <div className={`w-[46%] lg:w-[35%]`}>
-              <div className={`${styles.inputContainer}`}>
-                <span className={`${styles.userIcon}`}>
-                  <UserIcon className="w-4 h-4 " />
-                </span>
-                <input
-                  type="text"
-                  placeholder="Surname"
-                  className={`${styles.inputField}`}
-                />
+              {/**Email */}
+              <div>
+                <div className={`w-full ${styles.inputContainer}`}>
+                  <span className={`${styles.userIcon}`}>
+                    <EnvelopeIcon className="w-4 h-4 " />
+                  </span>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className={`${styles.inputField}`}
+                    {...register("email", { required: true })}
+                    aria-invalid={errors.email ? "true" : "false"}
+                  />
+                </div>
+                {errors.email?.type === "required" && (
+                  <p role="alert" className="error_message pl-2 py-2">
+                    Email is required
+                  </p>
+                )}
               </div>
-            </div>
-          </div>
 
-          {/**Email */}
-          <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
-            <span className={`${styles.userIcon}`}>
-              <EnvelopeIcon className="w-4 h-4 " />
-            </span>
-            <input
-              type="email"
-              placeholder="Email"
-              className={`${styles.inputField}`}
-            />
-          </div>
+              {/**Password */}
+              <div>
+                <div className={`w-full ${styles.inputContainer}`}>
+                  <span className={`${styles.userIcon}`}>
+                    <LockClosedIcon className="w-4 h-4 " />
+                  </span>
+                  <input
+                    type={passwordFieldType ? "text" : "password"}
+                    placeholder="Password"
+                    className={`${styles.inputField}`}
+                    {...register("password", {
+                      required: "Password is required",
+                      validate: (value) => {
+                        if (passwordValidation.test(value)) {
+                          return undefined;
+                        }
+                        return "Password must contain at least 6 characters, including at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character (!@#$%^&*)";
+                      },
+                    })}
+                    aria-invalid={errors.password ? "true" : "false"}
+                  />
+                  <span
+                    className={`ml-auto ${styles.userIcon}`}
+                    onClick={togglePasswordVisibility}
+                  >
+                    <EyeIcon className="w-4 h-4 cursor-pointer" />
+                  </span>
+                </div>
+                {errors.password && (
+                  <p role="alert" className="error_message w-8/12  pl-2 py-2">
+                    {(errors.password as any).message}
+                  </p>
+                )}
+              </div>
 
-          {/**Password */}
-          <div className={`mt-5 w-[92%] lg:w-[70%] ${styles.inputContainer}`}>
-            <span className={`${styles.userIcon}`}>
-              <LockClosedIcon className="w-4 h-4 " />
-            </span>
-            <input
-              type={passwordFieldType ? "text" : "password"}
-              placeholder="Password"
-              className={`${styles.inputField}`}
-            />
-            <span
-              className={`ml-auto ${styles.userIcon}`}
-              onClick={togglePasswordVisibility}
-            >
-              <EyeIcon className="w-4 h-4 cursor-pointer" />
-            </span>
-          </div>
-
-          {/**Talent account */}
-          <div className={`mt-5 w-[92%] lg:w-[70%]`}>
-            {/* <span className={`relative top-[1.8rem] z-50 ${styles.userIcon}`}>
+              {/**Talent account */}
+              <div className={` w-full`}>
+                {/* <span className={`relative top-[1.8rem] z-50 ${styles.userIcon}`}>
               <UserCircleIcon className="w-4 h-4 ml-[.9rem]" />
             </span> */}
-            <Select placeholder="Talent account" />
-          </div>
+                <Select placeholder="Talent account" styles={customStyles} />
+              </div>
+            </div>
 
-          {/**Join now */}
-          <Link href={"/auth/check-email"} legacyBehavior>
-            <button
-              className={`mt-8 w-[92%] lg:w-[70%] bg-dark_blue p-[10px] text-white rounded-[0.625rem] ${styles.joinNowBtn}`}
-            >
-              Join now
-            </button>
-          </Link>
-
-          {/**log in */}
+            {/**Join now */}
+            <input
+              type="submit"
+              value="Join Now"
+              className={`mt-12 w-full bg-dark_blue py-4 text-white rounded-xl ${styles.joinNowBtn}`}
+            />
+          </form>
           <div
-            className={`flex mt-12 ml-[5rem] items-center text-center gap-[0.375rem] mb-[6rem]`}
+            className={`flex justify-center mt-6 text-base`}
           >
-            <p className={`text-[14px] font-[500]`}>Already have an account?</p>
+            <p className={``}>Already have an account?</p>
             <Link
               href="/auth/login"
-              className={`text-sunglow text-base font-semibold`}
+              className={`text-sunglow text-base ml-3 font-semibold`}
             >
               Log in
             </Link>
           </div>
-        </form>
+        </div>
       </div>
-      <div className={`bg-primary_yellow hidden lg:flex ${styles.row}`}>
+      <div className={`bg-primary_yellow hidden lg:flex w-6/12`}>
         <div className={`${styles.span2} relative col-span-3 bg-[#FDF1C9]`}>
           <div
             className={`${styles.bg}  pt-10 mt-[8.5rem] px-8 w-[80%] rounded-[24px] mx-auto`}
@@ -168,10 +230,7 @@ const Signup: NextPage = () => {
               <Image src={person1} alt="africanwomansmiling.png" />
             </div>
             <span className="relative left-[6rem]">
-              <Image
-                src={africanwomansmiling}
-                alt="africanwomansmiling.png"
-              />
+              <Image src={africanwomansmiling} alt="africanwomansmiling.png" />
             </span>
           </div>
         </div>
