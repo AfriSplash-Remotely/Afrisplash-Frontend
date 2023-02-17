@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Rubik&display=swap");
+
+.jobDetailsContainer {
+  margin: 0;
+  padding: 0;
+
+  .midSection {
+    color: #000;
+    .h3 {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 8px;
+      margin-top: 80px;
+    }
+    .midSectionContent {
+      .p {
+        line-height: 24px;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .formContainer {
+    .label {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      margin-bottom: 3px;
+      font-family: "Inter", sans-serif;
+    }
+
+    .formFieldWrap {
+      padding: 16px;
+      border: 1px solid #b6bbb2;
+      border-radius: 4px;
+      background: #ffffff;
+      height: 56px;
+      margin-bottom: 32px;
+    }
+
+    .CompanyformFieldWrap {
+      padding: 16px;
+      border: 1px solid #b6bbb2;
+      border-radius: 4px;
+      background: #ffffff;
+      height: 56px;
+      margin-bottom: 32px;
+      background-image: url("../../../assets/attach-circle.svg");
+      background-repeat: no-repeat;
+      background-position: 99% 59%;
+    }
+
+    .textAreaContainer {
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      height: 164px;
+      padding: 16px;
+      margin-bottom: 4rem;
+    }
+
+    .required:after {
+      content: " *";
+      color: #dd0000;
+    }
+  }
+
+  .btnContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 64px 0px 104px 0px;
+
+    .backbtn {
+      padding: 16px 77px;
+      color: #1c1d36;
+      border: 1px solid #1c1d36;
+      background-color: #ffffff;
+      border-radius: 8px;
+      width: 224px;
+      height: 56px;
+      justify-content: flex-start;
+    }
+
+    .nextBtn {
+      padding: 16px 77px;
+      color: #fff;
+      border: 1px solid #0d5520;
+      background-color: #0d5520;
+      border-radius: 8px;
+      width: 224px;
+      height: 56px;
+      margin-left: 440px;
+    }
+  }
+}
+
+.react-switch {
+  background-color: #d9dedc !important;
+}
+
+.react-switch-bg {
+  background-color: #0c561f !important;
+}
+
+.redirectInput {
+  padding-left: 0.7rem;
+}
