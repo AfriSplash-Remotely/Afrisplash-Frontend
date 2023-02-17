@@ -51,6 +51,11 @@ const Applicants: NextPage = () => {
       attributes: ["Intern", "Junior", "Senior", "Lead"],
       isOpen: false,
     },
+    {
+      label: "Experience",
+      attributes: ["< 1 year", "1 - 3 years"],
+      isOpen: false,
+    },
   ]);
 
   // Show DropDownLabels function
@@ -151,8 +156,8 @@ const Applicants: NextPage = () => {
 
   return (
     <AdminLayout>
-      <div className="grid grid-cols-1 gap-2 pt-8">
-        <section className="grid grid-flow-row grid-cols-6 gap-4 mb-[50px] max-h-5 z-10">
+      <div className="w-full pt-8">
+        <section className=" w-full  flex  mb-[50px] max-h-5 relative  z-30">
           {applicantLabels.map(({ label, isOpen, attributes }) => (
             <DropDown
               key={label}
@@ -166,11 +171,11 @@ const Applicants: NextPage = () => {
         </section>
 
         {applicants.length > 0 && (
-          <section className="grid grid-flow-row grid-cols-8">
-            <header className="grid grid-flow-col col-start-6 col-span-3 grid-rows-auto justify-self-end  place-items-center">
+          <section className="w-full">
+            <header className="w-full justify-end">
               {!makeSelectOptionsVisible && (
                 <p
-                  className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer text-center"
+                  className="mx-5 mb-5 text-primary_green font-semibold hover:cursor-pointer text-right"
                   onClick={() =>
                     setMakeSelectOptionsVisible(!makeSelectOptionsVisible)
                   }
@@ -179,36 +184,36 @@ const Applicants: NextPage = () => {
                 </p>
               )}
               {makeSelectOptionsVisible && (
-                <>
-                  <p className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer text-center">
+                <div className="flex w-full justify-end items-center h-12">
+                  <div className="flex items-center text-primary_green hover:cursor-pointer ">
                     <CheckBox
-                      classes={styles.checkbox}
+                      classes={`mr-2`}
+                      text="Select all"
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         handleApplicantSelectionById({ e, _id: "all" });
                       }}
                     />
-                    Select all
-                  </p>
-                  <p
-                    className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer"
+                  </div>
+                  <div
+                    className="mx-5 col-span-1 text-primary_green hover:cursor-pointer"
                     onClick={() => handleAcceptApplicants("all")}
                   >
                     Accept
-                  </p>
-                  <p
-                    className="mx-5 mb-5 col-span-1 text-primary_green hover:cursor-pointer"
+                  </div>
+                  <div
+                    className="mx-5 col-span-1 text-primary_green hover:cursor-pointer"
                     onClick={() => handleRejectApplicants("all")}
                   >
                     Reject
-                  </p>
-                </>
+                  </div>
+                </div>
               )}
             </header>
 
             {applicants.map((applicant: Applicant) => (
               <div
                 key={applicant.id}
-                className="grid grid-flow-col grid-cols-12 col-span-full gap-2 grid-rows-auto justify-content-start mb-6 place-items-end"
+                className="w-full flex items-center space-x-5 mb-7 "
               >
                 {makeSelectOptionsVisible && (
                   <CheckBox
@@ -219,21 +224,23 @@ const Applicants: NextPage = () => {
                   />
                 )}
 
-                <ApplicantCard
-                  {...applicant}
-                  acceptFn={() =>
-                    handleApplicantByIdWithAppropriateAction(
-                      "Accept",
-                      applicant.id
-                    )
-                  }
-                  rejectFn={() =>
-                    handleApplicantByIdWithAppropriateAction(
-                      "Reject",
-                      applicant.id
-                    )
-                  }
-                />
+                <div className="w-full">
+                  <ApplicantCard
+                    {...applicant}
+                    acceptFn={() =>
+                      handleApplicantByIdWithAppropriateAction(
+                        "Accept",
+                        applicant.id
+                      )
+                    }
+                    rejectFn={() =>
+                      handleApplicantByIdWithAppropriateAction(
+                        "Reject",
+                        applicant.id
+                      )
+                    }
+                  />
+                </div>
               </div>
             ))}
           </section>
