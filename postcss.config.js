@@ -1,9 +1,6 @@
-const { join } = require('path');
-
 module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
   },
 }

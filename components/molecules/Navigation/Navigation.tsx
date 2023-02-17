@@ -1,9 +1,12 @@
 import React from "react";
+import Image from "next/image";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import Button from "../../atoms/Button/Button";
+import { motion } from "framer-motion";
+import { generateUniqueId } from "@/utils/helper";
 
 interface headerType {
   title: string;
@@ -71,24 +74,31 @@ const Navigation = (): JSX.Element => {
     }
   };
   return (
-    <div className={`w-full h-20 sticky top-0 z-50 bg-white`}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={`w-full h-20 sticky top-0 z-50 bg-white`}
+    >
       <div className={`relative h-20 ${styles.wrapper}`}>
         <header className="w-11/12 relative z-50 md:w-11/12 xl:w-10/12 mx-auto h-full flex justify-between  items-center">
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <div
               className={`w-1/12 h-full flex items-center cursor-pointer ${styles.logo}`}
             >
-              <img
+              <Image
                 src="/main_logo.svg"
                 alt="logo"
                 className={styles.logo_img}
+                width={200}
+                height={200}
               />
             </div>
           </Link>
           <nav className="hidden lg:flex items-center h-full ">
             <ul className="flex lg:space-x-3 xl:space-x-5">
               {header.map((item: any, index: number) => (
-                <Link href={item.link} key={index}>
+                <Link href={item.link} key={generateUniqueId()}>
                   <li
                     onClick={() => handleMenuClick(item, index)}
                     className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${
@@ -107,18 +117,18 @@ const Navigation = (): JSX.Element => {
             <div className="hidden md:flex space-x-4">
               <Button
                 type="filled"
-                bgColor="dark_blue"
+                // bgColor="dark_blue"
                 color="white"
                 text="sign in"
-                classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:opacity-80"
+                classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
                 onClick={() => changePath("/auth/login")}
               />
               <Button
                 type="bordered"
                 color="dark_blue"
                 text="Post jobs"
-                borderColor="dark_blue"
-                classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
+                // borderColor="dark_blue"
+                classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-primary_green hover:text-white"
               />
             </div>
             <div className="flex lg:hidden h-full items-center">
@@ -127,7 +137,7 @@ const Navigation = (): JSX.Element => {
           </div>
         </header>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
