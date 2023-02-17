@@ -1,15 +1,17 @@
-import PropTypes, { InferProps } from "prop-types";
 
-const CheckBoxProps = {
-  classes: PropTypes.string,
-  onChange: PropTypes.func,
+
+type CheckBoxProps = {
+  classes: string,
+  onChange: any,
+  text?: string
 };
 
-const CheckBox = ({ classes, onChange }: InferProps<typeof CheckBoxProps>) => {
+const CheckBox = ({ classes, onChange, text }:  CheckBoxProps) => {
   return (
-    <>
-      <input type="checkbox" className={`${classes}`} onChange={onChange} />
-    </>
+    <label className={`${text && 'flex items-center'}`}>
+      <input type="checkbox" className={`${classes} ${text? 'mr-2': ''}`} onChange={onChange} />
+      {text && text}
+    </label>
   );
 };
 

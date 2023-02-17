@@ -1,4 +1,4 @@
-@import "components/atoms/CheckBox/CheckBox.scss";
+@import "components/atoms/CheckBox/CheckBox.module.scss";
 @import "components/atoms/DropDown/DropDown.scss";
 @tailwind components;
 
@@ -19,4 +19,17 @@
             grid-cols-2 col-span-full place-items-center my-2;
         }
     }
+}
+
+.checkbox{
+    width: 2em !important;
+    height: 2em !important;
+    border-radius: 5px !important;
+    border:  2px solid #0D5520 !important;
+    background-color: transparent !important;
+}
+
+.dropDown{
+    width: 15%;
+    margin-right: 2em;
 }
