@@ -11,11 +11,7 @@ const PostJobsNotSigned = () => {
   const [isPackagePlan, setIsPackagePlan] = useState(false);
   const [isConfirmation, setIsConfirmation] = useState(false);
   const [currentFormKey, setCurrentFormKey] = useState(0);
-  const [formSteps] = useState([
-    { name: "jobDetails", index: 0 },
-    { name: "packagePlan", index: 1 },
-    { name: "confirmation", index: 2 },
-  ]);
+
   const renderNextForm = () => {
     setCurrentFormKey(currentFormKey + 1);
   };

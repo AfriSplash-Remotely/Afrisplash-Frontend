@@ -43,6 +43,7 @@ const Timeline = ({
         break;
       case "confirmation":
         changeConfirmationColor();
+        break;
       default:
         break;
     }
@@ -73,7 +74,7 @@ const Timeline = ({
             <span className={styles.checkmark}></span>
           </label>
         ) : (
-          <div className={`{styles.container} flex align-center my-3 mx-1`}>
+          <div className={`${styles.container} flex align-center my-3 mx-1`}>
             <CheckCircleIcon className="h-5 w-5 mr-1 fill-[#0D5520] stroke-white" />
             <span className={`${styles.description}`}>Job details</span>
           </div>
@@ -92,7 +93,7 @@ const Timeline = ({
         {!isPackagePlan ? (
           <label className={styles.container}>
             <span
-              className={`leading-[1.2rem] lg:leading-[2rem] ${`${styles.packagePlan}`}`}
+              className={`leading-[1.2rem] lg:leading-[2rem] ${styles.packagePlan}`}
             >
               Package & plan
             </span>
@@ -107,7 +108,7 @@ const Timeline = ({
         ) : (
           <div className="flex align-center my-3 mx-1">
             <CheckCircleIcon className="h-5 w-5 mr-1 fill-[#0D5520] stroke-white" />
-            <span className={`${`${styles.packagePlan}`}`}>Package & plan</span>
+            <span className={`${styles.packagePlan}`}>Package & plan</span>
           </div>
         )}
       </div>
