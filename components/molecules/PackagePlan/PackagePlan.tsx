@@ -94,13 +94,11 @@ const PackagePlan = ({ renderNextForm }: any) => {
               type="bordered"
               color="dark_blue"
               text="Update package"
-              borderColor="dark_blue"
               classes="w-36 md:ml-16 lg:mr-96 md:mr-52 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
             />
             <div className={styles.continueBtn}>
               <Button
                 type="filled"
-                bgColor="primary_green"
                 color="white"
                 text="Continue"
                 classes="w-36 h-10 xl:w-36 md:mr-32 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"
