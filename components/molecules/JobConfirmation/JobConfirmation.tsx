@@ -24,12 +24,10 @@ const Confirmation = () => {
             type="bordered"
             color="dark_blue"
             text="Manage jobs"
-            borderColor="dark_blue"
             classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
           />
           <Button
             type="filled"
-            bgColor="primary_green"
             color="white"
             text="View jobs"
             classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"

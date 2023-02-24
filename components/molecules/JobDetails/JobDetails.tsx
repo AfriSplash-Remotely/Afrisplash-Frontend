@@ -31,7 +31,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
     return currentFormKey === formSteps[formStepIndex].index;
   };
 
-  const industryOptions = [
+  const industryOptions: any = [
     { value: "", label: "Select industry" },
     { value: "health", label: "Health" },
     { value: "logistics", label: "Logistics" },
@@ -185,14 +185,12 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                   type="bordered"
                   color="dark_blue"
                   text="Back"
-                  borderColor="dark_blue"
                   classes="w-36 md:w-28 lg:mr-96 md:mr-52 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
                   onClick={renderPreviousJobDetailsForm}
                 />
                 <div>
                   <Button
                     type="filled"
-                    bgColor="primary_green"
                     color="white"
                     text="Next"
                     classes="w-36 h-10 md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"
@@ -223,7 +221,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     onChange={setSelectedOption}
                     options={industryOptions}
                     className="w-3/4"
-                  ></Select>
+                  />
                 </div>
               </div>
 
@@ -239,9 +237,9 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select experience level"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={experienceOptions}
+                    options={experienceOptions as any}
                     className="w-3/4"
-                  ></Select>
+                  />
                 </div>
               </div>
 
@@ -257,9 +255,9 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select job type"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={jobTypeOptions}
+                    options={jobTypeOptions as any}
                     className="w-3/4"
-                  ></Select>
+                  />
                 </div>
               </div>
 
@@ -275,9 +273,9 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select location"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={locationOptions}
+                    options={locationOptions as any}
                     className="w-3/4"
-                  ></Select>
+                  />
                 </div>
               </div>
 
@@ -293,9 +291,9 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select salary"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={salaryOptions}
+                    options={salaryOptions as any}
                     className="w-3/4"
-                  ></Select>
+                  />
                 </div>
               </div>
 
@@ -338,14 +336,12 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     type="bordered"
                     color="dark_blue"
                     text="Back"
-                    borderColor="dark_blue"
                     classes="w-36 md:w-28 mr-[3rem] lg:mr-[29rem] md:mr-52 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
                     onClick={renderPreviousJobDetailsForm}
                   />
                   <div>
                     <Button
                       type="filled"
-                      bgColor="primary_green"
                       color="white"
                       text="Next"
                       classes="w-36 h-10 md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"
