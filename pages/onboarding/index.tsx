@@ -35,7 +35,9 @@ const Onboarding = () => {
 
           </Link>
           <div className="flex items-center justify-center flex-1">
-            <Image src={logo} fill alt="logo" />
+            <div className="w-12 h-12 relative">
+              <Image src={logo} fill alt="logo" />
+            </div>
             <p className="text-sm">AfriSplashRemotely</p>
           </div>
         </div>
@@ -50,9 +52,8 @@ const Onboarding = () => {
             {arr.map((item, index) => (
               <div className="flex flex-col flex-shrink-0 basis-40" key={index}>
                 <div
-                  className={`h-1 rounded-full ${
-                    item.id <= step ? `bg-green-900` : `bg-gray-400`
-                  } mb-1.5`}
+                  className={`h-1 rounded-full ${item.id <= step ? `bg-green-900` : `bg-gray-400`
+                    } mb-1.5`}
                 />
                 <div className="flex">
                   <div className="flex-shrink-0">
