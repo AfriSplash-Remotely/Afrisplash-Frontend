@@ -9,5 +9,6 @@
     },
     "yaml.schemas": {
         "https://json.schemastore.org/github-workflow.json": "${workspaceRoot}/.github/workflows/deploy.yml"
-    }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
 }
