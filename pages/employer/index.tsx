@@ -17,12 +17,10 @@ const Employer: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <GeneralLayout>
-
-                <div className="relative flex justify-center items-center w-full" >
+                <div className="relative flex justify-center items-center w-full " >
                     <Image src={employerImg}
                         alt="img"
                         className="w-full h-full  mt-20 xl:mt-0 md:mt-0 "
-                        fill
                     />
                     <div className="absolute">
                         <div className=" flex gap-4">
