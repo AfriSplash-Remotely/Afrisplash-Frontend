@@ -5,6 +5,8 @@ import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
 import Filter from "./filterComponent/Filter";
 import { jobData } from "utils/fakeData"
 import JobCard from "@/components/jobCard";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+
 
 
 
@@ -61,16 +63,22 @@ const RemoteJobs: NextPage = () => {
                                     promoted={data.promoted}
                                     isDirectApply={data.isDirectApply}
 
-
-
-
-
-
-
                                 />
                             </div>
                         )
                     })}
+                </div>
+
+                <div className='flex justify-end pb-4 px-32'>
+                    <div>
+                        <div className="flex items-center gap-2">Page
+                            <div className="border rounded-lg py-2 px-8">1</div>
+                            <div>of 200</div>
+                            <div className="border rounded-lg py-2 px-4 "> <ChevronLeftIcon className="w-6 h-6 mr-2" /></div>
+                            <div className="border rounded-lg py-2 px-4"> <ChevronRightIcon className="w-6 h-6 mr-2" /></div>
+
+                        </div>
+                    </div>
                 </div>
             </GeneralLayout>
         </div>
