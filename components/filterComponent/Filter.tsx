@@ -5,7 +5,7 @@ import filtersearch from "assets/general/filter-search.svg"
 import Image from 'next/image';
 
 
-export default function Filter() {
+export default function Filter(): JSX.Element {
   return (
     <div className='relative flex justify-center  w-full mt-12 py-8'>
       <div className='relative border bg-white w-1/2  rounded-lg'>
