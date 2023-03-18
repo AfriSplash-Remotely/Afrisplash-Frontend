@@ -4,7 +4,7 @@ import Switch from "react-switch";
 import Button from "components/atoms/Button/Button";
 import styles from "../JobDetails/JobDetails.module.scss";
 
-const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
+const JobDetails = ({ renderNextForm, renderPreviousForm }: any):JSX.Element => {
   const [currentFormKey, setCurrentFormKey] = useState(0);
 
   const [formSteps] = useState([

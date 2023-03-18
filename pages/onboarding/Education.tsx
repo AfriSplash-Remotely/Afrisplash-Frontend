@@ -23,7 +23,7 @@ const degreeOptions = [
   { value: "NCE", label: "NCE" },
 ];
 
-const Education = () => {
+const Education = ():JSX.Element => {
   const {
     institutionName,
     degree,

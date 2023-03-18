@@ -47,7 +47,7 @@ const mockdata: ArticleProp[] = [
   },
 ];
 
-const FeaturedPost = () => {
+const FeaturedPost = ():JSX.Element => {
   return (
     <section className="bg-[#F8F8F8] py-[5rem] px-4 md:px-10 xl:px-[110px] h-max">
       <h2 className="mb-10 text-[32px]">Featured Posts</h2>

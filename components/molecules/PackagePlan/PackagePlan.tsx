@@ -5,7 +5,7 @@ import styles from "./PackagePlan.module.scss";
 import ArrowDown from "../../../assets/icons/arrow-down.png";
 import TickSquareIcon from "../../../assets/icons/tick-square.png";
 
-const PackagePlan = ({ renderNextForm }: any) => {
+const PackagePlan = ({ renderNextForm }: any):JSX.Element => {
   return (
     <div className="sm:mx-auto">
       <div className={styles.packagePlanContainer}>

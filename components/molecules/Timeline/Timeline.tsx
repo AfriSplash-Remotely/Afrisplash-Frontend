@@ -12,7 +12,7 @@ const Timeline = ({
   jobDetails,
   packagePlan,
   confirmation,
-}: any) => {
+}: any):JSX.Element => {
   const changeJobDetailsColor = () => {
     setIsJobDetails(true);
     setIsPackagePlan(false);
