@@ -12,7 +12,7 @@ import Education from "./Education";
 import Experience from "./Experience";
 import Skills from "./Skills";
 
-const Onboarding = () => {
+const Onboarding = ():JSX.Element => {
   const [step, setStep] = useState(1);
 
   const arr = [

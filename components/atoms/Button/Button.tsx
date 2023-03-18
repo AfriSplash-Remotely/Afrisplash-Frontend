@@ -37,7 +37,7 @@ const ButtonComponent = (
   }: InferProps<typeof BtnProps>,
   ref: Ref<HTMLInputElement>
 ) => {
-  let Tag = tag ? tag : "button";
+  const Tag = tag ? tag : "button";
 
   return (
     <Tag

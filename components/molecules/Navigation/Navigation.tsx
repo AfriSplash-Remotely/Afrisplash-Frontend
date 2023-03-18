@@ -22,7 +22,7 @@ interface headerType {
 const Navigation = (): JSX.Element => {
   const router = useRouter();
 
-  let header: headerType[] = [
+  const header: headerType[] = [
     {
       title: "Home",
       icon: "",

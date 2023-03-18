@@ -3,7 +3,7 @@ import Logo from "components/Logo/Logo";
 import VectorBox from "components/VectorBox/VectorBox";
 import VerifyEmail from "components/VerifyEmail/VerifyEmail";
 
-function VerifyEmailPage() {
+function VerifyEmailPage():JSX.Element {
   return (
     <div className="p-1 bg-[#FFF] w-full h-full">
       <div className="w-fit mx-auto">

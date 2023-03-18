@@ -13,7 +13,7 @@ type ErrorMessage = Record<
   }
 >;
 
-const ErrorPage = (props: { statusCode: number }) => {
+const ErrorPage = (props: { statusCode: number }):JSX.Element => {
   const statusCode = props.statusCode;
 
   const errorMessages: ErrorMessage = {

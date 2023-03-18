@@ -21,7 +21,7 @@ const options = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-const Skills = () => {
+const Skills = ():JSX.Element => {
   // const [isActive, setActive] = useState(false)
 
   // const btnSelect = "bg-green-900 text-white border px-20 py-2.5 rounded-full"
