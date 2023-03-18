@@ -8,6 +8,7 @@ import GeneralLayout from 'layouts/generalLayout';
 import { employerData } from "utils";
 import employerImg from "assets/general/employer-team.svg"
 import { CompHiringCard, EmployerSideBar } from '../../components/Employer';
+
 const Employer: NextPage = () => {
     return (
         <div>

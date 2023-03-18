@@ -7,9 +7,9 @@ import errorPage from "assets/authentication/error-page.svg";
 type ErrorMessage = Record<
   number,
   {
-    errorTitle?: String;
-    errorMessage: String;
-    errorMessageTwo?: String;
+    errorTitle?: string;
+    errorMessage: string;
+    errorMessageTwo?: string;
   }
 >;
 
