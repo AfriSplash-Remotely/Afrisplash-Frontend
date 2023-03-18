@@ -7,7 +7,7 @@ import Notifications from "./settings/Notifications";
 import Security from "./settings/Security";
 import styles from '../../styles/Settings.module.scss';
 
-const Settings: NextPage = () => {
+const Settings: NextPage = ():JSX.Element => {
   const [displayComponent, setDisplayComponent] = useState(<Account />);
   const [active, setActive] = useState("1");
 

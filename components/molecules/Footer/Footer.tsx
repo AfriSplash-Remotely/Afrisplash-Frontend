@@ -1,5 +1,5 @@
-const Footer = () => {
-  let footer = [
+const Footer = ():JSX.Element => {
+  const footer = [
     {
       title: "talents",
       items: [

@@ -4,7 +4,7 @@ import Button from "components/atoms/Button/Button";
 import styles from "./JobConfirmation.module.scss";
 import ConfirmationBackgroundImage from "../../../assets/confirmation.svg";
 
-const Confirmation = () => {
+const Confirmation = ():JSX.Element => {
   return (
     <div className={styles.confirmationContainer}>
       <div className="w-6/12 mx-auto">

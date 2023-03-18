@@ -121,7 +121,7 @@ const mockdata: ArticleProp[] = [
   },
 ];
 
-const AllBlog = () => {
+const AllBlog = ():JSX.Element => {
   return (
     <div>
       <div className="flex flex-row items-center justify-between bg-[#FDF1C9] py-4 px-4 md:px-10 xl:px-[96px]">

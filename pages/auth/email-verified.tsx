@@ -3,7 +3,7 @@ import EmailVerified from "components/EmailVerified/EmailVerified";
 import Logo from "components/Logo/Logo";
 import VectorBox2 from "components/VectorBox/VectorBox2";
 
-function EmailVerifiedPage() {
+function EmailVerifiedPage():JSX.Element {
   return (
     <div className="p-1">
       <div className="max-w-[1440px] h-[1027px] bg-[#FFF] mr-auto ml-auto">
