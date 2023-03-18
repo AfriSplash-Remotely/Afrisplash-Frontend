@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Security = () => {
+const Security = ():JSX.Element => {
   return (
     <div className={`w-[733px] bg-white rounded-[12px] pl-[62px] pt-[43px]`}>
       <h3 className={`text-[#292D32] pb-[14px] text-[18px] font-medium`}>
