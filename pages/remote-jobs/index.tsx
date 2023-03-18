@@ -2,16 +2,13 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import GeneralLayout from "layouts/generalLayout";
 import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
-import Filter from "./filterComponent/Filter";
+import Filter from "../../components/filterComponent/Filter";
 import { jobData } from "utils/fakeData"
 import JobCard from "@/components/jobCard";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 
-
-
-
-const RemoteJobs: NextPage = () => {
+const RemoteJobs: NextPage = ():JSX.Element => {
     return (
         <div>
             <Head>
@@ -42,9 +39,7 @@ const RemoteJobs: NextPage = () => {
 
                             </select>
                         </div>
-
                     </div>
-
                 </div>
                 <div className="px-32 pb-12">
                     {jobData.flatMap((data, index): JSX.Element => {
@@ -62,13 +57,11 @@ const RemoteJobs: NextPage = () => {
                                     hiring={data.hiring}
                                     promoted={data.promoted}
                                     isDirectApply={data.isDirectApply}
-
                                 />
                             </div>
                         )
                     })}
                 </div>
-
                 <div className='flex justify-end pb-4 px-32'>
                     <div>
                         <div className="flex items-center gap-2">Page
