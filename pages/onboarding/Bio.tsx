@@ -8,7 +8,7 @@ import {
 } from "store/candidateOnboarding/formSlice";
 import type { RootState } from "store/store";
 
-const Bio = () => {
+const Bio = ():JSX.Element => {
   const { imgURL }: any = useSelector((state: RootState) => state.form.imgFile);
   const bioDesc: string = useSelector((state: RootState) => state.form.bio);
 

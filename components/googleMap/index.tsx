@@ -15,7 +15,7 @@ function Map():JSX.Element {
   );
 }
 
-const GoogleMapApi = () => {
+const GoogleMapApi = ():JSX.Element => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
   });
