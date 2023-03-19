@@ -2,8 +2,11 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "components/molecules/Header/Header";
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import GeneralLayout from "layouts/generalLayout";
 import styles from "styles/Home.module.scss";
+import newsletter from "assets/images/newsletter.png";
 import chipper from "assets/icons/chipper.svg";
 import haulify from "assets/icons/haulify.svg";
 import nextford from "assets/icons/nextford.svg";
@@ -193,6 +196,197 @@ const MapWorkSpace = () => {
   );
 };
 
+const Faq = () => {
+
+
+  return (
+    <section className={`w-full ${styles.bg_white} py-28`}>
+      <div className="w-full mx-auto flex justify-center items-center">
+        <div className="w-full px-4 pt-14">
+          <h3 className="mx-auto text-center text-black-300 text-3xl font-semibold">
+            Frequently Asked Questions
+          </h3>
+          <div className="rounded-2xl bg-white py-14 align-content-left">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <span>What is Afrisplash Remotively about?</span>
+                    <ChevronUpIcon
+                      className={`${
+                        open ? 'rotate-180 transform' : ''
+                      } h-5 w-5 text-info-500`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    If you're unhappy with your purchase for any reason, email us
+                    within 90 days and we'll refund you in full, no questions asked.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+            
+            <Disclosure as="div" className="mt-3">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <span>What is Afrisplash Remotively about?</span>
+                    <ChevronUpIcon
+                      className={`${
+                        open ? 'rotate-180 transform' : ''
+                      } h-5 w-5 text-info-500`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    If you're unhappy with your purchase for any reason, email us
+                    within 90 days and we'll refund you in full, no questions asked.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+
+            <Disclosure as="div" className="mt-3">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <span>What is Afrisplash Remotively about?</span>
+                    <ChevronUpIcon
+                      className={`${
+                        open ? 'rotate-180 transform' : ''
+                      } h-5 w-5 text-info-500`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    If you're unhappy with your purchase for any reason, email us
+                    within 90 days and we'll refund you in full, no questions asked.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+
+            <Disclosure as="div" className="mt-3">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <span>What is Afrisplash Remotively about?</span>
+                    <ChevronUpIcon
+                      className={`${
+                        open ? 'rotate-180 transform' : ''
+                      } h-5 w-5 text-info-500`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    If you're unhappy with your purchase for any reason, email us
+                    within 90 days and we'll refund you in full, no questions asked.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+
+            <Disclosure as="div" className="mt-3">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <span>What is Afrisplash Remotively about?</span>
+                    <ChevronUpIcon
+                      className={`${
+                        open ? 'rotate-180 transform' : ''
+                      } h-5 w-5 text-info-500`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    If you're unhappy with your purchase for any reason, email us
+                    within 90 days and we'll refund you in full, no questions asked.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+
+            <Disclosure as="div" className="mt-3">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <span>What is Afrisplash Remotively about?</span>
+                    <ChevronUpIcon
+                      className={`${
+                        open ? 'rotate-180 transform' : ''
+                      } h-5 w-5 text-info-500`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    If you're unhappy with your purchase for any reason, email us
+                    within 90 days and we'll refund you in full, no questions asked.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
+          <p className="mx-auto text-center text-black-300 text-lg flex justify-center align-content-center mb-3">
+            If you still can’t find the answers you’re looking for
+          </p>
+          <a href="/contact" className="mx-auto text-center text-green-800 text-lg font-semibold underline flex justify-center align-content-center">
+            Contact Us!
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const Newsletter = () => {
+  return (
+    <section className={`w-full`}>
+      <div className={`w-full ${styles.Newsletter} py-14`}>
+        <div className={`mx-auto px-20 max-h-43 pb-4 pt-16 ${styles.Newsletterbx}`}>
+          <h3 className="text-3xl text-black font-semibold pb-14">
+            Sign Up for our Newsletter
+          </h3>
+          <div className="flex  pt-15">
+
+            <div className="flex justify-content-center justify-items-start gap-6 ">
+              <div className="relative">
+                <label>
+                  Enter your Full Name:
+                </label>
+                <input
+                className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
+                  type="text"
+                  placeholder="Firstname LastName" 
+                />
+  
+              </div>
+
+              <div className="relative mb-3 xl:w-96">
+                <label>
+                  Enter your Email:
+                </label>
+                <input
+                className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
+                  type="text"
+                  placeholder="yourmail@mail.com" 
+                />
+  
+              </div>
+
+              <div className="relative mb-3 xl:w-96 ">
+                
+                <button className="block outline-none w-full text-white bg-black mt-6 py-2 px-3" type="submit">Get Notified
+                </button>
+  
+              </div>
+
+              <div className={`${styles.NewsletterImg} `}>
+                <Image src={newsletter} alt="newsletter"/>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 const Home: NextPage = () => {
   const globalCompanies = [chipper, nextford, haulify, panther, rootlo, scopic];
 
@@ -222,6 +416,8 @@ const Home: NextPage = () => {
       <HomeJobs />
       <Talents />
       <MapWorkSpace />
+      <Faq/>
+      <Newsletter />
     </GeneralLayout>
   );
 };
