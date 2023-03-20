@@ -3,7 +3,7 @@ import styles from "./jobCategory.module.scss";
 
 interface CatProps {
   data: {
-    Icon: any;
+    Icon:React.ElementType;
     name: string;
     openPositions: number;
   };
