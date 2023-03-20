@@ -10,7 +10,7 @@ interface TimelineProps {
   setIsJobDetails: (isJobDetails: boolean) => boolean
   setIsPackagePlan: (isPackagePlan: boolean) => boolean
   setIsConfirmation: (isConfirmation: boolean) => boolean
-  jobDetails: any,
+  jobDetails:any,
   packagePlan: any,
   confirmation: any
 }
