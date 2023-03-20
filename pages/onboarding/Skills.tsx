@@ -48,7 +48,7 @@ const Skills = ():JSX.Element => {
             options={options}
             styles={selectStyle}
             placeholder={skillsCategory}
-            onChange={(e: any) => dispatch(skillsCategoryAction(e.value))}
+            onChange={(e :any) => dispatch(skillsCategoryAction(e.value))}
           />
         </label>
         <label htmlFor="field" className="basis-[100%] mt-5">

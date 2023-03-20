@@ -12,7 +12,7 @@ import google from "assets/svg/google.svg";
 import Image from "next/image";
 
 const Login: NextPage = () => {
-  const [login, { isLoading }] = useLoginMutation();
+  const [login] = useLoginMutation();
   const router = useRouter();
 
   const {
