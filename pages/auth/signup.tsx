@@ -19,13 +19,12 @@ import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
 const Signup: NextPage = () => {
-  const [signup, { isLoading }] = useSignupMutation();
+  const [signup] = useSignupMutation();
   const router = useRouter();
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<RegisterRequest>();
 
@@ -49,7 +48,7 @@ const Signup: NextPage = () => {
   };
 
   const customStyles = {
-    control: (base: any, state: any) => ({
+    control: (base: any,) => ({
       ...base,
       height: "50px",
       borderRadius: "10px",
