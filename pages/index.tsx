@@ -210,7 +210,7 @@ const Faq = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
                       className={`${
@@ -229,7 +229,7 @@ const Faq = () => {
             <Disclosure as="div" className="mt-3">
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
                       className={`${
@@ -248,7 +248,7 @@ const Faq = () => {
             <Disclosure as="div" className="mt-3">
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
                       className={`${
@@ -267,7 +267,7 @@ const Faq = () => {
             <Disclosure as="div" className="mt-3">
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
                       className={`${
@@ -286,7 +286,7 @@ const Faq = () => {
             <Disclosure as="div" className="mt-3">
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
                       className={`${
@@ -305,7 +305,7 @@ const Faq = () => {
             <Disclosure as="div" className="mt-3">
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-300 py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
                       className={`${
@@ -336,7 +336,7 @@ const Faq = () => {
 const Newsletter = () => {
   return (
     <section className={`w-full`}>
-      <div className={`w-full ${styles.Newsletter} py-14`}>
+      <div className={`w-full ${styles.Newsletter} bg-yellow-100 py-14`}>
         <div className={`mx-auto px-20 max-h-43 pb-4 pt-16 ${styles.Newsletterbx}`}>
           <h3 className="text-3xl text-black font-semibold pb-14">
             Sign Up for our Newsletter
