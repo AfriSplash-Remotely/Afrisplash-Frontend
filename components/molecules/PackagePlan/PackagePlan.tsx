@@ -5,7 +5,11 @@ import styles from "./PackagePlan.module.scss";
 import ArrowDown from "../../../assets/icons/arrow-down.png";
 import TickSquareIcon from "../../../assets/icons/tick-square.png";
 
-const PackagePlan = ({ renderNextForm }: any):JSX.Element => {
+
+interface PackagePlanProps {
+  renderNextForm:React.MouseEventHandler<HTMLButtonElement>
+}
+const PackagePlan = ({ renderNextForm }:PackagePlanProps): JSX.Element => {
   return (
     <div className="sm:mx-auto">
       <div className={styles.packagePlanContainer}>
@@ -103,6 +107,7 @@ const PackagePlan = ({ renderNextForm }: any):JSX.Element => {
                 text="Continue"
                 classes="w-36 h-10 xl:w-36 md:mr-32 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"
                 onClick={renderNextForm}
+
               />
             </div>
           </div>

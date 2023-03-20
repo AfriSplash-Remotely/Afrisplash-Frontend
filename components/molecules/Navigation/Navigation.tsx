@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Image from "next/image";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -10,7 +10,7 @@ import { generateUniqueId } from "@/utils/helper";
 
 interface headerType {
   title: string;
-  icon?: any;
+  icon?: ReactNode;
   link: string;
   active: boolean;
   dropDown?: {
