@@ -1,6 +1,7 @@
 .bg_gray {
   background-color: #f8f8f8;
 }
+
 .createProfileCard {
   background-color: rgba(214, 236, 220, 0.3);
   border: 0.981016px solid #b6bbb2;
@@ -11,14 +12,16 @@
   backdrop-filter: blur(32px);
   width: 100%;
   padding: 1.5rem 4rem;
-  
+
 }
+
 .Newsletterbx {
   background: radial-gradient(103.02% 103.02% at 50% 0%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.67) 100%);
   box-shadow: 4px 4px 64px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(17.1358px);
   border-radius: 17.14px 17.1358px 17.1358px 17.14px;
 }
+
 .Newsletter h3 {
   font-weight: 600;
   font-size: 48px;
@@ -30,11 +33,11 @@
   color: #1C1D36;
   border-radius: 8px;
 }
+
 .NewsletterImg {
-  height: 400px;
-  width: 270px;
   margin-bottom: 10px;
   position: absolute;
-  top: -30px;
-  right: 100px;
+  top: 100%;
+  right: 0;
+  transform: translateY(-50%);
 }
