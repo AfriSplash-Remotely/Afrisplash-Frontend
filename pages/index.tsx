@@ -201,8 +201,8 @@ const Faq = () => {
 
   return (
     <section className={`w-full ${styles.bg_white} py-28`}>
-      <div className="w-full mx-auto flex justify-center items-center">
-        <div className="w-full px-4 pt-14">
+      <div className="w-11/12 xl:w-10/12 mx-auto flex justify-center items-center">
+        <div className="w-full pt-14">
           <h3 className="mx-auto text-center text-black-300 text-3xl font-semibold">
             Frequently Asked Questions
           </h3>
@@ -213,28 +213,8 @@ const Faq = () => {
                   <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
-                      className={`${
-                        open ? 'rotate-180 transform' : ''
-                      } h-5 w-5 text-info-500`}
-                    />
-                  </Disclosure.Button>
-                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                    If you're unhappy with your purchase for any reason, email us
-                    within 90 days and we'll refund you in full, no questions asked.
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
-            
-            <Disclosure as="div" className="mt-3">
-              {({ open }) => (
-                <>
-                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                    <span>What is Afrisplash Remotively about?</span>
-                    <ChevronUpIcon
-                      className={`${
-                        open ? 'rotate-180 transform' : ''
-                      } h-5 w-5 text-info-500`}
+                      className={`${open ? 'rotate-180 transform' : ''
+                        } h-5 w-5 text-info-500`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -251,9 +231,8 @@ const Faq = () => {
                   <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
-                      className={`${
-                        open ? 'rotate-180 transform' : ''
-                      } h-5 w-5 text-info-500`}
+                      className={`${open ? 'rotate-180 transform' : ''
+                        } h-5 w-5 text-info-500`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -270,9 +249,8 @@ const Faq = () => {
                   <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
-                      className={`${
-                        open ? 'rotate-180 transform' : ''
-                      } h-5 w-5 text-info-500`}
+                      className={`${open ? 'rotate-180 transform' : ''
+                        } h-5 w-5 text-info-500`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -289,9 +267,8 @@ const Faq = () => {
                   <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
-                      className={`${
-                        open ? 'rotate-180 transform' : ''
-                      } h-5 w-5 text-info-500`}
+                      className={`${open ? 'rotate-180 transform' : ''
+                        } h-5 w-5 text-info-500`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -308,9 +285,26 @@ const Faq = () => {
                   <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <span>What is Afrisplash Remotively about?</span>
                     <ChevronUpIcon
-                      className={`${
-                        open ? 'rotate-180 transform' : ''
-                      } h-5 w-5 text-info-500`}
+                      className={`${open ? 'rotate-180 transform' : ''
+                        } h-5 w-5 text-info-500`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                    If you're unhappy with your purchase for any reason, email us
+                    within 90 days and we'll refund you in full, no questions asked.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+
+            <Disclosure as="div" className="mt-3">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    <span>What is Afrisplash Remotively about?</span>
+                    <ChevronUpIcon
+                      className={`${open ? 'rotate-180 transform' : ''
+                        } h-5 w-5 text-info-500`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -336,47 +330,49 @@ const Faq = () => {
 const Newsletter = () => {
   return (
     <section className={`w-full`}>
-      <div className={`w-full ${styles.Newsletter} bg-yellow-100 py-14`}>
-        <div className={`mx-auto px-20 max-h-43 pb-4 pt-16 ${styles.Newsletterbx}`}>
+      <div className={`w-full ${styles.Newsletter} bg-yellow-100 py-14 w-11/12 xl:w-10/12 mx-auto flex justify-center items-center`}>
+        <div className={`w-full pb-4 pt-16 ${styles.Newsletterbx}`}>
           <h3 className="text-3xl text-black font-semibold pb-14">
             Sign Up for our Newsletter
           </h3>
           <div className="flex  pt-15">
 
             <div className="flex justify-content-center justify-items-start gap-6 ">
-              <div className="relative">
-                <label>
-                  Enter your Full Name:
-                </label>
-                <input
-                className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
-                  type="text"
-                  placeholder="Firstname LastName" 
-                />
-  
-              </div>
+              <div className="py-4 flex justify-content-center justify-items-start gap-6">
+                <div className="relative">
+                  <label>
+                    Enter your Full Name:
+                  </label>
+                  <input
+                    className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
+                    type="text"
+                    placeholder="Firstname LastName"
+                  />
 
-              <div className="relative mb-3 xl:w-96">
-                <label>
-                  Enter your Email:
-                </label>
-                <input
-                className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
-                  type="text"
-                  placeholder="yourmail@mail.com" 
-                />
-  
-              </div>
+                </div>
 
-              <div className="relative mb-3 xl:w-96 ">
-                
-                <button className="block outline-none w-full text-white bg-black mt-6 py-2 px-3" type="submit">Get Notified
-                </button>
-  
+                <div className="relative mb-3 xl:w-96">
+                  <label>
+                    Enter your Email:
+                  </label>
+                  <input
+                    className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
+                    type="text"
+                    placeholder="yourmail@mail.com"
+                  />
+
+                </div>
+
+                <div className="relative mb-3 xl:w-96 ">
+
+                  <button className="block outline-none w-full text-white bg-black mt-6 py-2 px-3" type="submit">Get Notified
+                  </button>
+
+                </div>
               </div>
 
               <div className={`${styles.NewsletterImg} `}>
-                <Image src={newsletter} alt="newsletter"/>
+                <Image src={newsletter} alt="newsletter" />
               </div>
 
             </div>
@@ -416,7 +412,7 @@ const Home: NextPage = () => {
       <HomeJobs />
       <Talents />
       <MapWorkSpace />
-      <Faq/>
+      <Faq />
       <Newsletter />
     </GeneralLayout>
   );
