@@ -13,7 +13,7 @@ export default function Search({
   childClasses,
 }: InferProps<typeof SearchProps>): JSX.Element {
   return (
-    <div className={`w-full ${classes}`}>
+    <div className={`w-full  ${classes}`}>
       <div
         className={`w-full flex items-center space-x-3 border bg-white h-12 pl-3 rounded-lg ${childClasses}`}>
         <MagnifyingGlassIcon className="w-5 h-5" />
