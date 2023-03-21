@@ -10,9 +10,6 @@
 
 .Newsletter {
   backdrop-filter: blur(32px);
-  width: 100%;
-  padding: 1.5rem 4rem;
-
 }
 
 .Newsletterbx {
@@ -35,9 +32,8 @@
 }
 
 .NewsletterImg {
-  margin-bottom: 10px;
   position: absolute;
   top: 100%;
-  right: 0;
-  transform: translateY(-50%);
+  right: 1rem;
+  transform: translateY(-100%);
 }

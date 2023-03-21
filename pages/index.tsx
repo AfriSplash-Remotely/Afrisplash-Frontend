@@ -329,16 +329,16 @@ const Faq = () => {
 
 const Newsletter = () => {
   return (
-    <section className={`w-full`}>
-      <div className={`w-full ${styles.Newsletter} bg-yellow-100 py-14 w-11/12 xl:w-10/12 mx-auto flex justify-center items-center`}>
-        <div className={`w-full pb-4 pt-16 ${styles.Newsletterbx}`}>
-          <h3 className="text-3xl text-black font-semibold pb-14">
-            Sign Up for our Newsletter
-          </h3>
-          <div className="flex  pt-15">
+    <section className={`w-full  bg-[#FFC42D]`}>
+      <div className={`${styles.Newsletter} py-20  afri-container`}>
+        <div className={`relative overflow-hidden flex w-full px-16 py-32 ${styles.Newsletterbx}`}>
+          <div>
+            <h3 className="text-3xl text-black font-semibold pb-14">
+              Sign Up for our Newsletter
+            </h3>
 
-            <div className="flex justify-content-center justify-items-start gap-6 ">
-              <div className="py-4 flex justify-content-center justify-items-start gap-6">
+            <div className="flex flex-wrap justify-content-center justify-items-start gap-6 ">
+              <div className="py-4 flex justify-content-center justify-items-start items-center  gap-6">
                 <div className="relative">
                   <label>
                     Enter your Full Name:
@@ -351,7 +351,7 @@ const Newsletter = () => {
 
                 </div>
 
-                <div className="relative mb-3 xl:w-96">
+                <div className="relative mb-3 ">
                   <label>
                     Enter your Email:
                   </label>
@@ -363,19 +363,18 @@ const Newsletter = () => {
 
                 </div>
 
-                <div className="relative mb-3 xl:w-96 ">
 
-                  <button className="block outline-none w-full text-white bg-black mt-6 py-2 px-3" type="submit">Get Notified
-                  </button>
+                <button className="block outline-none rounded-lg text-white bg-black py-3 px-8" type="submit">Get Notified
+                </button>
 
-                </div>
               </div>
 
-              <div className={`${styles.NewsletterImg} `}>
-                <Image src={newsletter} alt="newsletter" />
-              </div>
+
 
             </div>
+          </div>
+          <div className={`${styles.NewsletterImg} `}>
+            <Image src={newsletter} alt="newsletter" />
           </div>
         </div>
       </div>
