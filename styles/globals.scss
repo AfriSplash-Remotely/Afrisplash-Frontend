@@ -39,4 +39,9 @@
     @apply w-full rounded-xl absolute bg-primary_green flex h-1 content-['']	justify-items-center	items-center;
   }
 
+      .afri-container {
+        @apply w-11/12 z-50 md:w-11/12 xl:w-10/12 mx-auto;
+      }
+  
+
 }
