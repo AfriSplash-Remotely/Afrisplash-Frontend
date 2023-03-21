@@ -25,7 +25,7 @@ export default function LocationSearch({
                 />
 
                 <div >
-                    <select className="bg-grey rounded-full outline-none py-1.5  px-2 mx-2" >
+                    <select className="bg-[#D9DEDC] rounded-full outline-none py-1.5  px-2 mx-2" >
                         <option>Globally</option>
                         <option>Remote</option>
                         <option>Globally</option>
