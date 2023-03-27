@@ -1,7 +1,8 @@
 import React from "react";
 import ErrorPage from "components/molecules/errorpage";
+import { NextPage } from "next";
 
-const NotFound = () => {
+const NotFound: NextPage = () => {
   return <ErrorPage statusCode={405} />;
 };
 

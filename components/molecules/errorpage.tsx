@@ -7,13 +7,13 @@ import errorPage from "assets/authentication/error-page.svg";
 type ErrorMessage = Record<
   number,
   {
-    errorTitle?: String;
-    errorMessage: String;
-    errorMessageTwo?: String;
+    errorTitle?: string;
+    errorMessage: string;
+    errorMessageTwo?: string;
   }
 >;
 
-const ErrorPage = (props: { statusCode: number }) => {
+const ErrorPage = (props: { statusCode: number }):JSX.Element => {
   const statusCode = props.statusCode;
 
   const errorMessages: ErrorMessage = {

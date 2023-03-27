@@ -3,7 +3,7 @@ import styles from "./jobCategory.module.scss";
 
 interface CatProps {
   data: {
-    Icon: any;
+    Icon:React.ElementType;
     name: string;
     openPositions: number;
   };
@@ -11,7 +11,7 @@ interface CatProps {
 
 export default function JobCategory({
   data: { Icon, name, openPositions },
-}: CatProps) {
+}: CatProps):JSX.Element {
   return (
     <div
       className={` my-3 h-20 lg:h-24 cursor-pointer bg-white rounded-lg flex ${styles.cat_item}`}

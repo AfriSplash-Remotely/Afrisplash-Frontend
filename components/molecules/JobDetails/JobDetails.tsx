@@ -4,7 +4,16 @@ import Switch from "react-switch";
 import Button from "components/atoms/Button/Button";
 import styles from "../JobDetails/JobDetails.module.scss";
 
-const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
+interface JobDetailsProps {
+  renderNextForm: React.MouseEventHandler<HTMLButtonElement>,
+
+}
+type Options ={
+  value:string,
+  label:string
+}
+
+const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
   const [currentFormKey, setCurrentFormKey] = useState(0);
 
   const [formSteps] = useState([
@@ -31,7 +40,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
     return currentFormKey === formSteps[formStepIndex].index;
   };
 
-  const industryOptions: any = [
+  const industryOptions: Options[] = [
     { value: "", label: "Select industry" },
     { value: "health", label: "Health" },
     { value: "logistics", label: "Logistics" },
@@ -179,7 +188,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
               </div>
             </div>
 
-            <div className="flex mb-[5rem] space-x-4 items-center mb-5 justify-between lg:flex lg:justify-between">
+            <div className="flex mb-5 space-x-4 items-center  justify-between lg:flex lg:justify-between">
               <div className="flex justify-between gap-[6rem] lg:gap-0 lg:flex space-x-4 lg:justify-between lg:mr-96">
                 <Button
                   type="bordered"
@@ -237,7 +246,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select experience level"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={experienceOptions as any}
+                    options={experienceOptions as []}
                     className="w-3/4"
                   />
                 </div>
@@ -255,7 +264,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select job type"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={jobTypeOptions as any}
+                    options={jobTypeOptions as []}
                     className="w-3/4"
                   />
                 </div>
@@ -273,7 +282,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select location"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={locationOptions as any}
+                    options={locationOptions as []}
                     className="w-3/4"
                   />
                 </div>
@@ -291,7 +300,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                     placeholder="Select salary"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={salaryOptions as any}
+                    options={salaryOptions as []}
                     className="w-3/4"
                   />
                 </div>
@@ -330,7 +339,7 @@ const JobDetails = ({ renderNextForm, renderPreviousForm }: any) => {
                 </div>
               </div>
 
-              <div className="flex mt-[4rem] mb-[5rem] space-x-4 items-center mb-5 justify-between lg:flex lg:justify-between">
+              <div className="flex mt-[4rem] mb-[5rem] space-x-4 items-center  justify-between lg:flex lg:justify-between">
                 <div className="flex justify-between gap-0 lg:gap-[6rem] lg:gap-0 lg:flex space-x-4 lg:justify-between lg:mr-96">
                   <Button
                     type="bordered"
