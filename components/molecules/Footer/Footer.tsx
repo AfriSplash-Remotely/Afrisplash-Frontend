@@ -1,5 +1,14 @@
-const Footer = () => {
-  let footer = [
+type FooterItems = {
+  title: string,
+  items:object[]
+}
+
+
+
+const Footer = ():JSX.Element => {
+
+
+  const footer = [
     {
       title: "talents",
       items: [
@@ -45,7 +54,7 @@ const Footer = () => {
     <footer className="bg-dark_blue w-full py-5">
       <div className="w-11/12 md:w-10/12 mx-auto space-y-12">
         <div className="flex w-full justify-between flex-wrap pt-14">
-          {footer.map((item: any, index) => (
+          {footer.map((item: FooterItems, index) => (
             <section
               key={index}
               className="text-white_2 mx-5 py-3 w-4/12 sm:w-3/12 md:w-max space-y-4"

@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
-import styles from "./applicantCard.module.scss";
 import Button from "../../atoms/Button/Button";
 
 const ApplicantCardProps = {
@@ -21,7 +20,7 @@ function ApplicantCard({
   isSelected,
   acceptFn,
   rejectFn,
-}: InferProps<typeof ApplicantCardProps>) {
+}: InferProps<typeof ApplicantCardProps>):JSX.Element {
   return (
     <div
       className={`w-full border rounded-xl flex items-center p-5 px-10 `}

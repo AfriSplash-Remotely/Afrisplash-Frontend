@@ -2,7 +2,6 @@ import React from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import AsideNavigation from "components/molecules/Navigation/asideNavigation";
 import Post from "components/molecules/Post/Post";
 import ForumLayout from "layouts/forumLayout";
 import styles from "styles/Forum.module.scss";
