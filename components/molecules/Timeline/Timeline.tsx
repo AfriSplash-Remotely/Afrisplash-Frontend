@@ -2,6 +2,18 @@ import React from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import styles from "./Timeline.module.scss";
 
+
+interface TimelineProps {
+  isJobDetails: boolean,
+  isPackagePlan: boolean,
+  isConfirmation: boolean,
+  setIsJobDetails: (isJobDetails: boolean) => boolean
+  setIsPackagePlan: (isPackagePlan: boolean) => boolean
+  setIsConfirmation: (isConfirmation: boolean) => boolean
+  jobDetails:any,
+  packagePlan: any,
+  confirmation: any
+}
 const Timeline = ({
   isJobDetails,
   isPackagePlan,
@@ -12,7 +24,7 @@ const Timeline = ({
   jobDetails,
   packagePlan,
   confirmation,
-}: any) => {
+}: TimelineProps): JSX.Element => {
   const changeJobDetailsColor = () => {
     setIsJobDetails(true);
     setIsPackagePlan(false);
@@ -33,7 +45,9 @@ const Timeline = ({
     setIsConfirmation(true);
     confirmation();
   };
-  const handleRadioChange = (e: any) => {
+  const handleRadioChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+
+
     switch (e.target.value) {
       case "job-details":
         changeJobDetailsColor();

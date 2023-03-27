@@ -29,7 +29,7 @@ const jobOptions = [
   { value: "Product Manager", label: "Product Manager" },
   { value: "UI/UX", label: "UI/UX" },
 ];
-const Experience = () => {
+const Experience = ():JSX.Element => {
   const dispatch = useDispatch();
   const {
     companyName,

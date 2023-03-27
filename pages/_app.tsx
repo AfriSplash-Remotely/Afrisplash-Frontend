@@ -1,14 +1,25 @@
-import "../styles/globals.scss";
+import React from "react";
+import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { store } from "store/store";
-import '../styles/Global.scss'
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import "../styles/globals.scss";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
+
+  const [queryClient] = React.useState(() => new QueryClient());
+
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+      <ReactQueryDevtools initialIsOpen={false} />
+
+    </QueryClientProvider>
   );
 }
 

@@ -21,7 +21,7 @@ const options = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-const Skills = () => {
+const Skills = ():JSX.Element => {
   // const [isActive, setActive] = useState(false)
 
   // const btnSelect = "bg-green-900 text-white border px-20 py-2.5 rounded-full"
@@ -48,7 +48,7 @@ const Skills = () => {
             options={options}
             styles={selectStyle}
             placeholder={skillsCategory}
-            onChange={(e: any) => dispatch(skillsCategoryAction(e.value))}
+            onChange={(e :any) => dispatch(skillsCategoryAction(e.value))}
           />
         </label>
         <label htmlFor="field" className="basis-[100%] mt-5">
