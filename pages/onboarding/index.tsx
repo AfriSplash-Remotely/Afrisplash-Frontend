@@ -12,7 +12,7 @@ import Education from "./Education";
 import Experience from "./Experience";
 import Skills from "./Skills";
 
-const Onboarding = ():JSX.Element => {
+const Onboarding = (): JSX.Element => {
   const [step, setStep] = useState(1);
 
   const arr = [
@@ -21,9 +21,9 @@ const Onboarding = ():JSX.Element => {
     { id: 3, name: "Education" },
     { id: 4, name: "Skills" },
   ];
-  const formData = useSelector((state: RootState) => state.form);
+  // const formData = useSelector((state: RootState) => state.form);
   const handleSubmit = () => {
-    console.log(formData);
+    // console.log(formData);
   };
   return (
     <div className={styles.bg}>

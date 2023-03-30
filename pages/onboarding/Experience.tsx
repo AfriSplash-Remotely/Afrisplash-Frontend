@@ -29,17 +29,32 @@ const jobOptions = [
   { value: "Product Manager", label: "Product Manager" },
   { value: "UI/UX", label: "UI/UX" },
 ];
-const Experience = ():JSX.Element => {
+const Experience = (): JSX.Element => {
   const dispatch = useDispatch();
-  const {
-    companyName,
+  // const {
+  //   companyName,
+  //   location,
+  //   positionHeld,
+  //   jobType,
+  //   startDate,
+  //   endDate,
+  //   jobDescription,
+  // } = useSelector((state: RootState) => state.form);
+  const { companyName,
     location,
     positionHeld,
     jobType,
     startDate,
     endDate,
-    jobDescription,
-  } = useSelector((state: RootState) => state.form);
+    jobDescription, } = {
+    companyName: '',
+    location: '',
+    positionHeld: '',
+    jobType: '',
+    startDate: '',
+    endDate: '',
+    jobDescription: '',
+  }
 
   const [dateStatus, setDateStatus] = useState(false);
   const [workExp, setWorkExp] = useState(false);
