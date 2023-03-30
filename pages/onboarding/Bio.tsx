@@ -8,9 +8,11 @@ import {
 } from "store/candidateOnboarding/formSlice";
 import type { RootState } from "store/store";
 
-const Bio = ():JSX.Element => {
-  const { imgURL }: any = useSelector((state: RootState) => state.form.imgFile);
-  const bioDesc: string = useSelector((state: RootState) => state.form.bio);
+const Bio = (): JSX.Element => {
+  // const { imgURL }: any = useSelector((state: RootState) => state.form.imgFile);
+  const imgURL = ''
+  const bioDesc = 'lorem'
+  // const bioDesc: string = useSelector((state: RootState) => state.form.bio);
 
   const dispatch = useDispatch();
   const { getRootProps, getInputProps } = useDropzone({

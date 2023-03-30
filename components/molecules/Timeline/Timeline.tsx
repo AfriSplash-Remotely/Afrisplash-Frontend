@@ -7,10 +7,10 @@ interface TimelineProps {
   isJobDetails: boolean,
   isPackagePlan: boolean,
   isConfirmation: boolean,
-  setIsJobDetails: (isJobDetails: boolean) => boolean
-  setIsPackagePlan: (isPackagePlan: boolean) => boolean
-  setIsConfirmation: (isConfirmation: boolean) => boolean
-  jobDetails:any,
+  setIsJobDetails: (isJobDetails: boolean) => void
+  setIsPackagePlan: (isPackagePlan: boolean) => void
+  setIsConfirmation: (isConfirmation: boolean) => void
+  jobDetails: any,
   packagePlan: any,
   confirmation: any
 }
@@ -45,7 +45,7 @@ const Timeline = ({
     setIsConfirmation(true);
     confirmation();
   };
-  const handleRadioChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 
     switch (e.target.value) {

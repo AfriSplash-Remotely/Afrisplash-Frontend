@@ -23,7 +23,15 @@ const degreeOptions = [
   { value: "NCE", label: "NCE" },
 ];
 
-const Education = ():JSX.Element => {
+const Education = (): JSX.Element => {
+  // const {
+  //   institutionName,
+  //   degree,
+  //   fieldStudy,
+  //   eduStartDate,
+  //   eduEndDate,
+  //   eduDescription,
+  // } = useSelector((state: RootState) => state.form);
   const {
     institutionName,
     degree,
@@ -31,7 +39,14 @@ const Education = ():JSX.Element => {
     eduStartDate,
     eduEndDate,
     eduDescription,
-  } = useSelector((state: RootState) => state.form);
+  } = {
+    institutionName: '',
+    degree: '',
+    fieldStudy: '',
+    eduStartDate: '',
+    eduEndDate: '',
+    eduDescription: '',
+  }
 
   const dispatch = useDispatch();
 
