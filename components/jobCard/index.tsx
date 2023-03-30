@@ -38,7 +38,7 @@ const JobCard = ({
   hiring,
   promoted,
   forDashboard = false,
-}: InferProps<typeof jobDataProps>) => {
+}: InferProps<typeof jobDataProps>):JSX.Element => {
   return (
     <div>
       <div className="bg-white rounded-xl border border-gray-200 p-3  mt-5">

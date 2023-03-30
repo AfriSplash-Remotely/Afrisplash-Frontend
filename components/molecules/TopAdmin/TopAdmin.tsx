@@ -5,7 +5,7 @@ import AdminLoginAvatar from "../adminLoginAvatar";
 
 interface TopAdminProps {
   placeholder: string;
-  avatar: any;
+  avatar: string;
   avatarText: string;
 }
 
@@ -13,7 +13,7 @@ export default function TopAdmin({
   placeholder,
   avatar,
   avatarText,
-}: TopAdminProps) {
+}: TopAdminProps):JSX.Element {
   return (
     <div className="h-20 flex items-center sticky top-0 z-40 w-full justify-between bg-[#FAFAFA]">
       <div className="w-5/12">
