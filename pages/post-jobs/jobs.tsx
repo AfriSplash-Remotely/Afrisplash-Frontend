@@ -6,11 +6,11 @@ import Timeline from "components/molecules/Timeline/Timeline";
 import GeneralLayout from "layouts/generalLayout";
 import styles from "../../styles/Post-jobs.module.scss";
 
-const PostJobsNotSigned = ():JSX.Element => {
-  const [isJobDetails, setIsJobDetails] = useState(false);
-  const [isPackagePlan, setIsPackagePlan] = useState(false);
-  const [isConfirmation, setIsConfirmation] = useState(false);
-  const [currentFormKey, setCurrentFormKey] = useState(0);
+const PostJobsNotSigned = (): JSX.Element => {
+  const [isJobDetails, setIsJobDetails] = useState<boolean>(false);
+  const [isPackagePlan, setIsPackagePlan] = useState<boolean>(false);
+  const [isConfirmation, setIsConfirmation] = useState<boolean>(false);
+  const [currentFormKey, setCurrentFormKey] = useState<number>(0);
 
   const renderNextForm = () => {
     setCurrentFormKey(currentFormKey + 1);
