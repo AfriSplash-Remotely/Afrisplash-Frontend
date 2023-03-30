@@ -7,7 +7,7 @@ const RadioBtnProps = {
 
 }
 
-const RadioBtn = ({ label, value }: InferProps<typeof RadioBtnProps>) => {
+const RadioBtn = ({ label, value }: InferProps<typeof RadioBtnProps>):JSX.Element => {
     return (
         <>
             <div className="flex items-center gap-2 py-2">

@@ -2,7 +2,7 @@ import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import styles from "./index.module.scss";
 
-function Map() {
+function Map():JSX.Element {
   // const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
   return (
     <GoogleMap
@@ -15,7 +15,7 @@ function Map() {
   );
 }
 
-const GoogleMapApi = () => {
+const GoogleMapApi = ():JSX.Element => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
   });

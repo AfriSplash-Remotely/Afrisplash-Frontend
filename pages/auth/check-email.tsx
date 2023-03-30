@@ -5,7 +5,7 @@ import mail from "../../assets/check-mail.png";
 import logo from "../../assets/logo.png";
 import styles from "../../styles/CheckMail.module.scss";
 
-const checkEmail = () => {
+const checkEmail = ():JSX.Element => {
   return (
     <div className="w-full">
       <div>
