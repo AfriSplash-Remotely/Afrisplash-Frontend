@@ -8,19 +8,19 @@ interface JobDetailsProps {
   renderNextForm: React.MouseEventHandler<HTMLButtonElement>,
 
 }
-type Options ={
-  value:string,
-  label:string
+interface OptionsI {
+  value: string,
+  label: string
 }
 
-const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
+const JobDetails = ({ renderNextForm, }: JobDetailsProps): JSX.Element => {
   const [currentFormKey, setCurrentFormKey] = useState(0);
 
   const [formSteps] = useState([
     { name: "jobDetails", index: 0 },
     { name: "jobDetailsCont", index: 1 },
   ]);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedOption, setSelectedOption] = useState<OptionsI | null>(null);
 
   const [toggle, setToggle] = useState(false);
 
@@ -40,34 +40,34 @@ const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
     return currentFormKey === formSteps[formStepIndex].index;
   };
 
-  const industryOptions: Options[] = [
+  const industryOptions: readonly OptionsI[] = [
     { value: "", label: "Select industry" },
     { value: "health", label: "Health" },
     { value: "logistics", label: "Logistics" },
   ];
 
-  const experienceOptions = [
+  const experienceOptions: readonly OptionsI[] = [
     { value: "", label: "Select experience level" },
     { value: "beginner", label: "Beginner" },
     { value: "intermediate", label: "Intermediate" },
     { value: "advanced", label: "Advanced" },
   ];
 
-  const jobTypeOptions = [
+  const jobTypeOptions: readonly OptionsI[] = [
     { value: "", label: "Select job type" },
     { value: "frontend", label: "Frontend developer" },
     { value: "backend", label: "Backend developer" },
     { value: "ui/ux", label: "UI/UX designer" },
   ];
 
-  const locationOptions = [
+  const locationOptions: readonly OptionsI[] = [
     { value: "", label: "Select location" },
     { value: "lagos", label: "Lagos" },
     { value: "abia", label: "Abia" },
     { value: "kaduna", label: "Kaduna" },
   ];
 
-  const salaryOptions = [
+  const salaryOptions: readonly OptionsI[] = [
     { value: "", label: "Select salary" },
     { value: "100000", label: "100,000" },
     { value: "150000", label: "150,000" },
@@ -227,10 +227,11 @@ const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
                     placeholder="Select industry"
                     defaultValue={selectedOption}
                     value={selectedOption}
-                    onChange={setSelectedOption}
+                    onChange={(val) => setSelectedOption(val)}
                     options={industryOptions}
                     className="w-3/4"
                   />
+
                 </div>
               </div>
 
@@ -246,7 +247,7 @@ const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
                     placeholder="Select experience level"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={experienceOptions as []}
+                    options={experienceOptions}
                     className="w-3/4"
                   />
                 </div>
@@ -264,7 +265,7 @@ const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
                     placeholder="Select job type"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={jobTypeOptions as []}
+                    options={jobTypeOptions}
                     className="w-3/4"
                   />
                 </div>
@@ -282,7 +283,7 @@ const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
                     placeholder="Select location"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={locationOptions as []}
+                    options={locationOptions}
                     className="w-3/4"
                   />
                 </div>
@@ -300,7 +301,7 @@ const JobDetails = ({ renderNextForm, }:JobDetailsProps):JSX.Element => {
                     placeholder="Select salary"
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
-                    options={salaryOptions as []}
+                    options={salaryOptions}
                     className="w-3/4"
                   />
                 </div>
