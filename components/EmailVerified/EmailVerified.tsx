@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Button from "components/atoms/Button/Button";
 
-function EmailVerified() {
+function EmailVerified():JSX.Element {
   return (
     <div>
       <p

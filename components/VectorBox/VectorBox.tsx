@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Mailbox from "assets/authentication/Mailbox.png";
 
-function VectorBox() {
+function VectorBox():JSX.Element {
   return (
     <div className="relative max-w-[271.02px] w-full h-56 mt-12 mr-auto ml-auto">
       <Image
