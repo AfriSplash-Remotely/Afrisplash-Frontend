@@ -21,7 +21,7 @@ const options = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-const Skills = ():JSX.Element => {
+const Skills = (): JSX.Element => {
   // const [isActive, setActive] = useState(false)
 
   // const btnSelect = "bg-green-900 text-white border px-20 py-2.5 rounded-full"
@@ -29,13 +29,16 @@ const Skills = ():JSX.Element => {
   //     "text-black border border-gray-500 px-20 py-2.5 rounded-full"
 
   const dispatch = useDispatch();
-  const { skillsCategory, experience, skills } = useSelector(
-    (state: RootState) => state.form
-  );
+  // const { skillsCategory, experience, skills } = useSelector(
+  //   (state: RootState) => state.form
+  // );
 
   // const onToggle = () => {
   //     setActive(!isActive)
   // }
+
+  const { skillsCategory, experience, skills } = { skillsCategory: '', experience: '', skills: '', }
+
 
   return (
     <div className="px-6 sm:px-12 md:px-16 mb-8">
@@ -48,7 +51,7 @@ const Skills = ():JSX.Element => {
             options={options}
             styles={selectStyle}
             placeholder={skillsCategory}
-            onChange={(e :any) => dispatch(skillsCategoryAction(e.value))}
+            onChange={(e: any) => dispatch(skillsCategoryAction(e.value))}
           />
         </label>
         <label htmlFor="field" className="basis-[100%] mt-5">

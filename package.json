@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.13",
     "@next/font": "13.1.4",
     "@react-google-maps/api": "^2.17.1",
