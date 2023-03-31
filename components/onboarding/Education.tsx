@@ -7,7 +7,7 @@ import {
   eduStartDateAction,
   fieldStudyAction,
   institutionNameAction,
-} from "store/candidateOnboarding/formSlice";
+} from "@/store/candidateOnboarding/_formSlice";
 import type { RootState } from "store/store";
 
 const selectStyle: StylesConfig = {
