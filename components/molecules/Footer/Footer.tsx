@@ -1,52 +1,54 @@
+import Link from "next/link";
+
 type FooterItems = {
   title: string,
-  items:object[]
+  items: { title: string, url: string, external: boolean }[]
 }
 
 
 
-const Footer = ():JSX.Element => {
+const Footer = (): JSX.Element => {
 
 
-  const footer = [
+  const footer: FooterItems[] = [
     {
       title: "talents",
       items: [
-        { title: "product designers" },
-        { title: "website developers" },
-        { title: "software engineers" },
-        { title: "data analysts" },
-        { title: "brand identity designers" },
-        { title: "product managers" },
+        { external: false, title: "product designers", url: '#' },
+        { external: false, title: "website developers", url: '#' },
+        { external: false, title: "software engineers", url: '#' },
+        { external: false, title: "data analysts", url: '#' },
+        { external: false, title: "brand identity designers", url: '#' },
+        { external: false, title: "product managers", url: '#' },
       ],
     },
     {
       title: "about",
       items: [
-        { title: "afrisplash" },
-        { title: "careers" },
-        { title: "FAQs" },
-        { title: "our team" },
-        { title: "contact" },
+        { external: false, title: "afrisplash", url: '#' },
+        { external: false, title: "careers", url: '#' },
+        { external: false, title: "FAQs", url: '#' },
+        { external: false, title: "our team", url: '#' },
+        { external: false, title: "contact", url: '#' },
       ],
     },
     {
       title: "others",
       items: [
-        { title: "co-working space" },
-        { title: "forum" },
-        { title: "blogs & news" },
-        { title: "events" },
+        { external: false, title: "co-working space", url: '#' },
+        { external: false, title: "forum", url: '#' },
+        { external: false, title: "blogs & news", url: '/blogs' },
+        { external: false, title: "events", url: '#' },
       ],
     },
     {
       title: "social",
       items: [
-        { title: "twitter" },
-        { title: "linkedin" },
-        { title: "facebook" },
-        { title: "instagram" },
-        { title: "product hunt" },
+        { external: true, title: "twitter", url: 'https://twitter.com/Afrisplash' },
+        { external: true, title: "linkedin", url: 'https://www.linkedin.com/company/afrisplash/' },
+        { external: true, title: "facebook", url: 'https://web.facebook.com/AfriSplashRemotely' },
+        { external: true, title: "instagram", url: '#' },
+        { external: true, title: "product hunt", url: '#' },
       ],
     },
   ];
@@ -65,7 +67,9 @@ const Footer = ():JSX.Element => {
               <ul className="space-y-3 text-xs sm:text-sm md:text-base">
                 {item.items.map((subItems: any, index: number) => (
                   <li key={index} className="capitalize">
-                    {subItems.title}
+                    <Link href={subItems.url} target={subItems.external ? '_blank' : '_self'}>
+                      {subItems.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
