@@ -10,23 +10,23 @@ export interface UserI {
   bio: string;
   account_setup_completed: boolean;
   role: string;
-  avaliability: String[];
+  avaliability: string[];
   badge: number;
-  skills: String[];
-  jobs: String[];
+  skills: string[];
+  jobs: string[];
   hide_detail: boolean;
   ready_to_interview: boolean;
   activelyHiring: boolean;
   privateMode: boolean;
-  friends: String[];
+  friends: string[];
   _company: string;
-  work_history: String[];
-  extra_email: String[];
-  notifications: String[];
-  gifts: String[];
-  langauge: String[];
-  experience: String[];
-  education: String[];
+  work_history: string[];
+  extra_email: string[];
+  notifications: string[];
+  gifts: string[];
+  langauge: string[];
+  experience: string[];
+  education: string[];
   created_at: string;
 }
 
