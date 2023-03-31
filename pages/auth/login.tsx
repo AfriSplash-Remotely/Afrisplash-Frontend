@@ -23,11 +23,15 @@ const Login: NextPage = () => {
 
   const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
     try {
-      await login(data).unwrap();
+      const userData = await login(data).unwrap()
       toast.success("Login successful");
-      router.push("/dashboard")
+      if (userData.user && userData.user.account_setup_completed) {
+        router.push("/dashboard")
+      } else {
+        router.push("/onboarding")
+      }
     } catch (err: any) {
-      toast.error(err.data.message);
+      toast.error(err?.data?.message);
     }
   };
 
