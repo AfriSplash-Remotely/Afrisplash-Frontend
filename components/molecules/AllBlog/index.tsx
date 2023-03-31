@@ -5,6 +5,9 @@ import FeaturedImage from "assets/blog/laptop_office.jpg";
 import AllBlogCard from "./AllBlogCard";
 
 import { ArticleProp } from "./interface";
+import { NextPage } from "next";
+import { getAllBlogs } from "@/api/blog/blog.api";
+import { useQuery } from "@tanstack/react-query";
 
 const mockdata: ArticleProp[] = [
   {
@@ -121,7 +124,12 @@ const mockdata: ArticleProp[] = [
   },
 ];
 
-const AllBlog = ():JSX.Element => {
+const AllBlog: NextPage = () => {
+
+  const { data: allBlogs } = useQuery({
+    queryKey: ["allBlogs"],
+    queryFn: () => getAllBlogs(),
+  });
   return (
     <div>
       <div className="flex flex-row items-center justify-between bg-[#FDF1C9] py-4 px-4 md:px-10 xl:px-[96px]">
@@ -170,8 +178,8 @@ const AllBlog = ():JSX.Element => {
       </div>
 
       <div className="grid grid-cols-1 items-center justify-center gap-x-4 gap-y-20 py-4  px-4  md:grid-cols-2  md:px-10 lg:grid-cols-3 xl:grid-cols-4 xl:px-[96px]">
-        {mockdata.map((article, index) => (
-          <AllBlogCard article={article} key={index} />
+        {allBlogs && allBlogs.map((article, index) => (
+          <AllBlogCard {...article} key={index} />
         ))}
       </div>
     </div>

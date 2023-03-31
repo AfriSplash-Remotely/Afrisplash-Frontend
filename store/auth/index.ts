@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction, Slice } from "@reduxjs/toolkit";
 import { authApi, UserI } from "../services/auth";
+import { useRouter } from "next/router";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -47,7 +48,7 @@ const initialState: AuthState = {
   isLoading: false,
 };
 
-interface AuthSlice extends Slice<AuthState> {}
+type AuthSlice = Slice<AuthState>;
 
 export const authSlice: AuthSlice = createSlice({
   name: "auth",
