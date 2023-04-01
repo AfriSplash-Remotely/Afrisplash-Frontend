@@ -1,7 +1,6 @@
 import React from "react";
-import { UserIcon, MapPinIcon } from "@heroicons/react/24/solid";
+import { UserIcon } from "@heroicons/react/24/solid";
 import PropTypes, { InferProps } from "prop-types";
-import DropDown from "@/components/atoms/DropDown/DropDown";
 
 const PositionSearchProps = {
     placeholder: PropTypes.string.isRequired,
