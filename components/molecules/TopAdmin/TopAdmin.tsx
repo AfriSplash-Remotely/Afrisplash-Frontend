@@ -2,18 +2,20 @@ import React from "react";
 import { BellIcon, GiftIcon } from "@heroicons/react/24/outline";
 import Search from "components/atoms/Search/Search";
 import AdminLoginAvatar from "../adminLoginAvatar";
+import PropTypes, { InferProps } from "prop-types";
 
-interface TopAdminProps {
-  placeholder: string;
-  avatar: string;
-  avatarText: string;
+const TopAdminProps = {
+  placeholder:PropTypes.string.isRequired,
+  avatar:PropTypes.string.isRequired,
+  avatarText:PropTypes.string.isRequired
 }
+
 
 export default function TopAdmin({
   placeholder,
   avatar,
   avatarText,
-}: TopAdminProps):JSX.Element {
+}: InferProps<typeof TopAdminProps>):JSX.Element {
   return (
     <div className="h-20 flex items-center sticky top-0 z-40 w-full justify-between bg-[#FAFAFA]">
       <div className="w-5/12">

@@ -6,6 +6,7 @@ import Button from "@/components/atoms/Button/Button";
 import Link from "next/link";
 import { mentorsData, topTalentData } from "utils/fakeData";
 import styles from './styles.module.scss'
+
 function Talents(): JSX.Element {
     return (
         <section className="w-full ">
