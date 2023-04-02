@@ -7,7 +7,7 @@ import {
   eduStartDateAction,
   fieldStudyAction,
   institutionNameAction,
-} from "store/candidateOnboarding/formSlice";
+} from "@/store/candidateOnboarding/_formSlice";
 import type { RootState } from "store/store";
 
 const selectStyle: StylesConfig = {
@@ -23,7 +23,15 @@ const degreeOptions = [
   { value: "NCE", label: "NCE" },
 ];
 
-const Education = () => {
+const Education = (): JSX.Element => {
+  // const {
+  //   institutionName,
+  //   degree,
+  //   fieldStudy,
+  //   eduStartDate,
+  //   eduEndDate,
+  //   eduDescription,
+  // } = useSelector((state: RootState) => state.form);
   const {
     institutionName,
     degree,
@@ -31,7 +39,14 @@ const Education = () => {
     eduStartDate,
     eduEndDate,
     eduDescription,
-  } = useSelector((state: RootState) => state.form);
+  } = {
+    institutionName: '',
+    degree: '',
+    fieldStudy: '',
+    eduStartDate: '',
+    eduEndDate: '',
+    eduDescription: '',
+  }
 
   const dispatch = useDispatch();
 

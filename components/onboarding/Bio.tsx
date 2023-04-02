@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   bioAction,
   imgUploadAction,
-} from "store/candidateOnboarding/formSlice";
+} from "@/store/candidateOnboarding/_formSlice";
 import type { RootState } from "store/store";
 
-const Bio = () => {
-  const { imgURL }: any = useSelector((state: RootState) => state.form.imgFile);
-  const bioDesc: string = useSelector((state: RootState) => state.form.bio);
+function Bio(): JSX.Element {
+  // const { imgURL }: any = useSelector((state: RootState) => state.form.imgFile);
+  const imgURL = ''
+  const bioDesc = 'lorem'
+  // const bioDesc: string = useSelector((state: RootState) => state.form.bio);
 
   const dispatch = useDispatch();
   const { getRootProps, getInputProps } = useDropzone({
@@ -71,12 +73,12 @@ const Bio = () => {
         </div>
       )}
       <label htmlFor="bio">
-        <p className="block font-medium text-lg mb-4">Upload your bio</p>
+        <p className="block font-medium text-lg mb-4">Write your bio</p>
         <textarea
           name="bio"
           id="bio"
           className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
-          placeholder="Introduce yourself. Talk about your work, your interests and your achievements"
+          placeholder="Introduce yourself briefly. Talk about your work, your interests, and your achievements"
           onChange={(e) => dispatch(bioAction(e.target.value))}
           value={bioDesc}
           maxLength={150}

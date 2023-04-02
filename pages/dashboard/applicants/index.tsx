@@ -60,8 +60,8 @@ const Applicants: NextPage = () => {
 
   // Show DropDownLabels function
   const displayDropDownLabel = (_label: string) => {
-    let newApplicantLabels: any[] = applicantLabels.map(
-      (applicant: { label: String; isOpen: Boolean }) => {
+    const newApplicantLabels: any[] = applicantLabels.map(
+      (applicant: { label: string; isOpen: boolean }) => {
         if (applicant.label === _label) applicant.isOpen = !applicant.isOpen;
         else applicant.isOpen = false;
         return applicant;
@@ -82,7 +82,7 @@ const Applicants: NextPage = () => {
   // Handle action function
   const handleAcceptApplicants = (id: string) => {
     // Clear list of applicants
-    let selectedAcceptedApplicants = getSelectedApplicants(id);
+    const selectedAcceptedApplicants = getSelectedApplicants(id);
     console.log("Handling Acceptance", selectedAcceptedApplicants);
     // Show notification on the process to the next page
   };
@@ -90,7 +90,7 @@ const Applicants: NextPage = () => {
   // Handle reject function
   const handleRejectApplicants = (id: string) => {
     // Clear list of applicants
-    let selectedRejectedApplicants = getSelectedApplicants(id);
+    const selectedRejectedApplicants = getSelectedApplicants(id);
     console.log("Handling Rejected Applicants", selectedRejectedApplicants);
     // Show notification on the process to the next page
   };
@@ -100,7 +100,7 @@ const Applicants: NextPage = () => {
     action: string,
     _id: string | null
   ) => {
-    let applicantFound = applicants.find((applicant) => applicant?.id === _id);
+    const applicantFound = applicants.find((applicant) => applicant?.id === _id);
     if (applicantFound) {
       applicantFound.isSelected = true;
       // Accepted or rejected
@@ -125,7 +125,7 @@ const Applicants: NextPage = () => {
     _id: string | null;
   }) => {
     // Obtain the list of Applicants
-    let applicantsStatuses = applicants.map((applicant) => {
+    const applicantsStatuses = applicants.map((applicant) => {
       if (e.target.checked && applicant.id === _id) applicant.isSelected = true;
       // Set a selection on the UI
       if (!e.target.checked && applicant.id === _id)

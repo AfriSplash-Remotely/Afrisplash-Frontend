@@ -4,11 +4,16 @@ import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
 import { generateUniqueId } from "@/utils/helper";
 
+
+// function setMakeSelectOption(e: React.MouseEventHandler<HTMLButtonElement>) {
+
+//   throw new Error("Function not implemented.");
+// }
 const DropDownProps = {
   classes: PropTypes.string,
   onClick: PropTypes.func,
   text: PropTypes.string,
-  imageUrl: PropTypes.any,
+  imageUrl: PropTypes.string,
   isOpen: PropTypes.bool,
   options: PropTypes.array,
 };
@@ -21,10 +26,10 @@ const DropDown = ({
   onClick,
   options,
 }: InferProps<typeof DropDownProps>): JSX.Element => {
-  let [makeSelectOption, setMakeSelectOption] = useState<
-    string | null | undefined
-  >(text);
 
+  const [makeSelectOption, setMakeSelectOption] = useState< string | null | undefined>(text);
+
+  
   return (
     <>
       <div className={`${classes}`}>
@@ -84,6 +89,4 @@ const DropDown = ({
 
 export default DropDown;
 
-function setMakeSelectOption(e: any) {
-  throw new Error("Function not implemented.");
-}
+

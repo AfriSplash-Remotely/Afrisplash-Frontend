@@ -1,33 +1,41 @@
 import React from "react";
 import Image from "next/image";
-import { InferProps } from "prop-types";
-import { ArticleProp } from "./interface";
-interface AllBlogCardProps {
-  article: InferProps<ArticleProp>;
-}
+import PropTypes, { InferProps } from "prop-types";
 
-const AllBlogCard = ({ article }: AllBlogCardProps): JSX.Element => {
+const AllBlogCardProp = {
+  cover_image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  categories: PropTypes.string.isRequired,
+  read_time: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  _author: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  views: PropTypes.number.isRequired,
+};
+
+
+const AllBlogCard = ({ title, summary, views, categories, read_time, createdAt, _author, cover_image }: InferProps<typeof AllBlogCardProp>): JSX.Element => {
   return (
     <article className="relative flex flex-col">
       <div className="relative h-60">
         <Image
-          src={article?.featuredImage}
+          src={cover_image}
           fill
-          alt={`${article?.title} featured image`}
+          alt={`${title} featured image`}
           priority
           className="rounded-t-2xl"
         />
       </div>
       <p className="absolute top-1 right-1 rounded-sm bg-[#ffc42d73] p-3 text-xs">
-        {article?.category}
+        {categories}
       </p>
       <div>
-        <h3 className="my-2 text-lg capitalize">{article.title}</h3>
+        <h3 className="my-2 text-lg capitalize">{title}</h3>
         <div className="text-sm my-4 capitalize">
-          <span className="mr-2">{`${article?.meta?.publishedDate} |`}</span>
-          <span>{article?.meta?.readTime}</span>
+          <span className="mr-2">{`${createdAt} |`}</span>
+          <span>{read_time}mins read</span>
         </div>
-        <p className="mt-2 leading-5">{article?.excerpt}</p>
+        <p className="mt-2 leading-5">{summary}</p>
       </div>
     </article>
   );
