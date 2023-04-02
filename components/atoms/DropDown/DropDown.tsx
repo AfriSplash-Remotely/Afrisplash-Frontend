@@ -26,9 +26,8 @@ const DropDown = ({
   onClick,
   options,
 }: InferProps<typeof DropDownProps>): JSX.Element => {
-  const [makeSelectOption, setMakeSelectOption] = useState<
-    string | null | undefined
-  >(text);
+
+  const [makeSelectOption, setMakeSelectOption] = useState< string | null | undefined>(text);
 
   
   return (
