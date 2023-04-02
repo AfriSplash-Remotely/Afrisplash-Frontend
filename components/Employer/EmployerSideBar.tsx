@@ -2,7 +2,7 @@ import React from 'react'
 import Button from 'components/atoms/Button/Button'
 import DropDown from 'components/atoms/DropDown/DropDown'
 import RadioBtn from 'components/atoms/RadioButton/RadioBtn'
-export default function EmployerSideBar() {
+export default function EmployerSideBar():JSX.Element {
     return (
         <div className='bg-pirmary_grey rounded-lg p-4 mx-12'>
             <div className='py-4'>

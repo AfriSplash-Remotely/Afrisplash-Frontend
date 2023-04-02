@@ -7,12 +7,12 @@ import type { RootState } from "store/store";
 import styles from "styles/Onboarding.module.scss";
 import checked from "assets/candidateOnboarding/checked.svg";
 import logo from "assets/candidateOnboarding/logo.svg";
-import Bio from "./Bio";
-import Education from "./Education";
-import Experience from "./Experience";
-import Skills from "./Skills";
+import Bio from "components/onboarding/Bio";
+import Education from "components/onboarding/Education";
+import Experience from "components/onboarding/Experience";
+import Skills from "components/onboarding/Skills";
 
-const Onboarding = () => {
+const Onboarding = (): JSX.Element => {
   const [step, setStep] = useState(1);
 
   const arr = [
@@ -21,9 +21,9 @@ const Onboarding = () => {
     { id: 3, name: "Education" },
     { id: 4, name: "Skills" },
   ];
-  const formData = useSelector((state: RootState) => state.form);
+  // const formData = useSelector((state: RootState) => state.form);
   const handleSubmit = () => {
-    console.log(formData);
+    // console.log(formData);
   };
   return (
     <div className={styles.bg}>

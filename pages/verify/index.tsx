@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import google from "assets/authentication/check-mail.svg";
 
-const Verify = () => {
+const Verify = ():JSX.Element => {
   return (
     <div className="space-y-8 md:space-y-14">
       <div className="flex items-center">

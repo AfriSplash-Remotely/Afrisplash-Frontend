@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Button from "components/atoms/Button/Button";
 
-function VerifyEmail() {
+function VerifyEmail():JSX.Element {
   return (
     <div>
       <p className="font-['Inter'] font-semibold text-3xl leading-10 text-black pt-8 text-center">

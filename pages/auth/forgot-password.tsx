@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import Image from "next/image";
 import arrowLeft from "assets/icons/arrow-left.svg";
@@ -62,3 +63,19 @@ const ForgotPassword: NextPage = () => {
 };
 
 export default ForgotPassword;
+=======
+import React from 'react';
+import Image from 'next/image';
+import logo from "assets/logo.png";
+import { NextPage } from 'next';
+
+const forgotPassword: NextPage = () => {
+  return (
+    <section className='bg-white w-full p-4 '>
+      <Image src={logo} alt="logo" />
+    </section>
+  )
+}
+
+export default forgotPassword;
+>>>>>>> 4835371545a0c5e9e622eb5103a8dd4754eb5dac

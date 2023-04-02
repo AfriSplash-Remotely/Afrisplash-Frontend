@@ -1,28 +1,22 @@
-import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-import formReducer from "./candidateOnboarding/formSlice";
-import counterReducer from "./general/counterSlice";
+import { configureStore, ConfigureStoreOptions } from "@reduxjs/toolkit";
+import type { TypedUseSelectorHook } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import auth from "./auth";
+import { api } from "./services/api";
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    form: formReducer,
-  },
+export const createStore = (options?: ConfigureStoreOptions["preloadedState"] | undefined) =>
+  configureStore({
+    reducer: {
+      [api.reducerPath]: api.reducer,
+      auth,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
+    ...options,
+  });
 
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActionPaths: ["payload.formData"],
-        ignoredPaths: ["form.imgFile.formData"],
-      },
-    }),
-});
-// import rootReducer from "./reducers";
+export const store = createStore();
 
-export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
