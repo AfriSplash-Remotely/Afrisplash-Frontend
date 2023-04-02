@@ -23,7 +23,6 @@ export default function LocationSearch({
                     placeholder={placeholder}
                     className="focus:outline-none w-full pr-2 "
                 />
-
                 <div >
                     <select className="bg-[#D9DEDC] rounded-full outline-none py-1.5  px-2 mx-2" >
                         <option>Globally</option>

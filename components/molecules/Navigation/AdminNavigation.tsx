@@ -13,6 +13,7 @@ type NavItems = {
   icon:string,
   route:string
 }
+
 export default function AdminNavigation(): JSX.Element {
   const router = useRouter();
 
