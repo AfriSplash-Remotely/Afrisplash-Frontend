@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import PropTypes, { InferProps } from "prop-types";
 import styles from "styles/Login.module.scss";
 import africanwomansmiling from "assets/africanwomansmiling.png";
