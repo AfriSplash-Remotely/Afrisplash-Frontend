@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { NextPage } from "next";
 import PropTypes, { InferProps } from "prop-types";
