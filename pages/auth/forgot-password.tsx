@@ -1,12 +1,44 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from 'next/router';
+import { useMutation } from '@tanstack/react-query';
+import { toast } from "react-hot-toast";
+import { useForm } from "react-hook-form";
 import arrowLeft from "assets/icons/arrow-left.svg";
 import logo from "assets/afrisplash-logo-main.png";
 import forgotImg from "assets/forgot-image.png";
 import sms from "assets/sms.png";
 import { NextPage } from "next";
+import { forgotPassword } from '@/api/auth/auth.api';
+
+
+type FormInputs = {
+  email: string;
+};
 
 const ForgotPassword: NextPage = () => {
+  const router = useRouter();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
+
+  const mutation = useMutation(forgotPassword, {
+    onSuccess: (data) => {
+      toast.success(data.data);
+      router.push("/auth/check-email")
+
+    },
+    onError: (err: any) => {
+      if (err && err.response && err.response.data) {
+        toast.error(err.response.data.error);
+      } else {
+        toast.error("An error occured");
+      }
+    },
+  });
+
+  const onSubmit = (data: FormInputs) => {
+    mutation.mutate(data.email);
+  };
+
   return (
     <div className="p-1">
       <div className="max-w-[1440px] mr-auto ml-auto">
@@ -33,27 +65,34 @@ const ForgotPassword: NextPage = () => {
               Enter your email address and we’ll send you instructions on how to
               reset your password.
             </p>
-            <div className="px-3 md:px-6">
-              <div className="border-2 border-black-400 outline-none rounded-md mx-auto flex items-center mt-3 mb-8 p-2 w-full gap-2 h-14"
-              >
-                <div className=" h-fit w-fit">
-                  <Image
-                    src={sms}
-                    alt="sms"
+            <form onSubmit={handleSubmit(onSubmit)} className="px-3 md:px-6">
+              <div className="mt-3 mb-8">
+                <div className="border-2 border-black-400 outline-none rounded-md mx-auto flex items-center mb-1 p-2 w-full gap-2 h-14"
+                >
+                  <div className=" h-fit w-fit">
+                    <Image
+                      src={sms}
+                      alt="sms"
+                    />
+                  </div>
+                  <input
+                    id="email"
+                    type="email"
+                    {...register("email", { required: true })}
+                    placeholder="nifemijoy@gmail.com"
+                    className="outline-none w-full h-full"
                   />
+
                 </div>
-                <input
-                  type="text"
-                  placeholder="nifemijoy@gmail.com"
-                  className="outline-none w-full h-full"
-                />
+                {errors.email && <span className="text-red-600">This field is required</span>}
               </div>
-              <button className=" bg-black  outline-none rounded-md mx-auto flex items-center justify-content-content mt-3 mb-3 md:mb-24  p-2 py-4 w-full">
+
+              <button type="submit" className=" bg-black  outline-none rounded-md mx-auto flex items-center justify-content-content mt-3 mb-3 md:mb-24  p-2 py-4 w-full">
                 <span className="font-normal text-center w-full text-md text-white">
                   Send
                 </span>
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
