@@ -38,7 +38,7 @@ const ForgotPassword = () => {
           className="border-2 border-black-400 outline-none rounded-md mx-auto flex align-items-center mt-3 mb-3 p-2 w-6/12 "
         />
         <button className="bg-black  outline-none rounded-md mx-auto flex align-items-center justify-content-content mt-3 mb-3 p-2 w-6/12">
-          <span className="font-normal text-center text-md text-white">
+          <span className="font-normal text-center w-full text-md text-white">
             Send
           </span>
         </button>
