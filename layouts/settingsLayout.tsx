@@ -3,7 +3,6 @@ import { NextPage } from 'next';
 import PropTypes, { InferProps } from 'prop-types';
 import SettingsBtn from "@/components/DashboardSettingsComponents/settingsBtn";
 
-
 const btns = [
     { title: "Account Settings", routeLink: "/dashboard/settings" },
     { title: "Notifications", routeLink: " /dashboard/settings/notifications" },
