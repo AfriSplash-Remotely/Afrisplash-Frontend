@@ -4,7 +4,6 @@ import { NextPage } from "next";
 import PropTypes, { InferProps } from "prop-types";
 import Tabs from "components/Forum/Tabs";
 import AdminLayout from "layouts/adminLayout";
-import styles from "styles/Forum.module.scss";
 import AsideNavigation from "@/components/molecules/Navigation/asideNavigation";
 
 const tabs = [
