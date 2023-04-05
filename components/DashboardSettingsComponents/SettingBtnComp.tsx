@@ -14,7 +14,8 @@ export default function SettingBtnComp({ title, isActive, routeLink }: InferProp
         <>
             <Link href={routeLink}>
                 <button
-                    className={`rounded-[12px] py-[11px] px-[86px] text-[#0D5520] font-[300] mb-[25px] border border-solid border-[#0D5520]  ${isActive ? `${styles.active}` : undefined} `}
+                    className={`rounded-[12px] py-[11px] w-80 text-[#0D5520] font-[300] mb-[25px] border border-solid border-[#0D5520] ${isActive ? `${styles.active}` : undefined
+                        } `}
                 >
                     {title}
                 </button>
