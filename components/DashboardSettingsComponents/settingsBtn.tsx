@@ -11,7 +11,7 @@ export default function SettingsBtn({ btnItem }: InferProps<typeof SettingsBtnPr
 
     return (
         <div>
-            <ul className='flex  flex-col'>
+            <ul className='flex flex-wrap md:flex-col gap-2'>
                 {btnItem.map((btn) => {
                     return (
                         <SettingBtnComp
