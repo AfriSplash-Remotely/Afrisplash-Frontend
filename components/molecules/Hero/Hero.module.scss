@@ -9,24 +9,29 @@
   border-bottom-right-radius: 30px;
   height: 80vh;
   display: flex;
+
   &_image {
     position: absolute;
     width: 22em !important;
     cursor: pointer;
     flex-grow: 1;
+
     &:hover {
       flex-grow: 2;
     }
+
     &_1 {
       top: 0px;
       left: 9em;
     }
+
     &_2 {
       top: 0em;
       left: -25%;
     }
+
     &_3 {
-      bottom: -3em;
+      bottom: 0em;
       left: -2em;
     }
   }
