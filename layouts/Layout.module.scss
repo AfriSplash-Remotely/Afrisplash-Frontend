@@ -7,3 +7,62 @@
   overflow-y: auto;
   background: #f8f8f8;
 }
+
+
+// auth styles
+
+.imgContainer{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+ 
+
+}
+.img{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  -webkit-animation:fadeImg 12s ease-in infinite ;
+  animation: fadeImg 12s ease-in infinite ;
+
+}
+
+#pic1 {
+  animation-delay: 0s;
+  background-image: url('../assets/africanwomansmiling.png');
+}
+#pic2{
+  animation-delay: 4s;
+  background-image: url('../assets/africanwoman.png');
+
+}
+
+#pic3 {
+  animation-delay: 8s;
+  background-image: url('../assets/man.png');
+
+}
+
+@keyframes fadeImg {
+  0% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
