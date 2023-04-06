@@ -5,42 +5,45 @@ import styles from "./styles.module.scss";
 
 function Newsletter(): JSX.Element {
     return (
-        <section className={`w-full  bg-[#FFC42D]`}>
+        <section className={`w-full  bg-[#fce8b6] ${styles.bg}`}>
             <div className={`${styles.Newsletter} py-20  afri-container`}>
-                <div className={`relative overflow-hidden flex w-full px-16 py-32 ${styles.Newsletterbx}`}>
+                <div className={`relative overflow-hidden flex w-full p-8 md:px-16 md:py-32 ${styles.Newsletterbx}`}>
                     <div>
-                        <h3 className="text-3xl text-black font-semibold pb-14">
-                            Sign Up for our Newsletter
-                        </h3>
+                        <div className='mb-6'>
+                            <h3 className="text-3xl text-black font-semibold">
+                                Be in the know
+                            </h3>
+                            <p>Get the gist on the latest jobs, career tips, and community activities </p>
+                        </div>
 
-                        <div className="flex flex-wrap justify-content-center justify-items-start gap-6 ">
-                            <div className="py-4 flex justify-content-center justify-items-start items-center  gap-6">
-                                <div className="relative">
-                                    <label>
-                                        Enter your Full Name:
-                                    </label>
-                                    <input
-                                        className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
-                                        type="text"
-                                        placeholder="Firstname LastName"
-                                    />
+                        <div className="flex flex-wrap justify-content-center justify-items-start gap-3 md:gap-6 ">
+                            <div className="py-4 flex flex-wrap justify-content-center justify-items-start items-center  gap-3 md:gap-6">
+                                <div className='flex flex-wrap sm:flex-nowrap gap-3 md:gap-6'>
+                                    <div className="relative">
+                                        <label className='mb-3'>
+                                            Your Full Name
+                                        </label>
+                                        <input
+                                            className="block outline-none w-full rounded-lg border bg-grey-50 py-2 px-3"
+                                            type="text"
+                                        />
+
+                                    </div>
+
+                                    <div className="relative ">
+                                        <label className='mb-3'>
+                                            Your Email
+                                        </label>
+                                        <input
+                                            className="block outline-none w-full rounded-lg border bg-grey-50 py-2 px-3"
+                                            type="text"
+                                        />
+
+                                    </div>
 
                                 </div>
 
-                                <div className="relative mb-3 ">
-                                    <label>
-                                        Enter your Email:
-                                    </label>
-                                    <input
-                                        className="block outline-none w-full rounded border-2 bg-grey-50 py-2 px-3"
-                                        type="text"
-                                        placeholder="yourmail@mail.com"
-                                    />
-
-                                </div>
-
-
-                                <button className="block outline-none rounded-lg text-white bg-black py-3 px-8" type="submit">Get Notified
+                                <button className="block outline-none rounded-lg text-white bg-black py-3 px-8 mt-6" type="submit">Get Notified
                                 </button>
 
                             </div>
@@ -49,7 +52,7 @@ function Newsletter(): JSX.Element {
 
                         </div>
                     </div>
-                    <div className={`${styles.NewsletterImg} `}>
+                    <div className={`${styles.NewsletterImg} hidden md:block`}>
                         <Image src={newsletter} alt="newsletter" />
                     </div>
                 </div>
