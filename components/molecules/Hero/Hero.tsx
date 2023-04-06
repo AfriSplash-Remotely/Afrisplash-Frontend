@@ -18,7 +18,7 @@ const Hero = (): JSX.Element => {
       className={`${styles.wrapper} w-full`}
     >
       <div className="w-10/12 mx-auto flex justify-between">
-        <section className="w-6/12 mt-20">
+        <section className="w-full md:w-6/12 mt-20">
           <motion.div className="space-y-4">
             <motion.h1
               initial={{ y: -100 }}
@@ -63,7 +63,7 @@ const Hero = (): JSX.Element => {
             </motion.div>
           </motion.div>
         </section>
-        <section className="w-5/12">
+        <section className="w-5/12 hidden md:block">
           <div>
             <div className={`${styles.imageWrapper} relative`}>
               <motion.div
