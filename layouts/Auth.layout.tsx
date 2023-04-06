@@ -3,13 +3,16 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
 import styles from "styles/Login.module.scss";
-import africanwomansmiling from "assets/africanwomansmiling.png";
 import person1 from "assets/person1.png";
 import person2 from "assets/person2.png";
+import layoutstyles from "./Layout.module.scss";
+
 
 const AuthLayoutProp = {
     children: PropTypes.node.isRequired,
 };
+
+
 
 
 const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
@@ -33,12 +36,12 @@ const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
 
                     </div>
                 </div>
-                <div className={`${styles.span2} relative w-6/12 bg-[#FDF1C9]`}>
+                <div className={`${styles.span2} relative w-6/12  bg-[#FDF1C9]`}>
                     <div
-                        className={`${styles.bg}  pt-10 mt-14 px-8 w-[80%] rounded-[24px] mx-auto`}
+                        className={`${styles.bg}  pt-10 mt-14 px-8 w-[80%] rounded-3xl mx-auto`}
                     >
                         <div
-                            className="absolute rounded-[24px] bg-white py-4 px-6 top-48 right-14"
+                            className="absolute rounded-3xl bg-white py-4 px-6 top-48 right-14"
                             style={{
                                 boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.1)",
                             }}
@@ -50,16 +53,22 @@ const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
                             inclusive companies
                         </p>
                         <div
-                            className="absolute rounded-[24px] bg-white py-4 px-6 bottom-60 left-14"
+                            className="absolute rounded-3xl bg-white py-4 px-6 bottom-60 left-14"
                             style={{
                                 boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.1)",
                             }}
                         >
                             <Image src={person1} alt="africanwomansmiling.png" />
                         </div>
-                        <span className="">
-                            <Image src={africanwomansmiling} alt="africanwomansmiling.png" />
-                        </span>
+                        <div className={layoutstyles.imgContainer}>
+                            <div className={`${layoutstyles.img} ml-32`} id={layoutstyles['pic3']}>
+                            </div>
+                            <div className={`${layoutstyles.img} ml-24`} id={layoutstyles['pic2']}>
+                            </div>
+                            <div className={`${layoutstyles.img} ml-32`} id={layoutstyles['pic1']}>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
