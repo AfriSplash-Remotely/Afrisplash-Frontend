@@ -33,19 +33,29 @@
 
 }
 
-#pic1 {
+.imgContainer .img:nth-child(1){
   animation-delay: 0s;
-  background-image: url('../assets/africanwomansmiling.png');
+
+}
+.imgContainer .img:nth-child(2){
+  animation-delay: -4s;
+
+}
+
+.imgContainer .img:nth-child(3){
+  animation-delay: -8s;
+
+}
+#pic1 {
+  background-image: url('../assets/authentication/africanwomansmiling.png');
 }
 #pic2{
-  animation-delay: 4s;
-  background-image: url('../assets/africanwoman.png');
+  background-image: url('../assets/authentication/africanwoman.png');
 
 }
 
 #pic3 {
-  animation-delay: 8s;
-  background-image: url('../assets/man.png');
+  background-image: url('../assets/authentication/man.png');
 
 }
 

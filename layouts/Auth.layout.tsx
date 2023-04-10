@@ -7,7 +7,6 @@ import person1 from "assets/person1.png";
 import person2 from "assets/person2.png";
 import layoutstyles from "./Layout.module.scss";
 
-
 const AuthLayoutProp = {
     children: PropTypes.node.isRequired,
 };
@@ -63,12 +62,13 @@ const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
                         <div className={layoutstyles.imgContainer}>
                             <div className={`${layoutstyles.img} ml-32`} id={layoutstyles['pic3']}>
                             </div>
-                            <div className={`${layoutstyles.img} ml-24`} id={layoutstyles['pic2']}>
+                            <div className={`${layoutstyles.img} ml-16`} id={layoutstyles['pic2']}>
                             </div>
                             <div className={`${layoutstyles.img} ml-32`} id={layoutstyles['pic1']}>
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>
