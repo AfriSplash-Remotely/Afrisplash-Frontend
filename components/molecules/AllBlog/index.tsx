@@ -126,6 +126,8 @@ const mockdata: ArticleProp[] = [
 
 const AllBlog: NextPage = () => {
 
+
+
   const { data: allBlogs } = useQuery({
     queryKey: ["allBlogs"],
     queryFn: () => getAllBlogs(),
@@ -179,7 +181,7 @@ const AllBlog: NextPage = () => {
 
       <div className="grid grid-cols-1 items-center justify-center gap-x-4 gap-y-20 py-4  px-4  md:grid-cols-2  md:px-10 lg:grid-cols-3 xl:grid-cols-4 xl:px-[96px]">
         {allBlogs && allBlogs.map((article, index) => (
-          <AllBlogCard {...article} key={index} />
+          <AllBlogCard  {...article} key={index} />
         ))}
       </div>
     </div>
