@@ -37,7 +37,7 @@ const Footer = (): JSX.Element => {
       items: [
         { external: false, title: "co-working space", url: '#' },
         { external: false, title: "forum", url: '#' },
-        { external: false, title: "blogs & news", url: '/blogs' },
+        { external: false, title: "blogs & news", url: '/blog' },
         { external: false, title: "events", url: '#' },
       ],
     },
