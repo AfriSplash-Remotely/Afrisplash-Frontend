@@ -57,7 +57,7 @@ const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
 
                     </div>
                 </div>
-                <div className={`${styles.span2} relative w-6/12 py-24 bg-[#FDF1C9] hidden md:flex justify-center`}>
+                <div className={`${styles.span2} relative w-6/12 py-16 bg-[#FDF1C9] hidden md:flex justify-center`}>
                     <div
                         className={`${styles.bg}  pt-10 px-8 md:w-[100%] lg:w-[70%] xl:w-[60%] xxl:w-50 rounded-[24px] relative xxl:max-h-[50%]`}
                     >
@@ -83,7 +83,7 @@ const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
                         </div>
                         {images.map((imageUrl, index) => {
                             return <div key={index}
-                                className={`bottom-0 absolute -right-[16%] xxl:-right-[12%] opacity-0 ${layoutstyles.img_contaner} ${currentImage === index ? layoutstyles.fadeIn : ''}`}
+                                className={`bottom-0 absolute  -right-[16%] xxl:-right-[12%] opacity-0 ${layoutstyles.img_container} ${currentImage === index ? layoutstyles.fadeIn : ''}`}
                             >
                                 <Image
                                     src={imageUrl}
