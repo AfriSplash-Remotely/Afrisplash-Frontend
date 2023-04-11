@@ -1,6 +1,3 @@
-.pattern {
-  background-image: url("../assets/home-page/pattern.svg");
-}
 .main {
   height: 100vh;
   position: relative;
@@ -8,19 +5,9 @@
   background: #f8f8f8;
 }
 
-
 // auth styles
 
-.imgContainer{
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 500px;
-  margin: 0 auto;
- 
-
-}
-.img{
+.img {
   position: absolute;
   top: 0;
   width: 100%;
@@ -28,54 +15,29 @@
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  -webkit-animation:fadeImg 12s ease-in infinite ;
-  animation: fadeImg 12s ease-in infinite ;
-
+  -webkit-animation: fadeImg 12s ease-in infinite;
+    animation: fadeImg 12s ease-in infinite;
 }
 
-.imgContainer .img:nth-child(1){
-  animation-delay: 0s;
-
-}
-.imgContainer .img:nth-child(2){
-  animation-delay: -4s;
-
+.image_slider {
+  height: 400px;
+  width: 600px;
+  position: relative;
 }
 
-.imgContainer .img:nth-child(3){
-  animation-delay: -8s;
-
+.slider_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
-#pic1 {
-  background-image: url('../assets/authentication/africanwomansmiling.png');
-}
-#pic2{
-  background-image: url('../assets/authentication/africanwoman.png');
-
-}
-
-#pic3 {
-  background-image: url('../assets/authentication/man.png');
-
-}
-
-@keyframes fadeImg {  
- 0%{
+.slider_image.active {
   opacity: 1;
- }
- 20%{
-  opacity: 0;
- }
- 40%{
-  opacity: 0;
- }
- 60%{
-  opacity: 0;
- }
- 80%{
-  opacity: 0;
- }
- 100%{
+}
+.img_contaner {
+  transition: opacity 3s ease-in-out;
+}
+.fadeIn {
   opacity: 1;
- }
 }

@@ -34,8 +34,9 @@
 }
 .span2{
   height: 100vh;
-  padding: 0 2rem;
 }
 .bg{
-  background: radial-gradient(103.02% 103.02% at 50% 0%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.67) 100%);
+background: radial-gradient(103.02% 103.02% at 50% 0%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.67) 100%);
+  box-shadow: 4px 4px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(24px);
 }
