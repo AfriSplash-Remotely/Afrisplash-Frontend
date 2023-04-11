@@ -1,0 +1,18 @@
+.post_cover {
+    height: 20rem;
+    width: 100%
+}
+
+@media screen and (min-width: 600px) {
+    .post_cover {
+        height: 25rem;
+        width: 100%
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .post_cover {
+        height: 35rem;
+        width: 100%
+    }
+}
