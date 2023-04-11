@@ -15,3 +15,10 @@ export interface blogI {
   updatedAt: string;
   _content: string;
 }
+export interface singleBlogI {
+  post: blogI;
+  author: null;
+  body: {
+    message: string;
+  };
+}
