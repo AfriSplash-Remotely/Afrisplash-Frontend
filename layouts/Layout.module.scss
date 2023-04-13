@@ -16,7 +16,7 @@
   background-position: center top;
   background-repeat: no-repeat;
   -webkit-animation: fadeImg 12s ease-in infinite;
-    animation: fadeImg 12s ease-in infinite;
+  animation: fadeImg 12s ease-in infinite;
 }
 
 .image_slider {
@@ -35,7 +35,7 @@
 .slider_image.active {
   opacity: 1;
 }
-.img_contaner {
+.img_container {
   transition: opacity 3s ease-in-out;
 }
 .fadeIn {
