@@ -22,7 +22,7 @@ function Talents(): JSX.Element {
                         </div>
                     </div>
                     <div className=" my-10 space-y-6">
-                        <div className="grid gap-6 lg:grid-cols-4">
+                        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                             {topTalentData.map((mentor) => (
                                 <MentorCard
                                     key={mentor.id}
@@ -48,7 +48,7 @@ function Talents(): JSX.Element {
                                 </div>
                             </div>
                         </div>
-                        <div className="grid gap-6 lg:grid-cols-4">
+                        <div className="grid gap-6 sm:grid-cols-2  lg:grid-cols-4">
                             {mentorsData.map((mentor) => (
                                 <MentorCard
                                     key={mentor.id}
