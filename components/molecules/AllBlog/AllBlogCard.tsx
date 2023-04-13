@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
+import Link from "next/link";
 
 const AllBlogCardProp = {
+  url: PropTypes.string.isRequired,
   cover_image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   categories: PropTypes.string.isRequired,
@@ -14,17 +16,18 @@ const AllBlogCardProp = {
 };
 
 
-const AllBlogCard = ({ title, summary, views, categories, read_time, createdAt, _author, cover_image }: InferProps<typeof AllBlogCardProp>): JSX.Element => {
+const AllBlogCard = ({ url, title, summary, views, categories, read_time, createdAt, _author, cover_image }: InferProps<typeof AllBlogCardProp>): JSX.Element => {
   return (
     <article className="relative flex flex-col">
       <div className="relative h-60">
-        <Image
-          src={cover_image}
-          fill
-          alt={`${title} featured image`}
-          priority
-          className="rounded-t-2xl"
-        />
+        <Link href={`/blog/${url}`}>
+          <Image
+            src={cover_image}
+            fill
+            alt={`${title} featured image`}
+            priority
+            className="rounded-t-2xl"
+          /></Link>
       </div>
       <p className="absolute top-1 right-1 rounded-sm bg-[#ffc42d73] p-3 text-xs">
         {categories}
