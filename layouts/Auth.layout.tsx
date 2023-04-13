@@ -40,18 +40,20 @@ const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
         <div className="w-full md:w-6/12">
           <div className="w-9/12 mx-auto">
             <nav className={styles.nav}>
-              <Image
-                src="/admin_logo.svg"
-                alt="afrisplash"
-                width={150}
-                height={150}
-              />
+              <Link href="/">
+                <Image
+                  src="/admin_logo.svg"
+                  alt="afrisplash"
+                  width={150}
+                  height={150}
+                />
+              </Link>
             </nav>
             {children}
           </div>
         </div>
         <div
-          className={`${styles.span2} relative w-6/12 py-24 bg-[#FDF1C9] hidden md:flex justify-center`}
+          className={`${styles.span2} relative w-6/12 py-16 bg-[#FDF1C9] hidden md:flex justify-center`}
         >
           <div
             className={`${styles.bg}  pt-10 px-8 md:w-[100%] lg:w-[70%] xl:w-[60%] xxl:w-50 rounded-[24px] relative xxl:max-h-[50%]`}
@@ -80,13 +82,11 @@ const AuthLayout: NextPage<InferProps<typeof AuthLayoutProp>> = ({
               return (
                 <div
                   key={index}
-                  className={`bottom-0 absolute -right-[16%] xxl:-right-[12%] opacity-0 ${
-                    layoutstyles.img_contaner
+                  className={`bottom-0 absolute  -right-[16%] xxl:-right-[12%] opacity-0 ${
+                    layoutstyles.img_container
                   } ${currentImage === index ? layoutstyles.fadeIn : ""}`}
                 >
-                  <Link href={"/"}>
-                    <Image src={imageUrl} alt="Slider Image" />
-                  </Link>
+                  <Image src={imageUrl} alt="Slider Image" />
                 </div>
               );
             })}
