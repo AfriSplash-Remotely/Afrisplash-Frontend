@@ -5,11 +5,11 @@ import card_2 from "assets/home-page/card_2.png";
 import card_3 from "assets/home-page/card_3.png";
 import styles from "./Header.module.scss";
 import Button from "../../atoms/Button/Button";
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 const Header = (): JSX.Element => {
-  const route = useRouter()
+  const route = useRouter();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,7 +32,7 @@ const Header = (): JSX.Element => {
             <motion.div
               className="space-y-12"
               initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1}}
+              whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
               <p className="w-10/12 leading-7">
@@ -53,7 +53,10 @@ const Header = (): JSX.Element => {
                   text="join the community"
                   classes="w-max px-5 h-12  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
                 />
-                <button onClick={()=> route.push("/post-jobs/jobs")} className="flex space-x-2 items-center text-dark_blue hover:text-primary_green hover:font-semibold">
+                <button
+                  onClick={() => route.push("/post-jobs/jobs")}
+                  className="flex space-x-2 items-center text-dark_blue hover:text-primary_green hover:font-semibold"
+                >
                   <span>Post a job</span>
                   <span>
                     <ArrowRightIcon className="w-5 h-4 " />
@@ -75,7 +78,7 @@ const Header = (): JSX.Element => {
                 transition={{ duration: 0.8 }}
                 className={`${styles.imageWrapper_image} ${styles.imageWrapper_image_1}`}
               >
-                <Image src={card_1} alt="card_1"/>
+                <Image src={card_1} alt="card_1" />
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.1 }}
