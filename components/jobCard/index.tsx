@@ -75,7 +75,7 @@ const JobCard = ({
           )}
         </div>
 
-        <div className="flex items-center gap-6 my-5">
+        <div className="flex flex-wrap items-center gap-6 my-5">
           <div>
             {hiring === true ? (
               <div className="flex items-center gap-2 bg-light_green p-2 rounded-full">
@@ -104,31 +104,33 @@ const JobCard = ({
         </div>
 
         <div
-          className={`flex sm:flex-col md:flex-row sm:gap-3 md:items-center md:justify-between mt-3 py-3 px-5 rounded-2xl ${
+          className={`flex  flex-wrap sm:flex-col md:flex-row sm:gap-3 items-center md:justify-between mt-3 py-3 px-5 rounded-2xl ${
             forDashboard ? "bg-zinc-200/40" : "bg-light_green"
           }`}
         >
-          <div className="flex sm:justify-between md:gap-40">
-            <p className="font-[600] text-base">{offer}</p>
-            <p className="font-[600] text-base">{priceRange}</p>
+          <div className="flex  flex-wrap sm:justify-between md:gap-40">
+            <p className="font-[600] text-base w-full md:w-auto">{offer}</p>
+            <p className="font-[400] text-base">{priceRange}</p>
           </div>
-          <div className="flex gap-4 items-center sm:justify-between">
-            <p className="font-[600] text-xs">{postDate}</p>
-            <div className="flex gap-3">
+          <div className="flex flex-wrap gap-4 items-center sm:justify-between w-full md:w-auto my-4 md:my-0">
+            <p className="font-[400] text-xs hidden md:block">{postDate}</p>
+            <div className="flex gap-3 w-full  items-center md:w-auto">
               <Button
                 text={"Save"}
                 classes={
-                  "border border-solid text-sm border-[#0D5520] px-4 py-1.5 rounded-lg"
+                  "border border-solid text-sm border-[#0D5520] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
                 }
               />
               <Button
                 text={"Apply"}
                 classes={
-                  "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg"
+                  "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
                 }
               />
             </div>
           </div>
+          <div className="font-[400] text-xs block md:hidden ">{postDate}</div>
+
         </div>
       </div>
     </div>
