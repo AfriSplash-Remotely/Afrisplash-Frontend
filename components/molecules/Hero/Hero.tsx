@@ -3,13 +3,21 @@ import Image from "next/image";
 import card_1 from "assets/home-page/card_1.png";
 import card_2 from "assets/home-page/card_2.png";
 import card_3 from "assets/home-page/card_3.png";
-import styles from "./Header.module.scss";
+import styles from "./Hero.module.scss";
 import Button from "../../atoms/Button/Button";
+<<<<<<< HEAD:components/molecules/Header/Header.tsx
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 const Header = (): JSX.Element => {
   const route = useRouter();
+=======
+import { motion } from 'framer-motion';
+import { useRouter } from "next/router";
+
+const Hero = (): JSX.Element => {
+  const route = useRouter()
+>>>>>>> 4000482a147f548e0f98242a93fd1acd9c888fd7:components/molecules/Hero/Hero.tsx
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,7 +26,7 @@ const Header = (): JSX.Element => {
       className={`${styles.wrapper} w-full`}
     >
       <div className="w-10/12 mx-auto flex justify-between">
-        <section className="w-6/12 mt-20">
+        <section className="w-full md:w-6/12 mt-20">
           <motion.div className="space-y-4">
             <motion.h1
               initial={{ y: -100 }}
@@ -53,10 +61,14 @@ const Header = (): JSX.Element => {
                   text="join the community"
                   classes="w-max px-5 h-12  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
                 />
+<<<<<<< HEAD:components/molecules/Header/Header.tsx
                 <button
                   onClick={() => route.push("/post-jobs/jobs")}
                   className="flex space-x-2 items-center text-dark_blue hover:text-primary_green hover:font-semibold"
                 >
+=======
+                <button onClick={() => route.push("/post-jobs/jobs")} className="flex space-x-2 items-center text-dark_blue hover:text-primary_green hover:font-semibold">
+>>>>>>> 4000482a147f548e0f98242a93fd1acd9c888fd7:components/molecules/Hero/Hero.tsx
                   <span>Post a job</span>
                   <span>
                     <ArrowRightIcon className="w-5 h-4 " />
@@ -66,7 +78,7 @@ const Header = (): JSX.Element => {
             </motion.div>
           </motion.div>
         </section>
-        <section className="w-5/12">
+        <section className="w-5/12 hidden md:block">
           <div>
             <div className={`${styles.imageWrapper} relative`}>
               <motion.div
@@ -118,4 +130,4 @@ const Header = (): JSX.Element => {
   );
 };
 
-export default Header;
+export default Hero;

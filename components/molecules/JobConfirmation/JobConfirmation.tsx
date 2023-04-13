@@ -9,7 +9,7 @@ const Confirmation = ():JSX.Element => {
     <div className={styles.confirmationContainer}>
       <div className="w-6/12 mx-auto">
         <Image src={ConfirmationBackgroundImage} alt="" width={825} />
-        <div className="text-center my-5 font-[400]">
+        <div className="text-center my-5  font-normal ">
           <p className={`text-sm lg:text-base`}>
             Thank you for submitting, your job has been posted. if you need help
             please contact us via

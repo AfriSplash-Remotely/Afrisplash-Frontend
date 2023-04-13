@@ -1,9 +1,8 @@
 import React from "react";
 import Navigation from "./NavBar/NavBar";
-// import Image from "next/image";
+// import "../CheckBox/CheckBox.module.scss";
 import { FaCcMastercard, FaCcVisa, FaCcPaypal } from "react-icons/fa";
-
-// import {CheckBox} from "/components/atoms/CheckBox/CheckBox";
+import CheckBox from "components/atoms/CheckBox/CheckBox";
 const Payment = (): JSX.Element => {
   return (
     <>
@@ -18,17 +17,15 @@ const Payment = (): JSX.Element => {
             <h3 className="py-4">Payment Method</h3>
             <hr className="w-12/12 text-gray-800" />
             <div className="flex justify-left gap-10 flex-row content-center py-3">
-              <div>
-                {/* <CheckBox /> */}
-                <FaCcMastercard size={40} />
-              </div>
-              <div>
-                {/* <CheckBox /> */}
+              <div className="flex gap-2 items-center">
+                <CheckBox classes="CheckBox:checked" />
+                <FaCcMastercard size={40} className="text-orange-700" />
                 <FaCcVisa size={40} />
               </div>
-              <div>
-                {/* <CheckBox /> */}
-                <FaCcPaypal size={40} />
+
+              <div className="flex gap-2 items-center">
+                <CheckBox classes="CheckBox:checked" />
+                <FaCcPaypal size={40} className="text-blue-700" />
               </div>
             </div>
             <form>
