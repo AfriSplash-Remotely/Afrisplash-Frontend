@@ -33,7 +33,6 @@ export const jobCat = {
   name: "engineering",
   openPositions: 20,
 };
-
 interface Splash {
   tag: string;
   imgUrl: string | StaticImageData;
@@ -56,7 +55,6 @@ interface Trending {
   likes: number;
   commentsCount: number;
 }
-
 interface Mentor extends Profile {
   role: string;
   country: string | StaticImageData;
@@ -190,7 +188,6 @@ export const applicantsList = [
 ];
 
 
-
 export const employerData = [
   {
     id: 1,
@@ -295,7 +292,7 @@ export const mentorsData = [
     src: "https://images.unsplash.com/photo-1633068587533-ca4159e78e79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=402&q=80",
   },
   {
-    id: "eeedf",
+    id: "eedf",
     name: "Mubarak Show",
     position: "Senior Developer",
     role: "Job search, Career, Leadership,...",
@@ -303,7 +300,7 @@ export const mentorsData = [
     src: "https://images.unsplash.com/photo-1507038732509-8b1a9623223a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
   },
   {
-    id: "ewwed",
+    id: "eewwed",
     name: "Mubarak Show",
     position: "Senior Developer",
     role: "Job search, Career, Leadership,...",

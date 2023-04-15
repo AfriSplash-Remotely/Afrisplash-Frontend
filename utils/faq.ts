@@ -21,7 +21,7 @@ const faq: faqI = {
              excepturi, pariatur eveniet reprehenderit soluta.`,
     },
     {
-      title: "How do I get started?",
+      title: "What do I need to know?",
       body: ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vel accusantium magni explicabo
             neque, natus veritatis dicta deleniti laborum quia voluptas iusto ducimus adipisci, dolorem
              excepturi, pariatur eveniet reprehenderit soluta.`,
