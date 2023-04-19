@@ -13,7 +13,7 @@ export default function SearchTwo({
     childClasses,
 }: InferProps<typeof SearchTwoProps>): JSX.Element {
     return (
-        <div className={`w-full mx-24 ${classes}`}>
+        <div className={`w-full  ${classes}`}>
             <div
                 className={`w-full flex justify-around items-center  border bg-white h-12  px-2  rounded-lg ${childClasses}`}>
                 <input
