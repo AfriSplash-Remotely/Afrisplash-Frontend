@@ -3,6 +3,7 @@ import DropDown from 'components/atoms/DropDown/DropDown'
 import RadioBtn from 'components/atoms/RadioButton/RadioBtn'
 import Image from 'next/image'
 import  filters  from 'assets/filters.png';
+import RangeSlider from '../atoms/RangeSlider/RangeSlider';
 
 export default function CandidateSideBar(): JSX.Element {
     return (
@@ -33,7 +34,9 @@ export default function CandidateSideBar(): JSX.Element {
                 <hr className='mt-12 mx-4 mb-12' />
                 <div>
                     <h3 className='font-medium mb-4'>Salary</h3>
-                
+                    <div>
+                        <RangeSlider />
+                    </div>                
 
                 </div>
                 <hr className='mt-12 mx-4 mb-12' />
