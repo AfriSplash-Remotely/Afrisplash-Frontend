@@ -35,12 +35,12 @@ const Candidates: NextPage = () => {
                     </div>
 
                 </div>
-                <div className="mt-8 w-11/12 mx-auto py-8">
+                <div className="mt-8 mx-auto py-8">
                     <div className="grid grid-cols-3 gap-6">
                         <div className="mt-4">
                             <CandidateSideBar />
                         </div>
-                        <div className="col-span-2">
+                        <div className="col-span-2  w-11/12">
                             <div className="flex justify-between">
                                 <button className="flex gap-2 bg-[#0D5520] items-center justify-center  p-4 rounded-md hover:opacity-80">
                                     <span className="text-white font-medium">Get talent profiles</span>
