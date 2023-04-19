@@ -1,10 +1,13 @@
 import React from 'react'
-import Button from 'components/atoms/Button/Button'
 import DropDown from 'components/atoms/DropDown/DropDown'
 import RadioBtn from 'components/atoms/RadioButton/RadioBtn'
+import Image from 'next/image'
+import filters from 'assets/filters.png';
+
 export default function EmployerSideBar():JSX.Element {
     return (
-        <div className='bg-pirmary_grey rounded-lg p-4 mx-12'>
+        <div className='bg-[#F8F8F8] rounded-lg p-4 '>
+            <div className='mx-12'>
             <div className='py-4'>
                 <h3 className='font-medium'>Sort by</h3>
 
@@ -69,15 +72,13 @@ export default function EmployerSideBar():JSX.Element {
                 <h3 className='font-medium mb-4'>Skills</h3>
                 <DropDown />
                 <div className='mt-6 flex justify-center'>
-                    <Button
-                        type='filled'
-                        // bgColor='primary_green'
-                        color='white'
-                        text='Apply filters'
-                        classes="w-64 h-12  md:w-64 xl:w-full rounded-md text-sm capitalize  text-white bg-primary_green hover:opacity-80"
+                    <button className=" w-64 h-12  md:w-64 xl:w-full flex gap-2 bg-[#0D5520] items-center justify-center  p-4 rounded-md hover:opacity-80">
+                        <Image src={filters} alt="sms" />
+                        <span className="text-white font-medium">Apply filters</span>
+                    </button>
 
-                    />
                 </div>
+            </div>
             </div>
         </div>
     )
