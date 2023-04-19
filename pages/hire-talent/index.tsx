@@ -46,25 +46,25 @@ const HireTalent: NextPage = () => {
               </span>
               ,
               <span className={styles.green}>
-                At<span className={styles.red}>trac</span>t
-              </span>
-              and <span className={styles.green}>H</span>
-              <span className={styles.red}>ire</span>
-              <span className={styles.downH3}>AFRICAN TECH TALENTS 🌍</span>
+                At<span className={styles.red}>trac</span>t  
+              </span>{" "} and <span className={styles.green}> H</span>
+              <span className={styles.red}>ire </span>
+              <span className={styles.downH3}>AFRICAN TECH TALENTS </span><br />
+              <span >🌍</span>
             </h1>
             <p>
               Get matched with remote-ready African talents from Africa&apos;s #1
               remote work community🌍.
             </p>
           </article>
-          <section className={styles.gallerySection}>
-            <div className={` flex ${styles.galleryRow1}`}>
+          <section className="flex flex-col items-center justify-center w-full">
+            <div className="flex  flex-wrap items-center justify-center ">
               <Image src={Img1} alt="" />
               <Image src={Img2} alt="" />
               <Image src={Img3} alt="" />
               <Image src={Img4} alt="" />
             </div>
-            <div className={styles.galleryRow1}>
+            <div className="flex flex-wrap items-center justify-center">
               <Image src={Img5} alt="" />
               <Image src={Img6} alt="" />
               <Image src={Img7} alt="" />
