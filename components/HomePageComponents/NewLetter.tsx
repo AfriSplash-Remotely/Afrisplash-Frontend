@@ -29,7 +29,7 @@ function Newsletter(): JSX.Element {
                 </div>
 
                 <button className="block outline-none rounded-lg text-white bg-black py-3 px-8 mt-6" type="submit">
-                  Get Notified
+                  Sign me up
                 </button>
               </div>
             </div>
