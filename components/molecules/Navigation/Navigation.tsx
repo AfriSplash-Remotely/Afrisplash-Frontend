@@ -89,8 +89,10 @@ const Navigation = (): JSX.Element => {
       <div className={`relative h-20 ${styles.wrapper}`}>
         <header className="w-11/12 relative z-50 md:w-11/12 xl:w-10/12 mx-auto h-full flex justify-between  items-center">
           <Link href="/" legacyBehavior>
-            <div className={`w-1/12 h-full flex items-center cursor-pointer ${styles.logo}`}>
-              <Image src="/main_logo.svg" alt="logo" className={styles.logo_img} width={200} height={200} />
+            <div
+              className={`relative w-36 h-12 sm:w-28 md:w-32 md:h-14 flex items-center cursor-pointer ${styles.logo}`}
+            >
+              <Image src="/admin_logo.svg" alt="logo" fill />
             </div>
           </Link>
           <nav className="hidden lg:flex items-center h-full ">
