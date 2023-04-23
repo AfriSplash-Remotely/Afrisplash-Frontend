@@ -33,6 +33,13 @@ export default function EmployerSideBar():JSX.Element {
             <hr className='mt-12 mx-4 mb-12' />
             <div>
                 <h3 className='font-medium mb-4'>Salary</h3>
+                    <div>
+                        <div className='flex font-medium justify-end'>$20,000 - $60,000</div>
+                        <div className='mt-4 '>
+                            <input type='range' className='w-full bg-primary_green' />
+
+                        </div>
+                    </div>  
 
             </div>
             <hr className='mt-12 mx-4 mb-12' />

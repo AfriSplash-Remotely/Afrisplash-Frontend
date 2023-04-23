@@ -3,7 +3,6 @@ import DropDown from 'components/atoms/DropDown/DropDown'
 import RadioBtn from 'components/atoms/RadioButton/RadioBtn'
 import Image from 'next/image'
 import  filters  from 'assets/filters.png';
-import RangeSlider from '../atoms/RangeSlider/RangeSlider';
 
 export default function CandidateSideBar(): JSX.Element {
     return (
@@ -35,7 +34,11 @@ export default function CandidateSideBar(): JSX.Element {
                 <div>
                     <h3 className='font-medium mb-4'>Salary</h3>
                     <div>
-                        <RangeSlider />
+                        <div className='flex font-medium justify-end'>$20,000 - $60,000</div>
+                        <div className='mt-4 '>
+                            <input type='range' className='w-full' />
+
+                        </div>
                     </div>                
 
                 </div>
