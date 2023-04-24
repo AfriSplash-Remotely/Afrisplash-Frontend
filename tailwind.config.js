@@ -11,7 +11,7 @@ module.exports = {
       md: "740px",
       lg: "980px",
       xl: "1440px",
-      xxl: "2400px"
+      xxl: "2400px",
     },
     extend: {
       colors: {
@@ -29,8 +29,6 @@ module.exports = {
         light_grey: "#B6BBB2",
         sunglow: "#0D5520",
         lighter_green: "rgba(214, 236, 220, 0.4)",
-    
-
       },
     },
   },
