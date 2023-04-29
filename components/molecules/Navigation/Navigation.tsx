@@ -96,7 +96,7 @@ const Navigation = (): JSX.Element => {
           </Link>
           <nav className="hidden lg:flex items-center h-full ">
             <ul className="flex lg:space-x-3 xl:space-x-5">
-              {header.map((item: any, index: number) => (
+              {header.map((item: headerType, index: number) => (
                 <Link href={item.link} key={generateUniqueId()}>
                   <li
                     onClick={() => handleMenuClick(item, index)}

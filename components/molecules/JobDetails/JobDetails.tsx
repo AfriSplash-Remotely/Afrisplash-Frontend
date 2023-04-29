@@ -36,7 +36,7 @@ const JobDetails = ({ renderNextForm, }: JobDetailsProps): JSX.Element => {
     setCurrentFormKey(currentFormKey - 1);
   };
 
-  const isThisForm = (formStepIndex: any) => {
+  const isThisForm = (formStepIndex: number) => {
     return currentFormKey === formSteps[formStepIndex].index;
   };
 
