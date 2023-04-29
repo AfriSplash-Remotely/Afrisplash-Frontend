@@ -39,9 +39,8 @@ const Navigation = (): JSX.Element => {
     {
       title: "candidates",
       icon: "",
-      link: "/onboarding",
+      link: "/candidates",
       active: false,
-      dropDown: [{ title: "item", href: "#" }],
     },
     {
       title: "employer",
