@@ -45,23 +45,7 @@
             }
        }
     
-       .gallerySection {
-            margin-top: 111px;
-            max-width: 100%;
-            padding: 0;
     
-            .galleryRow1 {
-               display: flex;
-    
-                img {
-                    min-width: 310px;
-                    min-height: 320px;
-                    margin: 0;
-                    padding: -10px;
-                }
-            }
-            
-       }
     
        .book {
           display: flex;
@@ -398,6 +382,7 @@
             }
         }
 
+       
         .section2 {
 
             padding-right: 20px;
@@ -446,7 +431,7 @@
 
                 .emailBtn {
                     margin-top: 30px;
-                    padding: 16px;
+                    padding: 10px;
                     max-width: 137px;
                 }
             }
@@ -510,6 +495,9 @@
             }
 
             .industryImgContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
                 width: 100%;
             }
         }
@@ -527,6 +515,9 @@
             }
             
         }
+
+
+        
 
     }
 

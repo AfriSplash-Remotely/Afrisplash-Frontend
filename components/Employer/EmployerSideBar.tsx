@@ -1,10 +1,27 @@
 import React from 'react'
-import Button from 'components/atoms/Button/Button'
 import DropDown from 'components/atoms/DropDown/DropDown'
 import RadioBtn from 'components/atoms/RadioButton/RadioBtn'
+import Image from 'next/image'
+import filters from 'assets/filters.png';
+
+const experienceRadio = [
+    { label: "0-1 year" },
+    { label: "2-3 years" },
+    { label: "4-5 years" },
+    { label: "5-6 years" },
+    { label: "7-8 years" },
+]
+const jobRadio = [
+    { label: "Full-time" },
+    { label: "Part-time" },
+    { label: "Contract-based" },
+    { label: "Freelance" },
+    { label: "Internship" },
+]
 export default function EmployerSideBar():JSX.Element {
     return (
-        <div className='bg-pirmary_grey rounded-lg p-4 mx-12'>
+        <div className='bg-[#F8F8F8] rounded-lg p-4 '>
+            <div className='mx-12'>
             <div className='py-4'>
                 <h3 className='font-medium'>Sort by</h3>
 
@@ -20,16 +37,21 @@ export default function EmployerSideBar():JSX.Element {
             <div>
                 <h3 className='font-medium mb-4'>Job Type</h3>
                 <div>
-                    <RadioBtn label={'Full-time'} value={'Full-time'} />
-                    <RadioBtn label={'Part-time'} value={'Part-time'} />
-                    <RadioBtn label={'Contract-based'} value={'Contract-based'} />
-                    <RadioBtn label={'Freelance'} value={'Freelance'} />
-                    <RadioBtn label={'Internship'} value={'Internship'} />
+                        {jobRadio.map((job) => (
+                            <RadioBtn key={job.label} label={job.label} value={job.label} />
+                        ))}
                 </div>
             </div>
             <hr className='mt-12 mx-4 mb-12' />
             <div>
                 <h3 className='font-medium mb-4'>Salary</h3>
+                    <div>
+                        <div className='flex font-medium justify-end'>$20,000 - $60,000</div>
+                        <div className='mt-4 '>
+                            <input type='range' className='w-full bg-primary_green' />
+
+                        </div>
+                    </div>  
 
             </div>
             <hr className='mt-12 mx-4 mb-12' />
@@ -57,11 +79,9 @@ export default function EmployerSideBar():JSX.Element {
             <div>
                 <h3 className='font-medium mb-4'>Experience</h3>
                 <div>
-                    <RadioBtn label={'0-1 year'} value={'0-1 year'} />
-                    <RadioBtn label={'2-3 years'} value={'2-3 years'} />
-                    <RadioBtn label={'4-5 years'} value={'4-5 years'} />
-                    <RadioBtn label={'5-6 years'} value={'5-6 years'} />
-                    <RadioBtn label={'7-8 years'} value={'7-8 years'} />
+                        {experienceRadio.map((exp) => (
+                            <RadioBtn key={exp.label} label={exp.label} value={exp.label} />
+                        ))}
                 </div>
             </div>
             <hr className='mt-12 mx-4 mb-12' />
@@ -69,15 +89,13 @@ export default function EmployerSideBar():JSX.Element {
                 <h3 className='font-medium mb-4'>Skills</h3>
                 <DropDown />
                 <div className='mt-6 flex justify-center'>
-                    <Button
-                        type='filled'
-                        // bgColor='primary_green'
-                        color='white'
-                        text='Apply filters'
-                        classes="w-64 h-12  md:w-64 xl:w-full rounded-md text-sm capitalize  text-white bg-primary_green hover:opacity-80"
+                    <button className=" w-64 h-12  md:w-64 xl:w-full flex gap-2 bg-[#0D5520] items-center justify-center  p-4 rounded-md hover:opacity-80">
+                        <Image src={filters} alt="sms" />
+                        <span className="text-white font-medium">Apply filters</span>
+                    </button>
 
-                    />
                 </div>
+            </div>
             </div>
         </div>
     )

@@ -35,12 +35,12 @@ const Employer: NextPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="mt-12  w-11/12 mx-auto py-8">
-                    <div className="grid  grid-cols-3 gap-4">
+                <div className="mt-12  mx-auto py-8">
+                    <div className="grid  grid-cols-3 gap-6">
                         <div className="mt-4" >
                             <EmployerSideBar />
                         </div>
-                        <div className="col-span-2" >
+                        <div className="col-span-2  w-11/12">
                             <div className="flex items-center justify-between">
                                 <div className="mt-2 font-medium">Discover companies hiring remotely </div>
 

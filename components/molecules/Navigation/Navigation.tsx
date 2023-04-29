@@ -39,9 +39,8 @@ const Navigation = (): JSX.Element => {
     {
       title: "candidates",
       icon: "",
-      link: "/onboarding",
+      link: "/candidates",
       active: false,
-      dropDown: [{ title: "item", href: "#" }],
     },
     {
       title: "employer",
@@ -59,6 +58,12 @@ const Navigation = (): JSX.Element => {
       title: "remote jobs",
       icon: "",
       link: "/remote-jobs",
+      active: false,
+    },
+    {
+      title: "Pricing",
+      icon: "",
+      link: "/pricing",
       active: false,
     },
   ];
@@ -84,15 +89,9 @@ const Navigation = (): JSX.Element => {
         <header className="w-11/12 relative z-50 md:w-11/12 xl:w-10/12 mx-auto h-full flex justify-between  items-center">
           <Link href="/" legacyBehavior>
             <div
-              className={`w-1/12 h-full flex items-center cursor-pointer ${styles.logo}`}
+              className={`relative w-36 h-12 sm:w-28 md:w-32 md:h-14 flex items-center cursor-pointer ${styles.logo}`}
             >
-              <Image
-                src="/main_logo.svg"
-                alt="logo"
-                className={styles.logo_img}
-                width={200}
-                height={200}
-              />
+              <Image src="/admin_logo.svg" alt="logo" fill />
             </div>
           </Link>
           <nav className="hidden lg:flex items-center h-full ">
@@ -102,8 +101,7 @@ const Navigation = (): JSX.Element => {
                   <li
                     onClick={() => handleMenuClick(item, index)}
                     className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${
-                      item.active &&
-                      "text-primary_green underline underline-offset-4"
+                      item.active && "text-primary_green underline underline-offset-4"
                     }`}
                   >
                     <span>{item.title}</span>

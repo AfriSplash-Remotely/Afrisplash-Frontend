@@ -5,19 +5,13 @@ import card_2 from "assets/home-page/card_2.png";
 import card_3 from "assets/home-page/card_3.png";
 import styles from "./Hero.module.scss";
 import Button from "../../atoms/Button/Button";
-<<<<<<< HEAD:components/molecules/Header/Header.tsx
+
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-const Header = (): JSX.Element => {
-  const route = useRouter();
-=======
-import { motion } from 'framer-motion';
-import { useRouter } from "next/router";
-
 const Hero = (): JSX.Element => {
-  const route = useRouter()
->>>>>>> 4000482a147f548e0f98242a93fd1acd9c888fd7:components/molecules/Hero/Hero.tsx
+  const route = useRouter();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -34,8 +28,7 @@ const Hero = (): JSX.Element => {
               transition={{ duration: 0.8 }}
               className="capitalize text-6xl font-bold text-dark_blue"
             >
-              The <span className="text-primary_green">gateway</span> to
-              africa&apos;s remote workforce
+              The <span className="text-primary_green">gateway</span> to africa&apos;s remote workforce
             </motion.h1>
             <motion.div
               className="space-y-12"
@@ -44,9 +37,8 @@ const Hero = (): JSX.Element => {
               transition={{ duration: 0.8 }}
             >
               <p className="w-10/12 leading-7">
-                We put the <strong>A</strong> back in <strong>EMEA</strong>.
-                Find the best remote jobs at truly inclusive and remote-friendly
-                companies
+                We put the <strong>A</strong> back in <strong>EMEA</strong>. Find remote jobs at truly inclusive
+                companies and work from anywhere in Africa
               </p>
               <motion.div
                 className="flex space-x-5"
@@ -61,14 +53,10 @@ const Hero = (): JSX.Element => {
                   text="join the community"
                   classes="w-max px-5 h-12  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
                 />
-<<<<<<< HEAD:components/molecules/Header/Header.tsx
                 <button
                   onClick={() => route.push("/post-jobs/jobs")}
                   className="flex space-x-2 items-center text-dark_blue hover:text-primary_green hover:font-semibold"
                 >
-=======
-                <button onClick={() => route.push("/post-jobs/jobs")} className="flex space-x-2 items-center text-dark_blue hover:text-primary_green hover:font-semibold">
->>>>>>> 4000482a147f548e0f98242a93fd1acd9c888fd7:components/molecules/Hero/Hero.tsx
                   <span>Post a job</span>
                   <span>
                     <ArrowRightIcon className="w-5 h-4 " />
@@ -101,11 +89,7 @@ const Hero = (): JSX.Element => {
                 transition={{ duration: 0.5 }}
                 className={`${styles.imageWrapper_image} ${styles.imageWrapper_image_2}`}
               >
-                <Image
-                  className="absolute top-48 left-0"
-                  src={card_2}
-                  alt="card_2"
-                />
+                <Image className="absolute top-48 left-0" src={card_2} alt="card_2" />
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.1 }}
@@ -116,11 +100,7 @@ const Hero = (): JSX.Element => {
                 transition={{ duration: 1 }}
                 className={`${styles.imageWrapper_image} ${styles.imageWrapper_image_3}`}
               >
-                <Image
-                  className="absolute bottom-0 left-48"
-                  src={card_3}
-                  alt="card_3"
-                />
+                <Image className="absolute bottom-0 left-48" src={card_3} alt="card_3" />
               </motion.div>
             </div>
           </div>
