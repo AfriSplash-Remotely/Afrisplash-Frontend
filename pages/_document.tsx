@@ -7,10 +7,9 @@ export default function Document(): JSX.Element {
       <Head>
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <meta
-          name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"
-        />
+      
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0d5520" />
 
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png" />
