@@ -7,7 +7,8 @@ import GeneralLayout from "layouts/generalLayout";
 import styles from "styles/Hire-talent.module.scss";
 import AppleLogo from "assets/hire-talent-assets/apple-logo.svg";
 import ArrowLeft from "assets/hire-talent-assets/arrow-left.svg";
-import CheckBox from "assets/hire-talent-assets/box-bold-check.svg";
+import BlockQuote from "assets/hire-talent-assets/blockquote-xl.svg"
+import CheckBox from "assets/hire-talent-assets/round-bold-check.svg";
 import CallIcon from "assets/hire-talent-assets/call_calling.svg";
 import FillForm from "assets/hire-talent-assets/fill-the-form.svg";
 import GetSchedule from "assets/hire-talent-assets/get-matched.svg";
@@ -38,7 +39,7 @@ const HireTalent: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GeneralLayout>
-        <section className={styles.section1}>
+        {/* <section className={styles.section1}>
           <article className={styles.article1}>
             <h1>
               <span className={styles.green}>
@@ -46,15 +47,17 @@ const HireTalent: NextPage = () => {
               </span>
               ,
               <span className={styles.green}>
-                At<span className={styles.red}>trac</span>t  
-              </span>{" "} and <span className={styles.green}> H</span>
+                At<span className={styles.red}>trac</span>t
+              </span>{" "}
+              and <span className={styles.green}> H</span>
               <span className={styles.red}>ire </span>
-              <span className={styles.downH3}>AFRICAN TECH TALENTS </span><br />
-              <span >🌍</span>
+              <span className={styles.downH3}>AFRICAN TECH TALENTS </span>
+              <br />
+              <span>🌍</span>
             </h1>
             <p>
-              Get matched with remote-ready African talents from Africa&apos;s #1
-              remote work community🌍.
+              Get matched with remote-ready African talents from Africa&apos;s
+              #1 remote work community🌍.
             </p>
           </article>
           <section className="flex flex-col items-center justify-center w-full">
@@ -97,8 +100,8 @@ const HireTalent: NextPage = () => {
               </button>
             </div>
           </article>
-        </section>
-        <section className={styles.section2}>
+        </section> */}
+        {/* <section className={styles.section2}>
           <h3>
             Hire directly from a pool of remote-ready tech talents from various
             parts of Africa.
@@ -111,8 +114,8 @@ const HireTalent: NextPage = () => {
               Request Talent Match
             </button>
           </div>
-        </section>
-        <section className={styles.infoSection}>
+        </section> */}
+        {/* <section className={styles.infoSection}>
           <h3>Get matched with the best talents</h3>
           <div className={styles.cardContainer}>
             <InfoCard
@@ -146,7 +149,7 @@ const HireTalent: NextPage = () => {
               Talk to us <Image src={ArrowLeft} alt="" />
             </button>
           </form>
-        </section>
+        </section> */}
         <section className={styles.reviewSection}>
           <h3>
             What remote-first companies say about the AfriSplash Remotely
@@ -161,11 +164,16 @@ const HireTalent: NextPage = () => {
               </p>
               <div className={styles.profile}>
                 <Image src={ReviewProfile} alt="" />
-                <p>Luis Alfonso Barroso</p>
-                <p>Founder @ Rootlo</p>
+                <div className={styles.profileDetails}>
+                  <p>Luis Alfonso Barroso</p>
+                  <p>Founder @ Rootlo</p>
+                </div>
               </div>
             </article>
             <article className={styles.centerArticle}>
+              <div className={styles.blockQuote}>
+                <Image src={BlockQuote} alt="" />
+              </div>
               <p>
                 “Afrisplash Remotely is a great community, the team is super
                 fantastic and helped me to find the best talent matching our
@@ -174,8 +182,10 @@ const HireTalent: NextPage = () => {
               </p>
               <div className={styles.profile}>
                 <Image src={ReviewProfile2} alt="" />
-                <p>Ujjwal Singh</p>
-                <p>Founder @ Haulify</p>
+                <div className={styles.profileDetails}>
+                  <p>Ujjwal Singh</p>
+                  <p>Founder @ Haulify</p>
+                </div>
               </div>
             </article>
             <article className={styles.lastArticle}>
@@ -187,16 +197,18 @@ const HireTalent: NextPage = () => {
               </p>
               <div className={styles.profile}>
                 <Image src={ReviewProfile3} alt="" />
-                <p>Ujjwal Singh</p>
-                <p>Founder @ Haulify</p>
+                <div className={styles.profileDetails}>
+                  <p>Ujjwal Singh</p>
+                  <p>Founder @ Haulify</p>
+                </div>
               </div>
             </article>
           </div>
         </section>
         <section className={styles.industrySection}>
           <h3>
-            Work with remote-ready talents who learn how to do remote work right
-            from industry leaders
+            Work with talents who learn how to do remote work from industry
+            leaders
           </h3>
           <div className={styles.industryImgContainer}>
             <Image src={MicrosoftLogo} alt="" />
@@ -207,22 +219,22 @@ const HireTalent: NextPage = () => {
           </div>
         </section>
         <section className={styles.remarkSections}>
-          <div>
-            <div className={styles.remarkSection}>
+          <div className={styles.remarkContainer}>
+            <div className={styles.remarks}>
               <Image src={CheckBox} alt="" />
               <p>
                 More remote talents within the community have access to global
                 remote leaders.
               </p>
             </div>
-            <div className={styles.remarkSection}>
+            <div className={styles.remarks}>
               <Image src={CheckBox} alt="" />
               <p>
-                We don&apos;t just offer you the top 1% of talent. We offer you grit,
-                skill, creativity and the right fit.
+                We don&apos;t just offer you the top 1% of talent. We offer you
+                grit, skill, creativity and the right fit.
               </p>
             </div>
-            <div className={styles.remarkSection}>
+            <div className={styles.remarks}>
               <Image src={CheckBox} alt="" />
               <p>
                 We build on mutual trust to promote the remote working culture.
