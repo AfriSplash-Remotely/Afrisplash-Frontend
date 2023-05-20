@@ -7,7 +7,7 @@ import GeneralLayout from "layouts/generalLayout";
 import styles from "styles/Hire-talent.module.scss";
 import AppleLogo from "assets/hire-talent-assets/apple-logo.svg";
 import ArrowLeft from "assets/hire-talent-assets/arrow-left.svg";
-import BlockQuote from "assets/hire-talent-assets/blockquote-xl.svg"
+import BlockQuote from "assets/hire-talent-assets/blockquote-xl.svg";
 import CheckBox from "assets/hire-talent-assets/round-bold-check.svg";
 import CallIcon from "assets/hire-talent-assets/call_calling.svg";
 import FillForm from "assets/hire-talent-assets/fill-the-form.svg";
@@ -153,14 +153,15 @@ const HireTalent: NextPage = () => {
         <section className={styles.reviewSection}>
           <h3>
             What remote-first companies say about the AfriSplash Remotely
-            community:
+            community
           </h3>
           <div className={styles.reviewContainer}>
             <article>
               <p>
-                The AfriSplash team is super strong with multiples experts in
-                different areas, is easy to work with them and the mission of
-                this project is tremendous.
+                “Afrisplash Remotely is a great community, the team is super
+                fantastic and helped me to find the best talent matching our
+                expectations. We would love to keep engaging with the team and
+                contribute as much as we can to grow this community.”
               </p>
               <div className={styles.profile}>
                 <Image src={ReviewProfile} alt="" />
@@ -172,7 +173,9 @@ const HireTalent: NextPage = () => {
             </article>
             <article className={styles.centerArticle}>
               <div className={styles.blockQuote}>
-                <Image src={BlockQuote} alt="" />
+                <div className={styles.blockQuoteContainer}>
+                  <Image src={BlockQuote} alt="" />
+                </div>
               </div>
               <p>
                 “Afrisplash Remotely is a great community, the team is super

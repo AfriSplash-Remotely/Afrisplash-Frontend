@@ -230,17 +230,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
+    padding-bottom: 196px;
     gap: 60px;
     background: #f0fbf3;
 
     h3 {
-      font-weight: 400;
-      font-size: 2em;
-      line-height: 45px;
-      max-width: 667px;
+      font-weight: 800;
+      font-size: 3em;
+      line-height: 58px;
+      max-width: 986px;
       text-align: center;
-      margin-bottom: 136px;
+      margin-top: 150px;
     }
 
     .reviewContainer {
@@ -256,22 +256,32 @@
         width: 370px;
         color: #f8f8f8;
         background: linear-gradient(180deg, #ffc42d -38.25%, #0d5520 100%);
+        padding: 48px 26px;
 
         .blockQuote {
-          position: relative;
-          bottom: 45px;
+          position: absolute;
           display: flex;
           align-self: baseline;
+        }
+
+        .blockQuoteContainer {
+          position: relative;
+          top: -270px;
         }
 
         p {
           font-weight: 700;
           font-size: 1.5em;
           line-height: 29px;
+          margin-top: 10px;
         }
 
-        :nth-child(2) {
-          font-size: 1.5em;
+        .profile {
+          margin-top: 48px;
+          
+          :nth-child(2) {
+            font-size: 1.5em;
+          }
         }
       }
 
@@ -285,12 +295,12 @@
         flex-direction: column;
         background: #ffffff;
         border-radius: 12px;
-        padding: 32px 37px 64px;
+        padding: 44px 22px;
 
         p {
           font-weight: 500;
-          font-size: 1em;
-          line-height: 22px;
+          font-size: 1.3em;
+          line-height: 26px;
           letter-spacing: 0.5px;
         }
 
@@ -300,7 +310,8 @@
           align-items: center;
           justify-content: center;
           align-self: baseline;
-          margin-top: 48px;
+          margin-top: 44px;
+          
 
           img {
             width: 64px;
