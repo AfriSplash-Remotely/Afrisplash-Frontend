@@ -103,20 +103,22 @@ const HireTalent: NextPage = () => {
             </div>
           </article>
         </section> */}
-        {/* <section className={styles.section2}>
-          <h3>
-            Hire directly from a pool of remote-ready tech talents from various
-            parts of Africa.
-          </h3>
-          <div>
-            <button className={styles.viewTalentBtn}>
-              View Talent Directory
-            </button>
-            <button className={styles.requestTalentBtn}>
-              Request Talent Match
-            </button>
+        <section className={styles.section2}>
+          <div className={styles.sectionContainer}>
+            <h3>
+              Hire directly from a pool of remote-ready tech talents all over
+              Africa.
+            </h3>
+            <div className={styles.buttonContainer}>
+              <button className={styles.viewTalentBtn}>
+                <p>View Talent Directory</p>
+              </button>
+              <button className={styles.requestTalentBtn}>
+                <p>Request Talent Match</p>
+              </button>
+            </div>
           </div>
-        </section> */}
+        </section>
         <section className={styles.infoSection}>
           <h3>Get matched with the best talents</h3>
           <div className={styles.cardContainer}>
