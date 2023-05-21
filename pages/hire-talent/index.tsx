@@ -7,12 +7,12 @@ import GeneralLayout from "layouts/generalLayout";
 import styles from "styles/Hire-talent.module.scss";
 import AppleLogo from "assets/hire-talent-assets/apple-logo.svg";
 import ArrowLeft from "assets/hire-talent-assets/arrow-left.svg";
+import BookIllustrator from "assets/hire-talent-assets/pana.svg";
 import BlockQuote from "assets/hire-talent-assets/blockquote-xl.svg";
 import CheckBox from "assets/hire-talent-assets/round-bold-check.svg";
 import CallIcon from "assets/hire-talent-assets/call_calling.svg";
-import FillForm from "assets/hire-talent-assets/fill-the-form.svg";
-import GetSchedule from "assets/hire-talent-assets/get-matched.svg";
 import GoogleLogo from "assets/hire-talent-assets/google-logo.svg";
+import HandShakeIcon from "assets/hire-talent-assets/handshake.svg";
 import Img1 from "assets/hire-talent-assets/img_1.png";
 import Img2 from "assets/hire-talent-assets/img_2.png";
 import Img3 from "assets/hire-talent-assets/img_3.png";
@@ -23,12 +23,14 @@ import Img7 from "assets/hire-talent-assets/img_7.png";
 import Img8 from "assets/hire-talent-assets/img_8.png";
 import Metalogo from "assets/hire-talent-assets/Meta-Logo.svg";
 import MicrosoftLogo from "assets/hire-talent-assets/Microsoft-logo.svg";
-import BookIllustrator from "assets/hire-talent-assets/pana.svg";
+import NextArrow from "assets/hire-talent-assets/navigation-arrow-right.svg";
+import PrevArrow from "assets/hire-talent-assets/navigation-arrow-left.svg";
 import ReviewProfile from "assets/hire-talent-assets/review-profile.png";
 import ReviewProfile2 from "assets/hire-talent-assets/review_profile2.png";
 import ReviewProfile3 from "assets/hire-talent-assets/review_profile3.png";
-import ScheduleCall from "assets/hire-talent-assets/schedule-call.svg";
 import TwitterLogo from "assets/hire-talent-assets/twitter-logo.svg";
+import UserSearchIcon from "assets/hire-talent-assets/user-search.svg";
+import VideoCallIcon from "assets/hire-talent-assets/video-call.svg";
 
 const HireTalent: NextPage = () => {
   return (
@@ -115,47 +117,55 @@ const HireTalent: NextPage = () => {
             </button>
           </div>
         </section> */}
-        {/* <section className={styles.infoSection}>
+        <section className={styles.infoSection}>
           <h3>Get matched with the best talents</h3>
           <div className={styles.cardContainer}>
-            <InfoCard
-              image={FillForm}
-              header={"Fill the form"}
-              content={`Request for talent (s) by request above with the necessary details.
-          Our team will reach out to you or your team in 3 business days`}
-            />
-            <InfoCard
-              image={ScheduleCall}
-              header={"Schedule call"}
-              content={`Have a strategy session to discuss the desired skills, experience, and personality traits youre looking for. 
-            This also includes the project budget or salary range plus any other matters related to your ideal talent. `}
-            />
-            <InfoCard
-              image={GetSchedule}
-              header={"Get matched"}
-              content={`We do the heavy lifting. Our AIpowered platform evaluates your preference against the best candidates to match you with the top 1%.`}
-            />
+            <article className={styles.card}>
+              <Image src={UserSearchIcon} alt="" />
+              <div>
+                <h3>View Talents</h3>
+                <p>
+                  Click <strong>View Talent Directory</strong> above to explore
+                  our talent database
+                </p>
+              </div>
+            </article>
+            <article className={styles.card}>
+              <Image src={VideoCallIcon} alt="" />
+              <div>
+                <h3>Schedule call</h3>
+                <p>
+                  Tell us the skills and experience you’re looking for in
+                  addition to the salary, plus any other matters related to your
+                  ideal talent.
+                </p>
+              </div>
+            </article>
+            <article className={styles.card}>
+              <Image src={HandShakeIcon} alt="" />
+              <div>
+                <h3>Get matched</h3>
+                <p>
+                  Our AI-powered platform will evaluate your preference against
+                  the candidates to match you with the right fit
+                </p>
+              </div>
+            </article>
           </div>
-          <p className={styles.infoPara}>We’re here to assist you:</p>
-          <form>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className={styles.email}
-              placeholder="hiretalent@afrisplash.com"
-            />
-            <button className={styles.emailBtn}>
-              Talk to us <Image src={ArrowLeft} alt="" />
+
+          <div className={styles.CallToActionSection}>
+            <button className={styles.CallToActionBtn}>
+              <p>Talk to us</p> <Image src={ArrowLeft} alt="" />
             </button>
-          </form>
-        </section> */}
+          </div>
+        </section>
         <section className={styles.reviewSection}>
           <h3>
             What remote-first companies say about the AfriSplash Remotely
             community
           </h3>
           <div className={styles.reviewContainer}>
+            <Image src={PrevArrow} alt="" />
             <article>
               <p>
                 “Afrisplash Remotely is a great community, the team is super
@@ -166,7 +176,7 @@ const HireTalent: NextPage = () => {
               <div className={styles.profile}>
                 <Image src={ReviewProfile} alt="" />
                 <div className={styles.profileDetails}>
-                  <p>Luis Alfonso Barroso</p>
+                  <p>Princess Gabriel</p>
                   <p>Founder @ Rootlo</p>
                 </div>
               </div>
@@ -201,11 +211,12 @@ const HireTalent: NextPage = () => {
               <div className={styles.profile}>
                 <Image src={ReviewProfile3} alt="" />
                 <div className={styles.profileDetails}>
-                  <p>Ujjwal Singh</p>
-                  <p>Founder @ Haulify</p>
+                  <p>Lucy Brian Anish</p>
+                  <p>Founder @ Anisha Groups</p>
                 </div>
               </div>
             </article>
+            <Image src={NextArrow} alt="" />
           </div>
         </section>
         <section className={styles.industrySection}>

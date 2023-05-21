@@ -143,85 +143,76 @@
   .infoSection {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    gap: 40px;
     background: #f0fbf3;
-    padding: 100px 60px;
+    padding-top: 120px;
 
     h3 {
-      font-weight: 400;
-      font-size: 2em;
+      font-weight: 800;
+      font-size: 3em;
+      line-height: 58px;
     }
 
     .cardContainer {
       display: flex;
-      justify-content: space-evenly;
-      margin-top: 48px;
+      flex-direction: row;
+      justify-items: center;
+      align-items: center;
+      gap: 24px;
 
       .card {
-        margin-right: 24px;
-      }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 48px 24px;
+        gap: 24px;
+        width: 380px;
+        height: 301px;
+        background: #FFFFFF;
+        border-radius: 16px;
+        text-align: center;
 
-      :nth-child(3) {
-        margin: 0px;
+        h3 {
+          font-weight: 700;
+          font-size: 1.5em;
+          line-height: 29px;
+        }
+
+        p {
+          font-weight: 400;
+          line-height: 22px;
+          padding-top: 16px;
+        }
       }
     }
 
-    .infoPara {
-      margin-top: 87px;
-      font-size: 1.5em;
-      align-self: flex-start;
-    }
-
-    form {
+    .CallToActionSection {
       display: flex;
-      margin-top: 48px;
+      justify-items: center;
+      align-items: center;
       max-width: 100%;
 
-      .email {
-        background: #ffffff;
-        border-radius: 8px 0px 0px 8px;
-        padding: 18px 64px;
-        color: #000000;
-        text-align: center;
-        border: none;
-        font-size: 1em;
-        margin-right: 25px;
-        max-width: 356px;
-      }
-
-      ::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: #000000;
-        opacity: 1; /* Firefox */
-      }
-
-      :-ms-input-placeholder {
-        /* Internet Explorer 10-11 */
-        color: #000000;
-      }
-
-      ::-ms-input-placeholder {
-        /* Microsoft Edge */
-        color: #000000;
-      }
-
-      .emailBtn {
-        background: #0d5520;
-        border-radius: 0px 8px 8px 0px;
-        color: #ffffff;
+      .CallToActionBtn {
         display: flex;
-        font-size: 1em;
-        align-items: center;
+        flex-direction: row;
         justify-content: center;
-        padding: 16px 32px;
-        border: none;
+        align-items: center;
+        padding: 16px 24px;
+        gap: 12px;
+        max-width: 157px;
+        max-height: 64px;
+        background: #0D5520;
+        border-radius: 8px;
         cursor: pointer;
 
-        img {
-          margin-left: 11px;
+        p {
+          font-weight: 400;
+          font-size: 1em;
+          line-height: 19px;
+          color: #FFFFFF;
         }
+
       }
     }
   }
@@ -246,6 +237,7 @@
     .reviewContainer {
       display: flex;
       align-items: center;
+      justify-items: center;
 
       .lastArticle {
         margin: 0px;
@@ -266,7 +258,7 @@
 
         .blockQuoteContainer {
           position: relative;
-          top: -270px;
+          top: -265px;
         }
 
         p {
@@ -278,10 +270,17 @@
 
         .profile {
           margin-top: 48px;
-          
-          :nth-child(2) {
-            font-size: 1.5em;
-          }
+
+          .profileDetails {
+            :nth-child(1) {
+              font-size: 1.5em;
+            }   
+
+            :nth-child(2) {
+              font-size: 1em;
+              margin-top: 0px;
+            }
+          }       
         }
       }
 
@@ -299,7 +298,7 @@
 
         p {
           font-weight: 500;
-          font-size: 1.3em;
+          font-size: 1.38em;
           line-height: 26px;
           letter-spacing: 0.5px;
         }
@@ -311,6 +310,7 @@
           justify-content: center;
           align-self: baseline;
           margin-top: 44px;
+          gap: 12px;
           
 
           img {
@@ -322,25 +322,17 @@
           .profileDetails {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-left: 12px;
-            gap: 8px;
 
             :nth-child(1) {
-              font-size: 1em;
+              font-size: 1.38em;
+              font-weight: 600;
             }
 
             :nth-child(2) {
-              font-size: 0.7em;
-              font-weight: 300;
+              font-size: 0.9em;
+              font-weight: 400;
             }
           }
-
-          // :nth-child(2) {
-          //     margin-top: 32px;
-          //     margin-bottom: 16px;
-          // }
         }
       }
     }
@@ -377,8 +369,9 @@
   .remarkSections {
     display: flex;
     flex-direction: column;
+    justify-items: center;
     align-items: center;
-    padding: 0px 100px 80px 100px;
+    padding: 0px 110px 80px 110px;
 
     .remarkContainer {
       display: flex;
@@ -480,12 +473,6 @@
     }
 
     .reviewSection {
-      padding: 30px;
-
-      h3 {
-        font-size: 1.5em;
-      }
-
       .reviewContainer {
         flex-direction: column;
 
@@ -495,36 +482,12 @@
 
         .centerArticle {
           max-height: 100%;
-
-          :nth-child(2) {
-            font-size: 1.2em;
-          }
         }
 
         article,
         .lastArticle,
         .centerArticle {
           height: 100%;
-          max-width: 250px;
-          padding: 40px 20px;
-          margin-top: 32px;
-          margin-right: 0px;
-        }
-
-        article {
-          .profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 32px;
-
-            :nth-child(2) {
-              align-self: center;
-              margin-top: 32px;
-              margin-bottom: 16px;
-            }
-          }
         }
       }
     }
