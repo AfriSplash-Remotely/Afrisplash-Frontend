@@ -101,6 +101,7 @@
       }
     }
   }
+
   .section2 {
     display: flex;
     flex-direction: column;
@@ -113,7 +114,7 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 60px;
-      padding: 144px 48px;
+      padding: 144px 24px;
       isolation: isolate;
 
       .bookIllustrator {
@@ -382,6 +383,8 @@
     padding-bottom: 196px;
     gap: 60px;
     background: #f0fbf3;
+    padding-left: 24px;
+    padding-right: 24px;
 
     h3 {
       font-weight: 800;
@@ -501,7 +504,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px 70px 10px 70px;
+    padding: 40px 0px 10px 0px;
     text-align: center;
 
     h3 {
@@ -656,6 +659,8 @@
     }
 
     .remarkSections {
+        padding: 0px 30px 80px 30px;
+
       .remarkContainer {
         flex-wrap: wrap;
       }
