@@ -453,16 +453,13 @@
         color: #f8f8f8;
         background: linear-gradient(180deg, #ffc42d -38.25%, #0d5520 100%);
         padding: 48px 26px;
+        position: relative;
 
         .blockQuote {
           position: absolute;
           display: flex;
           align-self: baseline;
-        }
-
-        .blockQuoteContainer {
-          position: relative;
-          top: -265px;
+          top: -52px;
         }
 
         p {
@@ -740,10 +737,29 @@
     }
 
     .remarkSections {
-        padding: 0px 30px 80px 30px;
-
+      padding: 0px 30px 80px 30px;
       .remarkContainer {
         flex-wrap: wrap;
+      }
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .infoSection {
+      .cardContainer {
+        .card {
+          width: 100%;
+        }
+      }
+    }
+
+    .reviewSection {
+      .reviewContainer {
+        .centerArticle, 
+        article {
+          width: 100%;
+          max-height: 100%;
+        }
       }
     }
   }
