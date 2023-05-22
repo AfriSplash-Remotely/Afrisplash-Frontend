@@ -10,6 +10,7 @@ import BookIllustrator from "assets/hire-talent-assets/book-call-short-dashes-ci
 import BlockQuote from "assets/hire-talent-assets/blockquote-xl.svg";
 import CheckBox from "assets/hire-talent-assets/round-bold-check.svg";
 import CallIcon from "assets/hire-talent-assets/call_calling.svg";
+import EmailIcon from "assets/hire-talent-assets/envelope.svg";
 import GoogleLogo from "assets/hire-talent-assets/google-logo.svg";
 import HandShakeIcon from "assets/hire-talent-assets/handshake.svg";
 import Img1 from "assets/hire-talent-assets/img_1.png";
@@ -27,6 +28,7 @@ import PrevArrow from "assets/hire-talent-assets/navigation-arrow-left.svg";
 import ReviewProfile from "assets/hire-talent-assets/review-profile.png";
 import ReviewProfile2 from "assets/hire-talent-assets/review_profile2.png";
 import ReviewProfile3 from "assets/hire-talent-assets/review_profile3.png";
+import TechTalentIllustration from "assets/hire-talent-assets/bg-image-2812.png";
 import TwitterLogo from "assets/hire-talent-assets/twitter-logo.svg";
 import UserSearchIcon from "assets/hire-talent-assets/user-search.svg";
 import VideoCallIcon from "assets/hire-talent-assets/video-call.svg";
@@ -40,69 +42,51 @@ const HireTalent: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GeneralLayout>
-        {/* <section className={styles.section1}>
-          <article className={styles.article1}>
-            <h1>
-              <span className={styles.green}>
-                F<span className={styles.red}>in</span>d
-              </span>
-              ,
-              <span className={styles.green}>
-                At<span className={styles.red}>trac</span>t
-              </span>{" "}
-              and <span className={styles.green}> H</span>
-              <span className={styles.red}>ire </span>
-              <span className={styles.downH3}>AFRICAN TECH TALENTS </span>
-              <br />
-              <span>🌍</span>
-            </h1>
-            3
-            <p>
-              Get matched with remote-ready African talents from Africa&apos;s
-              #1 remote work community🌍.
-            </p>
-          </article>
-          <section className="flex flex-col items-center justify-center w-full">
-            <div className="flex  flex-wrap items-center justify-center ">
-              <Image src={Img1} alt="" />
-              <Image src={Img2} alt="" />
-              <Image src={Img3} alt="" />
+        <section className={styles.section1}>
+          <div className={styles.bgContainer}>
+            <div className={styles.floatingImage1}>
+              <Image src={Img5} alt="" />
+            </div>
+            <div className={styles.floatingImage2}>
               <Image src={Img4} alt="" />
             </div>
-            <div className="flex flex-wrap items-center justify-center">
-              <Image src={Img5} alt="" />
+            <div className={styles.floatingImage3}>
               <Image src={Img6} alt="" />
-              <Image src={Img7} alt="" />
+            </div>
+            <div className={styles.floatingImage4}>
               <Image src={Img8} alt="" />
             </div>
-          </section>
-          <article className={styles.book}>
-            <div className={styles.bookIllustrator}>
-              <Image src={BookIllustrator} alt="Book Ilustrator" />
+            <Image src={TechTalentIllustration} alt="" />
+          </div>
+          <article className={styles.section1Container}>
+            <div className={styles.section1Content}>
+              <h1>
+                Find, Attract and Hire African Tech Talents
+                <span>🌍</span>
+              </h1>
+              <p>
+                Get matched with remote-ready African talents from Africa&apos;s
+                #1 remote work community🌍.
+              </p>
             </div>
-            <div className={styles.bookContent}>
-              <h3>Get the best candidate profiles straight to your inbox</h3>
-              <ul>
-                <li>
-                  Connect with your next remote-ready African talent for
-                  full-time or project-based employment.
-                </li>
-                <li>
-                  Reduce time-to-hire 55% by filling your direct sourcing
-                  pipeline with ready-to-work candidates.
-                </li>
-                <li>
-                  Increase the quality of your hires by matching with skills,
-                  experience and personality traits pre-screening.
-                </li>
-              </ul>
-              <button className={styles.bookBtn}>
-                <Image src={CallIcon} alt="" />
-                <span className={styles.bookbtncontent}>Book a call now</span>
-              </button>
-            </div>
+
+            <form>
+              <div className={styles.inputForm}>
+                <div className={styles.iconContainer}>
+                  <Image src={EmailIcon} alt="" />
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className={styles.emailInput}
+                  placeholder="Email"
+                />
+              </div>
+              <button className={styles.emailBtn}>Join Now</button>
+            </form>
           </article>
-        </section> */}
+        </section>
         <section className={styles.section2}>
           <article className={styles.section2Container}>
             <div className={styles.bookIllustrator}>
@@ -116,7 +100,7 @@ const HireTalent: NextPage = () => {
                 <Image src={Img3} alt="" />
               </div>
               <div className={styles.floatingImg4}>
-                <Image src={Img4} alt="" />
+                <Image src={Img7} alt="" />
               </div>
               <Image src={BookIllustrator} alt="" />
             </div>

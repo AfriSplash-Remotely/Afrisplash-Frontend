@@ -5,98 +5,146 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    background: #FFF6E6;
 
-    .article1 {
+    .bgContainer{
+      position: relative;
+
+      div {
+        position: absolute;
+        width: 65.71px;
+        height: 65.71px;
+      }
+
+      .floatingImage1 img,
+      .floatingImage2 img,
+      .floatingImage3 img,
+      .floatingImage4 img {
+        width: 61.85px;
+        height: 61.85px;
+        border-radius: 61.85px;
+      }
+
+      .floatingImage1 {
+        left: 26px;
+        top: 189px;
+      }
+
+      .floatingImage2 {
+        left: 979px;
+        top: 343px;
+      }
+
+      .floatingImage3 {
+        left: 509px;
+        top: 519px;
+      }
+
+      .floatingImage4 {
+        left: 925px;
+        top: 521px;
+      }
+    }
+
+    .section1Container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 96px;
+      gap: 36px;
+      position: absolute;
 
-      h1 {
-        font-weight: 500;
-        font-size: 3em;
-        line-height: 64px;
-        text-transform: uppercase;
-        max-width: 698px;
-        margin-bottom: 24px;
-
-        .green {
-          color: rgba(13, 85, 32, 1);
-        }
-
-        .red {
-          color: rgba(190, 0, 0, 1);
-        }
-
-        .downH3 {
-          font-weight: 300;
-        }
-      }
-
-      p {
-        font-size: 1em;
-        line-height: 24px;
-        color: #000000;
-        max-width: 385px;
-      }
-    }
-
-    .book {
-      display: flex;
-      padding: 96px;
-
-      .bookIllustrator {
-        margin-right: 48px;
-      }
-
-      .bookContent {
+      .section1Content {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
-        text-align: start;
-        max-width: 501px;
+        gap: 24px;
+        text-align: center;
+        max-width: 761px;
 
-        h3 {
-          align-self: flex-start;
-          margin-bottom: 24px;
-          font-size: 1.5em;
-          font-weight: 400;
-          line-height: 40px;
-        }
+        h1 {
+          font-weight: 900;
+          font-size: 4em;
+          line-height: 68px;
 
-        ul li {
-          margin-bottom: 16px;
-          list-style: none;
-          font-size: 1em;
-          line-height: 22px;
-
-          &::before {
-            content: "•";
-            color: #0d5520;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+          span {
+            font-size: 0.735em;
           }
         }
 
-        .bookBtn {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background: #0d5520;
+        p {
+          font-weight: 400;
+          font-size: 1.5em;
+          line-height: 29px;
+          max-width: 566px;
+        }
+      }
+      
+
+      form {
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        align-items: center;
+        gap: 12px;
+
+        .inputForm{
+          // align-items: center;
+          max-width: 632px;
+
+          .emailInput {
+            background: #FFFFFF;
+            padding: 18px 55px;
+            color: #000000;
+            text-align: start;
+            border: none;
+            font-size: 1em;
+            width: 500px;
+            background: #FFFFFF;
+            border-radius: 8px;
+          }
+
+          ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #000000;
+            opacity: 1; /* Firefox */
+          }
+
+          :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #000000;
+          }
+
+          ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #000000;
+          }
+
+          .iconContainer {
+            position: relative;
+
+            img {
+              position: absolute;
+              top: 18px;
+              left: 16px;
+              right: 16px;
+            }
+          }
+          
+        }
+        
+        .emailBtn {
+          background: #0D5520;
           border-radius: 8px;
-          color: #ffffff;
-          align-self: flex-start;
-          margin-top: 35px;
-          padding: 16px 42px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 19px;
+          text-align: center;
+          color: #FFFFFF;
+          padding: 20px 24px;
           border: none;
           cursor: pointer;
-
-          .bookbtncontent {
-            margin-left: 18px;
-          }
         }
       }
     }
@@ -112,47 +160,48 @@
     .section2Container { 
       display: grid;
       grid-template-columns: 1fr 1fr;
+      justify-items: center;
       align-items: center;
       gap: 60px;
       padding: 144px 24px;
       isolation: isolate;
 
       .bookIllustrator {
-
+        position: relative;
         img {
           border-radius: 50%;
         }
 
-        .floatingImg1{
+        div {
           position: absolute;
-          width: 93px;
-          height: 93px;
-          left: 451.71px;
-          top: 258px;
         }
 
-        .floatingImg2{
-          position: absolute;
+        .floatingImg1 {
+          width: 93px;
+          height: 93px;
+          left: 401.71px;
+          top: 108px;
+        }
+
+        .floatingImg2 {
           width: 62px;
           height: 62px;
-          left: 226px;
-          top: 313px;
+          left: 176px;
+          top: 163px;
         }
 
         .floatingImg3{
-          position: absolute;
           width: 80px;
           height: 80px;
-          left: 111px;
-          top: 590px;
+          left: 61px;
+          top: 440px;
         }
 
         .floatingImg4{
-          position: absolute;
           width: 78px;
           height: 78px;
-          left: 423px;
-          top: 546px;
+          left: 373px;
+          top: 396px;
         }
       }
 
@@ -163,19 +212,14 @@
         align-items: flex-start;
         gap: 36px;
 
-
         .content {
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          align-items: center;
           text-align: start;
           gap: 24px;
 
           .contentTitle {
-            display: flex;
-            align-items: flex-start;
-
             h3 {
               font-weight: 900;
               font-size: 3em;
@@ -186,7 +230,6 @@
           .contentList {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             gap: 16px;
 
             p {
@@ -565,17 +608,30 @@
   // mobile screen
 
   @media screen and (max-width: 992px) {
+    .section1 {
+      .bgContainer {
+        div {
+          display: none;
+        }
+      }
+
+      .section1Container {
+        form {
+          .inputForm {
+            .emailInput {
+                width: 100%;
+              }
+            }
+        }
+      }
+    }
+
     .section2 {
       .section2Container{
         grid-template-columns: 1fr;
 
         .bookIllustrator {
           justify-self: center;
-
-          .floatingImg3{
-            left: 151px;
-            top: 540px;
-          }
         }
       }
     }
@@ -583,6 +639,8 @@
     .infoSection {
       h3{
         text-align: center;
+        padding-left: 24px;
+        padding-right: 24px;
       }
       
       .cardContainer {
@@ -625,11 +683,34 @@
       .industryImgContainer {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
+        padding: 70px 24px 60px 24px;
       }
     }
   }
 
   @media screen and (max-width: 768px) {
+    .section1 {
+      .bgContainer{
+        position: absolute;
+      }
+
+      .section1Container{
+        position: static;
+        z-index: 1;
+
+        form {
+          flex-wrap: wrap;
+
+          .inputForm {
+            width: 100%;
+          }
+
+            .emailBtn {
+              width: 100%;
+            }
+        }
+      }
+    }
 
     .section2 {
       .section2Container{
