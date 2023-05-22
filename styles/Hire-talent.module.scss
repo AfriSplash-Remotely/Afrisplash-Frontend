@@ -101,8 +101,132 @@
       }
     }
   }
-
   .section2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .section2Container { 
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding: 144px 48px;
+      isolation: isolate;
+
+      .bookIllustrator {
+
+        img {
+          border-radius: 50%;
+        }
+
+        .floatingImg1{
+          position: absolute;
+          width: 93px;
+          height: 93px;
+          left: 451.71px;
+          top: 258px;
+        }
+
+        .floatingImg2{
+          position: absolute;
+          width: 62px;
+          height: 62px;
+          left: 226px;
+          top: 313px;
+        }
+
+        .floatingImg3{
+          position: absolute;
+          width: 80px;
+          height: 80px;
+          left: 111px;
+          top: 590px;
+        }
+
+        .floatingImg4{
+          position: absolute;
+          width: 78px;
+          height: 78px;
+          left: 423px;
+          top: 546px;
+        }
+      }
+
+      .bookContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 36px;
+
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          text-align: start;
+          gap: 24px;
+
+          .contentTitle {
+            display: flex;
+            align-items: flex-start;
+
+            h3 {
+              font-weight: 900;
+              font-size: 3em;
+              line-height: 58px;
+            }
+          }
+
+          .contentList {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+
+            p {
+              display: flex;
+              flex-direction: row;
+              justify-items: center;
+              align-items: center;
+              line-height: 22px;
+              gap: 10px;
+
+              &::before {
+                content: "•";
+                color: #FFC42D;
+                font-size: 1.6em;
+              }
+            }
+          }
+        }
+
+        .bookBtn {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #0D5520;
+          border-radius: 8px;
+          color: #FFFFFF;
+          align-self: flex-start;
+          margin-top: 35px;
+          padding: 16px 42px;
+          border: none;
+          cursor: pointer;
+
+          .bookbtncontent {
+            margin-left: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .section3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +236,7 @@
     isolation: isolate;
     background: linear-gradient(90deg, #FFC42D 0%, #0D5520 100%);
 
-    .sectionContainer {
+    .section3Container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -132,7 +256,8 @@
       .buttonContainer {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        justify-items: center;
+        align-items: center;
         padding: 0px;
         gap: 32px;
 
@@ -396,6 +521,12 @@
       width: 100%;
       height: auto;
       max-width: 843.81px;
+
+      .industryImg{
+        display: flex;
+        justify-self: center;
+        align-items: center;
+      }
     }
   }
 
@@ -429,85 +560,41 @@
   }
 
   // mobile screen
-  @media screen and (max-width: 768px) {
-    .section1 {
-      .article1 {
-        padding: 60px 20px;
 
-        h1 {
-          font-size: 2em;
-        }
-      }
+  @media screen and (max-width: 992px) {
+    .section2 {
+      .section2Container{
+        grid-template-columns: 1fr;
 
-      .book {
-        flex-direction: column;
-        padding: 30px;
+        .bookIllustrator {
+          justify-self: center;
 
-        .bookContent {
-          margin-top: 24px;
-
-          .bookBtn {
-            align-self: center;
-            padding: 16px 32px;
+          .floatingImg3{
+            left: 151px;
+            top: 540px;
           }
         }
       }
     }
 
-    .section2 {
-      padding-right: 20px;
-      padding-left: 20px;
-
-      h3 {
-        font-size: 1.5em;
-      }
-
-      .viewTalentBtn {
-        margin-right: 0px;
-      }
-
-      .requestTalentBtn {
-        margin-top: 24px;
-      }
-    }
-
     .infoSection {
-      h3 {
-        font-size: 1.5em;
+      h3{
+        text-align: center;
       }
-
-      padding: 30px;
-
+      
       .cardContainer {
         flex-direction: column;
-
-        :nth-child(3) {
-          margin-top: 24px;
-        }
-      }
-
-      form {
-        padding: 20px;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
-        .email {
-          margin: 0px;
-          padding: 16px 32px;
-        }
-
-        .emailBtn {
-          margin-top: 30px;
-          padding: 10px;
-          max-width: 137px;
-        }
       }
     }
 
     .reviewSection {
       .reviewContainer {
         flex-direction: column;
+        gap: 40px;
+
+        img {
+          display: none;
+        }
 
         .lastArticle {
           max-height: 100%;
@@ -517,25 +604,54 @@
           max-height: 100%;
         }
 
+
         article,
         .lastArticle,
         .centerArticle {
           height: 100%;
+          margin-right: 0px;
+
+          img {
+            display: block;
+          }
         }
       }
     }
 
     .industrySection {
-      h3 {
-        width: 100%;
-        font-size: 1.5em;
+      .industryImgContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
       }
+    }
+  }
 
+  @media screen and (max-width: 768px) {
+
+    .section2 {
+      .section2Container{
+        display: flex;
+        flex-direction: column;
+
+        .bookIllustrator{
+          display: none;
+        }
+      }
+    }
+
+    .section3{
+      padding: 10em 2em;
+      .section3Container {
+        .buttonContainer{
+          flex-direction: column;
+        }
+      }
+    }
+
+    .industrySection {
       .industryImgContainer {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        width: 100%;
       }
     }
 

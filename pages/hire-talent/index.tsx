@@ -2,12 +2,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import InfoCard from "components/InfoCard/InfoCard";
 import GeneralLayout from "layouts/generalLayout";
 import styles from "styles/Hire-talent.module.scss";
 import AppleLogo from "assets/hire-talent-assets/apple-logo.svg";
 import ArrowLeft from "assets/hire-talent-assets/arrow-left.svg";
-import BookIllustrator from "assets/hire-talent-assets/pana.svg";
+import BookIllustrator from "assets/hire-talent-assets/book-call-short-dashes-circles.svg";
 import BlockQuote from "assets/hire-talent-assets/blockquote-xl.svg";
 import CheckBox from "assets/hire-talent-assets/round-bold-check.svg";
 import CallIcon from "assets/hire-talent-assets/call_calling.svg";
@@ -57,6 +56,7 @@ const HireTalent: NextPage = () => {
               <br />
               <span>🌍</span>
             </h1>
+            3
             <p>
               Get matched with remote-ready African talents from Africa&apos;s
               #1 remote work community🌍.
@@ -104,7 +104,53 @@ const HireTalent: NextPage = () => {
           </article>
         </section> */}
         <section className={styles.section2}>
-          <div className={styles.sectionContainer}>
+          <article className={styles.section2Container}>
+            <div className={styles.bookIllustrator}>
+              <div className={styles.floatingImg1}>
+                <Image src={Img2} alt="" />
+              </div>
+              <div className={styles.floatingImg2}>
+                <Image src={Img1} alt="" />
+              </div>
+              <div className={styles.floatingImg3}>
+                <Image src={Img3} alt="" />
+              </div>
+              <div className={styles.floatingImg4}>
+                <Image src={Img4} alt="" />
+              </div>
+              <Image src={BookIllustrator} alt="" />
+            </div>
+            <div className={styles.bookContent}>
+              <div className={styles.content}>
+                <div className={styles.contentTitle}>
+                  <h3>
+                    Get the best candidate profiles straight to your inbox
+                  </h3>
+                </div>
+                <div className={styles.contentList}>
+                  <p>
+                    Connect with skilled African talents for full-time or
+                    project-based employment.
+                  </p>
+                  <p>
+                    Fill your direct sourcing pipeline with ready-to-work
+                    candidates to reduce time-to-hire by 55%
+                  </p>
+                  <p>
+                    Increase the quality of your hires by matching with skills,
+                    experience, and personality traits pre-screening.
+                  </p>
+                </div>
+              </div>
+              <button className={styles.bookBtn}>
+                <Image src={CallIcon} alt="" />
+                <span className={styles.bookbtncontent}>Book a call now</span>
+              </button>
+            </div>
+          </article>
+        </section>
+        <section className={styles.section3}>
+          <div className={styles.section3Container}>
             <h3>
               Hire directly from a pool of remote-ready tech talents all over
               Africa.
@@ -154,7 +200,6 @@ const HireTalent: NextPage = () => {
               </div>
             </article>
           </div>
-
           <div className={styles.CallToActionSection}>
             <button className={styles.CallToActionBtn}>
               <p>Talk to us</p> <Image src={ArrowLeft} alt="" />
@@ -228,9 +273,13 @@ const HireTalent: NextPage = () => {
           </h3>
           <div className={styles.industryImgContainer}>
             <Image src={MicrosoftLogo} alt="" />
-            <Image src={TwitterLogo} alt="" />
+            <div className={styles.industryImg}>
+              <Image src={TwitterLogo} alt="" />
+            </div>
             <Image src={Metalogo} alt="" />
-            <Image src={AppleLogo} alt="" />
+            <div className={styles.industryImg}>
+              <Image src={AppleLogo} alt="" />
+            </div>
             <Image src={GoogleLogo} alt="" />
           </div>
         </section>
