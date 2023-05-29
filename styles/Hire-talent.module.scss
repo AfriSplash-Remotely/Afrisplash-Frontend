@@ -1,4 +1,8 @@
 .hireTalent {
+  // .linearGreenBg{
+  //   background: linear-gradient(180deg, #ffc42d -38.25%, #0d5520 100%);
+  // }
+
   .section1 {
     display: flex;
     flex-direction: column;
@@ -167,6 +171,7 @@
 
       .bookIllustrator {
         position: relative;
+        justify-self: center;
         img {
           border-radius: 50%;
         }
@@ -268,7 +273,7 @@
       }
     }
   }
-
+  //
   .section3 {
     display: flex;
     flex-direction: column;
@@ -340,7 +345,7 @@
       }
     }
   }
-
+  //
   .infoSection {
     display: flex;
     flex-direction: column;
@@ -417,7 +422,7 @@
       }
     }
   }
-
+  //
   .reviewSection {
     display: flex;
     flex-direction: column;
@@ -537,7 +542,7 @@
       }
     }
   }
-
+  //
   .industrySection {
     display: flex;
     flex-direction: column;
@@ -571,7 +576,7 @@
       }
     }
   }
-
+  //
   .remarkSections {
     display: flex;
     flex-direction: column;
@@ -631,7 +636,7 @@
         }
       }
     }
-
+    //
     .infoSection {
       h3{
         text-align: center;
@@ -643,7 +648,7 @@
         flex-direction: column;
       }
     }
-
+    //
     .reviewSection {
       .reviewContainer {
         flex-direction: column;
@@ -674,7 +679,7 @@
         }
       }
     }
-
+    //
     .industrySection {
       .industryImgContainer {
         display: grid;
@@ -694,6 +699,14 @@
         position: static;
         z-index: 1;
 
+        .section1Content {
+          h1 {
+            font-weight: 900;
+            font-size: 3em;
+            line-height: 58px;
+          }
+        }
+
         form {
           flex-wrap: wrap;
 
@@ -707,7 +720,7 @@
         }
       }
     }
-
+    //
     .section2 {
       .section2Container{
         display: flex;
@@ -718,7 +731,7 @@
         }
       }
     }
-
+    //
     .section3{
       padding: 10em 2em;
       .section3Container {
@@ -728,13 +741,14 @@
       }
     }
 
+    //
     .industrySection {
       .industryImgContainer {
         display: flex;
         flex-direction: column;
       }
     }
-
+    //
     .remarkSections {
       padding: 0px 30px 80px 30px;
       .remarkContainer {
@@ -744,6 +758,7 @@
   }
 
   @media screen and (max-width: 414px) {
+    //
     .infoSection {
       .cardContainer {
         .card {
@@ -751,7 +766,7 @@
         }
       }
     }
-
+    //
     .reviewSection {
       .reviewContainer {
         .centerArticle, 
