@@ -74,7 +74,7 @@ const HireTalent: NextPage = () => {
             </div>
             <Image src={TechTalentIllustration} className="hidden xsm:block" alt="" />
           </div>
-          <article className="static z-10 flex flex-col items-center justify-center gap-9 md:z-0 md:absolute px-5 pt-10 pb-24 sm:p-24">
+          <article className="static z-10 flex flex-col items-center justify-center gap-9 md:z-0 md:absolute px-5 pt-12 pb-24 xsm:p-24">
             <div className="flex flex-col items-center gap-6 text-center max-w-[47.563rem]">
               <h1 className="text-5xl md:text-[4rem] leading-[3.625rem] md:leading-[4.25rem] font-extrabold md:font-black">
                 Find, Attract and Hire African Tech Talents
