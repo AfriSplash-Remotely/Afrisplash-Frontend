@@ -80,7 +80,7 @@ const HireTalent: NextPage = () => {
           </div>
           <article className="static z-10 flex flex-col items-center justify-center gap-9 md:z-0 md:absolute px-5 py-24 xsm:p-24">
             <div className="flex flex-col items-center gap-6 text-center max-w-[47.563rem]">
-              <h1 className="text-6xl font-bold">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold">
                 Find, Attract and Hire African Tech Talents
                 <span className="text-[2.5rem]">🌍</span>
               </h1>
@@ -141,11 +141,11 @@ const HireTalent: NextPage = () => {
             <div className="flex flex-col justify-end items-start gap-9">
               <div className="flex flex-col justify-start text-start gap-6">
                 <div>
-                  <h2 className="w-10/12 text-4xl font-semibold">
+                  <h2 className="w-10/12  text-2xl text-center md:text-left mx-auto md:text-4xl font-semibold">
                     Get the best candidate profiles straight to your inbox
                   </h2>
                 </div>
-                <div className={`flex flex-col gap-4`}>
+                <div className={`flex flex-col gap-4 w-100`}>
                   <p className="flex flex-row justify-items-center items-center leading-[1.375rem] gap-2.5 relative">
                     <span className="absolute left-0 text-secondary_yellow_2 text-2xl">
                       •
@@ -184,7 +184,7 @@ const HireTalent: NextPage = () => {
         </section>
         <section className="flex flex-col justify-center items-center gap-2.5 isolate px-8 md:px-[7.5rem] py-40 bg-gradient-to-r from-secondary_yellow_2 to-primary_green">
           <div className="flex flex-col items-center gap-9 max-w-[54.438rem] p-0">
-            <h2 className="text-5xl font-semibold text-center text-white_2">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-center text-white_2">
               Hire directly from a pool of remote-ready tech talents all over
               Africa.
             </h2>
@@ -207,7 +207,7 @@ const HireTalent: NextPage = () => {
           </div>
         </section>
         <section className="flex flex-col items-center gap-10 pt-[7.5rem] bg-white_3">
-          <h2 className="text-5xl font-semibold text-center lg:text-left lg:px px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-center lg:text-left lg:px px-6">
             Get matched with the best talents
           </h2>
           <div className="flex flex-col lg:flex-row justify-items-center items-center gap-6 xlg:max-w-auto max-w-full xlg:px-auto px-[5vw]">
@@ -253,7 +253,7 @@ const HireTalent: NextPage = () => {
           </div>
         </section>
         <section className="flex flex-col items-center gap-[3.75rem] bg-white_3 px-6 pb-[12.25rem]">
-          <h2 className="text-5xl font-semibold max-w-[61.625rem] text-center mt-[9.375rem]">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold max-w-[61.625rem] text-center mt-[9.375rem]">
             What remote-first companies say about the AfriSplash Remotely
             community
           </h2>
@@ -302,9 +302,7 @@ const HireTalent: NextPage = () => {
                 />
                 <div className="flex flex-col">
                   <p className="text-lg font-semibold">Ujjwal Singh</p>
-                  <p className="mt-0">
-                    Founder @ Haulify
-                  </p>
+                  <p className="mt-0">Founder @ Haulify</p>
                 </div>
               </div>
             </article>
