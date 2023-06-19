@@ -72,15 +72,19 @@ const HireTalent: NextPage = () => {
                 alt=""
               />
             </div>
-            <Image src={TechTalentIllustration} className="hidden xsm:block" alt="" />
+            <Image
+              src={TechTalentIllustration}
+              className="hidden xsm:block"
+              alt=""
+            />
           </div>
-          <article className="static z-10 flex flex-col items-center justify-center gap-9 md:z-0 md:absolute px-5 pt-12 pb-24 xsm:p-24">
+          <article className="static z-10 flex flex-col items-center justify-center gap-9 md:z-0 md:absolute px-5 py-24 xsm:p-24">
             <div className="flex flex-col items-center gap-6 text-center max-w-[47.563rem]">
-              <h1 className="text-5xl md:text-[4rem] leading-[3.625rem] md:leading-[4.25rem] font-extrabold md:font-black">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold">
                 Find, Attract and Hire African Tech Talents
                 <span className="text-[2.5rem]">🌍</span>
               </h1>
-              <p className="font-normal text-2xl leading-[1.813rem] max-w-[35.375rem]">
+              <p className="w-10/12 text-lg">
                 Get matched with remote-ready African talents from Africa&apos;s
                 #1 remote work community🌍.
               </p>
@@ -137,11 +141,11 @@ const HireTalent: NextPage = () => {
             <div className="flex flex-col justify-end items-start gap-9">
               <div className="flex flex-col justify-start text-start gap-6">
                 <div>
-                  <h3 className="font-black text-4xl xsm:text-5xl leading-[3rem] xsm:leading-[3.625rem]">
+                  <h2 className="w-10/12  text-2xl text-center md:text-left mx-auto md:text-4xl font-semibold">
                     Get the best candidate profiles straight to your inbox
-                  </h3>
+                  </h2>
                 </div>
-                <div className={`flex flex-col gap-4`}>
+                <div className={`flex flex-col gap-4 w-100`}>
                   <p className="flex flex-row justify-items-center items-center leading-[1.375rem] gap-2.5 relative">
                     <span className="absolute left-0 text-secondary_yellow_2 text-2xl">
                       •
@@ -171,31 +175,31 @@ const HireTalent: NextPage = () => {
                   </p>
                 </div>
               </div>
-              <button className="flex justify-between items-center text-white self-start cursor-pointer mt-[2.188rem] px-[2.625rem] py-4 bg-primary_green rounded-lg border-none">
-                <Image src={CallIcon} alt="" />
-                <span className="ml-[1.125rem]">Book a call now</span>
+              <button className="flex flex-row justify-center items-center gap-3 max-w-xs max-h-16 cursor-pointer px-6 py-4 rounded-lg bg-primary_green">
+                <p className="font-semibold text-white">Talk to us</p>{" "}
+                <Image src={ArrowLeft} alt="" />
               </button>
             </div>
           </article>
         </section>
         <section className="flex flex-col justify-center items-center gap-2.5 isolate px-8 md:px-[7.5rem] py-40 bg-gradient-to-r from-secondary_yellow_2 to-primary_green">
           <div className="flex flex-col items-center gap-9 max-w-[54.438rem] p-0">
-            <h3 className="font-extrabold text-4xl xsm:text-5xl leading-[3rem] xsm:leading-[3.625rem] text-center text-white_2">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-center text-white_2">
               Hire directly from a pool of remote-ready tech talents all over
               Africa.
-            </h3>
+            </h2>
             <div className="flex flex-col md:flex-row justify-items-center items-center gap-8 p-0">
               <button
                 className={`flex flex-row justify-center items-center gap-2 cursor-pointer px-8 py-[1.375rem] bg-white_2 rounded-lg border-none`}
               >
-                <p className="font-semibold leading-[1.188rem] text-center text-primary_green">
+                <p className="font-semibold text-center text-primary_green">
                   View Talent Directory
                 </p>
               </button>
               <button
                 className={`flex flex-row justify-center items-center gap-2 cursor-pointer px-8 py-[1.375rem] border border-solid bg-transparent border-white_2 rounded-lg`}
               >
-                <p className="font-semibold leading-[1.188rem] text-center text-white_2">
+                <p className="font-semibold text-center text-white_2">
                   Request Talent Match
                 </p>
               </button>
@@ -203,17 +207,15 @@ const HireTalent: NextPage = () => {
           </div>
         </section>
         <section className="flex flex-col items-center gap-10 pt-[7.5rem] bg-white_3">
-          <h3 className="font-extrabold text-4xl xsm:text-5xl leading-[3rem] xsm:leading-[3.625rem] text-center lg:text-left lg:px px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-center lg:text-left lg:px px-6">
             Get matched with the best talents
-          </h3>
+          </h2>
           <div className="flex flex-col lg:flex-row justify-items-center items-center gap-6 xlg:max-w-auto max-w-full xlg:px-auto px-[5vw]">
             <article className="flex flex-col items-center gap-6 w-full xsm:w-[23.75rem] h-[18.813rem] text-center px-6 py-12 rounded-2xl bg-white">
               <Image src={UserSearchIcon} alt="" />
               <div>
-                <h3 className="font-bold text-2xl leading-[1.813rem]">
-                  View Talents
-                </h3>
-                <p className="font-normal leading-[1.375rem] pt-4">
+                <h3 className="text-2xl font-semibold">View Talents</h3>
+                <p className="pt-4">
                   Click <strong>View Talent Directory</strong> above to explore
                   our talent database
                 </p>
@@ -222,10 +224,8 @@ const HireTalent: NextPage = () => {
             <article className="flex flex-col items-center gap-6 w-full xsm:w-[23.75rem] h-[18.813rem] text-center px-6 py-12 rounded-2xl bg-white">
               <Image src={VideoCallIcon} alt="" />
               <div>
-                <h3 className="font-bold text-2xl leading-[1.813rem]">
-                  Schedule call
-                </h3>
-                <p className="font-normal leading-[1.375rem] pt-4">
+                <h3 className="text-2xl font-semibold">Schedule call</h3>
+                <p className="pt-4">
                   Tell us the skills and experience you’re looking for in
                   addition to the salary, plus any other matters related to your
                   ideal talent.
@@ -235,10 +235,8 @@ const HireTalent: NextPage = () => {
             <article className="flex flex-col items-center gap-6 w-full xsm:w-[23.75rem] h-[18.813rem] text-center px-6 py-12 rounded-2xl bg-white">
               <Image src={HandShakeIcon} alt="" />
               <div>
-                <h3 className="font-bold text-2xl leading-[1.813rem]">
-                  Get matched
-                </h3>
-                <p className="font-normal leading-[1.375rem] pt-4">
+                <h3 className="text-2xl font-semibold">Get matched</h3>
+                <p className="pt-4">
                   Our AI-powered platform will evaluate your preference against
                   the candidates to match you with the right fit
                 </p>
@@ -246,23 +244,23 @@ const HireTalent: NextPage = () => {
             </article>
           </div>
           <div className="flex justify-items-center items-center max-w-full">
-            <button className="flex flex-row justify-center items-center gap-3 max-w-[9.813rem] max-h-16 cursor-pointer px-6 py-4 rounded-lg bg-primary_green">
-              <p className="text-base leading-[1.188rem] font-normal text-white">
-                Talk to us
-              </p>{" "}
-              <Image src={ArrowLeft} alt="" />
+            <button className="flex justify-between items-center text-white self-start cursor-pointer mt-[2.188rem] px-[2.625rem] py-4 bg-primary_green rounded-lg border-none">
+              <Image src={CallIcon} alt="" />
+              <span className="font-semibold ml-[1.125rem]">
+                Book a call now
+              </span>
             </button>
           </div>
         </section>
         <section className="flex flex-col items-center gap-[3.75rem] bg-white_3 px-6 pb-[12.25rem]">
-          <h3 className="text-4xl xsm:text-5xl leading-[3rem] xsm:leading-[3.625rem] font-extrabold max-w-[61.625rem] text-center mt-[9.375rem]">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold max-w-[61.625rem] text-center mt-[9.375rem]">
             What remote-first companies say about the AfriSplash Remotely
             community
-          </h3>
+          </h2>
           <div className="flex lg:flex-row flex-col lg:gap-0 gap-10 justify-center items-center xlg:max-w-auto max-w-full">
             <Image src={PrevArrow} className="hidden lg:block" alt="" />
             <article className="flex flex-col justify-around items-center w-full xsm:w-[21.25rem] max-w-full xsm:max-w-[30rem] h-full max-h-full mr-0 lg:mr-6 bg-white rounded-xl px-[1.375rem] py-[2.75rem]">
-              <p className="text-[1.38rem] font-medium leading-[1.625rem] tracking-[0.031rem]">
+              <p className="text-lg font-medium">
                 “Afrisplash Remotely is a great community, the team is super
                 fantastic and helped me to find the best talent matching our
                 expectations. We would love to keep engaging with the team and
@@ -275,10 +273,8 @@ const HireTalent: NextPage = () => {
                   alt=""
                 />
                 <div className="flex flex-col">
-                  <p className="text-[1.38rem] font-semibold">
-                    Princess Gabriel
-                  </p>
-                  <p className="text-[0.9rem] font-normal">Founder @ Rootlo</p>
+                  <p className="text-lg font-semibold">Princess Gabriel</p>
+                  <p className="text-[0.9rem]">Founder @ Rootlo</p>
                 </div>
               </div>
             </article>
@@ -290,11 +286,13 @@ const HireTalent: NextPage = () => {
                   <Image src={BlockQuote} alt="" />
                 </div>
               </div>
-              <p className="text-2xl font-bold leading-[1.813rem] tracking-[0.031rem] mt-2.5">
-                “Afrisplash Remotely is a great community, the team is super
-                fantastic and helped me to find the best talent matching our
-                expectations. We would love to keep engaging with the team and
-                contribute as much as we can to grow this community.”
+              <p className="text-xl tracking-[0.031rem] mt-2.5">
+                <strong>
+                  “Afrisplash Remotely is a great community, the team is super
+                  fantastic and helped me to find the best talent matching our
+                  expectations. We would love to keep engaging with the team and
+                  contribute as much as we can to grow this community.”
+                </strong>
               </p>
               <div className="flex flex-row justify-center items-center self-baseline mt-12 gap-3">
                 <Image
@@ -303,15 +301,13 @@ const HireTalent: NextPage = () => {
                   alt=""
                 />
                 <div className="flex flex-col">
-                  <p className="text-2xl font-semibold">Ujjwal Singh</p>
-                  <p className="text-base font-normal mt-0">
-                    Founder @ Haulify
-                  </p>
+                  <p className="text-lg font-semibold">Ujjwal Singh</p>
+                  <p className="mt-0">Founder @ Haulify</p>
                 </div>
               </div>
             </article>
             <article className="flex flex-col justify-around items-center w-full xsm:w-[21.25rem] max-w-full xsm:max-w-[30rem] h-full max-h-full m-0 bg-white rounded-xl px-[1.375rem] py-[2.75rem]">
-              <p className="text-[1.38rem] font-medium leading-[1.625rem] tracking-[0.031rem]">
+              <p className="text-lg font-medium leading-[1.625rem] tracking-[0.031rem]">
                 “Afrisplash Remotely is a great community, the team is super
                 fantastic and helped me to find the best talent matching our
                 expectations. We would love to keep engaging with the team and
@@ -324,12 +320,8 @@ const HireTalent: NextPage = () => {
                   alt=""
                 />
                 <div className="flex flex-col">
-                  <p className="text-[1.38rem] font-semibold">
-                    Lucy Brian Anish
-                  </p>
-                  <p className="text-[0.9rem] font-normal">
-                    Founder @ Anisha Groups
-                  </p>
+                  <p className="text-lg font-semibold">Lucy Brian Anish</p>
+                  <p className="text-[0.9rem]">Founder @ Anisha Groups</p>
                 </div>
               </div>
             </article>
