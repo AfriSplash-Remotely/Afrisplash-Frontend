@@ -30,7 +30,7 @@ export default function AdminNavigation({
   return (
     <>
       <aside
-        className={`hidden md:flex ${
+        className={`hidden md:block ${
           navSwitch === true ? "w-max" : "w-2/12"
         } h-screen relative px-5 z-50`}
       >
