@@ -27,11 +27,11 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
     }
   }, [navSwitch, setNavSwitch]);
 
-  const handleNavSwitch: () => void = () => {
+  const handleNavSwitch = (): void => {
     setNavSwitch(!navSwitch);
   };
 
-  const handleShowSidebar: () => void = () => {
+  const handleShowSidebar = (): void => {
     setIsOpen(!isOpen);
   };
 
