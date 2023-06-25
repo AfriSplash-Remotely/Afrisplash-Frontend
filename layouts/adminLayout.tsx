@@ -17,9 +17,9 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
   children,
 }) => {
   const router = useRouter();
-  const [navSwitch, setNavSwitch] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [navSwitch, setNavSwitch] = useState<boolean>(false);
   const [focused, setFocused] = useState<string | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth > 640 && window.innerWidth < 840) {
@@ -27,11 +27,11 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
     }
   }, [navSwitch, setNavSwitch]);
 
-  const handleNavSwitch: () => void = (): void => {
+  const handleNavSwitch: () => void = () => {
     setNavSwitch(!navSwitch);
   };
 
-  const handleShowSidebar: () => void = (): void => {
+  const handleShowSidebar: () => void = () => {
     setIsOpen(!isOpen);
   };
 
