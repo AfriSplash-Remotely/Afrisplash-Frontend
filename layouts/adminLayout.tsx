@@ -19,15 +19,20 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
   const router = useRouter();
   const [navSwitch, setNavSwitch] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth < 840) {
+    if (window.innerWidth > 640 && window.innerWidth < 840) {
       setNavSwitch(true);
     }
   }, [navSwitch, setNavSwitch]);
 
   const handleNavSwitch: () => void = (): void => {
     setNavSwitch(!navSwitch);
+  };
+
+  const handleShowSidebar: () => void = (): void => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -41,8 +46,10 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
       <div className={`${styles.main} w-full `}>
         <div className="w-11/12 mx-auto">
           <MobileSidebar
+            isOpen={isOpen}
             focused={focused}
             navSwitch={navSwitch}
+            setIsOpen={setIsOpen}
             setFocused={setFocused}
           />
           <TopAdmin
@@ -53,6 +60,7 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
             }`}
             avatar={avatar}
             avatarText="Ready to interview"
+            handleShowSidebar={handleShowSidebar}
           />
           <main>{children}</main>
         </div>
