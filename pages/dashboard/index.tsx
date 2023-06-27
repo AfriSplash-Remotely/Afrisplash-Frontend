@@ -12,7 +12,7 @@ const Profile: NextPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* user infor */}
         <div className="bg-white rounded-xl divide-y divide-gray-100">
-          <div className="flex flex-col px-4 py-6">
+          <div className="flex flex-col px-4 pt-5 pb-6">
             <div className="flex items-center space-x-4">
               <div className="relative w-20 h-20">
                 <Image
