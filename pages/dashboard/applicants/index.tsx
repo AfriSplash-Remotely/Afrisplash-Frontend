@@ -156,7 +156,7 @@ const Applicants: NextPage = () => {
 
   return (
     <AdminLayout>
-      <div className="w-full pt-8">
+      <div className="w-full">
         <section className=" w-full  flex  mb-[50px] max-h-5 relative  z-30">
           {applicantLabels.map(({ label, isOpen, attributes }) => (
             <DropDown
