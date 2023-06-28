@@ -1,52 +1,20 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Search from "../atoms/Search/Search";
 import { BiMessageSquareEdit } from "react-icons/bi";
 import Image from "next/image";
-import user1 from "assets/messages/user1.png";
-import user2 from "assets/messages/user2.png";
 
 import styles from "./Messages.module.scss";
-
-const messageList = [
-  {
-    image: user1,
-    name: "Simi Gregory",
-    role: "UI/UX Designer",
-    lastMessage:
-      "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
-    lastMessageTime: "1hr ago",
-  },
-  {
-    image: user2,
-    name: "Simi Gregory",
-    role: "UI/UX Designer",
-    lastMessage:
-      "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
-    lastMessageTime: "1hr ago",
-  },
-  {
-    image: user1,
-    name: "Simi Gregory",
-    role: "UI/UX Designer",
-    lastMessage:
-      "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
-    lastMessageTime: "1hr ago",
-  },
-  {
-    image: user2,
-    name: "Simi Gregory",
-    role: "UI/UX Designer",
-    lastMessage:
-      "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
-    lastMessageTime: "1hr ago",
-  },
-];
+import Conversation from "./Conversation";
+import { messageList } from "@/utils/Messages";
 
 const Messages: FC = () => {
+  const [activeUser, setActiveUser] = useState(1);
+
   return (
-    <section className="space-y-5 py-10 px-3 font-['Inter']">
+    <section className="space-y-5 py-5 px-3 font-['Inter']">
       <h2 className="text-3xl font-bold text-[#2B2B2B]">All Messages</h2>
-      <div className="my-5 rounded-md border border-light_grey">
+      <div className="my-5 rounded-md border border-light_grey xsm:flex">
+        {/* list of messages */}
         <div className="p-5 xsm:max-w-[375px] border-r border-light_grey">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
@@ -55,20 +23,23 @@ const Messages: FC = () => {
                 {messageList.length}
               </span>
             </div>
-            <BiMessageSquareEdit fontSize={20} />
+            <button>
+              <BiMessageSquareEdit fontSize={20} />
+            </button>
           </div>
           <div className="py-5">
             <Search placeholder={"Search Messages"} />
           </div>
           <div>
-            {messageList.map((user, index) => (
+            {messageList.map((user) => (
               <div
-                key={`${user.name}-${index}`}
-                className="py-4 border-b border-light_grey last-of-type:border-b-0"
+                key={user.id}
+                className="py-4 border-b border-light_grey last-of-type:border-b-0 cursor-pointer"
+                onClick={() => setActiveUser(user.id)}
               >
                 <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center gap-1">
-                    <div className="w-2 bg-primary_green rounded-full"></div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-primary_green rounded-full"></div>
                     <div>
                       <Image
                         src={user.image}
@@ -87,17 +58,21 @@ const Messages: FC = () => {
                       </p>
                     </div>
                   </div>
-                  <span
-                    className=" text-[#2B2B2B] text-xs font-normal "
-                  >
+                  <span className=" text-[#2B2B2B] text-xs font-normal ">
                     {user.lastMessageTime}
                   </span>
                 </div>
-                <p className={`${styles.two_lines} text-sm font-normal`}>{user.lastMessage}</p>
+                <p
+                  className={`${styles.two_lines} text-sm font-normal text-[#252525]`}
+                >
+                  {user.lastMessage}
+                </p>
               </div>
             ))}
           </div>
         </div>
+        {/* Single Conversation */}
+        <Conversation activeUser={activeUser} />
       </div>
     </section>
   );
