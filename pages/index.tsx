@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Hero from "@/components/molecules/Hero/Hero";
@@ -11,7 +11,6 @@ import rootlo from "assets/icons/rootlo.svg";
 import safetyWing from "assets/icons/safetyWing.svg";
 import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import type { GetStaticProps } from "next";
 
 import { generateUniqueId } from "@/utils/helper";
 import {
@@ -75,17 +74,13 @@ const Home: NextPage = () => {
 };
 
 type Props = {
-  _nextI18Next?:
-    | {
-        initialI18nStore: any;
-        initialLocale: string;
-        ns: string[];
-        userConfig: UserConfig | null;
-      }
-    | undefined;
+  _nextI18Next?: {
+    initialI18nStore: any;
+    initialLocale: string;
+    ns: string[];
+    userConfig: any | null;
+  };
 };
-
-type UserConfig = any;
 
 export const getStaticProps: GetStaticProps<Props> = async ({
   locale,
