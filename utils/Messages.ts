@@ -11,8 +11,31 @@ export const messageList = [
       "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
     lastMessageTime: "1hr ago",
     convo: [
-      { message: "hello", time: "2/2/2023" },
-      { message: "hello", time: "2/2/2023" },
+      {
+        message:
+          "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
+        time: "2/2/2023",
+        sender: "Simi Gregory",
+      },
+      { message: "hello", time: "2/2/2023", sender: "chysomm" },
+      {
+        message:
+          "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
+        time: "2/2/2023",
+        sender: "Simi Gregory",
+      },
+      {
+        message:
+          "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
+        time: "2/2/2023",
+        sender: "Simi Gregory",
+      },
+      {
+        message:
+          "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
+        time: "2/2/2023",
+        sender: "Simi Gregory",
+      },
     ],
   },
   {
@@ -24,8 +47,8 @@ export const messageList = [
       "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
     lastMessageTime: "1hr ago",
     convo: [
-      { message: "hello", time: "2/2/2023" },
-      { message: "hello", time: "2/2/2023" },
+      { message: "hello", time: "2/2/2023", sender: "Simi Gregory" },
+      { message: "hello", time: "2/2/2023", sender: "Simi Gregory" },
     ],
   },
   {
@@ -37,8 +60,8 @@ export const messageList = [
       "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
     lastMessageTime: "1hr ago",
     convo: [
-      { message: "hello", time: "2/2/2023" },
-      { message: "hello", time: "2/2/2023" },
+      { message: "hello", time: "2/2/2023", sender: "Simi Gregory" },
+      { message: "hello", time: "2/2/2023", sender: "Simi Gregory" },
     ],
   },
   {
@@ -50,8 +73,8 @@ export const messageList = [
       "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff",
     lastMessageTime: "1hr ago",
     convo: [
-      { message: "hello", time: "2/2/2023" },
-      { message: "hello", time: "2/2/2023" },
+      { message: "hello", time: "2/2/2023", sender: "Simi Gregory" },
+      { message: "hello", time: "2/2/2023", sender: "Simi Gregory" },
     ],
   },
 ];
