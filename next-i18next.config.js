@@ -6,3 +6,4 @@ module.exports = {
     locales: ["en", "fr", "ara", "sw", "zu", "ti", "ig", "ha", "yo"],
   },
 };
+
