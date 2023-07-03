@@ -6,6 +6,7 @@ import Footer from "components/molecules/Footer/Footer";
 import Navigation from "components/molecules/Navigation/Navigation";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Heading, Para } from "@/components/PolicyMarkdown";
 
 
 
@@ -15,7 +16,6 @@ const PoliciesLayoutProps = {
 
 const LinkParams = [
     { title:"Introduction"},
-    { title: "Contact details" },
     { title: "Contact details" },
     { title: "What data do we collect and how we use it" },
     { title: "What lawful basis do we rely on for processing?" },
@@ -27,19 +27,23 @@ const LinkParams = [
 
 ]
 
+const components = {
+    h1: Heading,
+    p: Para
+}
+
 const PoliciesLayout: NextPage<InferProps<typeof PoliciesLayoutProps>> = ({ children }) => {
     const router = useRouter()
-    console.log(router.pathname);
+    console.log(router.basePath);
     return (
-        <MDXProvider>
-
+        <MDXProvider components={components}>
             <div className="w-full">
                 <Navigation />
                 <main className="relative mx-auto mt-12 py-8 px-28">
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className="grid grid-cols-3 gap-12">
                         <div>
                             <div>
-                                <h2 className="text-4xl font-medium">hello was dammi</h2>
+                                <h2 className="text-3xl font-medium">TERMS OF USE</h2>
                             </div>
 
                             <div className="mt-12">
