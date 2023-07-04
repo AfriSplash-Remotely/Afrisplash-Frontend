@@ -5,7 +5,7 @@ const HeadingProps = {
 }
 
 function Heading({ children }: InferProps<typeof HeadingProps>):JSX.Element{
-    return <h1 className="text-lg leading-4 font-bold">{children}</h1>
+    return <h1 className="text-lg leading-4 font-bold mt-2 active:text-primary_green">{children}</h1>
 }
 
 export default Heading

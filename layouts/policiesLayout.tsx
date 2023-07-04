@@ -4,7 +4,6 @@ import { MDXProvider } from '@mdx-js/react';
 import PropTypes, { InferProps } from "prop-types";
 import Footer from "components/molecules/Footer/Footer";
 import Navigation from "components/molecules/Navigation/Navigation";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { Heading, Para } from "@/components/PolicyMarkdown";
 
@@ -12,6 +11,7 @@ import { Heading, Para } from "@/components/PolicyMarkdown";
 
 const PoliciesLayoutProps = {
     children: PropTypes.node.isRequired,
+    pageTitle: PropTypes.string.isRequired
 }
 
 const LinkParams = [
@@ -32,9 +32,7 @@ const components = {
     p: Para
 }
 
-const PoliciesLayout: NextPage<InferProps<typeof PoliciesLayoutProps>> = ({ children }) => {
-    const router = useRouter()
-    console.log(router.basePath);
+const PoliciesLayout: NextPage<InferProps<typeof PoliciesLayoutProps>> = ({ children, pageTitle }) => {
     return (
         <MDXProvider components={components}>
             <div className="w-full">
@@ -43,7 +41,7 @@ const PoliciesLayout: NextPage<InferProps<typeof PoliciesLayoutProps>> = ({ chil
                     <div className="grid grid-cols-3 gap-12">
                         <div>
                             <div>
-                                <h2 className="text-3xl font-medium">TERMS OF USE</h2>
+                                <h2 className="text-3xl font-medium">{pageTitle}</h2>
                             </div>
 
                             <div className="mt-12">
@@ -52,7 +50,8 @@ const PoliciesLayout: NextPage<InferProps<typeof PoliciesLayoutProps>> = ({ chil
                                 <ul className="flex flex-wrap md:flex-col gap-4">
                                     {LinkParams.map((link) => {
                                         return(
-                                            <Link href="#" key={link.title}> {link.title}</Link>
+                                            <Link className="text-light_grey active:text-sunglow active:bg-light_green active:p-2 w-max active:rounded-md"
+                                             href="#" key={link.title}> {link.title}</Link>
 
                                         )
                                     })}
