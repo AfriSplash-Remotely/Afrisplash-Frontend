@@ -1,4 +1,15 @@
 {
+  "Home": "Ile",
+  "Resources": "Oro",
+  "Candidates": "Awọn oludije",
+  "Employer": "Agbanisiṣẹ",
+  "Hire Talent": "Bẹwẹ Talent",
+  "Remote Jobs": "Latọna Jobs",
+  "Pricing": "Ifowoleri",
+
+  "Sign In": "Wọle",
+  "Post Jobs": "Awọn iṣẹ ifiweranṣẹ",
+
   "The": "Awọn",
   "gateway": "ẹnu-ọna",
   "to africa": "si africa",
@@ -40,5 +51,38 @@
   "Get the gist on the latest jobs, career tips, and community activities": "Gba alaye lori awọn iṣẹ tuntun, awọn imọran iṣẹ, ati awọn iṣẹ agbegbe",
   "Your Full Name": "Orukọ Rẹ ni kikun",
   "Your Email": "Imeeli rẹ",
-  "Sign me up": "Forukọsilẹ mi"
+  "Sign me up": "Forukọsilẹ mi",
+
+  "talents": "talenti",
+  "product designers": "ọja apẹẹrẹ",
+  "website developers": "aaye ayelujara kóòdù",
+  "software engineers": "software Enginners",
+  "data analysts": "data atunnkanka",
+  "brand identity designers": "brand idanimo apẹẹrẹ",
+  "product managers": "ọja alakoso",
+
+  "about": "nipa",
+  "afrisplash": "afrisplash",
+  "careers": "awọn iṣẹ-ṣiṣe",
+  "FAQs": "FAQs",
+  "our team": "egbe wa",
+  "contact": "olubasọrọ",
+
+  "others": "awon miran",
+  "co-working space": "àjọ-ṣiṣẹ aaye",
+  "forum": "forum",
+  "blogs & news": "awọn bulọọgi & awọn iroyin",
+  "events": "iṣẹlẹ",
+
+  "social": "awujo",
+  "twitter": "twitter",
+  "linkedin": "linkedin",
+  "facebook": "facebook",
+  "instagram": "instagram",
+  "product hunt": "ọja sode",
+
+  "afrisplash remotely. all rights reserved": "afrisplash latọna jijin. gbogbo awọn ẹtọ wa ni ipamọ",
+  "Terms of use": "Awọn ofin lilo",
+  "Privacy policy": "Ilana asiri",
+  "Copyright policy": "Aṣẹ-lori eto imulo"
 }

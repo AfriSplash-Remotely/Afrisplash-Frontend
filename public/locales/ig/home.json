@@ -1,4 +1,15 @@
 {
+  "Home": "Ụlọ",
+  "Resources": "Akụrụngwa",
+  "Candidates": "Ndị ndoro-ndoro ochichi",
+  "Employer": "Onye were ọrụ",
+  "Hire Talent": "Were Talent",
+  "Remote Jobs": "Ọrụ dịpụrụ adịpụ",
+  "Pricing": "Ịnye ọnụ ahịa",
+
+  "Sign In": "Banye",
+  "Post Jobs": "PBiputere Ọrụ",
+
   "The": "",
   "gateway": "Ọnụ ụzọ ámá",
   "to africa": "nke africa",
@@ -40,5 +51,38 @@
   "Get the gist on the latest jobs, career tips, and community activities": "Nweta isi ihe gbasara ọrụ kachasị ọhụrụ, ndụmọdụ ọrụ, na mmemme obodo",
   "Your Full Name": "Aha gị n'uju",
   "Your Email": "Email gị",
-  "Sign me up": "Debanye aha m"
+  "Sign me up": "Debanye aha m",
+
+  "talents": "talent",
+  "product designers": "ndị na-emepụta ngwaahịa",
+  "website developers": "ndị mmepe webụsaịtị",
+  "software engineers": "ndị injinia software",
+  "data analysts": "ndị nyocha data",
+  "brand identity designers": "ndị na-emepụta njirimara ika",
+  "product managers": "ndị njikwa ngwaahịa",
+
+  "about": "gbasara",
+  "afrisplash": "afrisplash",
+  "careers": "ọrụ",
+  "FAQs": "Ajụjụ",
+  "our team": "otu anyi",
+  "contact": "kọntaktị",
+
+  "others": "ndị ọzọ",
+  "co-working space": "oghere ọrụ",
+  "forum": "ogbako",
+  "blogs & news": "blọọgụ & akụkọ",
+  "events": "ihe omume",
+
+  "social": "elekọta mmadụ",
+  "twitter": "twitter",
+  "linkedin": "linkedin",
+  "facebook": "facebook",
+  "instagram": "instagram",
+  "product hunt": "ichu nta",
+
+  "afrisplash remotely. all rights reserved": "afrisplash remotely. ikike niile echekwabara",
+  "Terms of use": "Usoro ojiji",
+  "Privacy policy": "Amụma nzuzo",
+  "Copyright policy": "Amụma nwebisiinka"
 }

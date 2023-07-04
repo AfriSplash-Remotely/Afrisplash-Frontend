@@ -1,4 +1,15 @@
 {
+  "Home": "بيت",
+  "Resources": "موارد",
+  "Candidates": "مرشحين",
+  "Employer": "صاحب العمل",
+  "Hire Talent": "توظيف المواهب",
+  "Remote Jobs": "وظائف عن بعد",
+  "Pricing": "التسعير",
+
+  "Sign In": "تسجيل الدخول",
+  "Post Jobs": "نشر الوظائف",
+
   "The": "ال",
   "gateway": "بوابة",
   "to africa": "لأفريقيا",
@@ -40,5 +51,38 @@
   "Get the gist on the latest jobs, career tips, and community activities": "تعرف على أحدث الوظائف والنصائح المهنية وأنشطة المجتمع",
   "Your Full Name": "اسمك الكامل",
   "Your Email": "بريدك الالكتروني",
-  "Sign me up": "أشركني"
+  "Sign me up": "أشركني",
+
+  "talents": "المواهب",
+  "product designers": "مصممي المنتجات",
+  "website developers": "مطوري مواقع الويب",
+  "software engineers": "مهندسي البرمجة",
+  "data analysts": "محللو البيانات",
+  "brand identity designers": "مصممي هوية العلامة التجارية",
+  "product managers": "مديري المنتج",
+
+  "about": "عن",
+  "afrisplash": "أفريسبلاش",
+  "careers": "وظائف",
+  "FAQs": "أسئلة وأجوبة",
+  "our team": "فريقنا",
+  "contact": "اتصال",
+
+  "others": "آحرون",
+  "co-working space": "ساحة للعمل الجماعي",
+  "forum": "المنتدى",
+  "blogs & news": "المدونات والأخبار",
+  "events": "الأحداث",
+
+  "social": "اجتماعي",
+  "twitter": "تويتر",
+  "linkedin": "ينكدين",
+  "facebook": "فيسبوك",
+  "instagram": "الانستغرام",
+  "product hunt": "مطاردة المنتج",
+
+  "afrisplash remotely. all rights reserved": "afrisplash عن بعد. كل الحقوق محفوظة",
+  "Terms of use": "شروط الاستخدام",
+  "Privacy policy": "سياسة الخصوصية",
+  "Copyright policy": "سياسة حقوق النشر"
 }
