@@ -1,4 +1,15 @@
 {
+  "Home": "Home",
+  "Resources": "Resources",
+  "Candidates": "Candidates",
+  "Employer": "Employer",
+  "Hire Talent": "Hire Talent",
+  "Remote Jobs": "Remote Jobs",
+  "Pricing": "Pricing",
+
+  "Sign In": "Sign In",
+  "Post Jobs": "Post Jobs",
+
   "The": "The",
   "gateway": "gateway",
   "to africa": "to africa",
@@ -40,5 +51,38 @@
   "Get the gist on the latest jobs, career tips, and community activities": "Get the gist on the latest jobs, career tips, and community activities",
   "Your Full Name": "Your Full Name",
   "Your Email": "Your Email",
-  "Sign me up": "Sign me up"
+  "Sign me up": "Sign me up",
+
+  "talents": "talents",
+  "product designers": "product designers",
+  "website developers": "website developers",
+  "software engineers": "software engineers",
+  "data analysts": "data analysts",
+  "brand identity designers": "brand identity designers",
+  "product managers": "product managers",
+
+  "about": "about",
+  "afrisplash": "afrisplash",
+  "careers": "careers",
+  "FAQs": "FAQs",
+  "our team": "our team",
+  "contact": "contact",
+
+  "others": "others",
+  "co-working space": "co-working space",
+  "forum": "forum",
+  "blogs & news": "blogs & news",
+  "events": "events",
+
+  "social": "social",
+  "twitter": "twitter",
+  "linkedin": "linkedin",
+  "facebook": "facebook",
+  "instagram": "instagram",
+  "product hunt": "product hunt",
+
+  "afrisplash remotely. all rights reserved": "afrisplash remotely. all rights reserved",
+  "Terms of use": "Terms of use",
+  "Privacy policy": "Privacy policy",
+  "Copyright policy": "Copyright policy"
 }
