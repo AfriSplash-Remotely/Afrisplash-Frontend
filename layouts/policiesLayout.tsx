@@ -37,20 +37,20 @@ const PoliciesLayout: NextPage<InferProps<typeof PoliciesLayoutProps>> = ({ chil
         <MDXProvider components={components}>
             <div className="w-full">
                 <Navigation />
-                <main className="relative mx-auto mt-12 py-8 px-28">
-                    <div className="grid grid-cols-3 gap-12">
+                <main className="relative mx-auto mt-12 py-8 md:px-28">
+                    <div className="grid grid-cols-3 gap-6">
                         <div>
                             <div>
-                                <h2 className="text-3xl font-medium">{pageTitle}</h2>
+                                <h2 className="text-xl ml-2 md:ml-0 md:text-3xl font-medium">{pageTitle}</h2>
                             </div>
 
-                            <div className="mt-12">
+                            <div className="mt-12 ml-2 md:ml-0">
                                 <h4 className="text-primary_green font-semibold text-lg">CONTENTS</h4>
                                 <div className="py-6">
-                                <ul className="flex flex-wrap md:flex-col gap-4">
+                                    <ul className="flex flex-wrap  md:flex-col gap-4">
                                     {LinkParams.map((link) => {
                                         return(
-                                            <Link className="text-light_grey active:text-sunglow active:bg-light_green active:p-2 w-max active:rounded-md"
+                                            <Link className="text-light_grey active:text-sunglow active:bg-light_green active:p-2 active:w-max active:rounded-md"
                                              href="#" key={link.title}> {link.title}</Link>
 
                                         )
