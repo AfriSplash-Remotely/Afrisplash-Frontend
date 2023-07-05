@@ -11,7 +11,7 @@ import location from "assets/icons/location.svg";
 import verified from "assets/icons/verified.svg";
 import Button from "@/components/atoms/Button/Button";
 import Tabs from "@/components/Co-workingSpace/tabComp";
-import Map from "@/components/Co-workingSpace/map"
+import LocateMap from "@/components/Co-workingSpace/map"
 import { availableSpaceTabsData, availableSpacesTableData, businessHoursData, equipmentData, cateringData, facilitiesData, relaxZonesData, classicBasicsData } from "@/utils";
 import WorkSpaceTable from "@/components/Co-workingSpace/tableComp";
 import CheckBoxComp from "@/components/Co-workingSpace/checkBoxComp";
@@ -86,7 +86,7 @@ const CoWorkingSpaceDetails: NextPage = () => {
             <div className="xlg:w-full lg:w-[95%] md:w-full mt-4 mb-8">
               <div className="grid md:grid-cols-5 md:grid-rows-1 grid-rows-3 md:border md:border-gray-300 rounded xlg:text-[11px] md:text-[12px] text-[13px] text-primary_grey font-bold">
                 {availableSpaceTabsData.map((tab) => (
-                  <Tabs id={tab.id} title={tab.title} />
+                  <Tabs key={tab.id} id={tab.id} title={tab.title} />
                 ))}
               </div>
             </div>
@@ -129,7 +129,7 @@ const CoWorkingSpaceDetails: NextPage = () => {
               ))}
             </div>
             <div className="xlg:w-full lg:w-0 md:m-auto lg:m-0">
-              <Map address="1600 Amphitheatre Parkway, Mountain View, CA" />
+              <LocateMap address="1600 Amphitheatre Parkway, Mountain View, CA" />
             </div>
           </div>
         </div>

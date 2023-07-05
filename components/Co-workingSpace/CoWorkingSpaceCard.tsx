@@ -11,6 +11,7 @@ const CoWorkingSpaceCardProps = {
   amount: PropTypes.string,
   details: PropTypes.string,
   src: PropTypes.any,
+  id: PropTypes.number
 };
 
 export default function CoWorkingSpaceCard({
@@ -19,9 +20,10 @@ export default function CoWorkingSpaceCard({
   amount,
   details,
   src,
+  id
 }: InferProps<typeof CoWorkingSpaceCardProps>): JSX.Element {
   return (
-    <div className="w-full">
+    <div className="w-full" key={id}>
       <div className="">
         <div className=" ">
           <Link

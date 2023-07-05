@@ -549,6 +549,7 @@ export const coWorkingSpaceData = [
     amount: "0.99",
     details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
     src: workSpace1,
+    id: 1
   },
   {
     name: "Nairobi Garage",
@@ -556,6 +557,7 @@ export const coWorkingSpaceData = [
     amount: "0.99",
     details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
     src: workSpace2,
+    id:2
   },
   {
     name: "Nairobi Garage",
@@ -563,6 +565,7 @@ export const coWorkingSpaceData = [
     amount: "1.99",
     details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
     src: workSpace3,
+    id: 3
   },
   {
     name: "Nairobi Garage",
@@ -570,6 +573,7 @@ export const coWorkingSpaceData = [
     amount: "2.99",
     details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
     src: workSpace1,
+    id: 4
   },
 ]
 
@@ -579,18 +583,21 @@ export const nearbyCardData = [
     distance: "10",
     amount: "0.99",
     src: workSpace5,
+    id: 1
   },
   {
     name: "Nairobi Garage",
     distance: "20",
     amount: "0.99",
     src: workSpace4,
+    id: 2
   },
   {
     name: "Nairobi Garage",
     distance: "15",
     amount: "1.99",
     src: workSpace5,
+    id: 3
   },
 ]
 

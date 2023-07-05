@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
-// import chatIcon from "assets/forum/chatIcon.svg";
 import dollar from "assets/co-workingSpace/dollar.svg";
 import RateWorkSpace from "./RateWorkSpace";
 
@@ -11,6 +10,7 @@ const NearbyCardProps = {
   amount: PropTypes.string,
   details: PropTypes.string,
   src: PropTypes.any,
+  id: PropTypes.number
 };
 
 export default function NearbyCard({
@@ -18,9 +18,10 @@ export default function NearbyCard({
   distance,
   amount,
   src,
+  id
 }: InferProps<typeof NearbyCardProps>): JSX.Element {
   return (
-    <div className="w-full col-span-1">
+    <div className="w-full col-span-1" key={id}>
       <div className="">
         <div className=" ">
           <Image src={src} alt="chatIcon" className="w-full "/>

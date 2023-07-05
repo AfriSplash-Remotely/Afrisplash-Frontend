@@ -8,7 +8,7 @@ interface MapProps {
 }
 
 
-const Map: React.FC<MapProps> = ({ address }) => {
+const LocateMap: React.FC<MapProps> = ({ address }) => {
     const mapRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Map: React.FC<MapProps> = ({ address }) => {
                             center: results[0].geometry.location,
                             zoom: 8,
                         });
-                        const marker = new google.maps.Marker({
+                         new google.maps.Marker({
                             map,
                             position: results[0].geometry.location,
                         });
@@ -54,4 +54,4 @@ const Map: React.FC<MapProps> = ({ address }) => {
     );
 };
 
-export default Map;
+export default LocateMap;

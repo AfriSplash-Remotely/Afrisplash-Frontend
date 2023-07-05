@@ -7,7 +7,6 @@ import LocationSearch from "@/components/filterComponent/LocationSearch";
 import CoWorkingSpaceCard from "components/Co-workingSpace/CoWorkingSpaceCard";
 import NearbyCard from "components/Co-workingSpace/NearbyCard"
 import { coWorkingSpaceData, nearbyCardData } from "@/utils"
-import Link from "next/link";
 
 const CoWorkingSpace: NextPage = () => {
   return (
@@ -59,6 +58,7 @@ const CoWorkingSpace: NextPage = () => {
 
                 {coWorkingSpaceData.map((coWorkingSpace) => (
                   <CoWorkingSpaceCard
+                    key={coWorkingSpace.id}
                     name={coWorkingSpace.name}
                     distance={coWorkingSpace.distance}
                     amount={coWorkingSpace.amount}
@@ -77,6 +77,7 @@ const CoWorkingSpace: NextPage = () => {
             <div className="afri-container grid gap-8 md:grid-cols-3">
               {nearbyCardData.map((nearbySpace) => (
                 <NearbyCard
+                  key={nearbySpace.id}
                   name={nearbySpace.name}
                   distance={nearbySpace.distance}
                   amount={nearbySpace.amount}
