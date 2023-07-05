@@ -1,15 +1,11 @@
 import Link from "next/link";
 
 type FooterItems = {
-  title: string,
-  items: { title: string, url: string, external: boolean }[]
-}
-
-
+  title: string;
+  items: { title: string; url: string; external: boolean }[];
+};
 
 const Footer = (): JSX.Element => {
-
-
   const footer: FooterItems[] = [
     {
       title: "talents",
@@ -35,7 +31,7 @@ const Footer = (): JSX.Element => {
     {
       title: "others",
       items: [
-        { external: false, title: "co-working space", url: "#" },
+        { external: false, title: "co-working space", url: "/co-workingSpace" },
         { external: false, title: "forum", url: "#" },
         { external: false, title: "blogs & news", url: "/blog" },
         { external: false, title: "events", url: "#" },
@@ -79,7 +75,10 @@ const Footer = (): JSX.Element => {
               <ul className="space-y-3 text-xs sm:text-sm md:text-base">
                 {item.items.map((subItems: any, index: number) => (
                   <li key={index} className="capitalize">
-                    <Link href={subItems.url} target={subItems.external ? '_blank' : '_self'}>
+                    <Link
+                      href={subItems.url}
+                      target={subItems.external ? "_blank" : "_self"}
+                    >
                       {subItems.title}
                     </Link>
                   </li>
