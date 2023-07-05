@@ -196,8 +196,6 @@ export const applicantsList = [
   },
 ];
 
-
-
 export const employerData = [
   {
     id: 1,
@@ -669,3 +667,101 @@ export const availableSpaceTabsData = [
     { id: 6, value: "computersMacs", label:  "Computers (Macs)"},
     { id: 6, value: "ergonomicChairs", label:  "Ergonomic Chairs"},
   ];
+type ProfileT = {
+  fullName: string;
+  email: string;
+  phone: string;
+  location: string;
+  description: string;
+  job: {
+    title: string;
+    company: string;
+    category: string;
+  };
+  skills: string[];
+  languages: {
+    name: string;
+    level: string;
+  }[];
+};
+
+export const userProfile: ProfileT = {
+  fullName: "Adaeze Ruby",
+  email: "someone@email.com",
+  phone: "09087654321",
+  location: "Lagos, Nigeria",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus tempor nec venenatis, dolor. Et vestibulum massa leo erat adipiscing nunc pulvinar. ",
+  job: {
+    title: "Product Designer",
+    company: "Afrisplash",
+    category: "Full Time",
+  },
+  skills: ["Design", "Tech", "UI/UX"],
+  languages: [
+    { name: "English", level: "Fluent" },
+    { name: "French", level: "Advanced" },
+  ],
+};
+
+type JobExpT = {
+  title: string;
+  company: string;
+  duration: string;
+  jobDesc: string;
+};
+
+export const userExperience: JobExpT[] = [
+  {
+    title: "UI/UX Designer",
+    company: "Microsoft",
+    duration: "2008 - 2010",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "Product Designer",
+    company: "Versuspay",
+    duration: "2016- 2018",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "Product Designer",
+    company: "Afrisplash",
+    duration: "2020 - Present",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+];
+
+type UserEducationT = {
+  title: string;
+  company: string;
+  duration: string;
+  jobDesc: string;
+};
+
+export const userEducation: UserEducationT[] = [
+  {
+    title: "Agba Designer",
+    company: "Open Classrooms",
+    duration: "2020 - Present",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "UI/UX Designer",
+    company: "ATBU Bauchi",
+    duration: "2020 - Present",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "UI/UX Designer",
+    company: "Youtube Design School",
+    duration: "2020 - Present",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    title: "UI/UX Designer",
+    company: "Harvard Design School",
+    duration: "2020 - Present",
+    jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+];

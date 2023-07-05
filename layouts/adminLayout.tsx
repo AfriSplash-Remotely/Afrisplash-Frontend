@@ -62,7 +62,9 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
             avatarText="Ready to interview"
             handleShowSidebar={handleShowSidebar}
           />
-          <main>{children}</main>
+          <main>
+            <div className="py-8">{children}</div>
+          </main>
         </div>
       </div>
     </div>
