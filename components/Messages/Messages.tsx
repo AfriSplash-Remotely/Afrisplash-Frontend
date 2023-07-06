@@ -10,10 +10,11 @@ import { messageList } from "@/utils/Messages";
 const Messages: FC = () => {
   const [activeUser, setActiveUser] = useState(1);
 
+
   return (
     <section className="space-y-5 py-5 px-3 font-['Inter']">
       <h2 className="text-3xl font-bold text-[#2B2B2B]">All Messages</h2>
-      <div className="my-5 rounded-md border border-light_grey lg:flex lg:h-[550px] xl:h-[600px]">
+      <div className="my-5 rounded-md border border-light_grey flex lg:max-h-min  lg:h-[550px] xl:h-[600px]">
         {/* list of messages */}
         <div
           className={`${styles.resize} p-5 w-full lg:w-80 xl:w-96 border-r border-light_grey lg:h-[550px] xl:h-[600px] overflow-y-hidden`}
