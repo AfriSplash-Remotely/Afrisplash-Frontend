@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    gap: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    flex: 0 0 200px;
+    width: 100%;
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        width: 25%;
+    }
+}
