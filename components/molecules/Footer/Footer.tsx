@@ -69,12 +69,11 @@ const Footer = (): JSX.Element => {
     },
   ];
 
-  const policies: PolicyItems[] =[
-    { title: 'Terms of use', url:"/policies/terms-of-use"},
-    { title: 'Privacy policy', url: "/policies/privacy-policy" },
-    { title: 'Copyright policy', url: "/policies/copyright-policy" },
-
-  ]
+  const policies: PolicyItems[] = [
+    { title: "Terms of use", url: "/terms" },
+    { title: "Privacy policy", url: "/privacy" },
+    { title: "Copyright policy", url: "/copyright-policy" },
+  ];
   return (
     <footer className="bg-dark_blue w-full py-5">
       <div className="w-11/12 md:w-10/12 mx-auto space-y-12">
