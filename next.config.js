@@ -13,6 +13,7 @@ const config = {
   images: {
     domains: ["images.unsplash.com", "source.unsplash.com"],
   },
+  swcMinify: true,
 };
 
 const nextConfig = withPWA({
@@ -20,4 +21,20 @@ const nextConfig = withPWA({
   disable: !isProduction,
 })(config);
 
-module.exports = nextConfig;
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    providerImportSource: "@mdx-js/react",
+  },
+});
+
+
+
+module.exports = nextConfig
+
+module.exports = withMDX({
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+});
