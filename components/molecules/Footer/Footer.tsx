@@ -2,9 +2,15 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 type FooterItems = {
-  title: string;
-  items: { title: string; url: string; external: boolean }[];
-};
+  title: string,
+  items: { title: string, url: string, external: boolean }[]
+}
+
+type PolicyItems = {
+  title:string,
+  url:string
+}
+
 
 const Footer = (): JSX.Element => {
   const { t: translate } = useTranslation("home");
@@ -99,6 +105,12 @@ const Footer = (): JSX.Element => {
       ],
     },
   ];
+
+  const policies: PolicyItems[] = [
+    { title: `${translate("Terms of use")}`, url: "/terms" },
+    { title: `${translate("Privacy policy")}`, url: "/privacy" },
+    { title: `${translate("Copyright policy")}`, url: "/copyright-policy" },
+  ];
   return (
     <footer className="bg-dark_blue w-full py-5">
       <div className="w-11/12 md:w-10/12 mx-auto space-y-12">
@@ -135,9 +147,11 @@ const Footer = (): JSX.Element => {
           </section>
           <section>
             <ul className="flex space-x-3  text-sm lg:text-base">
-              <li>{translate("Terms of use")}</li>
-              <li>{translate("Privacy policy")}</li>
-              <li>{translate("Copyright policy")}</li>
+              {policies.map((policy: PolicyItems, index) => (
+                <li key={index}>
+                  <Link href={policy.url}>{policy.title}</Link>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
