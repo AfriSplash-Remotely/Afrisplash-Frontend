@@ -55,7 +55,7 @@ const LocateMap: React.FC<MapProps> = ({ address }) => {
             <Head>
                 <Script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`} />
             </Head>
-            <div className='border-2 border-map_border w-[100%]  md:h-[435px] h-[355px]' ref={mapRef} />
+            <div className='border-2  border-map_border w-[100%]  md:h-[435px] h-[355px]' ref={mapRef} />
         </div>
     );
 };
