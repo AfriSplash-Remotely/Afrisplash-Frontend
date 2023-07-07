@@ -1,9 +1,15 @@
 import Link from "next/link";
 
 type FooterItems = {
-  title: string;
-  items: { title: string; url: string; external: boolean }[];
-};
+  title: string,
+  items: { title: string, url: string, external: boolean }[]
+}
+
+type PolicyItems = {
+  title:string,
+  url:string
+}
+
 
 const Footer = (): JSX.Element => {
   const footer: FooterItems[] = [
@@ -60,6 +66,12 @@ const Footer = (): JSX.Element => {
       ],
     },
   ];
+
+  const policies: PolicyItems[] = [
+    { title: "Terms of use", url: "/terms" },
+    { title: "Privacy policy", url: "/privacy" },
+    { title: "Copyright policy", url: "/copyright-policy" },
+  ];
   return (
     <footer className="bg-dark_blue w-full py-5">
       <div className="w-11/12 md:w-10/12 mx-auto space-y-12">
@@ -96,9 +108,11 @@ const Footer = (): JSX.Element => {
           </section>
           <section>
             <ul className="flex space-x-3  text-sm lg:text-base">
-              <li>Terms of use</li>
-              <li>Privacy policy</li>
-              <li>Copyright policy</li>
+              {policies.map((policy: PolicyItems, index) => (
+                <li key={index}>
+                  <Link href={policy.url}>{policy.title}</Link>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
