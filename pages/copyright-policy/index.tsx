@@ -1,4 +1,5 @@
 import React from "react";
+import { GetStaticProps } from 'next';
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
@@ -16,7 +17,7 @@ interface PrivacyPolicyProps {
   privacyPolicyData: PrivacyPolicyData;
 }
 
-const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps) => {
+const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps):JSX.Element => {
   const { content, data: metaData } = privacyPolicyData;
 
   return (
@@ -29,7 +30,7 @@ const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps(): GetStaticProps {
   const filePath = path.join(
     process.cwd(),
     "content",
