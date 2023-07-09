@@ -16,7 +16,7 @@ interface ITermsDataProps {
   termsData: ITermsData;
 }
 
-const Terms = ({ termsData }: ITermsDataProps) => {
+const Terms = ({ termsData }: ITermsDataProps):JSX.Element => {
   const { content, data: metaData } = termsData;
 
   return (
@@ -29,7 +29,7 @@ const Terms = ({ termsData }: ITermsDataProps) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps():Promise<object> {
   const filePath = path.join(process.cwd(), "content", "terms.md");
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { content, data } = matter(fileContent) as GrayMatterFile<string>;

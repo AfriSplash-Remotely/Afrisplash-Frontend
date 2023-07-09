@@ -1,5 +1,4 @@
 import React from "react";
-import { GetStaticProps } from 'next';
 import fs from "fs";
 import path from "path";
 import matter, { GrayMatterFile } from "gray-matter";
@@ -30,7 +29,7 @@ const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps):JSX.Elemen
   );
 };
 
-export async function getStaticProps(): GetStaticProps {
+export async function getStaticProps():Promise<object> {
   const filePath = path.join(
     process.cwd(),
     "content",

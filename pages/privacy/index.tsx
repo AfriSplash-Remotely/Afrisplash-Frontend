@@ -16,7 +16,7 @@ interface PrivacyPolicyProps {
   privacyPolicyData: PrivacyPolicyData;
 }
 
-const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps) => {
+const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps):JSX.Element => {
   const { content, data: metaData } = privacyPolicyData;
 
   return (
@@ -29,7 +29,7 @@ const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps():Promise<object> {
   const filePath = path.join(process.cwd(), "content", "privacy-policy.md");
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { content, data } = matter(fileContent) as GrayMatterFile<string>;
