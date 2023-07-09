@@ -1,79 +1,84 @@
-import React from "react";
-import ReactMarkdown, { Components } from "react-markdown";
+import React, { FC, ReactNode, useRef } from "react";
+import ReactMarkdown from "react-markdown";
 import styles from "./style.module.scss";
-interface PrivacyPolicyProps {
+
+interface LegalProps {
   content: string;
 }
-function chainUp(str: string) {
-  return str?.replace(/\s+/g, "-").toLowerCase();
+
+function chainUp(str: string): string {
+  return str?.replace(/\s+/g, "-").toLowerCase() ?? "";
 }
 
-const renderers: Partial<Components> = {
-  h1: ({ children, ...props }) => {
-    const { node } = props;
-    const id = children[0]?.toString().replace(/\s+/g, "-").toLowerCase();
-    const headingRef = React.useRef<HTMLHeadingElement>(null);
+interface HeadingProps {
+  children?: ReactNode;
+  node?: any;
+}
 
-    const handleClick = () => {
-      if (headingRef.current) {
-        headingRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    };
+function useScrollIntoView(): {
+  headingRef: React.RefObject<HTMLHeadingElement>;
+  handleClick: () => void;
+} {
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
-    return (
-      <h2 id={id} className="text-primary_green" ref={headingRef}>
-        <a href={`#${id}`} onClick={handleClick}>
-          {children}
-        </a>
-      </h2>
-    );
-  },
-  h2: ({ children, ...props }) => {
-    const { node } = props;
-    const id = children[0]?.toString().replace(/\s+/g, "-").toLowerCase();
-    const headingRef = React.useRef<HTMLHeadingElement>(null);
+  const handleClick = () => {
+    if (headingRef.current) {
+      headingRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-    const handleClick = () => {
-      if (headingRef.current) {
-        headingRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    };
+  return { headingRef, handleClick };
+}
 
-    return (
-      <h2 id={id} ref={headingRef} className="text-primary_green">
-        <a href={`#${id}`} onClick={handleClick}>
-          {children}
-        </a>
-      </h2>
-    );
-  },
-  h3: ({ children, ...props }) => {
-    const { node } = props;
+const H1: FC<HeadingProps> = ({ children }) => {
+  const { headingRef, handleClick } = useScrollIntoView();
+  const id =
+    typeof children === "string" ? chainUp(children.toString()) : undefined;
 
-    const id = children[0]?.toString().replace(/\s+/g, "-").toLowerCase();
-    const headingRef = React.useRef<HTMLHeadingElement>(null);
-
-    const handleClick = () => {
-      if (headingRef.current) {
-        headingRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    };
-
-    return (
-      <h3
-        id={id}
-        className="text-primary_green"
-        ref={headingRef}
-      >
-        <a href={`#${id}`} onClick={handleClick}>
-          {children}
-        </a>
-      </h3>
-    );
-  },
+  return (
+    <h1 id={id} className="text-primary_green" ref={headingRef}>
+      <a href={`#${id}`} onClick={handleClick}>
+        {children}
+      </a>
+    </h1>
+  );
 };
 
-const Legal: React.FC<PrivacyPolicyProps> = ({ content }) => {
+const H2: FC<HeadingProps> = ({ children }) => {
+  const { headingRef, handleClick } = useScrollIntoView();
+  const id =
+    typeof children === "string" ? chainUp(children.toString()) : undefined;
+
+  return (
+    <h2 id={id} className="text-primary_green" ref={headingRef}>
+      <a href={`#${id}`} onClick={handleClick}>
+        {children}
+      </a>
+    </h2>
+  );
+};
+
+const H3: FC<HeadingProps> = ({ children }) => {
+  const { headingRef, handleClick } = useScrollIntoView();
+  const id =
+    typeof children === "string" ? chainUp(children.toString()) : undefined;
+
+  return (
+    <h3 id={id} className="text-primary_green" ref={headingRef}>
+      <a href={`#${id}`} onClick={handleClick}>
+        {children}
+      </a>
+    </h3>
+  );
+};
+
+const renderers: any = {
+  h1: H1,
+  h2: H2,
+  h3: H3,
+};
+
+const Legal: FC<LegalProps> = ({ content }) => {
   const headings = content.match(/#{2,}(.+)/g);
 
   return (
@@ -84,7 +89,7 @@ const Legal: React.FC<PrivacyPolicyProps> = ({ content }) => {
           {headings &&
             headings.map((heading, index) => {
               const title = heading.replace(/#{2,}\s*/g, "");
-              const anchor = title.replace(/\s+/g, "-").toLowerCase();
+              const anchor = chainUp(title);
 
               return (
                 <li key={index}>
