@@ -1,22 +1,23 @@
-import React from "react";
 import fs from "fs";
 import path from "path";
+import React from "react";
+import type { InferGetStaticPropsType, GetStaticProps, NextPage } from "next";
 import matter, { GrayMatterFile } from "gray-matter";
 import GeneralLayout from "layouts/generalLayout";
 import PrivacyPolicy from "@/components/Legal";
 import styles from ".././../styles/legal.module.scss";
 
-interface PrivacyPolicyData {
+interface PolicyData {
   content: string;
-  data: {
-    title: string;
-  };
+  data: any;
 }
 interface PrivacyPolicyProps {
-  privacyPolicyData: PrivacyPolicyData;
+  privacyPolicyData: PolicyData;
 }
 
-const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps) => {
+const PrivacyPolicyPage: NextPage<PrivacyPolicyProps> = ({
+  privacyPolicyData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { content, data: metaData } = privacyPolicyData;
 
   return (
@@ -29,7 +30,9 @@ const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<{
+  privacyPolicyData: PolicyData;
+}> = async () => {
   const filePath = path.join(process.cwd(), "content", "privacy-policy.md");
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { content, data } = matter(fileContent) as GrayMatterFile<string>;
@@ -42,5 +45,5 @@ export async function getStaticProps() {
       },
     },
   };
-}
+};
 export default PrivacyPolicyPage;

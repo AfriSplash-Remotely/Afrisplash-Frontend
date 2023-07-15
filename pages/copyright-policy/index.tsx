@@ -1,50 +1,46 @@
-import React from "react";
 import fs from "fs";
 import path from "path";
+import React from "react";
+import type { InferGetStaticPropsType, GetStaticProps, NextPage } from "next";
 import matter, { GrayMatterFile } from "gray-matter";
 import GeneralLayout from "layouts/generalLayout";
-import PrivacyPolicy from "@/components/Legal";
+import Legal from "@/components/Legal";
 import styles from ".././../styles/legal.module.scss";
 
-interface PrivacyPolicyData {
+interface PolicyData {
   content: string;
-  data: {
-    title: string;
-  };
-}
-interface PrivacyPolicyProps {
-  privacyPolicyData: PrivacyPolicyData;
+  data: any;
 }
 
-const PrivacyPolicyPage = ({ privacyPolicyData }: PrivacyPolicyProps) => {
-  const { content, data: metaData } = privacyPolicyData;
+const CopyRightPolicyPage: NextPage<{ copyRightPolicyData: PolicyData }> = ({
+  copyRightPolicyData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { content, data: metaData } = copyRightPolicyData;
 
   return (
     <GeneralLayout>
       <div className={styles.legalDocs}>
         <h1 className="text-3xl font-bold">{metaData.title}</h1>
-        <PrivacyPolicy content={content} />
+        <Legal content={content} />
       </div>{" "}
     </GeneralLayout>
   );
 };
 
-export async function getStaticProps() {
-  const filePath = path.join(
-    process.cwd(),
-    "content",
-    "copyright-policy.md"
-  );
+export const getStaticProps: GetStaticProps<{
+  copyRightPolicyData: PolicyData;
+}> = async () => {
+  const filePath = path.join(process.cwd(), "content", "copyright-policy.md");
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { content, data } = matter(fileContent) as GrayMatterFile<string>;
 
   return {
     props: {
-      privacyPolicyData: {
+      copyRightPolicyData: {
         content,
         data,
       },
     },
   };
-}
-export default PrivacyPolicyPage;
+};
+export default CopyRightPolicyPage;

@@ -1,6 +1,7 @@
-import React from "react";
 import fs from "fs";
 import path from "path";
+import React from "react";
+import type { InferGetStaticPropsType, GetStaticProps, NextPage } from "next";
 import matter, { GrayMatterFile } from "gray-matter";
 import GeneralLayout from "layouts/generalLayout";
 import Legal from "@/components/Legal";
@@ -8,15 +9,15 @@ import styles from ".././../styles/legal.module.scss";
 
 interface ITermsData {
   content: string;
-  data: {
-    title: string;
-  };
+  data: any;
 }
 interface ITermsDataProps {
   termsData: ITermsData;
 }
 
-const Terms = ({ termsData }: ITermsDataProps) => {
+const Terms: NextPage<ITermsDataProps> = ({
+  termsData,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { content, data: metaData } = termsData;
 
   return (
@@ -29,7 +30,9 @@ const Terms = ({ termsData }: ITermsDataProps) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<{
+  termsData: ITermsData;
+}> = async () => {
   const filePath = path.join(process.cwd(), "content", "terms.md");
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { content, data } = matter(fileContent) as GrayMatterFile<string>;
@@ -42,5 +45,5 @@ export async function getStaticProps() {
       },
     },
   };
-}
+};
 export default Terms;
