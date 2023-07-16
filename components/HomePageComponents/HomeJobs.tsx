@@ -6,7 +6,7 @@ import { generateUniqueId } from "@/utils/helper";
 import { TFunction } from "i18next";
 
 interface Props {
-  translate: TFunction<"home", undefined>;
+  translate: TFunction<["common", "home", "footer"], undefined>;
 }
 
 function HomeJobs({ translate }: Props): JSX.Element {

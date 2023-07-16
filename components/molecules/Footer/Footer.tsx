@@ -1,122 +1,10 @@
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-
-type FooterItems = {
-<<<<<<< HEAD
-  title: string,
-  items: { title: string, url: string, external: boolean }[]
-}
-
-type PolicyItems = {
-  title:string,
-  url:string
-}
-
-=======
-  title: string;
-  items: { title: string; url: string; external: boolean }[];
-};
->>>>>>> fdcd85b (translated header and footer text)
+import { FooterItems, footer, policies } from "./footer.data";
 
 const Footer = (): JSX.Element => {
-  const { t: translate } = useTranslation("home");
+  const { t: translate } = useTranslation(["footer", "common"]);
 
-  const footer: FooterItems[] = [
-    {
-      title: `${translate("talents")}`,
-      items: [
-        {
-          external: false,
-          title: `${translate("product designers")}`,
-          url: "#",
-        },
-        {
-          external: false,
-          title: `${translate("website developers")}`,
-          url: "#",
-        },
-        {
-          external: false,
-          title: `${translate("software engineers")}`,
-          url: "#",
-        },
-        {
-          external: false,
-          title: `${translate("data analysts")}`,
-          url: "#",
-        },
-        {
-          external: false,
-          title: `${translate("brand identity designers")}`,
-          url: "#",
-        },
-        {
-          external: false,
-          title: `${translate("product managers")}`,
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: `${translate("about")}`,
-      items: [
-        {
-          external: false,
-          title: `${translate("afrisplash")}`,
-          url: "/about-us",
-        },
-        { external: false, title: `${translate("careers")}`, url: "#" },
-        { external: false, title: `${translate("FAQs")}`, url: "#" },
-        { external: false, title: `${translate("our team")}`, url: "#" },
-        { external: false, title: `${translate("contact")}`, url: "#" },
-      ],
-    },
-    {
-      title: `${translate("others")}`,
-      items: [
-        {
-          external: false,
-          title: `${translate("co-working space")}`,
-          url: "#",
-        },
-        { external: false, title: `${translate("forum")}`, url: "#" },
-        {
-          external: false,
-          title: `${translate("blogs & news")}`,
-          url: "/blog",
-        },
-        { external: false, title: `${translate("events")}`, url: "#" },
-      ],
-    },
-    {
-      title: `${translate("social")}`,
-      items: [
-        {
-          external: true,
-          title: `${translate("twitter")}`,
-          url: "https://twitter.com/Afrisplash",
-        },
-        {
-          external: true,
-          title: `${translate("linkedin")}`,
-          url: "https://www.linkedin.com/company/afrisplash/",
-        },
-        {
-          external: true,
-          title: `${translate("facebook")}`,
-          url: "https://web.facebook.com/AfriSplashRemotely",
-        },
-        { external: true, title: `${translate("instagram")}`, url: "#" },
-        { external: true, title: `${translate("product hunt")}`, url: "#" },
-      ],
-    },
-  ];
-
-  const policies: PolicyItems[] = [
-    { title: "Terms of use", url: "/terms" },
-    { title: "Privacy policy", url: "/privacy" },
-    { title: "Copyright policy", url: "/copyright-policy" },
-  ];
   return (
     <footer className="bg-dark_blue w-full py-5">
       <div className="w-11/12 md:w-10/12 mx-auto space-y-12">
@@ -127,7 +15,7 @@ const Footer = (): JSX.Element => {
               className="text-white_2 mx-5 py-3 w-4/12 sm:w-3/12 md:w-max space-y-4"
             >
               <div className="capitalize font-bold text-sm md:text-base">
-                {item.title}
+                {translate(item.title)}
               </div>
               <ul className="space-y-3 text-xs sm:text-sm md:text-base">
                 {item.items.map((subItems: any, index: number) => (
@@ -136,7 +24,7 @@ const Footer = (): JSX.Element => {
                       href={subItems.url}
                       target={subItems.external ? "_blank" : "_self"}
                     >
-                      {subItems.title}
+                      {translate(subItems.title)}
                     </Link>
                   </li>
                 ))}
@@ -153,17 +41,11 @@ const Footer = (): JSX.Element => {
           </section>
           <section>
             <ul className="flex space-x-3  text-sm lg:text-base">
-<<<<<<< HEAD
-              {policies.map((policy: PolicyItems, index) => (
+              {policies.map((policy, index) => (
                 <li key={index}>
-                  <Link href={policy.url}>{policy.title}</Link>
+                  <Link href={policy.url}>{translate(policy.title)}</Link>
                 </li>
               ))}
-=======
-              <li>{translate("Terms of use")}</li>
-              <li>{translate("Privacy policy")}</li>
-              <li>{translate("Copyright policy")}</li>
->>>>>>> fdcd85b (translated header and footer text)
             </ul>
           </section>
         </div>

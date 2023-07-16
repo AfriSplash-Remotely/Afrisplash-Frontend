@@ -1,3 +1,4 @@
+import React from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -20,10 +21,16 @@ import {
   Newsletter,
   Talents,
 } from "@/components/HomePageComponents";
-import React from "react";
 
 const Home: NextPage = () => {
-  const { t: translate } = useTranslation("home");
+  const lang = ["common", "home", "footer"];
+  const { t: translate, i18n } = useTranslation("home", {
+    bindI18n: "languageChanged loaded",
+  });
+
+  React.useEffect(() => {
+    i18n.reloadResources(i18n.resolvedLanguage, lang);
+  }, []);
 
   const globalCompanies = [
     chipper,
@@ -79,7 +86,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({
 }: any) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"], null, ["en", "no"])),
+      ...(await serverSideTranslations(
+        locale,
+        ["home", "common", "footer"],
+        null,
+        ["en", "no"]
+      )),
     },
   };
 };
