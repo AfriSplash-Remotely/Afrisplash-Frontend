@@ -1,4 +1,15 @@
 {
+  "Home": "Ikhaya",
+  "Resources": "Izinsiza",
+  "Candidates": "Abazokhethwa",
+  "Employer": "Umqashi",
+  "Hire Talent": "Qasha Talent",
+  "Remote Jobs": "Imisebenzi Ekude",
+  "Pricing": "Intengo",
+
+  "Sign In": "Ngena ngemvume",
+  "Post Jobs": "Thumela Imisebenzi",
+
   "The": "",
   "gateway": "Isango",
   "to africa": "kwe afrika",
@@ -40,5 +51,38 @@
   "Get the gist on the latest jobs, career tips, and community activities": "Thola umongo wemisebenzi yakamuva, amathiphu emisebenzi, nemisebenzi yomphakathi",
   "Your Full Name": "Igama Lakho Eliphelele",
   "Your Email": "Imeyili yakho",
-  "Sign me up": "Yazi"
+  "Sign me up": "Yazi",
+
+  "talents": "amathalente",
+  "product designers": "abaklami bomkhiqizo",
+  "website developers": "abathuthukisi bewebhusayithi",
+  "software engineers": "onjiniyela besoftware",
+  "data analysts": "abahlaziyi bedatha",
+  "brand identity designers": "abaklami bezimpawu zomkhiqizo",
+  "product managers": "abaphathi bomkhiqizo",
+
+  "about": "mayelana",
+  "afrisplash": "afrisplash",
+  "careers": "imisebenzi",
+  "FAQs": "Imibuzo Evame Ukubuzwa",
+  "our team": "ithimba lethu",
+  "contact": "othintana naye",
+
+  "others": "abanye",
+  "co-working space": "indawo yokusebenza ngokubambisana",
+  "forum": "inkundla",
+  "blogs & news": "amabhulogi & izindaba",
+  "events": "imicimbi",
+
+  "social": "social",
+  "twitter": "i-twitter",
+  "linkedin": "linkedin",
+  "facebook": "facebook",
+  "instagram": "i-instagram",
+  "product hunt": "ukuzingela umkhiqizo",
+
+  "afrisplash remotely. all rights reserved": "afrisplash ukude. wonke Amalungelo Agodliwe",
+  "Terms of use": "Imigomo Yokusebenzisa",
+  "Privacy policy": "Inqubomgomo yobumfihlo",
+  "Copyright policy": "Inqubomgomo ye-copyright"
 }
