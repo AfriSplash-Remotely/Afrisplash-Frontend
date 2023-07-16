@@ -7,21 +7,14 @@ import Navigation from "components/molecules/Navigation/Navigation";
 
 const GeneralProps = {
   children: PropTypes.node.isRequired,
-  locales: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
 
 const GeneralLayout: NextPage<InferProps<typeof GeneralProps>> = ({
   children,
-  locales,
-  handleClick,
 }) => {
-  const router = useRouter();
-  console.log(router.pathname);
-
   return (
     <div className="w-full">
-      <Navigation locales={locales} handleClick={handleClick} />
+      <Navigation />
       <main className="relative mx-auto">{children}</main>
       <Footer />
     </div>

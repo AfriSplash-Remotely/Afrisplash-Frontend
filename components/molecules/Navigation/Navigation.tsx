@@ -24,13 +24,27 @@ interface headerType {
   }[];
 }
 
-interface Props {
-  locales: Array<string>;
-  handleClick: (l: string) => void;
-}
 
-const Navigation = ({ locales, handleClick }: Props): JSX.Element => {
+const Navigation = (): JSX.Element => {
   const router = useRouter();
+
+  const languages: { language: string; tag: string }[] = [
+    { language: "Enaglish", tag: "en" },
+    { language: "French", tag: "fr" },
+    { language: "Arabic", tag: "ara" },
+    { language: "Swahili", tag: "sw" },
+    { language: "Zulu", tag: "zu" },
+    { language: "Tigrinya", tag: "ti" },
+    { language: "Igbo", tag: "ig" },
+    { language: "Hausa", tag: "ha" },
+    { language: "Yoruba", tag: "yo" },
+  ];
+
+  const handleClick = (locale: string) => {
+    router.push(router.pathname, undefined, {
+      locale: locale,
+    });
+  };
 
   const header: headerType[] = [
     {
@@ -165,19 +179,21 @@ const Navigation = ({ locales, handleClick }: Props): JSX.Element => {
                 >
                   <Menu.Items className="absolute right-0 mt-4 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none py-1">
                     <div className="px-1 py-3">
-                      {locales.map((locale) => {
+                      {languages.map((locale) => {
                         return (
-                          <Menu.Item key={locale}>
+                          <Menu.Item key={locale.tag}>
                             {({ active }) => (
                               <button
-                                onClick={() => handleClick(locale)}
+                                onClick={() => handleClick(locale.tag)}
                                 className={`${
                                   active
                                     ? "bg-primary_green text-white"
+                                    : router.locale === locale.tag
+                                    ? " bg-green-100 text-primary_green "
                                     : "text-gray-900"
                                 } flex w-40 items-center rounded-md m-auto px-2 py-2 text-sm`}
                               >
-                                {locale}
+                                {locale.language}
                               </button>
                             )}
                           </Menu.Item>
