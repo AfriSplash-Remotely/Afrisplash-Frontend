@@ -1,4 +1,15 @@
 {
+  "Home": "Nyumbani",
+  "Resources": "Rasilimali",
+  "Candidates": "Wagombea",
+  "Employer": "Mwajiri",
+  "Hire Talent": "Kuajiri Talent",
+  "Remote Jobs": "Kazi za Mbali",
+  "Pricing": "Bei",
+
+  "Sign In": "Weka sahihi",
+  "Post Jobs": "Chapisha Ajira",
+
   "The": "",
   "gateway": "Lango",
   "to africa": "kwa afrika",
@@ -40,5 +51,38 @@
   "Get the gist on the latest jobs, career tips, and community activities": "Pata maelezo kuhusu kazi za hivi punde, vidokezo vya kazi na shughuli za jumuiya",
   "Your Full Name": "Jina lako kamili",
   "Your Email": "Barua pepe yako",
-  "Sign me up": "Niandikishe"
+  "Sign me up": "Niandikishe",
+
+  "talents": "vipaji",
+  "product designers": "wabunifu wa bidhaa",
+  "website developers": "watengenezaji wa tovuti",
+  "software engineers": "wahandisi wa programu",
+  "data analysts": "wachambuzi wa data",
+  "brand identity designers": "wabunifu wa utambulisho wa chapa",
+  "product managers": "wasimamizi wa bidhaa",
+
+  "about": "kuhusu",
+  "afrisplash": "afrisplash",
+  "careers": "taaluma",
+  "FAQs": "Maswali Yanayoulizwa Mara kwa Mara",
+  "our team": "timu yetu",
+  "contact": "mawasiliano",
+
+  "others": "wengine",
+  "co-working space": "nafasi ya kufanya kazi pamoja",
+  "forum": "jukwaa",
+  "blogs & news": "blogu na habari",
+  "events": "matukio",
+
+  "social": "kijamii",
+  "twitter": "twitter",
+  "linkedin": "linkedin",
+  "facebook": "facebook",
+  "instagram": "instagram",
+  "product hunt": "uwindaji wa bidhaa",
+
+  "afrisplash remotely. all rights reserved": "afrisplash kwa mbali. Haki zote zimehifadhiwa",
+  "Terms of use": "Masharti ya matumizi",
+  "Privacy policy": "Sera ya faragha",
+  "Copyright policy": "Sera ya hakimiliki"
 }

@@ -1,4 +1,15 @@
 {
+  "Home": "ገዛ",
+  "Resources": "ምንጭታት",
+  "Candidates": "ሕጹያት",
+  "Employer": "ኣስራሒ",
+  "Hire Talent": "ተውህቦ ምቑጻር",
+  "Remote Jobs": "ርሑቕ ስራሕ",
+  "Pricing": "ዋጋ ምውሳን",
+
+  "Sign In": "ምእታው",
+  "Post Jobs": "ፖስት ስራሕ",
+
   "The": "እቲ",
   "gateway": "ኣፍደገ",
   "to africa": "ናብ ኣፍሪቃ",
@@ -40,5 +51,38 @@
   "Get the gist on the latest jobs, career tips, and community activities": "ኣብ እዋናዊ ስራሕቲ፡ ምኽርታት ሞያን ንጥፈታት ማሕበረሰብን ቁምነገር ረኸብ",
   "Your Full Name": "ምሉእ ስምካ",
   "Your Email": "ኢመይልካ",
-  "Sign me up": "ተመዝገቡኒ።"
+  "Sign me up": "ተመዝገቡኒ።",
+
+  "talents": "ተውህቦታት ኣለዎ።",
+  "product designers": "ዲዛይነራት ፍርያት",
+  "website developers": "ዌብሳይት ዝሰርሑ ትካላት",
+  "software engineers": "መሃንድሳት ሶፍትዌር",
+  "data analysts": "ተንተንቲ ዳታ",
+  "brand identity designers": "ዲዛይነራት መንነት ምልክት ንግዲ (brand identity designers)",
+  "product managers": "ኣካየድቲ ፍርያት",
+
+  "about": "ብዝዕባ",
+  "afrisplash": "afrisplash",
+  "careers": "ሞያታት",
+  "FAQs": "ሕቶታት ዝቐርብ ሕቶታት",
+  "our team": "ጋንታና",
+  "contact": "መርከቢ",
+
+  "others": "ካልኦት",
+  "co-working space": "ናይ ሓባር ስራሕ ቦታ",
+  "forum": "መድረኽ",
+  "blogs & news": "ብሎግስ & ዜናታት",
+  "events": "ፍጻመታት",
+
+  "social": "ማሕበራዊ",
+  "twitter": "twitter",
+  "linkedin": "linkedin",
+  "facebook": "facebook",
+  "instagram": "instagram",
+  "product hunt": "ሃድን ፍርያት",
+
+  "afrisplash remotely. all rights reserved": "afrisplash ብርሑቕ ምግባር። ኩሉ መሰላት ዝተሓለወ እዩ።",
+  "Terms of use": "ውዕል ኣጠቓቕማ",
+  "Privacy policy": "ፖሊሲ ውልቃዊ ሓበሬታ",
+  "Copyright policy": "ፖሊሲ መሰል ቅዳሕ"
 }

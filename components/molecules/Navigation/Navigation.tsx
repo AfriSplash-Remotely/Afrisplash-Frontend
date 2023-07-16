@@ -12,6 +12,7 @@ import Button from "../../atoms/Button/Button";
 import { motion } from "framer-motion";
 import { generateUniqueId } from "@/utils/helper";
 import { Menu, Transition } from "@headlessui/react";
+import { useTranslation } from "react-i18next";
 
 interface headerType {
   title: string;
@@ -24,12 +25,12 @@ interface headerType {
   }[];
 }
 
-
 const Navigation = (): JSX.Element => {
+  const { t: translate } = useTranslation("home");
   const router = useRouter();
 
   const languages: { language: string; tag: string }[] = [
-    { language: "Enaglish", tag: "en" },
+    { language: "English", tag: "en" },
     { language: "French", tag: "fr" },
     { language: "Arabic", tag: "ara" },
     { language: "Swahili", tag: "sw" },
@@ -48,44 +49,44 @@ const Navigation = (): JSX.Element => {
 
   const header: headerType[] = [
     {
-      title: "Home",
+      title: `${translate("Home")}`,
       icon: "",
       link: "/",
       active: true,
     },
     {
-      title: "Resources",
+      title: `${translate("Resources")}`,
       icon: <ChevronDownIcon className="w-5 h-5" />,
       link: "#",
       active: false,
       dropDown: [{ title: "item", href: "#" }],
     },
     {
-      title: "candidates",
+      title: `${translate("Candidates")}`,
       icon: "",
       link: "/candidates",
       active: false,
     },
     {
-      title: "employer",
+      title: `${translate("Employer")}`,
       icon: "",
       link: "/employer",
       active: false,
     },
     {
-      title: "Hire talent",
+      title: `${translate("Hire Talent")}`,
       icon: "",
       link: "/hire-talent",
       active: false,
     },
     {
-      title: "remote jobs",
+      title: `${translate("Remote Jobs")}`,
       icon: "",
       link: "/remote-jobs",
       active: false,
     },
     {
-      title: "Pricing",
+      title: `${translate("Pricing")}`,
       icon: "",
       link: "/pricing",
       active: false,
@@ -142,14 +143,14 @@ const Navigation = (): JSX.Element => {
                 type="filled"
                 // bgColor="dark_blue"
                 color="white"
-                text="sign in"
+                text={translate("Sign In")}
                 classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
                 onClick={() => changePath("/auth/login")}
               />
               <Button
                 type="bordered"
                 color="dark_blue"
-                text="Post jobs"
+                text={translate("Post Jobs")}
                 // borderColor="dark_blue"
                 classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-primary_green hover:text-white"
               />
