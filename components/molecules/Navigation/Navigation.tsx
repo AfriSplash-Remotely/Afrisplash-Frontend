@@ -1,12 +1,17 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, Fragment } from "react";
 import Image from "next/image";
-import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  LanguageIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import Button from "../../atoms/Button/Button";
 import { motion } from "framer-motion";
 import { generateUniqueId } from "@/utils/helper";
+import { Menu, Transition } from "@headlessui/react";
 
 interface headerType {
   title: string;
@@ -19,7 +24,12 @@ interface headerType {
   }[];
 }
 
-const Navigation = (): JSX.Element => {
+interface Props {
+  locales: Array<string>;
+  handleClick: (l: string) => void;
+}
+
+const Navigation = ({ locales, handleClick }: Props): JSX.Element => {
   const router = useRouter();
 
   const header: headerType[] = [
@@ -101,7 +111,8 @@ const Navigation = (): JSX.Element => {
                   <li
                     onClick={() => handleMenuClick(item, index)}
                     className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${
-                      item.active && "text-primary_green underline underline-offset-4"
+                      item.active &&
+                      "text-primary_green underline underline-offset-4"
                     }`}
                   >
                     <span>{item.title}</span>
@@ -131,6 +142,51 @@ const Navigation = (): JSX.Element => {
             </div>
             <div className="flex lg:hidden h-full items-center">
               <Bars3Icon className="w-8 h-6" />
+            </div>
+            <div>
+              <Menu as="div" className="relative inline-block text-left">
+                <Menu.Button
+                  title="Select language"
+                  className="inline-flex w-full justify-center rounded-md h-10 px-1 py-2"
+                >
+                  <LanguageIcon
+                    className="h-6 text-gray-500 inline-flex w-full justify-center"
+                    aria-hidden="true"
+                  />
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 mt-4 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none py-1">
+                    <div className="px-1 py-3">
+                      {locales.map((locale) => {
+                        return (
+                          <Menu.Item key={locale}>
+                            {({ active }) => (
+                              <button
+                                onClick={() => handleClick(locale)}
+                                className={`${
+                                  active
+                                    ? "bg-primary_green text-white"
+                                    : "text-gray-900"
+                                } flex w-40 items-center rounded-md m-auto px-2 py-2 text-sm`}
+                              >
+                                {locale}
+                              </button>
+                            )}
+                          </Menu.Item>
+                        );
+                      })}
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
             </div>
           </div>
         </header>
