@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "react-hot-toast";
+import { appWithTranslation } from 'next-i18next'
 import "../styles/globals.scss";
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
@@ -31,4 +32,4 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default MyApp;
+export default appWithTranslation(MyApp);
