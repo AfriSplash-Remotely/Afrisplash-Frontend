@@ -1,12 +1,18 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, Fragment } from "react";
 import Image from "next/image";
-import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  LanguageIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import Button from "../../atoms/Button/Button";
 import { motion } from "framer-motion";
 import { generateUniqueId } from "@/utils/helper";
+import { Menu, Transition } from "@headlessui/react";
+import { useTranslation } from "react-i18next";
 
 interface headerType {
   title: string;
@@ -20,48 +26,67 @@ interface headerType {
 }
 
 const Navigation = (): JSX.Element => {
+  const { t: translate } = useTranslation("home");
   const router = useRouter();
+
+  const languages: { language: string; tag: string }[] = [
+    { language: "English", tag: "en" },
+    { language: "French", tag: "fr" },
+    { language: "Arabic", tag: "ara" },
+    { language: "Swahili", tag: "sw" },
+    { language: "Zulu", tag: "zu" },
+    { language: "Tigrinya", tag: "ti" },
+    { language: "Igbo", tag: "ig" },
+    { language: "Hausa", tag: "ha" },
+    { language: "Yoruba", tag: "yo" },
+  ];
+
+  const handleClick = (locale: string) => {
+    router.push(router.pathname, undefined, {
+      locale: locale,
+    });
+  };
 
   const header: headerType[] = [
     {
-      title: "Home",
+      title: `${translate("Home")}`,
       icon: "",
       link: "/",
       active: true,
     },
     {
-      title: "Resources",
+      title: `${translate("Resources")}`,
       icon: <ChevronDownIcon className="w-5 h-5" />,
       link: "#",
       active: false,
       dropDown: [{ title: "item", href: "#" }],
     },
     {
-      title: "candidates",
+      title: `${translate("Candidates")}`,
       icon: "",
       link: "/candidates",
       active: false,
     },
     {
-      title: "employer",
+      title: `${translate("Employer")}`,
       icon: "",
       link: "/employer",
       active: false,
     },
     {
-      title: "Hire talent",
+      title: `${translate("Hire Talent")}`,
       icon: "",
       link: "/hire-talent",
       active: false,
     },
     {
-      title: "remote jobs",
+      title: `${translate("Remote Jobs")}`,
       icon: "",
       link: "/remote-jobs",
       active: false,
     },
     {
-      title: "Pricing",
+      title: `${translate("Pricing")}`,
       icon: "",
       link: "/pricing",
       active: false,
@@ -101,7 +126,8 @@ const Navigation = (): JSX.Element => {
                   <li
                     onClick={() => handleMenuClick(item, index)}
                     className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${
-                      item.active && "text-primary_green underline underline-offset-4"
+                      item.active &&
+                      "text-primary_green underline underline-offset-4"
                     }`}
                   >
                     <span>{item.title}</span>
@@ -117,20 +143,67 @@ const Navigation = (): JSX.Element => {
                 type="filled"
                 // bgColor="dark_blue"
                 color="white"
-                text="sign in"
+                text={translate("Sign In")}
                 classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
                 onClick={() => changePath("/auth/login")}
               />
               <Button
                 type="bordered"
                 color="dark_blue"
-                text="Post jobs"
+                text={translate("Post Jobs")}
                 // borderColor="dark_blue"
                 classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-primary_green hover:text-white"
               />
             </div>
             <div className="flex lg:hidden h-full items-center">
               <Bars3Icon className="w-8 h-6" />
+            </div>
+            <div>
+              <Menu as="div" className="relative inline-block text-left">
+                <Menu.Button
+                  title="Select language"
+                  className="inline-flex w-full justify-center rounded-md h-10 px-1 py-2"
+                >
+                  <LanguageIcon
+                    className="h-6 text-gray-500 inline-flex w-full justify-center"
+                    aria-hidden="true"
+                  />
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 mt-4 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none py-1">
+                    <div className="px-1 py-3">
+                      {languages.map((locale) => {
+                        return (
+                          <Menu.Item key={locale.tag}>
+                            {({ active }) => (
+                              <button
+                                onClick={() => handleClick(locale.tag)}
+                                className={`${
+                                  active
+                                    ? "bg-primary_green text-white"
+                                    : router.locale === locale.tag
+                                    ? " bg-green-100 text-primary_green "
+                                    : "text-gray-900"
+                                } flex w-40 items-center rounded-md m-auto px-2 py-2 text-sm`}
+                              >
+                                {locale.language}
+                              </button>
+                            )}
+                          </Menu.Item>
+                        );
+                      })}
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
             </div>
           </div>
         </header>
