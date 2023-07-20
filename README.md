@@ -16,6 +16,18 @@ To run project;
 npm run dev
 ```
 
+# Docker setup 
+
+To setup up with docker build the image using
+```
+sudo docker build . -t afri-frontend
+```
+
+To run containner 
+```
+sudo docker run --publish 3000:3000 afri-frontend
+```
+
 ### Available dependencies to help with project build process :nerd_face:
 
 Dependency :ok_hand: | Link to documentation | What is it used for
