@@ -1,69 +1,10 @@
 import Link from "next/link";
-
-type FooterItems = {
-  title: string,
-  items: { title: string, url: string, external: boolean }[]
-}
-
-
+import { useTranslation } from "react-i18next";
+import { FooterItems, footer, policies } from "./footer.data";
 
 const Footer = (): JSX.Element => {
+  const { t: translate } = useTranslation(["footer", "common"]);
 
-
-  const footer: FooterItems[] = [
-    {
-      title: "talents",
-      items: [
-        { external: false, title: "product designers", url: "#" },
-        { external: false, title: "website developers", url: "#" },
-        { external: false, title: "software engineers", url: "#" },
-        { external: false, title: "data analysts", url: "#" },
-        { external: false, title: "brand identity designers", url: "#" },
-        { external: false, title: "product managers", url: "#" },
-      ],
-    },
-    {
-      title: "about",
-      items: [
-        { external: false, title: "afrisplash", url: "/about-us" },
-        { external: false, title: "careers", url: "#" },
-        { external: false, title: "FAQs", url: "#" },
-        { external: false, title: "our team", url: "#" },
-        { external: false, title: "contact", url: "#" },
-      ],
-    },
-    {
-      title: "others",
-      items: [
-        { external: false, title: "co-working space", url: "#" },
-        { external: false, title: "forum", url: "#" },
-        { external: false, title: "blogs & news", url: "/blog" },
-        { external: false, title: "events", url: "#" },
-      ],
-    },
-    {
-      title: "social",
-      items: [
-        {
-          external: true,
-          title: "twitter",
-          url: "https://twitter.com/Afrisplash",
-        },
-        {
-          external: true,
-          title: "linkedin",
-          url: "https://www.linkedin.com/company/afrisplash/",
-        },
-        {
-          external: true,
-          title: "facebook",
-          url: "https://web.facebook.com/AfriSplashRemotely",
-        },
-        { external: true, title: "instagram", url: "#" },
-        { external: true, title: "product hunt", url: "#" },
-      ],
-    },
-  ];
   return (
     <footer className="bg-dark_blue w-full py-5">
       <div className="w-11/12 md:w-10/12 mx-auto space-y-12">
@@ -74,13 +15,16 @@ const Footer = (): JSX.Element => {
               className="text-white_2 mx-5 py-3 w-4/12 sm:w-3/12 md:w-max space-y-4"
             >
               <div className="capitalize font-bold text-sm md:text-base">
-                {item.title}
+                {translate(item.title)}
               </div>
               <ul className="space-y-3 text-xs sm:text-sm md:text-base">
                 {item.items.map((subItems: any, index: number) => (
                   <li key={index} className="capitalize">
-                    <Link href={subItems.url} target={subItems.external ? '_blank' : '_self'}>
-                      {subItems.title}
+                    <Link
+                      href={subItems.url}
+                      target={subItems.external ? "_blank" : "_self"}
+                    >
+                      {translate(subItems.title)}
                     </Link>
                   </li>
                 ))}
@@ -92,14 +36,16 @@ const Footer = (): JSX.Element => {
           <section>
             <span>&copy;</span>
             <span className="capitalize xs:text-xs md:text-sm lg:text-base">
-              afrisplash remotely. all rights reserved
+              {translate("afrisplash remotely. all rights reserved")}
             </span>
           </section>
           <section>
             <ul className="flex space-x-3  text-sm lg:text-base">
-              <li>Terms of use</li>
-              <li>Privacy policy</li>
-              <li>Copyright policy</li>
+              {policies.map((policy, index) => (
+                <li key={index}>
+                  <Link href={policy.url}>{translate(policy.title)}</Link>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
