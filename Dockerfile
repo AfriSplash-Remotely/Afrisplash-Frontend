@@ -10,7 +10,7 @@ COPY package.json package.json
 
 RUN yarn install
 
-COPY . .
+COPY . /app
 
 EXPOSE 3000
 
