@@ -26,8 +26,8 @@ const DropDown = ({
   return (
     <>
       <div className="mr-8">
-        <div
-          className="flex flex-row justify-between items-center shadow h-11 border border-solid rounded-lg relative z-20  mb-1 w-fit-content cursor-pointer"
+        <button
+          className="flex flex-row justify-between items-center py-2 px-4 border border-solid rounded-lg relative z-20 w-fit-content cursor-pointer"
           onClick={() => onClick && onClick()}
         >
           {imageUrl && (
@@ -35,7 +35,7 @@ const DropDown = ({
               <Image src={imageUrl} alt="" fill />
             </span>
           )}
-          <span className="text-sm ml-6 capitalize leading-3">
+          <span className="text-sm px-2 capitalize leading-3">
             {makeSelectOption}
           </span>
           <span className="arrow hover:cursor-pointer hover:opacity-100 opacity-80">
@@ -45,7 +45,7 @@ const DropDown = ({
               <ChevronUpIcon className="active:transition active:rotate-180 active:duration-50 active:ease-out  h-5 w-5 bold-200 mx-2" />
             )}
           </span>
-        </div>
+        </button>
         {/*  Options on toggle */}
         {isOpen && (
           <div className="border-1 shadow-md shadow-green bg-slate-200 px-4 py-1 w-fit-content rounded-sm absolute z-10">
