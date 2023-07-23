@@ -27,7 +27,7 @@ const DropDown = ({
     <>
       <div className="mr-8">
         <button
-          className="flex flex-row justify-between items-center py-2 px-4 border border-solid rounded-lg relative z-20 w-fit-content cursor-pointer"
+          className="flex flex-row justify-between items-center py-2 px-4 border border-solid rounded-lg relative w-fit-content cursor-pointer"
           onClick={() => onClick && onClick()}
         >
           {imageUrl && (

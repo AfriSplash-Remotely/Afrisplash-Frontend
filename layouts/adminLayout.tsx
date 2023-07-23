@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import PropTypes, { InferProps } from "prop-types";
+import Cookies from "js-cookie";
 import AdminNavigation from "components/molecules/Navigation/AdminNavigation";
 import MobileSidebar from "@/components/molecules/Navigation/MobileSidebar";
 import TopAdmin from "components/molecules/TopAdmin/TopAdmin";
@@ -18,17 +18,25 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
 }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [navSwitch, setNavSwitch] = useState<boolean>(false);
   const [focused, setFocused] = useState<string | null>(null);
+  const [navSwitch, setNavSwitch] = useState<boolean>(false);
 
   useEffect(() => {
-    if (window.innerWidth > 640 && window.innerWidth < 840) {
+    const storedState = Cookies.get("sidebarToggleState");
+
+    if (!storedState) {
+      // Create the cookie if it doesn't exist and set the navSwitch state to true
+      Cookies.set("sidebarToggleState", "closed");
       setNavSwitch(true);
+    } else {
+      // Set the navSwitch state based on the stored state
+      setNavSwitch(storedState === "open" ? false : true);
     }
-  }, [navSwitch, setNavSwitch]);
+  }, []);
 
   const handleNavSwitch = (): void => {
     setNavSwitch(!navSwitch);
+    Cookies.set("sidebarToggleState", !navSwitch === true ? "closed" : "open");
   };
 
   const handleShowSidebar = (): void => {
