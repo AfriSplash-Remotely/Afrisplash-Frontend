@@ -3,33 +3,29 @@
 @tailwind components;
 
 @layer components {
-    .applicantWrapper {
-        @apply grid col-start-1 grid-cols-1 
+  .applicantWrapper {
+    @apply grid col-start-1 grid-cols-1 
         md:col-start-2 col-span-full md:grid-cols-5 justify-self-stretch border border-solid 
         overflow-visible px-3 py-4 place-self-start md:place-items-center rounded-sm justify-between;
 
-        .applicantDetails {
-            @apply grid col-start-1 col-end-4 grid-cols-1 grid-rows-1
+    .applicantDetails {
+      @apply grid col-start-1 col-end-4 grid-cols-1 grid-rows-1
             md:grid-cols-5 md:grid-flow-col
             md:justify-self-stretch md:p-4 p-5 capitalize place-items-center;
-        }
-
-        .actionButtons {
-            @apply grid  md:grid-flow-col md:col-start-4 
-            grid-cols-2 col-span-full place-items-center my-2;
-        }
     }
+
+    .actionButtons {
+      @apply grid  md:grid-flow-col md:col-start-4 
+            grid-cols-2 col-span-full place-items-center my-2;
+    }
+  }
 }
 
-.checkbox{
-    width: 2em !important;
-    height: 2em !important;
-    border-radius: 5px !important;
-    border:  2px solid #0D5520 !important;
-    background-color: transparent !important;
+.checkbox {
+  width: 2em !important;
+  height: 2em !important;
+  border-radius: 5px !important;
+  border: 2px solid #0d5520 !important;
+  background-color: transparent !important;
 }
 
-.dropDown{
-    width: 15%;
-    margin-right: 2em;
-}
