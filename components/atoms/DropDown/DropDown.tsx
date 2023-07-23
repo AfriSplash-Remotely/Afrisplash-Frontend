@@ -1,15 +1,10 @@
 import { useState } from "react";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { generateUniqueId } from "@/utils/helper";
 
-// function setMakeSelectOption(e: React.MouseEventHandler<HTMLButtonElement>) {
-
-//   throw new Error("Function not implemented.");
-// }
 const DropDownProps = {
-  classes: PropTypes.string,
   onClick: PropTypes.func,
   text: PropTypes.string,
   imageUrl: PropTypes.string,
@@ -19,7 +14,6 @@ const DropDownProps = {
 
 const DropDown = ({
   text,
-  classes,
   isOpen,
   imageUrl,
   onClick,
@@ -31,10 +25,11 @@ const DropDown = ({
 
   return (
     <>
-      <div className={`${classes}`}>
+      <div className="mr-8">
         <div
           className="flex flex-row justify-between items-center shadow
-                    h-11 border border-solid rounded-lg relative z-20  mb-1"
+                    h-11 border border-solid rounded-lg relative z-20  mb-1 w-fit-content"
+          onClick={() => onClick && onClick()}
         >
           {imageUrl && (
             <span className="h-8 w-8 ml-2 -mr-5">
@@ -66,7 +61,7 @@ const DropDown = ({
         {isOpen && (
           <div
             className="border-1 shadow-md shadow-green 
-                     bg-slate-200 px-4 py-1 w-[100%]  my-0 rounded-sm"
+                     bg-slate-200 px-4 py-1 w-fit-content rounded-sm absolute z-10"
           >
             {options?.map((optText) => (
               <span

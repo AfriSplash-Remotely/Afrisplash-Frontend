@@ -161,11 +161,10 @@ const Applicants: NextPage = () => {
   return (
     <AdminLayout>
       <div className="w-full">
-        <section className=" w-full flex mb-10 max-h-5 relative z-30">
+        <section className="w-full flex flex-wrap gap-3 mb-5">
           {applicantLabels.map(({ label, isOpen, attributes }) => (
             <DropDown
               key={label}
-              classes={styles.dropDown}
               text={label}
               onClick={() => displayDropDownLabel(label)}
               isOpen={isOpen}
