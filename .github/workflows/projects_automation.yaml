@@ -4,17 +4,18 @@ on:
   issues:
     types:
       - opened
-
+  pull_request:
+    branches: ['main']
 jobs:
   add-to-project:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@RELEASE_VERSION
+      - uses: actions/add-to-project@v0.4.1
         with:
           # You can target a project in a different organization
           # to the issue
           project-url: https://github.com/orgs/AfriSplash-Remotely/projects/3
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          labeled: bug, needs-triage
-          label-operator: OR
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # labeled: bug, needs-triage
+          # label-operator: OR

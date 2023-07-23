@@ -1,0 +1,2 @@
+- Add labels appropriate to the issue 
+- Describe the expected behaviour and the actual be
