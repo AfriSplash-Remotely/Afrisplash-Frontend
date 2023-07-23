@@ -4,7 +4,6 @@ import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
 import { generateUniqueId } from "@/utils/helper";
 
-
 // function setMakeSelectOption(e: React.MouseEventHandler<HTMLButtonElement>) {
 
 //   throw new Error("Function not implemented.");
@@ -26,20 +25,20 @@ const DropDown = ({
   onClick,
   options,
 }: InferProps<typeof DropDownProps>): JSX.Element => {
+  const [makeSelectOption, setMakeSelectOption] = useState<
+    string | null | undefined
+  >(text);
 
-  const [makeSelectOption, setMakeSelectOption] = useState< string | null | undefined>(text);
-
-  
   return (
     <>
       <div className={`${classes}`}>
         <div
           className="flex flex-row justify-between items-center shadow
-                    h-11 border border-solid rounded-lg relative z-20 mt-3 mb-1"
+                    h-11 border border-solid rounded-lg relative z-20  mb-1"
         >
           {imageUrl && (
             <span className="h-8 w-8 ml-2 -mr-5">
-              <Image src={imageUrl} alt="" fill/>
+              <Image src={imageUrl} alt="" fill />
             </span>
           )}
           <span className="text-sm ml-6 capitalize leading-3">
@@ -88,5 +87,3 @@ const DropDown = ({
 };
 
 export default DropDown;
-
-

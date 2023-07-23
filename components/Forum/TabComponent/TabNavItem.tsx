@@ -15,8 +15,7 @@ export default function TabNavItem({
   routeLink,
 }: InferProps<typeof TabNavItemProps>): JSX.Element {
   return (
-    (<Link href={routeLink} className="h-full">
-
+    <Link href={routeLink} className="h-full">
       <div
         className={`relative h-full ${
           isActive
@@ -26,7 +25,6 @@ export default function TabNavItem({
       >
         {title}
       </div>
-
-    </Link>)
+    </Link>
   );
 }
