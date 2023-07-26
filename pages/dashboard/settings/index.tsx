@@ -1,11 +1,8 @@
-
 import React from "react";
-import Image from 'next/image';
+import Image from "next/image";
 import AccountPlaceholder from "@/assets/account-placeholder.png";
 import styles from "../../../styles/Account.module.scss";
 import SettingsLayout from "@/layouts/settingsLayout";
-
-
 
 const Account = (): JSX.Element => {
   return (
@@ -13,10 +10,7 @@ const Account = (): JSX.Element => {
       <div className={`w-full bg-white rounded-xl p-4 md:p-12 `}>
         {/**Image Container */}
         <div className={`flex flex-wrap gap-1 items-center mb-8`}>
-          <Image
-            src={AccountPlaceholder}
-            alt=""
-          />
+          <Image src={AccountPlaceholder} alt="" />
           <button
             className={`text-white bg-[#0D5520] rounded-lg px-[36px] py-[12px] ml-[23px] mr-[12px]`}
           >
@@ -54,7 +48,9 @@ const Account = (): JSX.Element => {
 
             {/**First Name */}
             <div className={`w-full mb-[22px]`}>
-              <label className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}>
+              <label
+                className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}
+              >
                 First Name
               </label>
               <input
@@ -82,7 +78,9 @@ const Account = (): JSX.Element => {
 
             {/**Phone Number */}
             <div className={`w-full mb-[22px]`}>
-              <label className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}>
+              <label
+                className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}
+              >
                 Phone Number
               </label>
               <input
@@ -118,8 +116,7 @@ const Account = (): JSX.Element => {
         </form>
       </div>
     </SettingsLayout>
-
   );
-}
+};
 
-export default Account
+export default Account;
