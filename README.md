@@ -1,5 +1,10 @@
 # Afrisplash-Frontend
 
+
+# Preparation for Installation
+- Install [NodeJs](https://nodejs.org/en)
+- Install [Docker](https://docs.docker.com/get-docker/)
+
 # Tech Stack
 React - Nextjs :smiley:, tailwindCSS :hugs:, Redux :relieved:, Sass :wink:.
 
@@ -20,12 +25,12 @@ npm run dev
 
 To setup up with docker build the image using
 ```
-sudo docker build . -t afri-frontend
+npm run docker:build 
 ```
 
 To run containner 
 ```
-sudo docker run --publish 3000:3000 afri-frontend
+npm run docker:publish
 ```
 
 ### Available dependencies to help with project build process :nerd_face:
