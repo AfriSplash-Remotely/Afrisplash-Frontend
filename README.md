@@ -20,7 +20,7 @@ npm run dev
 
 To setup up with docker build the image using
 ```
-sudo docker build . -t afri-frontend
+npm run docker:build
 ```
 
 To run containner 
