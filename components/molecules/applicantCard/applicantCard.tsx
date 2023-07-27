@@ -20,21 +20,17 @@ function ApplicantCard({
   isSelected,
   acceptFn,
   rejectFn,
-}: InferProps<typeof ApplicantCardProps>):JSX.Element {
+}: InferProps<typeof ApplicantCardProps>): JSX.Element {
   return (
     <div
-      className={`w-full border rounded-xl flex items-center p-5 px-10 `}
+      className={`w-full border rounded-xl flex flex-col md:flex-row gap-3 items-center p-5 px-10 `}
       style={{
         background: isSelected ? " rgba(217, 222, 220, 1)" : "none",
       }}
     >
       <div className={`w-full flex items-center `}>
         <div className="w-20 h-16 mr-12 col-span-1 relative rounded-xl	overflow-hidden">
-          <Image
-            src={imageUrl}
-            alt={name.toLocaleLowerCase()}
-            fill
-          />
+          <Image src={imageUrl} alt={name.toLocaleLowerCase()} fill />
         </div>
         <section className="col-span-3">
           <h3 className="text-base font-semibold pb-1 pt-2">{name}</h3>
