@@ -1,0 +1,15 @@
+name: 🌱 New Feature Request
+description: This template is for requesting a new feature be added.
+labels: [Feature Request]
+body:
+  - type: textarea
+    attributes:
+      label: Increasing Access
+      description: How would this new feature help
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Feature Request details
+    validations:
+      required: true
