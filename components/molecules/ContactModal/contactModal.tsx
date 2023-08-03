@@ -149,7 +149,7 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, setIsOpen }) => {
             <h1 className=" text-black font-semibold text-[28px] pt-10 lg:pt-0 pb-6 pl-2">
               How Can We Help?
             </h1>
-            <p className=" text-[#30342D] pl-2 text-sm md:text-base lg:text-lg">
+            <p className=" text-[#30342D] pl-2 text-sm md:text-base">
               Please select a topic below related to your inquiry. If you don’t
               find what you need, fill out our contact form.
             </p>

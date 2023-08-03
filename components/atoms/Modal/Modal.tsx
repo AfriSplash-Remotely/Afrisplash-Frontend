@@ -13,7 +13,7 @@ const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, children }) => {
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-14 overflow-hidden"
+        className="relative z-14"
         onClose={() => setIsOpen(false)}
       >
         <Transition.Child
@@ -39,7 +39,7 @@ const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, children }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-6xl transform overflow-hidden rounded-2xl bg-white_2 p-6 text-left align-middle shadow-xl transition-all mt-28 mb-8">
+              <Dialog.Panel className="w-full max-w-6xl transform rounded-2xl bg-white_2 p-6 text-left align-middle shadow-xl transition-all mt-28 mb-8">
                 {children}
               </Dialog.Panel>
             </Transition.Child>
