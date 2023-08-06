@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "sudo docker build . -t afri-frontend",
+    "docker:publish": "sudo docker run --publish 3000:3000 afri-frontend"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
