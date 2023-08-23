@@ -166,7 +166,7 @@ const ContactModal: FC<ContactModalProps> = ({ isOpen, setIsOpen }) => {
             </div>
             <div className=" border-b border-grey">
               <h5 className=" font-semibold py-3 pl-2">
-                Work with us as your dedicated HR Business Partner
+                Work with us as your dedicated HR Business Partner.
               </h5>
               <p className=" text-sm py-3 pl-2 text-[#63685E]">
                 Discover the many ways in which our customers use Afrisplash.
