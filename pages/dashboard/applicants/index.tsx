@@ -10,53 +10,55 @@ import { applicantsList } from "utils";
 interface Applicant {
   id: string;
   name: string;
-  imageUrl: any;
+  imageUrl: string;
   role: string;
   isSelected: boolean;
 }
 
+const applicantsData = [
+  {
+    label: "Location",
+    attributes: ["10km", "50km", "100km", "anywhere"],
+    isOpen: false,
+  },
+  {
+    label: "Salary",
+    attributes: ["$0 - $40k", "$41k - $65k", "$66k - $159k", "$160k - above"],
+    isOpen: false,
+  },
+  {
+    label: "Job type",
+    attributes: [
+      "All Job Type",
+      "Full-time",
+      "Part-time",
+      "Contract",
+      "Internship",
+      "Temporary",
+      "Entry-Level",
+    ],
+    isOpen: false,
+  },
+  {
+    label: "Job Category",
+    attributes: ["Intern", "Junior", "Senior", "Lead"],
+    isOpen: false,
+  },
+  {
+    label: "Experience",
+    attributes: ["< 1 year", "1 - 3 years"],
+    isOpen: false,
+  },
+];
+
 const Applicants: NextPage = () => {
   const [makeSelectOptionsVisible, setMakeSelectOptionsVisible] =
     useState<boolean>(false);
-  const [applicants, setApplicants] =
-    React.useState<Applicant[]>(applicantsList);
-  const [applicantLabels, setApplicantLabels] = useState<
-    { label: string; attributes: Array<string>; isOpen: boolean }[]
-  >([
-    {
-      label: "Location",
-      attributes: ["10km", "50km", "100km", "anywhere"],
-      isOpen: false,
-    },
-    {
-      label: "Salary",
-      attributes: ["$0 - $40k", "$41k - $65k", "$66k - $159k", "$160k - above"],
-      isOpen: false,
-    },
-    {
-      label: "Job type",
-      attributes: [
-        "All Job Type",
-        "Full-time",
-        "Part-time",
-        "Contract",
-        "Internship",
-        "Temporary",
-        "Entry-Level",
-      ],
-      isOpen: false,
-    },
-    {
-      label: "Job Category",
-      attributes: ["Intern", "Junior", "Senior", "Lead"],
-      isOpen: false,
-    },
-    {
-      label: "Experience",
-      attributes: ["< 1 year", "1 - 3 years"],
-      isOpen: false,
-    },
-  ]);
+  const [applicants, setApplicants] = useState<Applicant[]>(applicantsList);
+  const [applicantLabels, setApplicantLabels] =
+    useState<{ label: string; attributes: Array<string>; isOpen: boolean }[]>(
+      applicantsData
+    );
 
   // Show DropDownLabels function
   const displayDropDownLabel = (_label: string) => {
@@ -100,7 +102,9 @@ const Applicants: NextPage = () => {
     action: string,
     _id: string | null
   ) => {
-    const applicantFound = applicants.find((applicant) => applicant?.id === _id);
+    const applicantFound = applicants.find(
+      (applicant) => applicant?.id === _id
+    );
     if (applicantFound) {
       applicantFound.isSelected = true;
       // Accepted or rejected
@@ -157,11 +161,10 @@ const Applicants: NextPage = () => {
   return (
     <AdminLayout>
       <div className="w-full">
-        <section className=" w-full  flex  mb-[50px] max-h-5 relative  z-30">
+        <section className="w-full flex flex-wrap gap-3 mb-5">
           {applicantLabels.map(({ label, isOpen, attributes }) => (
             <DropDown
               key={label}
-              classes={styles.dropDown}
               text={label}
               onClick={() => displayDropDownLabel(label)}
               isOpen={isOpen}
@@ -173,16 +176,18 @@ const Applicants: NextPage = () => {
         {applicants.length > 0 && (
           <section className="w-full">
             <header className="w-full justify-end">
-              {!makeSelectOptionsVisible && (
-                <p
-                  className="mx-5 mb-5 text-primary_green font-semibold hover:cursor-pointer text-right"
-                  onClick={() =>
-                    setMakeSelectOptionsVisible(!makeSelectOptionsVisible)
-                  }
-                >
-                  Select
-                </p>
-              )}
+              <div className="flex justify-end">
+                {!makeSelectOptionsVisible && (
+                  <button
+                    className="mx-5 mb-5 text-primary_green font-semibold hover:cursor-pointer text-right"
+                    onClick={() =>
+                      setMakeSelectOptionsVisible(!makeSelectOptionsVisible)
+                    }
+                  >
+                    Select
+                  </button>
+                )}
+              </div>
               {makeSelectOptionsVisible && (
                 <div className="flex w-full justify-end items-center h-12">
                   <div className="flex items-center text-primary_green hover:cursor-pointer ">

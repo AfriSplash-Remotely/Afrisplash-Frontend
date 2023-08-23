@@ -1,6 +1,8 @@
 import React from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import PropTypes, { InferProps } from "prop-types";
+import Link from "next/link";
+
 
 const PricingCardProps = {
   title: PropTypes.string.isRequired,
@@ -31,6 +33,7 @@ export default function PricingCard({
         <h3 className={`text-5xl  text-left font-semibold mb-7 ${activeSlide ? "text-white" : "text-black"}`}>
           {price}
         </h3>
+        <Link href="/pricing/payment">
         <button
           className={`text-center text-sm font-normal text-white rounded-md border-none w-full p-3  ${
             activeSlide ? "bg-[#FFC42D]" : " bg-primary_green"
@@ -38,6 +41,8 @@ export default function PricingCard({
         >
           Buy Credit
         </button>
+        </Link>
+
       </div>
       <hr className="w-full text-black border-b border-t-0 h-0" />
       <div className="p-4">

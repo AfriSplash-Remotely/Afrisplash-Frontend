@@ -19,7 +19,7 @@ export default function TopAdmin({
   handleShowSidebar,
 }: InferProps<typeof TopAdminProps>): JSX.Element {
   return (
-    <div className="h-20 flex items-center sticky top-0 z-30 w-full justify-between bg-[#FAFAFA]">
+    <div className="h-20 flex items-center sticky top-0 z-40 w-full justify-between bg-[#FAFAFA]">
       <div className="w-5/12 hidden md:flex">
         <Search placeholder={placeholder} />
       </div>
