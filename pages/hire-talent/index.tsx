@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { NextPage } from "next";
+import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import GeneralLayout from "layouts/generalLayout";
@@ -32,8 +33,14 @@ import TechTalentIllustration from "assets/hire-talent-assets/bg-image-2812.png"
 import TwitterLogo from "assets/hire-talent-assets/twitter-logo.svg";
 import UserSearchIcon from "assets/hire-talent-assets/user-search.svg";
 import VideoCallIcon from "assets/hire-talent-assets/video-call.svg";
+import ContactModal from "@/components/molecules/ContactModal/contactModal";
 
 const HireTalent: NextPage = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen); // Toggle the isOpen state
+  };
   return (
     <div className={styles.hireTalent}>
       <Head>
@@ -42,6 +49,8 @@ const HireTalent: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GeneralLayout>
+        <ContactModal isOpen={isOpen} setIsOpen={setIsOpen} />
+
         <section className="flex flex-col items-center justify-center text-center bg-[#FFF6E6]">
           <div className="absolute md:relative">
             <div className="hidden lg:block absolute left-[1.625rem] top-[11.813rem] w-[4.107rem] h-[4.107rem]">
@@ -141,7 +150,7 @@ const HireTalent: NextPage = () => {
             <div className="flex flex-col justify-end items-start gap-9">
               <div className="flex flex-col justify-start text-start gap-6">
                 <div>
-                  <h2 className="w-10/12  text-2xl text-center md:text-left mx-auto md:text-4xl font-semibold">
+                  <h2 className="w-10/12  text-2xl text-center md:text-left mx-auto md:mx-0 md:text-4xl font-semibold">
                     Get the best candidate profiles straight to your inbox
                   </h2>
                 </div>
@@ -175,7 +184,10 @@ const HireTalent: NextPage = () => {
                   </p>
                 </div>
               </div>
-              <button className="flex flex-row justify-center items-center gap-3 max-w-xs max-h-16 cursor-pointer px-6 py-4 rounded-lg bg-primary_green">
+              <button
+                onClick={handleClick}
+                className="flex flex-row justify-center items-center gap-3 max-w-xs max-h-16 cursor-pointer px-6 py-4 rounded-lg bg-primary_green"
+              >
                 <p className="font-semibold text-white">Talk to us</p>{" "}
                 <Image src={ArrowLeft} alt="" />
               </button>

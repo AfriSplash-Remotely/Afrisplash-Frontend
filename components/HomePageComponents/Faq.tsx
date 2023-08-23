@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Disclosure, Tab } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
 import { faq, faqBodyI } from "@/utils";
 import { TFunction } from "i18next";
+import ContactModal from "@/components/molecules/ContactModal/contactModal";
 
 interface Props {
   translate: TFunction<"home", undefined>;
@@ -13,8 +14,15 @@ function Faq({ translate }: Props): JSX.Element {
     return classes.filter(Boolean).join(" ");
   };
 
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen); // Toggle the isOpen state
+  };
+
   return (
     <section className={`w-full bg-white py-28`}>
+      <ContactModal isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="w-11/12 xl:w-10/12 mx-auto flex justify-center items-center">
         <div className="w-full pt-14">
           <h3 className="mx-auto text-center text-black-300 text-3xl font-semibold mb-12">
@@ -83,12 +91,12 @@ function Faq({ translate }: Props): JSX.Element {
               "If you still can’t find the answers you’re looking for"
             )}
           </p>
-          <a
-            href="/contact"
+          <button
+            onClick={handleClick}
             className="mx-auto text-center text-green-800 text-lg font-semibold underline flex justify-center align-content-center"
           >
             {translate("Contact Us!")}
-          </a>
+          </button>
         </div>
       </div>
     </section>
