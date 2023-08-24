@@ -15,11 +15,25 @@ import LocateMap from "@/components/Co-workingSpace/map"
 import { availableSpaceTabsData, availableSpacesTableData, businessHoursData, equipmentData, cateringData, facilitiesData, relaxZonesData, classicBasicsData } from "@/utils";
 import WorkSpaceTable from "@/components/Co-workingSpace/tableComp";
 import CheckBoxComp from "@/components/Co-workingSpace/checkBoxComp";
+import ModalComp from "@/components/Co-workingSpace/ModalComp";
+
 
 const CoWorkingSpaceDetails: NextPage = () => {
   const handleCheckboxChange = (selectedValues: string[]) => {
     console.log('Selected values:', selectedValues);
   };
+
+  const [open, setOpen] = React.useState(false);
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
 
 
   return (
@@ -34,7 +48,7 @@ const CoWorkingSpaceDetails: NextPage = () => {
             <div className="absolute md:pl-10 pl-4  flex flex-col justify-end rounded-lg inset-0 bg-gradient-to-t from-[#D6ECDC] via-transparent to-transparent">
               <div className="flex justify-start mb-5 md:ml-14 ml-6">
                 <Image src={calender2} alt="chatIcon" className="mr-2" />
-                <h5 className="text-white text-center text-dark_black">Joined April 2022</h5>
+                <h5 className="text-center text-dark_black">Joined April 2022</h5>
               </div>
               <div className="flex justify-start gap-8 mb-8">
                 <Button
@@ -113,11 +127,12 @@ const CoWorkingSpaceDetails: NextPage = () => {
                     <div className="col-span-2 flex mt-2 xlg:text-[13px] md:text-[16px] text-[10px] text-[400] justify-between px-5 text-grey_3"><span className="">{hours.startTime} </span> - <span className="">{hours.endTime}</span>
                     </div>
                   ) : (
-                      <div className="col-span-2 xlg:text-[13px] md:text-[16px] text-[10px] text-[400] flex mt-2 justify-start px-5 text-grey_3"><span className="">Closed</span>
+                    <div className="col-span-2 xlg:text-[13px] md:text-[16px] text-[10px] text-[400] flex mt-2 justify-start px-5 text-grey_3"><span className="">Closed</span>
                     </div>
                   )}
                   <div className="">
                     <Button
+                      onClick={handleClickOpen}
                       type="autlined"
                       color="primary_green"
                       text="Reserve now"
@@ -159,7 +174,7 @@ const CoWorkingSpaceDetails: NextPage = () => {
             </div>
           </div>
         </div>
-
+        <ModalComp open={open} onClose={handleClose} />
       </GeneralLayout>
     </div>
   );

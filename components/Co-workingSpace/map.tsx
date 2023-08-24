@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
-import Head from 'next/head';
-import Script from 'next/script';
 
 interface MapProps {
     address: string;
@@ -27,14 +25,14 @@ const LocateMap: React.FC<MapProps> = ({ address }) => {
                 geocoder.geocode({ address }, (results, status) => {
                     if (status === 'OK') {
                         if (results && results.length > 0) {
-                        const map = new google.maps.Map(mapRef.current!, {
-                            center: results[0]?.geometry.location,
-                            zoom: 8,
-                        });
-                         new google.maps.Marker({
-                            map,
-                            position: results[0]?.geometry.location,
-                        });
+                            const map = new google.maps.Map(mapRef.current!, {
+                                center: results[0]?.geometry.location,
+                                zoom: 8,
+                            });
+                            new google.maps.Marker({
+                                map,
+                                position: results[0]?.geometry.location,
+                            });
                         } else {
                             console.error('No results found');
                         }
@@ -52,9 +50,6 @@ const LocateMap: React.FC<MapProps> = ({ address }) => {
 
     return (
         <div className='w-full'>
-            <Head>
-                <Script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`} />
-            </Head>
             <div className='border-2  border-map_border w-[100%]  md:h-[435px] h-[355px]' ref={mapRef} />
         </div>
     );
