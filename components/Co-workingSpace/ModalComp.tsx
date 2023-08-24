@@ -54,7 +54,7 @@ const ModalComp: React.FC<ModalProps> = ({ open, onClose }) => {
                     </div>
                     <hr className='my-10 mx-8 border-grey_3' />
                     <div className='text-start'>
-                        <span className='text-[16px] font-[700] leading-[24px] text-grey_4'>The space is avilable on the followinh basis:</span>
+                        <span className='text-[16px] font-[700] leading-[24px] text-grey_4'>The space is avilable on the following basis:</span>
                         <Select placeholder="Per Day Dollar 15" styles={customStyles} />
                     </div>
                     <div className='md:grid md:grid-cols-2 gap-4 text-start my-14 text-grey_4'>
