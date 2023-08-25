@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 interface ModalProps {
   isOpen: boolean;
   className?: string | undefined;
-  dialogPanelClass?: string | undefined;
+  dialogPanelClass?: string;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
 }
