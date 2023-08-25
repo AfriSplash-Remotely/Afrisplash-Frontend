@@ -17,7 +17,7 @@ const CoWorkingSpace: NextPage = () => {
       <GeneralLayout>
           <div className="bg-cover bg-no-repeat bg-[url(../assets/co-workingSpace/targetBg.svg)] pt-[10%] pb-[16%] ">
             <div className="afri-container ">
-            <h1 className="xl:text-[48px] text-3xl md:text-4xl text-white_2 font-bold md:mb-8 mb-4">
+            <h1 className="xl:text-[48px] text-3xl md:text-4xl text-white_2 font-bold md:mb-8 mb-4 md:text-center">
                   Target a vibrant community fond of trying new workspaces
                 </h1>
             <h5 className=" font-light text-base md:text-2xl text-white md:w-[50%] text-left md:text-center mx-auto">
