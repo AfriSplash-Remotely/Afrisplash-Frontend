@@ -4,11 +4,12 @@ import { Dialog, Transition } from "@headlessui/react";
 interface ModalProps {
   isOpen: boolean;
   className?: string | undefined;
+  dialogPanelClass?: string | undefined;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
 }
 
-const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, children }) => {
+const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, children, dialogPanelClass }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
@@ -39,7 +40,7 @@ const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, children }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-6xl transform rounded-2xl bg-white_2 p-6 text-left align-middle shadow-xl transition-all mt-28 mb-8">
+              <Dialog.Panel className={`w-full max-w-6xl transform rounded-2xl bg-white_2 p-6 text-left align-middle shadow-xl transition-all mt-28 mb-8 ${dialogPanelClass}`}>
                 {children}
               </Dialog.Panel>
             </Transition.Child>

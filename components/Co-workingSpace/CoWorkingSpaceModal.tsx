@@ -1,16 +1,16 @@
 import React from 'react'
 import Button from "@/components/atoms/Button/Button";
-import Dialog from '@mui/material/Dialog';
 import LocateImage from "../../assets/co-workingSpace/locate.svg";
 import Image from 'next/image';
 import Select from "react-select";
+import Modal from '../atoms/Modal/Modal';
 
 interface ModalProps {
     open: boolean;
     onClose: () => void;
 }
 
-const ModalComp: React.FC<ModalProps> = ({ open, onClose }) => {
+const CoWorkingSpaceModal: React.FC<ModalProps> = ({ open, onClose }) => {
 
     const customStyles = {
         control: (base: any,) => ({
@@ -32,20 +32,15 @@ const ModalComp: React.FC<ModalProps> = ({ open, onClose }) => {
     };
 
     return (
-        <div>
-            <Dialog
-                open={open}
-                onClose={onClose}
-                PaperProps={{
-                    style: {
-                        overflow: 'auto',
-                    },
-                }}
+            <Modal
+            isOpen={open}
+            setIsOpen={onClose}
+            dialogPanelClass="max-w-2xl"
             >
-                <div className="bg-primary_green  text-center text-white md:p-8 p-5">
-                    <div className='md:mx-20 pt-28'>
+            <div className="bg-primary_green  text-center text-white md:p-20 -m-6 p-5 rounded-t-2xl">
+                    <div className='md:mx-20 pt-28 '>
                         <h1 className='md:text-[48px] text-[28px] font-[700] leading-[72px]'>Nairobi Garage</h1>
-                        <div className='flex gap-2'>
+                        <div className='flex justify-center gap-2'>
                             <Image src={LocateImage} alt='Locate' className='w-[15px] h-[20px] ml-3' />
                             <span className='md:text-[16px] text-[14px] font-[500] leading-[19px]'>Delta Corner Annex, Ring Rd Westlands</span>
                         </div>
@@ -81,7 +76,7 @@ const ModalComp: React.FC<ModalProps> = ({ open, onClose }) => {
                     </div>
                 </div>
                 <div>
-                    <div className='text-start my-14 text-dark md:p-8 p-5'>
+                    <div className='text-start my-14 text-dark md:p-20 -m-6 p-5'>
                         <div className='mb-10'>
                             <span className='text-[16px] font-[400] leading-[24px]'>First Name</span>
                             <input
@@ -141,9 +136,8 @@ const ModalComp: React.FC<ModalProps> = ({ open, onClose }) => {
 
                     </div>
                 </div>
-            </Dialog>
-        </div>
+            </Modal>
     );
 }
 
-export default ModalComp;
+export default CoWorkingSpaceModal;

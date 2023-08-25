@@ -15,7 +15,7 @@ import LocateMap from "@/components/Co-workingSpace/map"
 import { availableSpaceTabsData, availableSpacesTableData, businessHoursData, equipmentData, cateringData, facilitiesData, relaxZonesData, classicBasicsData } from "@/utils";
 import WorkSpaceTable from "@/components/Co-workingSpace/tableComp";
 import CheckBoxComp from "@/components/Co-workingSpace/checkBoxComp";
-import ModalComp from "@/components/Co-workingSpace/ModalComp";
+import ModalComp from "@/components/Co-workingSpace/CoWorkingSpaceModal";
 
 
 const CoWorkingSpaceDetails: NextPage = () => {

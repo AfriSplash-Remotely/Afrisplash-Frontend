@@ -11,12 +11,9 @@
     "docker:publish": "sudo docker run --publish 3000:3000 afri-frontend"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@googlemaps/js-api-loader": "^1.16.2",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.13",
-    "@mui/material": "^5.14.5",
     "@next/font": "13.1.4",
     "@react-google-maps/api": "^2.17.1",
     "@reduxjs/toolkit": "^1.9.1",
