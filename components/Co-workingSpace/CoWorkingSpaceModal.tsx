@@ -35,7 +35,7 @@ const CoWorkingSpaceModal: React.FC<ModalProps> = ({ open, onClose }) => {
             <Modal
             isOpen={open}
             setIsOpen={onClose}
-            dialogPanelClass="max-w-2xl"
+            dialogPanelClass="w-2xl max-w-2xl"
             >
             <div className="bg-primary_green  text-center text-white md:p-20 -m-6 p-5 rounded-t-2xl">
                     <div className='md:mx-20 pt-28 '>
