@@ -33,6 +33,7 @@ module.exports = {
         sunglow: "#0D5520",
         secondary_yellow_2: "#FFC42D",
         lighter_green: "rgba(214, 236, 220, 0.4)",
+        dark_primary: "#2B2B2B",
       },
     },
   },

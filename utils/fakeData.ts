@@ -633,3 +633,61 @@ export const userEducation: UserEducationT[] = [
     jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
 ];
+
+export type MessageT = {
+  id: number;
+  name: string;
+  avatar: StaticImageData;
+  role: string;
+  message: string;
+  createdAt: string;
+  status: string;
+  active: boolean;
+};
+
+export const mockMsgs: MessageT[] = [
+  {
+    id: 1,
+    name: "John Doe",
+    avatar: pic2,
+    role: "UI/UX Designer",
+    message:
+      "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
+    createdAt: "1hr ago",
+    status: "unread",
+    active: true,
+  },
+  {
+    id: 2,
+    name: "Timi George",
+    avatar: pic1,
+    role: "UI/UX Designer",
+    message:
+      "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
+    createdAt: "1hr ago",
+    status: "unread",
+    active: false,
+  },
+  {
+    id: 3,
+    name: "John Doe",
+    avatar: pic3,
+    role: "UI/UX Designer",
+    message:
+      "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
+    createdAt: "1hr ago",
+    status: "unread",
+    active: false,
+  },
+  {
+    id: 4,
+    name: "Fatima Heph",
+    avatar: pic5,
+    role: "Frontend Model",
+    message:
+      "NextUI is a UI library for React that helps you build beautiful and accessible user interfaces. Created on top of Tailwind CSS and React Aria.",
+    createdAt: "3days ago",
+    status: "unread",
+    active: true,
+  },
+];
