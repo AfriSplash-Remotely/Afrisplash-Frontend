@@ -16,7 +16,8 @@ function NotificationContent({
     <div className="fixed inset-0 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          onClick={onClose}
+          className="absolute inset-0 bg-gray-100 bg-opacity-50"
           aria-hidden="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -94,10 +95,7 @@ function NotificationContent({
                   );
                 })}
               </div>
-              <div
-                onClick={onClose}
-                className="pt-8 pb-8 text-center text-gray-400 text-sm cursor-pointer"
-              >
+              <div className="pt-8 pb-8 text-center text-gray-400 text-sm cursor-pointer">
                 <p>Show more</p>
               </div>
             </div>
