@@ -26,4 +26,5 @@ export const NotificationData: Array<NotificationDataType> = [
     content:
       "Hey! I want to work for your company, I have a lot of experience when it comes to this stuff...",
   },
+
 ];

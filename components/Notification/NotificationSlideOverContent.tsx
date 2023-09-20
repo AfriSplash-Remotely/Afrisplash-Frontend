@@ -32,7 +32,7 @@ function NotificationContent({
           transition={{ ease: "easeInOut", duration: 0.5 }}
         >
           <div className="relative w-screen max-w-md">
-            <div className="rounded-2xl flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
+            <div className="rounded-2xl h-[40rem] flex flex-col py-6 bg-white shadow-xl">
               <div className="px-4 sm:px-5 flex justify-between items-center">
                 <h2
                   id="slide-over-heading"
@@ -44,20 +44,7 @@ function NotificationContent({
                   Mark all as read
                 </p>
               </div>
-              <div className="pt-12 border-b-2">
-                <div className="flex gap-8 px-5">
-                  <div className="border-b-2 border-green-900 cursor-pointer flex gap-2 pb-2">
-                    <h2 className="font-bold text-green-900">All</h2>
-                    <div className="text-white bg-green-900 rounded-lg w-6 h-6 flex justify-center">
-                      8
-                    </div>
-                  </div>
-                  <div>
-                    <h2 className="text-gray-400 cursor-pointer">Deleted</h2>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 relative flex flex-col gap-4 px-4 sm:px-5">
+              <div className="mt-8 mb-7 relative flex flex-col gap-4 px-4 sm:px-5 overflow-y-scroll">
                 {NotificationData.map((user: NotificationDataType, index) => {
                   const isFirstIndex = index === 0;
 
@@ -95,7 +82,7 @@ function NotificationContent({
                   );
                 })}
               </div>
-              <div className="pt-8 pb-8 text-center text-gray-400 text-sm cursor-pointer">
+              <div className="text-center text-gray-400 text-sm cursor-pointer absolute top-[62%] w-[100%] ">
                 <p>Show more</p>
               </div>
             </div>
