@@ -15,6 +15,13 @@ import pic6 from "assets/images/pic6.png";
 import pic7 from "assets/images/pic7.png";
 import pic8 from "assets/images/pic8.png";
 import pic9 from "assets/images/pic9.png";
+import workSpace1 from "@/assets/co-workingSpace/workSpace1.png";
+import workSpace2 from "@/assets/co-workingSpace/workSpace2.png";
+import workSpace3 from "@/assets/co-workingSpace/workSpace3.png";
+import workSpace4 from "@/assets/co-workingSpace/workSpace4.png";
+import workSpace5 from "@/assets/co-workingSpace/workSpace5.png";
+
+
 import CameronImage from "assets/teams/cameron.png";
 import JacobImage from "assets/teams/jacob.png";
 import RobertImage from "assets/teams/robert.png";
@@ -535,6 +542,138 @@ export const mentors: Mentor[] = [
   },
 ];
 
+export const coWorkingSpaceData = [
+  {
+    name: "Nairobi Garage",
+    distance: "10",
+    amount: "0.99",
+    details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
+    src: workSpace1,
+    id: 1
+  },
+  {
+    name: "Nairobi Garage",
+    distance: "20",
+    amount: "0.99",
+    details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
+    src: workSpace2,
+    id:2
+  },
+  {
+    name: "Nairobi Garage",
+    distance: "15",
+    amount: "1.99",
+    details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
+    src: workSpace3,
+    id: 3
+  },
+  {
+    name: "Nairobi Garage",
+    distance: "30",
+    amount: "2.99",
+    details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
+    src: workSpace1,
+    id: 4
+  },
+]
+
+export const nearbyCardData = [
+  {
+    name: "Nairobi Garage",
+    distance: "10",
+    amount: "0.99",
+    src: workSpace5,
+    id: 1
+  },
+  {
+    name: "Nairobi Garage",
+    distance: "20",
+    amount: "0.99",
+    src: workSpace4,
+    id: 2
+  },
+  {
+    name: "Nairobi Garage",
+    distance: "15",
+    amount: "1.99",
+    src: workSpace5,
+    id: 3
+  },
+]
+
+export const availableSpaceTabsData = [
+    { id: 1, title: "ALL" },
+    { id: 2, title: "PRIVATE DESK" },
+    { id: 3, title: "DEDICATED DESK" },
+    { id: 4, title: "SUITE" },
+    { id: 5, title: "VIRTUAL OFFICE" },
+  ];
+
+  export const availableSpacesTableData = [
+    { id: 1, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+    { id: 2, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+    { id: 3, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+    { id: 4, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+    { id: 5, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+    { id: 6, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  ];
+
+   export const businessHoursData = [
+    { id: 1, day: "Monday",
+      startTime: "09:00 AM",
+      endTime: "06:00 PM", },
+    { id: 2, day: "Tuesday",
+      startTime: "09:00 AM",
+      endTime: "06:00 PM", },
+    { id: 3, day: "Wednesday",
+      startTime: "09:00 AM",
+      endTime: "06:00 PM", },
+    { id: 4, day: "Thursday",
+      startTime: "09:00 AM",
+      endTime: "06:00 PM", },
+    { id: 5, day: "Friday",
+      startTime: "09:00 AM",
+      endTime: "06:00 PM", },
+    { id: 6, day: "Saturday",},
+      { id: 7, day: "Sunday",},
+  ];
+
+   export const facilitiesData = [
+    { id: 1, value: "Kitchen", label:  "Kitchen"},
+    { id: 2, value: "personalLockers", label:  "Personal Lockers"},
+    { id: 3, value: "eventSpace", label:  "Event Space" },
+    { id: 4, value: "nearbyAirbnb", label:  "Nearby Airbnb"},
+  ]; 
+
+   export const classicBasicsData = [
+    { id: 1, value: "highSpeedWIFI", label:  "High-Speed WIFI"},
+    { id: 2, value: "airConditioning", label:  "Air Conditioning"},
+  ];
+
+  export const relaxZonesData = [
+    { id: 1, value: "loungeChillOutArea", label:  "Lounge / Chill-out Area"},
+    { id: 2, value: "outdoorTerrace", label:  "Outdoor Terrace"},
+    { id: 3, value: "napRoom", label:  "Nap Room" },
+  ]; 
+
+   export const cateringData = [
+    { id: 1, value: "freeDrinkingWater", label:  "Free Drinking Water"},
+    { id: 2, value: "catteringKitchen", label:  "Cattering Kitchen"},
+    { id: 3, value: "snacksAvailable ", label:  "Snacks Available " },
+    { id: 4, value: "freeCoffee", label:  "Free Coffee"},
+    { id: 5, value: "freeTea", label:  "Free Tea"},
+    { id: 6, value: "outsiteCafe", label:  "Outsite Cafe"},
+  ];
+
+  export const equipmentData = [
+    { id: 1, value: "dualSingleMonitors", label:  "Dual / Single Monitors"},
+    { id: 2, value: "printer", label:  "Printer"},
+    { id: 3, value: "scanner ", label:  "Scanner" },
+    { id: 4, value: "photocopier", label:  "Photocopier"},
+    { id: 5, value: "computersWindows", label:  "Computers (Windows)"},
+    { id: 6, value: "computersMacs", label:  "Computers (Macs)"},
+    { id: 6, value: "ergonomicChairs", label:  "Ergonomic Chairs"},
+  ];
 type ProfileT = {
   fullName: string;
   email: string;
