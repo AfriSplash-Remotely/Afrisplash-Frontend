@@ -107,9 +107,9 @@ const Company: NextPage = () => {
                           service={data.service}
                           employees={data.employees}
                           offer={data.offer}
-                          priceRange={data.priceRange}
+                          salary={data.priceRange}
                           postDate={data.postDate}
-                          hiring={data.hiring}
+                          status={data.hiring}
                           promoted={data.promoted}
                         />
                       </div>
