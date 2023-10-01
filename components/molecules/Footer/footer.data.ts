@@ -66,7 +66,7 @@ export const footer: FooterItems[] = [
             {
                 external: false,
                 title: "co-working space",
-                url: "#",
+                url: "/co-workingSpace",
             },
             { external: false, title: "forum", url: "#" },
             {
