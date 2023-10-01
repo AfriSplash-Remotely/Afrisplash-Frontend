@@ -59,9 +59,9 @@ export function formatCurrency(amount: number, currencyType: string): string {
 
   if (symbol) {
     // if the currency type is available, use the symbol
-    return `${symbol}${amount.toLocaleString()}`;
+    return `${symbol}${amount?.toLocaleString()}`;
   } else {
     // if the currency type is not available, return the amount that way
-    return amount.toString();
+    return amount?.toString();
   }
 }
