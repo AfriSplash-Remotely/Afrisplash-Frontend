@@ -3,12 +3,22 @@ import Image from "next/image";
 import AccountPlaceholder from "@/assets/account-placeholder.png";
 import styles from "../../../styles/Account.module.scss";
 import SettingsLayout from "@/layouts/settingsLayout";
+import type { AccountSettings } from "store/services/setttings";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 const Account = (): JSX.Element => {
+  const { register, handleSubmit, formState: { errors } } = useForm<AccountSettings>()
+
+  const onSubmit: SubmitHandler<AccountSettings> = () => {
+    console.log('jjeje');
+
+  }
+
   return (
     <SettingsLayout>
       <div className={`w-full bg-white rounded-xl p-4 md:p-12 `}>
         {/**Image Container */}
+        <form className={`pb-[53px]`} onSubmit={handleSubmit(onSubmit)}>
         <div className={`flex flex-wrap gap-1 items-center mb-8`}>
           <Image src={AccountPlaceholder} alt="" />
           <button
@@ -28,7 +38,6 @@ const Account = (): JSX.Element => {
           </p>
         </div>
 
-        <form className={`pb-[53px]`}>
           {/** Name Container */}
           <div className={`${styles.nameContainer}`}>
             {/**Last Name */}
@@ -41,8 +50,12 @@ const Account = (): JSX.Element => {
                 </label>
                 <input
                   type="text"
-                  className={`border border-solid border-[#979797] w-full rounded-lg h-[46px]`}
+                  className={`border border-solid border-[#979797] pl-2 w-full rounded-lg h-[46px]`}
+                  {...register("lastName", { required: "LastName is required" })}
                 />
+                {errors.lastName && (
+                  <p role="alert" className="error_message pl-2 py-2">{(errors.lastName as any).message}</p>
+                )}
               </div>
             </div>
 
@@ -55,8 +68,12 @@ const Account = (): JSX.Element => {
               </label>
               <input
                 type="text"
-                className={`border border-solid border-[#979797] w-full rounded-lg h-[46px]`}
+                className={`border border-solid border-[#979797] pl-2  w-full rounded-lg h-[46px]`}
+                {...register("firstName", { required: "FirstName is required" })}
               />
+              {errors.firstName && (
+                <p role="alert" className="error_message pl-2 py-2">{(errors.firstName as any).message}</p>
+              )}
             </div>
           </div>
 
@@ -71,8 +88,12 @@ const Account = (): JSX.Element => {
                 </label>
                 <input
                   type="text"
-                  className={`border border-solid border-[#979797] w-full rounded-lg h-[46px]`}
+                  className={`border border-solid border-[#979797] pl-2  w-full rounded-lg h-[46px]`}
+                  {...register("location", { required: "Location is required" })}
                 />
+                {errors.location && (
+                  <p role="alert" className="error_message pl-2 py-2">{(errors.location as any).message}</p>
+                )}
               </div>
             </div>
 
@@ -85,8 +106,12 @@ const Account = (): JSX.Element => {
               </label>
               <input
                 type="number"
-                className={`border border-solid border-[#979797] w-full rounded-lg h-[46px]`}
+                className={`border border-solid border-[#979797] pl-2  w-full rounded-lg h-[46px]`}
+                {...register("phone", { required: "Phone Number is required" })}
               />
+              {errors.phone && (
+                <p role="alert" className="error_message pl-2 py-2">{(errors.phone as any).message}</p>
+              )}
             </div>
           </div>
 
@@ -97,12 +122,17 @@ const Account = (): JSX.Element => {
             </label>
             <input
               type="email"
-              className={`border border-solid border-[#979797] w-full rounded-lg h-[46px]`}
+              className={`border border-solid border-[#979797] pl-2  w-full rounded-lg h-[46px]`}
+              {...register("email", { required: "Email is required" })}
             />
+            {errors.email && (
+              <p role="alert" className="error_message py-2 pl-2">{(errors.email as any).message}</p>
+            )}
           </div>
 
           <div className={`flex flex-row gap-6 py-8`}>
             <button
+              type="submit"
               className={`border-0 rounded-lg text-[15px] font-light text-[white] bg-[#0D5520] py-2  px-6`}
             >
               Save Changes
