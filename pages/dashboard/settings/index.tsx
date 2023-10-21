@@ -3,14 +3,18 @@ import Image from "next/image";
 import AccountPlaceholder from "@/assets/account-placeholder.png";
 import styles from "../../../styles/Account.module.scss";
 import SettingsLayout from "@/layouts/settingsLayout";
-import type { AccountSettings } from "store/services/setttings";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { AccountSettings } from '../../../utils/interface';
+import { useProfileStore } from "@/store/profile/useProfileStore";
+
 
 const Account = (): JSX.Element => {
   const { register, handleSubmit, formState: { errors } } = useForm<AccountSettings>()
+  const saveProfile = useProfileStore(state => state.saveProfile)
 
   const onSubmit: SubmitHandler<AccountSettings> = () => {
     console.log('jjeje');
+    // saveProfile()
 
   }
 
