@@ -5,10 +5,10 @@ export interface responseMessage {
 
 
 export interface AccountSettings {
-  lastName: string;
-  firstName: string;
+  last_name: string;
+  first_name: string;
   location: string;
   phone: string;
   email: string;
-  profileImg: object;
+  profile_image: string;
 }

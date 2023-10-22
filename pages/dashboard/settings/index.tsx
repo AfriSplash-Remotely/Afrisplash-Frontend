@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import AccountPlaceholder from "@/assets/account-placeholder.png";
 import styles from "../../../styles/Account.module.scss";
@@ -9,14 +9,33 @@ import { useProfileStore } from "@/store/profile/useProfileStore";
 
 
 const Account = (): JSX.Element => {
+  const imageRef = useRef<HTMLInputElement>(null)
+  const [preview, setPreview] = useState<string>('')
+
+  const handleClick = () => {
+    imageRef.current?.click()
+  }
+
+  const handleProfileImg = (e: any) => {
+    const imgData = e.target.files[0]
+    setPreview(URL.createObjectURL(imgData))
+
+
+    // console.log(imgData);
+
+
+  }
+
   const { register, handleSubmit, formState: { errors } } = useForm<AccountSettings>()
   const saveProfile = useProfileStore(state => state.saveProfile)
 
-  const onSubmit: SubmitHandler<AccountSettings> = () => {
-    console.log('jjeje');
+  const onSubmit: SubmitHandler<AccountSettings> = (data) => {
+    console.log(data);
     // saveProfile()
 
   }
+
+
 
   return (
     <SettingsLayout>
@@ -24,14 +43,27 @@ const Account = (): JSX.Element => {
         {/**Image Container */}
         <form className={`pb-[53px]`} onSubmit={handleSubmit(onSubmit)}>
         <div className={`flex flex-wrap gap-1 items-center mb-8`}>
-          <Image src={AccountPlaceholder} alt="" />
+            {preview &&
+              <Image src={preview} alt="" width={100} height={100}
+                className="w-40 h-40 rounded-full" />}
           <button
+              type="button"
+              onClick={handleClick}
             className={`text-white bg-[#0D5520] rounded-lg px-[36px] py-[12px] ml-[23px] mr-[12px]`}
           >
             Upload New
           </button>
-          <button className={`text-[#FF1515]`}>Remove</button>
+
+            <input {...register("profile_image")} name="profileImg"
+              type="file" accept="image/*" ref={imageRef}
+              onChange={handleProfileImg} style={{ display: 'none' }} />
+
+            {errors.profile_image && (
+              <p role="alert" className="error_message pl-2 py-2">{(errors.profile_image as any).message}</p>
+            )}
+            <button type="button" className={`text-[#FF1515]`}>Remove</button>
         </div>
+
         <div className={`border-t-2 border-solid border-[#C4C4C4] pt-[27px]`}>
           <h3 className={`text-[#292D32] pb-[14px] text-[18px] font-medium`}>
             Personal Details
@@ -55,10 +87,10 @@ const Account = (): JSX.Element => {
                 <input
                   type="text"
                   className={`border border-solid border-[#979797] pl-2 w-full rounded-lg h-[46px]`}
-                  {...register("lastName", { required: "LastName is required" })}
+                  {...register("last_name", { required: "LastName is required" })}
                 />
-                {errors.lastName && (
-                  <p role="alert" className="error_message pl-2 py-2">{(errors.lastName as any).message}</p>
+                {errors.last_name && (
+                  <p role="alert" className="error_message pl-2 py-2">{(errors.last_name as any).message}</p>
                 )}
               </div>
             </div>
@@ -73,10 +105,10 @@ const Account = (): JSX.Element => {
               <input
                 type="text"
                 className={`border border-solid border-[#979797] pl-2  w-full rounded-lg h-[46px]`}
-                {...register("firstName", { required: "FirstName is required" })}
+                {...register("first_name", { required: "FirstName is required" })}
               />
-              {errors.firstName && (
-                <p role="alert" className="error_message pl-2 py-2">{(errors.firstName as any).message}</p>
+              {errors.first_name && (
+                <p role="alert" className="error_message pl-2 py-2">{(errors.first_name as any).message}</p>
               )}
             </div>
           </div>
