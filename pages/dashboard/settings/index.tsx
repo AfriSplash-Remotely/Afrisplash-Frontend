@@ -39,7 +39,6 @@ const Account = (): JSX.Element => {
     },
     onError: () => {
       toast.error('An error occured')
-
     }
   })
 
@@ -48,9 +47,6 @@ const Account = (): JSX.Element => {
       ...data
     }
     mutate(profileData)
-    console.log(data);
-    // saveProfile()
-
   }
 
 
