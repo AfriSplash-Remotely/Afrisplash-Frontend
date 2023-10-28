@@ -8,6 +8,8 @@ import { ProfileUpdate } from '../../../utils/interface';
 import { useProfileStore } from "@/store/profile/useProfileStore";
 import { useMutation } from "@tanstack/react-query";
 import { updateProfile } from "@/api/profile/profile.api";
+import toast from "react-hot-toast";
+
 
 
 const Account = (): JSX.Element => {
@@ -25,20 +27,23 @@ const Account = (): JSX.Element => {
   }
 
   const { register, handleSubmit, formState: { errors } } = useForm<ProfileUpdate>()
-  const saveProfile = useProfileStore(state => state.saveProfile)
+  const store = useProfileStore()
   const { mutate,  isLoading } = useMutation(updateProfile, {
-    onSuccess: data => {
-      console.log(data);
+    onMutate: () => {
+      store.setProfileUpateLoading(true)
+    },
+    onSuccess: () => {
+      store.setProfileUpateLoading(false)
+      toast.success("Profile Update Successful")
 
     },
     onError: () => {
-      console.log('kikee');
+      toast.error('An error occured')
 
     }
   })
 
-  const onSubmit: SubmitHandler<ProfileUpdate> = (data, e: any) => {
-    e.preventDefault()
+  const onSubmit: SubmitHandler<ProfileUpdate> = (data) => {
     const profileData = {
       ...data
     }
@@ -184,7 +189,7 @@ const Account = (): JSX.Element => {
               type="submit"
               className={`border-0 rounded-lg text-[15px] font-light text-[white] bg-[#0D5520] py-2  px-6`}
             >
-              Save Changes
+              {isLoading ? 'Updating...' : 'Save Changes'}
             </button>
             <button
               className={`border border-solid border-[#0D5520] rounded-lg text-[#0D5520] py-2  px-6`}
