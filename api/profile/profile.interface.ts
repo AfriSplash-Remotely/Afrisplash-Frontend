@@ -1,10 +1,4 @@
-export interface responseMessage {
-  success: boolean;
-  data: string;
-}
-
-
-export interface ProfileUpdate {
+export interface ProfileSettingI {
   last_name: string;
   first_name: string;
   location: string;

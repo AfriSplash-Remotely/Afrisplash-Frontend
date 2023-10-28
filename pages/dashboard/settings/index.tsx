@@ -1,11 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
-import AccountPlaceholder from "@/assets/account-placeholder.png";
+// import AccountPlaceholder from "@/assets/account-placeholder.png";
 import styles from "../../../styles/Account.module.scss";
 import SettingsLayout from "@/layouts/settingsLayout";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { AccountSettings } from '../../../utils/interface';
+import { ProfileUpdate } from '../../../utils/interface';
 import { useProfileStore } from "@/store/profile/useProfileStore";
+import { useMutation } from "@tanstack/react-query";
+import { updateProfile } from "@/api/profile/profile.api";
 
 
 const Account = (): JSX.Element => {
@@ -19,17 +21,28 @@ const Account = (): JSX.Element => {
   const handleProfileImg = (e: any) => {
     const imgData = e.target.files[0]
     setPreview(URL.createObjectURL(imgData))
-
-
     // console.log(imgData);
-
-
   }
 
-  const { register, handleSubmit, formState: { errors } } = useForm<AccountSettings>()
+  const { register, handleSubmit, formState: { errors } } = useForm<ProfileUpdate>()
   const saveProfile = useProfileStore(state => state.saveProfile)
+  const { mutate,  isLoading } = useMutation(updateProfile, {
+    onSuccess: data => {
+      console.log(data);
 
-  const onSubmit: SubmitHandler<AccountSettings> = (data) => {
+    },
+    onError: () => {
+      console.log('kikee');
+
+    }
+  })
+
+  const onSubmit: SubmitHandler<ProfileUpdate> = (data, e: any) => {
+    e.preventDefault()
+    const profileData = {
+      ...data
+    }
+    mutate(profileData)
     console.log(data);
     // saveProfile()
 

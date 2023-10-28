@@ -1,13 +1,12 @@
 import { create } from "zustand";
-import { AccountSettings } from "../../utils/interface";
-import axios from "@/utils/axios";
+import { ProfileUpdate } from "../../utils/interface";
 
 interface State {
-  profile: AccountSettings[];
+  profile: ProfileUpdate | [];
 }
 
 interface Actions {
-  saveProfile: (profileInfo: AccountSettings) => void;
+  saveProfile: (profileInfo: ProfileUpdate) => void;
 }
 
 const IntialState: State = {
@@ -16,13 +15,6 @@ const IntialState: State = {
 
 export const useProfileStore = create<State & Actions>((set) => ({
   profile: IntialState.profile,
-  saveProfile: async (editUserData: AccountSettings) => {
-    const { data: response } = await axios.post(
-      "/candidate/edit/user",
-      editUserData
-    );
-    return set(response.data);
-
-    // console.log(editUserData, "kokeo");
-  },
+  saveProfile: (profileInfo) =>
+    set((state) => ({ ...state, profile: profileInfo })),
 }));
