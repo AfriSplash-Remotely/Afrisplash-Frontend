@@ -9,7 +9,7 @@ import logo from "assets/afrisplash-logo-main.png";
 import forgotImg from "assets/forgot-image.png";
 import sms from "assets/sms.png";
 import { NextPage } from "next";
-import { forgotPassword } from '@/api/auth/auth.api';
+import { forgotPassword } from '@/api-endpoints/auth/auth.api';
 
 
 type FormInputs = {

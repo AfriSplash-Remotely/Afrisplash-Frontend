@@ -1,12 +1,11 @@
-import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
 const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-export const options: NextAuthOptions = {
+export const options = {
      pages: {
-          signIn: "/login",
+          signIn: "/auth/login",
      },
      providers: [
           CredentialsProvider({
@@ -32,13 +31,13 @@ export const options: NextAuthOptions = {
 
                     try {
                          const { data } = await axios.post(
-                              backendURL + "/auth/users/login",
+                              backendURL + "/auth/login",
                               credentialDetails,
                          );
                          if (data) {
                               return { ...data.user, token: data.token };
                          }
-                    } catch (error: any) {
+                    } catch (error) {
                          throw new Error(JSON.stringify(error && error.response && error.response.data))
                     }
 
@@ -58,7 +57,7 @@ export const options: NextAuthOptions = {
           },
           jwt: ({ token, user }) => {
                if (user) {
-                    const u = user as unknown as any;
+                    const u = user
                     return {
                          ...token,
                          id: u._id,

@@ -6,7 +6,7 @@ import AllBlogCard from "./AllBlogCard";
 
 import { ArticleProp } from "./interface";
 import { NextPage } from "next";
-import { getAllBlogs } from "@/api/blog/blog.api";
+import { getAllBlogs } from "@/api-endpoints/blog/blog.api";
 import { useQuery } from "@tanstack/react-query";
 
 const mockdata: ArticleProp[] = [
