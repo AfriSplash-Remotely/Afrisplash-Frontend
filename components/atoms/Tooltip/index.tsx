@@ -7,21 +7,20 @@ const TooltipProps = {
     title:PropTypes.string.isRequired
 }
 export default function Index({ message, children ,title}: InferProps<typeof TooltipProps>): JSX.Element {
-    const [show, setShow] = useState<boolean>(true)
+    const [show, setShow] = useState<boolean>(false)
 
     return (
 
-        <div className="relative flex flex-col  items-center">
+        <div className="relative flex flex-col  items-center group">
             <span className="flex justify-center" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
                 {children}
             </span>
-            <div className={`absolute p-4 bottom-full flex   group-hover:flex ${!show ? "hidden" : null}`}>
+            <div className={`absolute w-80 whitespace-nowrap bottom-full  group-hover:flex ${!show ? "hidden" : null}`}>
                 
-                <span className="relative z-10 px-4 py-8 text-xs leading-none text-#606172  bg-white shadow-lg rounded-md">
-                    <h4 className='text-#606172 font-bold'>{title}</h4>
-
+                <div className="relative z-10 px-4 py-6 text-sm  text-gray-500 whitespace-normal  bg-white shadow-lg rounded-lg">
+                    <h3 className='text-gray-400 text-xl font-bold mb-4'>{title}</h3>
                     {message}
-                </span>
+                </div>
                 <div className="w-3 h-3 -mt-2 rotate-45 bg-white" />
             </div>
         </div>)
