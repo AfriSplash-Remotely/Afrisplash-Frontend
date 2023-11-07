@@ -7,9 +7,9 @@ import AdminLayout from "layouts/adminLayout";
 import AsideNavigation from "@/components/molecules/Navigation/asideNavigation";
 
 const tabs = [
-  { title: "Trending topics", routeLink: "/dashboard/forum" },
-  { title: "Splash rooms", routeLink: "/dashboard/forum/splash" },
-  { title: "Mentors", routeLink: "/dashboard/forum/mentors" },
+  { title: "Trending topics", routeLink: "/dashboard/candidate/forum" },
+  { title: "Splash rooms", routeLink: "/dashboard/candidate/forum/splash" },
+  { title: "Mentors", routeLink: "/dashboard/candidate/forum/mentors" },
 ];
 const ForumLayoutProps = {
   children: PropTypes.node.isRequired,

@@ -39,15 +39,23 @@ const candidateNavLinks = [
 ];
 const recruiterNavLinks = [
   { title: "Profile", icon: user, route: "/dashboard/recruiter" },
-  { title: "Jobs", icon: briefcase, route: "" },
+  { title: "Jobs", icon: briefcase, route: "/dashboard/recruiter/jobs" },
   {
     title: "Applicants",
     icon: directsend,
     route: "/dashboard/recruiter/applicants",
   },
-  { title: "Messages", icon: messages, route: "" },
-  { title: "Forum", icon: messages_2, route: "" },
-  { title: "Settings", icon: setting_3, route: "" },
+  { title: "Messages", icon: messages, route: "/dashboard/recruiter/messages" },
+  {
+    title: "Forum",
+    icon: messages_2,
+    route: "/dashboard/recruiter/forum",
+  },
+  {
+    title: "Settings",
+    icon: setting_3,
+    route: "/dashboard/recruiter/settings",
+  },
 ];
 
 export { candidateNavLinks, recruiterNavLinks };

@@ -48,10 +48,9 @@ export default function AdminNavigation({
             <nav
               className="flex items-center h-full "
               onMouseLeave={() => setFocused(null)}
-            >
-              {router.pathname === '/dashboard/candidate' ? 
-              
+            >              
                 <ul className="flex flex-col space-y-5">
+                {router.pathname === '/dashboard/candidate' ? <>
                   {candidateNavLinks.map((item: NavItems, index: number) => (
                     <li key={index}>
                       <Link
@@ -92,9 +91,7 @@ export default function AdminNavigation({
                       </Link>
                     </li>
                   ))}
-                </ul>
-              
-                : <ul className="flex flex-col space-y-5">
+                </> : <>
                   {recruiterNavLinks.map((item: NavItems, index: number) => (
                     <li key={index}>
                       <Link
@@ -134,9 +131,9 @@ export default function AdminNavigation({
                         ) : null}
                       </Link>
                     </li>
-                  ))}
-                </ul>}
-             
+                  ))}</>}
+
+              </ul>
             </nav>
           </header>
         </div>
