@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { NavItems } from "./AdminNavigation";
 import styles from "./Navigation.module.scss";
-import navLinks from "./navLinks";
+import { candidateNavLinks } from "./navLinks";
 
 type MobileSidebarT = {
   isOpen: boolean;
@@ -58,7 +58,7 @@ const MobileSidebar = ({
         <div className="relative w-screen max-w-[15rem] flex flex-col space-y-6 overflow-y-scroll h-full">
           <div className="flex flex-col justify-between p-4">
             <ul className="flex flex-col space-y-5">
-              {navLinks.map((item: NavItems, index: number) => (
+              {candidateNavLinks.map((item: NavItems, index: number) => (
                 <li key={index}>
                   <Link
                     href={item.route}

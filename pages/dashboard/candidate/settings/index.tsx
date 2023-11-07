@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import AccountPlaceholder from "@/assets/account-placeholder.png";
-import styles from "../../../styles/Account.module.scss";
+import styles from "@/styles/Account.module.scss";
 import SettingsLayout from "@/layouts/settingsLayout";
 
 const Account = (): JSX.Element => {
