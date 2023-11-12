@@ -5,8 +5,8 @@ import Tabs from "components/Forum/Tabs";
 import AdminLayout from "layouts/adminLayout";
 
 const tabs = [
-    { title: "My Profile", routeLink: "/dashboard/recruiter" },
-    { title: "My Company", routeLink: "/dashboard/recruiter/company" }
+    { title: "My Profile", routeLink: "/dashboard" },
+    { title: "My Company", routeLink: "/dashboard/company" }
 ]
 
 const RecruiterProfileLayoutProps = {

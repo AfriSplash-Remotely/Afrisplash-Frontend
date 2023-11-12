@@ -9,32 +9,32 @@ const candidateNavLinks = [
   {
     title: "Profile",
     icon: user,
-    route: "/dashboard/candidate",
+    route: "/dashboard",
   },
   {
     title: "Jobs",
     icon: briefcase,
-    route: "/dashboard/candidate/jobs",
+    route: "/dashboard/jobs",
   },
   {
     title: "Applied",
     icon: directsend,
-    route: "/dashboard/candidate/applied",
+    route: "/dashboard/applied",
   },
   {
     title: "Messages",
     icon: messages,
-    route: "/dashboard/candidate/messages",
+    route: "/dashboard/messages",
   },
   {
     title: "Forum",
     icon: messages_2,
-    route: "/dashboard/candidate/forum",
+    route: "/dashboard/forum",
   },
   {
     title: "Settings",
     icon: setting_3,
-    route: "/dashboard/candidate/settings",
+    route: "/dashboard/settings",
   },
 ];
 const recruiterNavLinks = [
