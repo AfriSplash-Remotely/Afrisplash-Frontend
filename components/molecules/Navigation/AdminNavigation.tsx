@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
-import { candidateNavLinks, recruiterNavLinks } from "./navLinks";
+import { navLinks } from "./navLinks";
 
 export type NavItems = {
   title: string;
@@ -50,8 +50,7 @@ export default function AdminNavigation({
               onMouseLeave={() => setFocused(null)}
             >              
                 <ul className="flex flex-col space-y-5">
-                {/* {router.pathname === '/dashboard/candidate' ? <> */}
-                  {candidateNavLinks.map((item: NavItems, index: number) => (
+                {navLinks.map((item: NavItems, index: number) => (
                     <li key={index}>
                       <Link
                         href={item.route}
@@ -90,48 +89,7 @@ export default function AdminNavigation({
                         ) : null}
                       </Link>
                     </li>
-                  ))}
-                {/* </> : <> */}
-                  {/* {recruiterNavLinks.map((item: NavItems, index: number) => (
-                    <li key={index}>
-                      <Link
-                        href={item.route}
-                        onMouseEnter={() => setFocused(item.title)}
-                        className={`text-sm  flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"
-                          } py-2 rounded-lg ${router.pathname === item.route &&
-                          "text-primary_green bg-light_green"
-                          }`}
-                      >
-                        <div className="flex space-x-2 items-center z-10">
-                          <span>
-                            <Image
-                              alt={item.title}
-                              src={item.icon ? item.icon : ""}
-                              height={18}
-                              width={18}
-                            />
-                          </span>
-                          <span
-                            className={`${navSwitch === true ? "hidden" : ""}`}
-                          >
-                            {item.title}
-                          </span>
-                        </div>
-                        {focused === item.title ? (
-                          <motion.div
-                            transition={{
-                              layout: {
-                                duration: 0.2,
-                                ease: "easeOut",
-                              },
-                            }}
-                            className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
-                            layoutId="highlight"
-                          />
-                        ) : null}
-                      </Link>
-                    </li>
-                  ))}</>} */}
+                ))}
 
               </ul>
             </nav>
