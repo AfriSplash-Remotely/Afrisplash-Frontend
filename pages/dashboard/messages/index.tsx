@@ -1,15 +1,16 @@
 import React from "react";
 import { NextPage } from "next";
-import AdminLayout from "layouts/adminLayout";
-import MessageLayout from "@/layouts/messageLayout";
+import CandidateMessages from "@/components/Dashboard/candidate/messages";
+import RecruiterMessages from "@/components/Dashboard/recruiter/messages";
 
 const Messages: NextPage = () => {
-  return <AdminLayout>
-    <div>
-      <h1 className="text-gray-900 font-medium text-lg md:font-bold md:text-2xl lg:text-[2rem]">All Messages</h1>
-      <MessageLayout />
-    </div>
-  </AdminLayout>;
-};
+    return (
+        <>
+            <CandidateMessages />
+            {/* <RecruiterMessages/> */}
+        </>
+    )
+}
 
-export default Messages;
+
+export default Messages

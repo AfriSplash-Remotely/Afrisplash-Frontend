@@ -22,6 +22,11 @@ const Signup: NextPage = () => {
   const [signup] = useSignupMutation();
   const router = useRouter();
 
+  const talentOptions = [
+    { value: 'recruiter', label: 'Recruiter' },
+    { value: 'candidate', label: 'Candidate' }
+  ]
+
   const {
     register,
     handleSubmit,
@@ -48,10 +53,11 @@ const Signup: NextPage = () => {
   };
 
   const customStyles = {
-    control: (base: any,) => ({
+    control: (base: any, state: any) => ({
       ...base,
       height: "50px",
       borderRadius: "10px",
+      border: state.isSelected ? '1px solid #bbbbc3' : '1px solid #bbbbc3'
     }),
   };
 
@@ -99,20 +105,21 @@ const Signup: NextPage = () => {
       </h2>
       <form className={`mt-9 w-full`} onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-5">
-          <div className={`${styles.nameContainer} w-full space-x-4`}>
+          <div className={`${styles.nameContainer} w-full space-x-2`}>
             {/**First Name */}
-            <div className={`${styles.inputContainer} w-6/12`}>
-              <span className={`${styles.userIcon}`}>
-                <UserIcon className="w-4 h-4 " />
-              </span>
-              <input
-                type="text"
-                placeholder="First Name"
-                className={`${styles.inputField}`}
-                {...register("first_name", { required: true })}
-                aria-invalid={errors.first_name ? "true" : "false"}
-              />
-
+            <div>
+              <div className={`${styles.inputContainer} `}>
+                <span className={`${styles.userIcon}`}>
+                  <UserIcon className="w-4 h-4 " />
+                </span>
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  className={`${styles.inputField}`}
+                  {...register("first_name", { required: true })}
+                  aria-invalid={errors.first_name ? "true" : "false"}
+                />
+              </div>
               {errors.first_name?.type === "required" && (
                 <p role="alert" className="error_message pl-2 py-2">
                   First name is required
@@ -121,23 +128,26 @@ const Signup: NextPage = () => {
             </div>
 
             {/**Surname */}
-            <div className={`${styles.inputContainer} w-6/12`}>
-              <span className={`${styles.userIcon}`}>
-                <UserIcon className="w-4 h-4 " />
-              </span>
-              <input
-                type="text"
-                placeholder="Surname"
-                className={`${styles.inputField}`}
-                {...register("last_name", { required: true })}
-                aria-invalid={errors.last_name ? "true" : "false"}
-              />
+            <div>
+              <div className={`${styles.inputContainer}`}>
+                <span className={`${styles.userIcon}`}>
+                  <UserIcon className="w-4 h-4 " />
+                </span>
+                <input
+                  type="text"
+                  placeholder="Surname"
+                  className={`${styles.inputField}`}
+                  {...register("last_name", { required: true })}
+                  aria-invalid={errors.last_name ? "true" : "false"}
+                />
+              </div>
+              {errors.last_name?.type === "required" && (
+                <p role="alert" className="error_message pl-2 py-2">
+                  Surname is required
+                </p>
+              )}
             </div>
-            {errors.last_name?.type === "required" && (
-              <p role="alert" className="error_message pl-2 py-2">
-                Surname is required
-              </p>
-            )}
+
           </div>
 
           {/**Email */}
@@ -196,7 +206,8 @@ const Signup: NextPage = () => {
             {/* <span className={`relative top-[1.8rem] z-50 ${styles.userIcon}`}>
               <UserCircleIcon className="w-4 h-4 ml-[.9rem]" />
             </span> */}
-            <Select placeholder="Talent account" styles={customStyles} />
+            <Select placeholder="Talent account" styles={customStyles} options={talentOptions}
+            />
           </div>
         </div>
 

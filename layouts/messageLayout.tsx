@@ -84,6 +84,7 @@ const MessageLayout: NextPage = () => {
             <div className="bg-white hidden lg:block h-[100%] lg:w-[65%] relative">
                 <div className="absolute w-[100%] top-0">
                     <MessageHeader />
+
                 </div>
                 <div className="absolute w-[100%] bottom-0" >
                     <MessageFooter />
