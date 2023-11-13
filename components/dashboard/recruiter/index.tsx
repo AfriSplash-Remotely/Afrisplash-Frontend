@@ -100,106 +100,12 @@ const Recruiter: NextPage = () => {
 
                     </div>
 
-                    <div className="px-4 py-6">
-                        <div className="flex justify-between items-center">
-                            <h4 className="text-base font-bold mb-1">Skills hiring for</h4>
-                            <div className="border border-grey_2 rounded-md p-1 cursor-pointer" >
-                                <Pencil />
-                            </div>
 
-                        </div>
-                        <div className="flex justify-between flex-wrap gap-4 py-4">
-                            {userProfile.skills.map((skill, index) => (
-                                <div
-                                    className="rounded-2xl px-6 py-2 text-sm  text-primary_grey border border-primary_grey"
-                                    key={index}
-                                >
-                                    {skill}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
 
-                    <div className="px-4 py-6">
-                        <div className="flex justify-between items-center">
-                            <h4 className="text-base font-bold mb-1">Languages</h4>
-                            <div className="border border-grey_2 rounded-md p-1 cursor-pointer" >
-                                <Pencil />
-                            </div>
 
-                        </div>
-                        <div className="flex justify-between flex-wrap gap-4 py-4">
-                            {userProfile.languages.map((language, index) => (
-                                <div className="" key={index}>
-                                    <span className="text-[#606172] font-semibold">
-                                        {language.name}
-                                    </span>{" "}
-                                    -{" "}
-                                    <span className="text-[#9c9ca8] font-light">
-                                        {language.level}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="px-4 py-6">
-                        <h4 className="text-base font-bold mb-1">Profile is  60% complete</h4>
-                        <input type="range" className="w-full mt-2 accent-primary_green" />
 
-                    </div>
                 </div>
-                {/* user experience */}
-                <div className="bg-white rounded-xl relative">
-                    <div className="flex items-center space-x-2 p-4 pb-0">
-                        <AwardSvg />
-                        <h3 className="text-lg font-bold">Experience</h3>
-                    </div>
-                    <div className="divide-y divide-gray-100">
-                        {userExperience.map((exp) => (
-                            <div className="px-4 py-6" key={exp.title}>
-                                <h4 className="text-base font-bold mb-2">{exp.duration}</h4>
-                                <h5 className="text-base font-bold text-sunglow mb-2">
-                                    {exp.company}
-                                </h5>
-                                <h6 className="text-base font-normal text-[#606172] mb-2">
-                                    {exp.title}
-                                </h6>
-                                <div>
-                                    <p>{exp.jobDesc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="top-4 right-4 absolute border border-grey_2 rounded-md p-1 cursor-pointer" >
-                        <Pencil />
-                    </div>
-                </div>
-                {/* user education */}
-                <div className="bg-white rounded-xl relative">
-                    <div className="flex items-center space-x-2 p-4 pb-0">
-                        <AwardSvg />
-                        <h3 className="text-lg font-bold">Education</h3>
-                    </div>
-                    <div className="divide-y divide-gray-100">
-                        {userEducation.map((exp) => (
-                            <div className="px-4 py-6" key={exp.title}>
-                                <h4 className="text-base font-bold mb-2">{exp.duration}</h4>
-                                <h5 className="text-base font-bold text-sunglow mb-2">
-                                    {exp.company}
-                                </h5>
-                                <h6 className="text-base font-normal text-[#606172] mb-2">
-                                    {exp.title}
-                                </h6>
-                                <div>
-                                    <p>{exp.jobDesc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="top-4 right-4 absolute border border-grey_2 rounded-md p-1 cursor-pointer" >
-                        <Pencil />
-                    </div>
-                </div>
+
             </div>
         </RecruiterProfileLayout>
     )
