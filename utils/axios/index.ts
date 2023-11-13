@@ -1,7 +1,8 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+console.log({ endpoint: process.env.NEXT_PUBLIC_BACKEND_URL })
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 axios.interceptors.request.use(
   (request) => {
     request.headers["Authorization"] = `Bearer ${Cookies.get("access_token")}`;
