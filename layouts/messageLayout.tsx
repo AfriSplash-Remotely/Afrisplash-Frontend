@@ -6,6 +6,7 @@ import { MessageDataType } from "@/components/atoms/Messages/types";
 import { MessageData } from "@/components/atoms/Messages/MessageData";
 import MessageHeader from "@/components/atoms/Messages/MessageHeader";
 import MessageFooter from "@/components/atoms/Messages/MessageFooter";
+import MessageBody from "@/components/atoms/Messages/MessageBody"
 
 const MessageLayout: NextPage = () => {
     return (
@@ -43,7 +44,7 @@ const MessageLayout: NextPage = () => {
                                 className={`${bgClass} h-32 py-5 border-b w-[100%] p-4 cursor-pointer`}
                             >
                                 <div className="flex items-center gap-2 w-[100%]">
-                                    <div className="w-3 h-2 bg-green-700 rounded-full"></div>
+                                    <div className="w-3 h-2 -mt-10 bg-green-700 rounded-full"></div>
                                     <div>
                                         <div className="flex justify-between items-start">
                                             <div className="flex gap-2 items-center">
@@ -84,6 +85,10 @@ const MessageLayout: NextPage = () => {
             <div className="bg-white hidden lg:block h-[100%] lg:w-[65%] relative">
                 <div className="absolute w-[100%] top-0">
                     <MessageHeader />
+                    <div className="mt-4 px-8">
+                        <h4 className="text-center text-gray-700 text-lg">Today</h4>
+                        <MessageBody />
+                    </div>
 
                 </div>
                 <div className="absolute w-[100%] bottom-0" >
