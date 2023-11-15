@@ -5,7 +5,7 @@ import messages from "assets/admin_icons/messages.svg";
 import setting_3 from "assets/admin_icons/setting-3.svg";
 import user from "assets/admin_icons/user.svg";
 
-const navLinks = [
+export  const navLinks = [
   {
     title: "Profile",
     icon: user,
@@ -16,10 +16,11 @@ const navLinks = [
     icon: briefcase,
     route: "/dashboard/jobs",
   },
+  // for recruiter, Applied should be Applicants
   {
-    title: "Applicants",
+    title: "Applied",
     icon: directsend,
-    route: "/dashboard/applicants",
+    route: "/dashboard/applied",
   },
   {
     title: "Messages",
@@ -32,10 +33,10 @@ const navLinks = [
     route: "/dashboard/forum",
   },
   {
-    title: "settings",
+    title: "Settings",
     icon: setting_3,
     route: "/dashboard/settings",
   },
 ];
 
-export default navLinks;
+

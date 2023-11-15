@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import type { NextPage } from "next";
 import CheckBox from "components/atoms/CheckBox/CheckBox";
 import DropDown from "components/atoms/DropDown/DropDown";
 import ApplicantCard from "components/molecules/applicantCard/applicantCard";
@@ -51,7 +50,7 @@ const applicantsData = [
   },
 ];
 
-const Applicants: NextPage = () => {
+const Applicants= ():JSX.Element => {
   const [makeSelectOptionsVisible, setMakeSelectOptionsVisible] =
     useState<boolean>(false);
   const [applicants, setApplicants] = useState<Applicant[]>(applicantsList);
