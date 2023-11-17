@@ -28,8 +28,16 @@ const experience = [
 ];
 
 export default function Jobs():JSX.Element{
-  const { data, isLoading } = useQuery(["jobs"], fetchAllJobs)
+  const { data, isLoading, isError } = useQuery(["jobs"], fetchAllJobs)
   const allJobs = data?.data
+  // if (isError) {
+  //   return (
+  //     <div className="py-10">
+  //       <p>{error?.message}</p>
+  //     </div>
+  //   )
+
+  // }
 
   return (
     <AdminLayout>
@@ -77,6 +85,9 @@ export default function Jobs():JSX.Element{
             );
           })}        
       </>)}
+      {isError ? (<div className="py-4">
+        <p>No jobs found</p>
+      </div>) : null}
 
     </AdminLayout>
   );
