@@ -13,16 +13,16 @@ import { capitalizeFirstLetter, formatTimeAgo,formatCurrency } from "@/utils/hel
 
 const jobDataProps = {
   image: PropTypes.string,
-  company: PropTypes.string,
+  company: PropTypes.string.isRequired,
   service: PropTypes.string,
   employees: PropTypes.number,
-  offer: PropTypes.string,
+  offer: PropTypes.string.isRequired,
   salary: PropTypes.shape({
     amount: PropTypes.number,
     currency: PropTypes.string,
     period: PropTypes.string,
   }),
-  postDate: PropTypes.string,
+  postDate: PropTypes.string.isRequired,
   alt: PropTypes.string,
   status: PropTypes.string,
   promoted: PropTypes.bool,
@@ -68,12 +68,10 @@ const JobCard = ({
                   </div>
                 )}
               </div>
-              {/* <p className="mt-1 text-base">{service}</p> */}
-              <p className="mt-1 text-base">Google search and other services</p>
+              <p className="mt-1 text-base">{service}</p>
               <div className="flex items-center gap-2 mt-2">
                 <UserGroupIcon className="w-4 h-4 opacity-60" />
-                {/* <p className="opacity-60 text-xs">{employees} EMPLOYEES</p> */}
-                <p className="opacity-60 text-xs">30 EMPLOYEES</p>
+                <p className="opacity-60 text-xs">{employees} EMPLOYEES</p>
               </div>
             </div>
           </div>
@@ -122,12 +120,12 @@ const JobCard = ({
               {capitalizeFirstLetter(offer)}
             </p>
             <p className="font-[400] text-base">
-              {formatCurrency(priceRange?.amount, priceRange?.currency)}
+              {formatCurrency(priceRange?.amount ?? 0, priceRange?.currency ?? "$")}
             </p>
           </div>
           <div className="flex flex-wrap gap-4 items-center sm:justify-between w-full md:w-auto my-4 md:my-0">
             <p className="font-[400] text-xs hidden md:block">
-              {formatTimeAgo(postDate)}
+              {formatTimeAgo(postDate)} 
             </p>
             <div className="flex gap-3 w-full  items-center md:w-auto">
               <Button

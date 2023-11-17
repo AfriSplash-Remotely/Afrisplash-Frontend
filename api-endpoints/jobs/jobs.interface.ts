@@ -46,7 +46,9 @@ interface Job {
   promoted: boolean;
   publish: boolean;
   expiry: string;
+  service: string;
   external_data: ExternalData;
+  isDirectApply:boolean;
   createdAt: string;
   updatedAt: string;
   __v: number;
