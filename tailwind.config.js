@@ -42,6 +42,7 @@ module.exports = {
         secondary_yellow_2: "#FFC42D",
         map_border: "#CECECE",
         lighter_green: "rgba(214, 236, 220, 0.4)",
+        chat_gray: "#F2F2F2",
       },
     },
   },

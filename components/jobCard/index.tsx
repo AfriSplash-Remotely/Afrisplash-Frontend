@@ -9,17 +9,22 @@ import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
 import { HiBolt } from "react-icons/hi2";
 import Button from "components/atoms/Button/Button";
+import { capitalizeFirstLetter, formatTimeAgo,formatCurrency } from "@/utils/helper";
 
 const jobDataProps = {
   image: PropTypes.string,
   company: PropTypes.string,
   service: PropTypes.string,
-  employees: PropTypes.string,
+  employees: PropTypes.number,
   offer: PropTypes.string,
-  priceRange: PropTypes.string,
+  salary: PropTypes.shape({
+    amount: PropTypes.number,
+    currency: PropTypes.string,
+    period: PropTypes.string,
+  }),
   postDate: PropTypes.string,
   alt: PropTypes.string,
-  hiring: PropTypes.bool,
+  status: PropTypes.string,
   promoted: PropTypes.bool,
   isDirectApply: PropTypes.bool,
   forDashboard: PropTypes.bool,
@@ -31,16 +36,16 @@ const JobCard = ({
   service,
   employees,
   offer,
-  priceRange,
+  salary: priceRange,
   postDate,
   alt,
   isDirectApply,
-  hiring,
+  status: hiring,
   promoted,
   forDashboard = false,
-}: InferProps<typeof jobDataProps>):JSX.Element => {
+}: InferProps<typeof jobDataProps>): JSX.Element => {
   return (
-    <div>
+    <>
       <div className="bg-white rounded-xl border border-gray-200 p-3  mt-5">
         <div className="flex justify-between ">
           <div className="flex items-center gap-3">
@@ -54,17 +59,21 @@ const JobCard = ({
             </div>
             <div>
               <div className="flex items-center mb-3">
-                <h1 className="font-semibold text-base">{company}</h1>{" "}
+                <h1 className="font-semibold text-base">
+                  {capitalizeFirstLetter(company)}
+                </h1>{" "}
                 {promoted === true && forDashboard && (
                   <div className="bg-amber-500/20 py-1 px-4 mx-6 rounded-full text-xs font-medium">
                     PROMOTED
                   </div>
                 )}
               </div>
-              <p className="mt-1 text-base">{service}</p>
+              {/* <p className="mt-1 text-base">{service}</p> */}
+              <p className="mt-1 text-base">Google search and other services</p>
               <div className="flex items-center gap-2 mt-2">
                 <UserGroupIcon className="w-4 h-4 opacity-60" />
-                <p className="opacity-60 text-xs">{employees}</p>
+                {/* <p className="opacity-60 text-xs">{employees} EMPLOYEES</p> */}
+                <p className="opacity-60 text-xs">30 EMPLOYEES</p>
               </div>
             </div>
           </div>
@@ -77,7 +86,7 @@ const JobCard = ({
 
         <div className="flex flex-wrap items-center gap-6 my-5">
           <div>
-            {hiring === true ? (
+            {hiring === "Active" ? (
               <div className="flex items-center gap-2 bg-light_green p-2 rounded-full">
                 <CheckCircleIcon className="w-5 h-5 bg-primary_green text-gray-200 rounded-full" />
                 <p className="text-primary_green text-xs font-medium">
@@ -109,11 +118,17 @@ const JobCard = ({
           }`}
         >
           <div className="flex  flex-wrap sm:justify-between md:gap-40">
-            <p className="font-[600] text-base w-full md:w-auto">{offer}</p>
-            <p className="font-[400] text-base">{priceRange}</p>
+            <p className="font-[600] text-base w-full md:w-auto">
+              {capitalizeFirstLetter(offer)}
+            </p>
+            <p className="font-[400] text-base">
+              {formatCurrency(priceRange?.amount, priceRange?.currency)}
+            </p>
           </div>
           <div className="flex flex-wrap gap-4 items-center sm:justify-between w-full md:w-auto my-4 md:my-0">
-            <p className="font-[400] text-xs hidden md:block">{postDate}</p>
+            <p className="font-[400] text-xs hidden md:block">
+              {formatTimeAgo(postDate)}
+            </p>
             <div className="flex gap-3 w-full  items-center md:w-auto">
               <Button
                 text={"Save"}
@@ -129,11 +144,12 @@ const JobCard = ({
               />
             </div>
           </div>
-          <div className="font-[400] text-xs block md:hidden ">{postDate}</div>
-
+          <div className="font-normal text-xs block md:hidden ">
+            {formatTimeAgo(postDate)}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
