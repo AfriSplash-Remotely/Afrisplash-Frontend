@@ -17,9 +17,10 @@ import { RegisterRequest, useSignupMutation } from "store/services/auth";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
+import { signUp } from "@/api-endpoints/auth/auth.api";
 
 const Signup: NextPage = () => {
-  const [signup] = useSignupMutation();
+  // const [signup] = useSignupMutation();
   const router = useRouter();
 
   const talentOptions = [
@@ -35,11 +36,11 @@ const Signup: NextPage = () => {
 
   const onSubmit: SubmitHandler<RegisterRequest> = async (data) => {
     try {
-      await signup(data).unwrap();
-      toast.success("Login successful");
-      router.push("/dashboard")
+      await signUp({ ...data, user_type: "candidate", gender: "male" });
+      toast.success("Signup successful");
+      router.push("/auth/login")
     } catch (err: any) {
-      toast.error(err.data.message);
+      // toast.error(err.data.message);
     }
   };
 
