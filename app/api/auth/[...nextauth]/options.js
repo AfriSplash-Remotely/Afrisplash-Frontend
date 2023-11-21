@@ -47,14 +47,14 @@ export const options = {
      ],
      callbacks: {
           session: ({ session, token }) => {
-               console.log({ session, token })
+               // console.log({ session, token })
                return {
                     ...session,
                     user: {
                          ...session.user,
                          id: token.id,
                          accessToken: token.accessToken,
-                         role: token.user_type
+                         role: token.role
                     },
                };
           },
@@ -66,7 +66,7 @@ export const options = {
                          ...token,
                          id: u._id,
                          accessToken: u.token,
-                         role: u.user_type
+                         role: u.role
 
                     };
                }
