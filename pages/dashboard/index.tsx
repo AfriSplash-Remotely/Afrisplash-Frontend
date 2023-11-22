@@ -8,6 +8,7 @@ function Dashbaord(): JSX.Element {
     const { data: session, status } = useSession()
     console.log({ session, status })
     if (session && session.user && session.user.role === ACCOUNT_TYPE.recruiter) {
+        
         return <Recruiter />;
     }
 

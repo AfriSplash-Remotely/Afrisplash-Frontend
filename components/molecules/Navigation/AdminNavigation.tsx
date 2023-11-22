@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import { navLinks } from "./navLinks";
+import { ACCOUNT_TYPE } from "@/utils";
+import { useSession } from "next-auth/react";
 
 export type NavItems = {
   title: string;
@@ -26,6 +28,16 @@ export default function AdminNavigation({
   handleNavSwitch: () => void;
 }): JSX.Element {
   const router = useRouter();
+
+  const {data:session} = useSession()
+
+  const userTypeNavLink = navLinks.map((navLink) => {
+    if(navLink.title === 'Applied' && session?.user?.role === ACCOUNT_TYPE.recruiter){
+      return{...navLink, title:"Applicants"}
+    }
+    return navLink
+  })
+  
 
   return (
     <>
@@ -50,7 +62,7 @@ export default function AdminNavigation({
               onMouseLeave={() => setFocused(null)}
             >              
                 <ul className="flex flex-col space-y-5">
-                {navLinks.map((item: NavItems, index: number) => (
+                {userTypeNavLink.map((item: NavItems, index: number) => (
                     <li key={index}>
                       <Link
                         href={item.route}
