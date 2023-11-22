@@ -1,13 +1,13 @@
 import React from "react";
-import { NextPage } from "next";
 import CandidateMentors from "@/components/Dashboard/candidate/forum/mentors";
+import { ACCOUNT_TYPE } from "@/utils";
+import { useSession } from "next-auth/react";
 
-const Mentors: NextPage = () => {
-    return (
-        <>
-            <CandidateMentors />
-        </>
-    )
+function Mentors(): JSX.Element | undefined {
+    const { data: session, status } = useSession()
+    if (session && session.user && session.user.role === ACCOUNT_TYPE.recruiter) {
+        return <CandidateMentors />
+    }
 }
 
 
