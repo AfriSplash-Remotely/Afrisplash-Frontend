@@ -50,7 +50,7 @@ export default function AdminNavigation({
                 {navLinks.map((item: IsideBarLinks, index: number) => {
                   if (session &&
                     session.user &&
-                    item.role.includes(session?.user?.role)
+                    item.role.includes(session?.user?.userType)
                   ) {
                     return <li key={index}>
                       <Link

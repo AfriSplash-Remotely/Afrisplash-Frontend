@@ -1,11 +1,11 @@
 import React from "react";
 import { NextPage } from "next";
-import CandidateMentors from "@/components/Dashboard/candidate/forum/mentors";
+import MentorsPage from "@/components/Dashboard/forum/mentors";
 
 const Mentors: NextPage = () => {
     return (
         <>
-            <CandidateMentors />
+            <MentorsPage />
         </>
     )
 }
