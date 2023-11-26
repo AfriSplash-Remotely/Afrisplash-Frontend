@@ -4,9 +4,9 @@ import { ACCOUNT_TYPE } from "./utils";
 
 interface IUser extends DefaultUser {
     id: string;
-    role: ACCOUNT_TYPE;
+    userType: ACCOUNT_TYPE;
     accessToken: string;
-    account_setup_completed:boolean
+    account_setup_completed: boolean
 }
 
 declare module "next-auth" {

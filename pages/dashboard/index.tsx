@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 function Dashbaord() {
     const { data: session, status } = useSession()
     console.log({ session, status })
-    if (session && session.user && session.user.role === ACCOUNT_TYPE.recruiter) {
+    if (session && session.user && session.user.userType === ACCOUNT_TYPE.recruiter) {
         return <Recruiter />;
     }
 
