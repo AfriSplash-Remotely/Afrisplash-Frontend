@@ -1,11 +1,11 @@
 import React from "react";
 import { NextPage } from "next";
-import CandidateSplash from "@/components/Dashboard/candidate/forum/splash";
+import SplashPage from "@/components/Dashboard/forum/splash";
 
 const Splash: NextPage = () => {
     return (
         <>
-            <CandidateSplash />
+            <SplashPage />
         </>
     )
 }
