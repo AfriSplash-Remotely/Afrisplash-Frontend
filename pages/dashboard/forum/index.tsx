@@ -1,16 +1,13 @@
 import React from "react";
-import CandidateTrending from "@/components/Dashboard/candidate/forum";
-import RecruiterForum from "@/components/Dashboard/recruiter/forum";
-import { ACCOUNT_TYPE } from "@/utils";
-import { useSession } from "next-auth/react";
+import { NextPage } from "next";
+import Trending from "@/components/Dashboard/forum";
 
-function Forum(): JSX.Element {
-    const { data: session, status } = useSession()
-    if (session && session.user && session.user.role === ACCOUNT_TYPE.recruiter) {
-        return <RecruiterForum />
-    }
-    return <CandidateTrending />
-
+const Forum: NextPage = () => {
+    return (
+        <>
+            <Trending />
+        </>
+    )
 }
 
 export default Forum

@@ -1,17 +1,13 @@
 import React from "react";
-import CandidateMessages from "@/components/Dashboard/candidate/messages";
-import RecruiterMessages from "@/components/Dashboard/recruiter/messages";
-import { ACCOUNT_TYPE } from "@/utils";
-import { useSession } from "next-auth/react";
+import { NextPage } from "next";
+import Message from "@/components/Dashboard/messages";
 
-function Messages(): JSX.Element {
-    const { data: session, status } = useSession()
-    if (session && session.user && session.user.role === ACCOUNT_TYPE.recruiter) {
-        return <RecruiterMessages />
-    }
-    return <CandidateMessages />
-
-
+const Messages: NextPage = () => {
+    return (
+        <>
+            <Message />
+        </>
+    )
 }
 
 

@@ -47,26 +47,26 @@ export const options = {
      ],
      callbacks: {
           session: ({ session, token }) => {
-               // console.log({ session, token })
+               console.log({ session, token })
                return {
                     ...session,
                     user: {
                          ...session.user,
                          id: token.id,
                          accessToken: token.accessToken,
-                         role: token.role
+                         userType: token.userType
                     },
                };
           },
           jwt: ({ token, user }) => {
-               // console.log({ token, user })
+               console.log({ token, user })
                if (user) {
                     const u = user
                     return {
                          ...token,
                          id: u._id,
                          accessToken: u.token,
-                         role: u.role
+                         userType: u.user_type
 
                     };
                }

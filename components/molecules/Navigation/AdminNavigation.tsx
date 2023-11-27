@@ -6,15 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
-import { navLinks } from "./navLinks";
-import { ACCOUNT_TYPE } from "@/utils";
+import { IsideBarLinks, navLinks } from "./navLinks";
 import { useSession } from "next-auth/react";
 
-export type NavItems = {
-  title: string;
-  icon: string;
-  route: string;
-};
 
 export default function AdminNavigation({
   focused,
@@ -27,24 +21,15 @@ export default function AdminNavigation({
   setFocused: React.Dispatch<React.SetStateAction<string | null>>;
   handleNavSwitch: () => void;
 }): JSX.Element {
+  const { data: session, status } = useSession()
+  // session && session.user && session.user.role === ACCOUNT_TYPE.recruiter
   const router = useRouter();
-
-  const {data:session} = useSession()
-
-  const userTypeNavLink = navLinks.map((navLink) => {
-    if(navLink.title === 'Applied' && session?.user?.role === ACCOUNT_TYPE.recruiter){
-      return{...navLink, title:"Applicants"}
-    }
-    return navLink
-  })
-  
 
   return (
     <>
       <aside
-        className={`hidden md:block ${
-          navSwitch === true ? "w-max" : "w-2/12"
-        } h-screen relative px-5 z-50`}
+        className={`hidden md:block ${navSwitch === true ? "w-max" : "w-2/12"
+          } h-screen relative px-5 z-50`}
       >
         <div className={`relative w-full ${styles.wrapper}`}>
           <header className="w-full relative z-50 h-full flex flex-col space-y-10">
@@ -60,10 +45,14 @@ export default function AdminNavigation({
             <nav
               className="flex items-center h-full "
               onMouseLeave={() => setFocused(null)}
-            >              
-                <ul className="flex flex-col space-y-5">
-                {userTypeNavLink.map((item: NavItems, index: number) => (
-                    <li key={index}>
+            >
+              <ul className="flex flex-col space-y-5">
+                {navLinks.map((item: IsideBarLinks, index: number) => {
+                  if (session &&
+                    session.user &&
+                    item.role.includes(session?.user?.userType)
+                  ) {
+                    return <li key={index}>
                       <Link
                         href={item.route}
                         onMouseEnter={() => setFocused(item.title)}
@@ -101,7 +90,9 @@ export default function AdminNavigation({
                         ) : null}
                       </Link>
                     </li>
-                ))}
+                  }
+                }
+                )}
 
               </ul>
             </nav>
@@ -109,11 +100,9 @@ export default function AdminNavigation({
         </div>
         <div
           onClick={handleNavSwitch}
-          className={`absolute top-16 cursor-pointer hover:bg-light_green ${
-            navSwitch === true ? "bg-[#f8f8f8]" : "bg-white"
-          } -right-3 drop-shadow-lg rounded-full p-1 ${
-            navSwitch === true ? "transform rotate-180" : ""
-          }`}
+          className={`absolute top-16 cursor-pointer hover:bg-light_green ${navSwitch === true ? "bg-[#f8f8f8]" : "bg-white"
+            } -right-3 drop-shadow-lg rounded-full p-1 ${navSwitch === true ? "transform rotate-180" : ""
+            }`}
         >
           <ChevronLeftIcon className="w-4 h-4 z-50" />
         </div>
