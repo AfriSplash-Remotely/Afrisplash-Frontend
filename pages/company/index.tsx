@@ -107,9 +107,9 @@ const Company: NextPage = () => {
                           service={data.service}
                           employees={data.employees}
                           offer={data.offer}
-                          priceRange={data.priceRange}
+                          salary={data.priceRange}
                           postDate={data.postDate}
-                          hiring={data.hiring}
+                          status={data.hiring}
                           promoted={data.promoted}
                         />
                       </div>
@@ -126,7 +126,7 @@ const Company: NextPage = () => {
                       return (
                         <div key={index} className="flex items-center gap-4">
                           <div>
-                            <Image src={data.image} alt="team" fill />
+                            <Image src={data.image} alt="team" />
                           </div>
                           <div>
                             <p className="text-xl">{data.name}</p>

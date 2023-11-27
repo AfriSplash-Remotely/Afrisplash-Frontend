@@ -12,3 +12,7 @@ export interface ProfileUpdate {
   email: string;
   profile_image: string;
 }
+export enum ACCOUNT_TYPE{
+  candidate="candidate",
+  recruiter="recruiter"
+}

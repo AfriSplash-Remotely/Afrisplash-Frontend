@@ -1,8 +1,10 @@
+import React from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
 import Link from "next/link";
+import { signIn, getCsrfToken } from "next-auth/react";
 import toast from "react-hot-toast";
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from "next/navigation";
 import { useLoginMutation } from "store/services/auth";
 import type { LoginRequest } from "store/services/auth";
 import styles from "styles/Login.module.scss";
@@ -10,10 +12,21 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import AuthLayout from "@/layouts/Auth.layout";
 import google from "assets/svg/google.svg";
 import Image from "next/image";
+import LoadingIcon from "@/components/atoms/LoaingIcon";
+import { useSession } from "next-auth/react"
 
 const Login: NextPage = () => {
+  const { data: session, status } = useSession()
+
   const [login] = useLoginMutation();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const callbackUrl = searchParams?.get("callbackUrl") || "/dashboard";
+
+  const [_, setCsrfToken] = React.useState<string | null>("");
+  const [isLoading, setLoading] = React.useState<boolean>(false);
+
 
   const {
     register,
@@ -22,18 +35,40 @@ const Login: NextPage = () => {
   } = useForm<LoginRequest>();
 
   const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
+    setLoading(true);
+
     try {
-      const userData = await login(data).unwrap()
-      toast.success("Login successful");
-      if (userData.user && userData.user.account_setup_completed) {
-        router.push("/dashboard")
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+        callbackUrl,
+      })
+      console.log({ res })
+      if (res?.error) {
+        console.log({ res, error: res?.error })
+        setLoading(false);
+        toast.error(
+          res.error ? JSON.parse(res.error).error : "invalid email or password",
+        );
       } else {
-        router.push("/onboarding")
+        setLoading(false);
+        if (session && session.user && session.user?.account_setup_completed === true) {
+          router.push(callbackUrl);
+        } else {
+          router.push("/onboarding");
+
+        }
       }
     } catch (err: any) {
-      toast.error(err?.data?.message);
+      setLoading(false);
+      toast.error(err.data.message);
     }
   };
+
+  React.useEffect(() => {
+    console.log({ session })
+  }, [session])
 
   return <AuthLayout>
     <Head>
@@ -98,11 +133,13 @@ const Login: NextPage = () => {
             <p>Forgot Password?</p>
           </Link>
         </div>
-        <input
-          value="Log in"
+
+        <button
           type="submit"
           className={`bg-dark_blue hover:bg-primary_green cursor-pointer text-white ${styles.button}`}
-        />
+        >
+          <span className="flex gap-4 mx-auto item-center justify-center">{isLoading && <LoadingIcon />}Log in</span>
+        </button>
       </form>
       <p className="text-center mt-4">
         Don&apos;t have an account?

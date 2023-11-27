@@ -10,6 +10,7 @@ import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "react-hot-toast";
 import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../next-i18next.config.js'
+import { SessionProvider } from 'next-auth/react';
 
 import "../styles/globals.scss";
 
@@ -27,7 +28,11 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
         </Head>
         <NextNProgress color="#0d5520" startPosition={0.3} />
         <Toaster />
-        <Component {...pageProps} />
+        <SessionProvider session={pageProps.session}>
+
+          <Component {...pageProps} />
+        </SessionProvider>
+
       </Provider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

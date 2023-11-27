@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { NavItems } from "./AdminNavigation";
 import styles from "./Navigation.module.scss";
-import navLinks from "./navLinks";
+import { navLinks } from "./navLinks";
 
 type MobileSidebarT = {
   isOpen: boolean;
@@ -57,46 +57,47 @@ const MobileSidebar = ({
         </div>
         <div className="relative w-screen max-w-[15rem] flex flex-col space-y-6 overflow-y-scroll h-full">
           <div className="flex flex-col justify-between p-4">
+            
             <ul className="flex flex-col space-y-5">
               {navLinks.map((item: NavItems, index: number) => (
-                <li key={index}>
-                  <Link
-                    href={item.route}
-                    onMouseEnter={() => setFocused(item.title)}
-                    className={`text-sm  flex capitalize cursor-pointer relative ${
-                      navSwitch === true ? "px-5" : "px-5 pr-8"
-                    } py-2 rounded-lg ${
-                      router.pathname === item.route &&
-                      "text-primary_green bg-light_green"
-                    }`}
-                  >
-                    <div className="flex space-x-5 items-center z-10">
-                      <span>
-                        <Image
-                          alt={item.title}
-                          src={item.icon ? item.icon : ""}
-                          height={18}
-                          width={18}
+                  <li key={index}>
+                    <Link
+                      href={item.route}
+                      onMouseEnter={() => setFocused(item.title)}
+                      className={`text-sm  flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"
+                        } py-2 rounded-lg ${router.pathname === item.route &&
+                        "text-primary_green bg-light_green"
+                        }`}
+                    >
+                      <div className="flex space-x-5 items-center z-10">
+                        <span>
+                          <Image
+                            alt={item.title}
+                            src={item.icon ? item.icon : ""}
+                            height={18}
+                            width={18}
+                          />
+                        </span>
+                        <span className={`${navSwitch === true ? "hidden" : ""}`}>
+                          {item.title}
+                        </span>
+                      </div>
+                      {focused === item.title ? (
+                        <motion.div
+                          transition={{
+                            layout: {
+                              duration: 0.2,
+                              ease: "easeOut",
+                            },
+                          }}
+                          className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
                         />
-                      </span>
-                      <span className={`${navSwitch === true ? "hidden" : ""}`}>
-                        {item.title}
-                      </span>
-                    </div>
-                    {focused === item.title ? (
-                      <motion.div
-                        transition={{
-                          layout: {
-                            duration: 0.2,
-                            ease: "easeOut",
-                          },
-                        }}
-                        className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
-                      />
-                    ) : null}
-                  </Link>
-                </li>
+                      ) : null}
+                    </Link>
+                  </li>
               ))}
+
+             
             </ul>
           </div>
         </div>
