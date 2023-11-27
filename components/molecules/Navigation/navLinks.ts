@@ -6,6 +6,9 @@ import messages from "assets/admin_icons/messages.svg";
 import setting_3 from "assets/admin_icons/setting-3.svg";
 import user from "assets/admin_icons/user.svg";
 
+
+
+
 export interface IsideBarLinks {
   title: string;
   route: string;
@@ -27,7 +30,6 @@ export const navLinks: IsideBarLinks[] = [
     role: [ACCOUNT_TYPE.candidate]
 
   },
-  // for recruiter, Applied should be Applicants
   {
     title: "Applied",
     icon: directsend,

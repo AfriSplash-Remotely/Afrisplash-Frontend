@@ -10,5 +10,4 @@ const Forum: NextPage = () => {
     )
 }
 
-
 export default Forum
