@@ -1,17 +1,16 @@
 import React from "react";
-import { NextPage } from "next";
 import CandidateNotification from "@/components/Dashboard/candidate/settings/notifications";
 import RecruiterNotification from "@/components/Dashboard/recruiter/settings/notifications";
+import { ACCOUNT_TYPE } from "@/utils";
+import { useSession } from "next-auth/react";
 
+function Notification(): JSX.Element {
+    const { data: session, status } = useSession()
+    if (session && session.user && session.user.role === ACCOUNT_TYPE.recruiter) {
+        return <RecruiterNotification />
+    }
+    return <CandidateNotification />
 
-
-const Notification: NextPage = () => {
-    return (
-        <>
-            <CandidateNotification />
-            {/* <RecruiterNotification/> */}
-        </>
-    )
 }
 
 

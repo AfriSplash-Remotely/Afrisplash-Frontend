@@ -1,16 +1,13 @@
 import React from "react";
 import { NextPage } from "next";
-import CandidateTrending from "@/components/Dashboard/candidate/forum";
-import RecruiterForum from "@/components/Dashboard/recruiter/forum";
+import Trending from "@/components/Dashboard/forum";
 
 const Forum: NextPage = () => {
     return (
         <>
-            <CandidateTrending />
-            {/* <RecruiterForum/> */}
+            <Trending />
         </>
     )
 }
-
 
 export default Forum

@@ -13,8 +13,11 @@ import AuthLayout from "@/layouts/Auth.layout";
 import google from "assets/svg/google.svg";
 import Image from "next/image";
 import LoadingIcon from "@/components/atoms/LoaingIcon";
+import { useSession } from "next-auth/react"
 
 const Login: NextPage = () => {
+  const { data: session, status } = useSession()
+
   const [login] = useLoginMutation();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -40,8 +43,8 @@ const Login: NextPage = () => {
         email: data.email,
         password: data.password,
         callbackUrl,
-      });
-
+      })
+      console.log({ res })
       if (res?.error) {
         console.log({ res, error: res?.error })
         setLoading(false);
@@ -50,14 +53,22 @@ const Login: NextPage = () => {
         );
       } else {
         setLoading(false);
+        if (session && session.user && session.user?.account_setup_completed === true) {
+          router.push(callbackUrl);
+        } else {
+          router.push("/onboarding");
 
-        router.push(callbackUrl);
+        }
       }
     } catch (err: any) {
       setLoading(false);
       toast.error(err.data.message);
     }
   };
+
+  React.useEffect(() => {
+    console.log({ session })
+  }, [session])
 
   return <AuthLayout>
     <Head>
