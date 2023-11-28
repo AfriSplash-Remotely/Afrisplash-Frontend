@@ -15,7 +15,8 @@ export function capitalizeFirstLetter(word: string): string {
 export function formatTimeAgo(dateString: string): string {
   const date = new Date(dateString);
   const now = new Date();
-  const timeDifference = now - date;
+  // use the getTime to convert the now and date to number for typescript
+  const timeDifference = now.getTime() - date.getTime();
 
   const seconds = Math.floor(timeDifference / 1000);
   const minutes = Math.floor(seconds / 60);
