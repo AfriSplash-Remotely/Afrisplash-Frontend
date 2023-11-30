@@ -67,7 +67,7 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
                 : "Search candidates"
             }`}
             avatar={avatar}
-            avatarText="Ready to interview"
+            avatarText="Profile"
             handleShowSidebar={handleShowSidebar}
           />
           <main>

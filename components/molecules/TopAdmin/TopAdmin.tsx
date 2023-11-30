@@ -31,13 +31,14 @@ export default function TopAdmin({
       <button className="rounded md:hidden" onClick={handleShowSidebar}>
         <Bars3Icon className="w-6 h-6" />
       </button>
-      <section className="flex space-x-20 items-center">
-        <div className="flex flex-end w-full space-x-10">
-          <GiftIcon className="w-5 h-5" />
+      <section className="flex space-x-10 items-center">
+        <div className="flex  items-center flex-end w-full space-x-10">
+          <GiftIcon className="w-5 h-5 cursor-pointer" />
           <BellIcon
             onClick={() => setIsOpen(!isOpen)}
             className="w-5 h-5 cursor-pointer"
           />
+          <button className="text-white font-semibold px-6 py-2 rounded-2xl bg-sunglow">Create Job</button>
         </div>
         <div className="hidden md:flex">
           <AdminLoginAvatar imageSrc={avatar} text={avatarText} />

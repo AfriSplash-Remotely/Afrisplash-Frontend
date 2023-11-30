@@ -13,7 +13,7 @@ export default function AdminLoginAvatar({
 }: InferProps<typeof AdminLoginAvatarProps>): JSX.Element {
   return (
     <div>
-      <div className="flex items-center space-x-2 border px-2 py-1 rounded-lg">
+      <div className="flex items-center space-x-2 border px-2 py-1 rounded-lg cursor-pointer">
         <Image src={imageSrc} alt="avatar" height={30} width={30} />
         <span className="text-sm text-gray-400">{text}</span>
         <ChevronDownIcon className="w-5 h-5 text-gray-700" />
