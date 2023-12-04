@@ -55,6 +55,7 @@ export const options = {
                          id: token.id,
                          accessToken: token.accessToken,
                          userType: token.userType
+                         
                     },
                };
           },
