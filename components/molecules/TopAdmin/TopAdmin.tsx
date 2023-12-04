@@ -6,7 +6,9 @@ import Search from "components/atoms/Search/Search";
 import AdminLoginAvatar from "../adminLoginAvatar";
 import Notification from "@/components/Notification";
 import Button from "@/components/atoms/Button/Button";
-// import { useRouter } from "next/router";
+import { ACCOUNT_TYPE } from "@/utils";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const TopAdminProps = {
   placeholder: PropTypes.string.isRequired,
@@ -21,15 +23,16 @@ export default function TopAdmin({
   avatarText,
   handleShowSidebar,
 }: InferProps<typeof TopAdminProps>): JSX.Element {
-  // const router = useRouter();
+  const router = useRouter();
+  const { data: session } = useSession()
 
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const handleOnClose = (): void => setIsOpen(false);
 
-  // const changePath = (path: string) => {
-  //   router.push(path);
-  // };
+  const changePath = (path: string) => {
+    router.push(path);
+  };
 
 
   return (
@@ -47,15 +50,16 @@ export default function TopAdmin({
             onClick={() => setIsOpen(!isOpen)}
             className="w-5 h-5 cursor-pointer"
           />
-          {/* <button className="text-white font-semibold px-6 py-2 rounded-md bg-sunglow">Create Job</button>
-           */}
-          <Button type='filled'
-            color="dark_blue"
-            text="Create Job"
-            classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
-// onClick={() => changePath('path')}
+          {session && session.user && session.user.userType === ACCOUNT_TYPE.recruiter ? (
+            <Button type='filled'
+              color="dark_blue"
+              text="Create Job"
+              classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
+              onClick={() => changePath('/dashboard/create-job')}
 
-          />
+            />
+          ) : null}
+
         </div>
         <div className="hidden md:flex">
           <AdminLoginAvatar imageSrc={avatar} text={avatarText} link="/dashboard/profile"/>

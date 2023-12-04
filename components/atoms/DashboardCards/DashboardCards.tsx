@@ -14,7 +14,7 @@ export default function DashboardCards({ title, icon, total, bgColor }: InferPro
         {icon}
       </div>
       <div>
-        <p className='text-dark_black text-lg'>{title}</p>
+        <p className='text-dark_black font-medium text-lg'>{title}</p>
         <h3 className='text-dark_black text-4xl font-semibold'>{total}</h3>
 
       </div>
