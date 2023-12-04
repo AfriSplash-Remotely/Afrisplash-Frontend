@@ -9,12 +9,12 @@ const CardProps = {
 }
 export default function DashboardCards({ title, icon, total, bgColor }: InferProps<typeof CardProps>): JSX.Element {
   return (
-    <div className='flex items-center gap-6 p-6 rounded-md shadow-sm' style={{ backgroundColor: bgColor }}>
-      <div className='h-24 w-24 text-sunglow rounded-full flex justify-center items-center'>
+    <div className='flex items-center gap-6 p-6 rounded-md' style={{ backgroundColor: bgColor }}>
+      <div className='h-24 w-24 text-grey_4  rounded-full flex justify-center items-center'>
         {icon}
       </div>
       <div>
-        <p className='text-dark_500 text-lg'>{title}</p>
+        <p className='text-dark_black text-lg'>{title}</p>
         <h3 className='text-dark_black text-4xl font-semibold'>{total}</h3>
 
       </div>
