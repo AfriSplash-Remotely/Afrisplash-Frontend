@@ -26,14 +26,14 @@ export const navLinks: IsideBarLinks[] = [
     title: "Jobs",
     icon: briefcase,
     route: "/dashboard/jobs",
-    role: [ACCOUNT_TYPE.candidate]
+    role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
 
   },
   {
     title: "Applied",
     icon: directsend,
     route: "/dashboard/applied",
-    role: [ACCOUNT_TYPE.candidate]
+    role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
 
   },
   {

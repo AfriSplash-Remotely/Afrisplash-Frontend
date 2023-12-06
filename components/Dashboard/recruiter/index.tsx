@@ -2,9 +2,10 @@ import DashboardCards from "@/components/atoms/DashboardCards/DashboardCards";
 import AdminLayout from "@/layouts/adminLayout";
 import { MdOutlineWorkOutline, MdOutlineBusinessCenter, MdMarkChatRead, MdGppBad } from "react-icons/md";
 import { Tab } from "@headlessui/react";
-import { jobData } from "@/utils";
 import JobCard from "@/components/jobCard";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api";
 
 const Recruiter = ():JSX.Element => {
     const cardData = [
@@ -18,6 +19,8 @@ const Recruiter = ():JSX.Element => {
     const classNames = (...classes: string[]) => {
         return classes.filter(Boolean).join(" ");
     };
+    const {data} = useQuery(["jobs"], fetchAllJobs)
+    const allJobs = data?.data
 
     return (
         <AdminLayout>
@@ -61,19 +64,21 @@ const Recruiter = ():JSX.Element => {
                         </Tab.List>
                         <Tab.Panels className='mt-3'>
                             <Tab.Panel>
-                                {jobData.map((job) => {
+                                {allJobs?.map((job) => {
                                     return (
-                                        <JobCard key={job.company}
-                                            image={job.image}
-                                            alt={"company image"}
-                                            company={job.company}
-                                            service={job.service}
-                                            employees={job.employees}
-                                            offer={job.offer}
-                                            salary={job.priceRange}
-                                            postDate={job.postDate}
-                                            status={job.hiring}
-                                            promoted={job.promoted}
+                                        <JobCard key={job?._id}
+                                            forDashboard={true}
+                                            image={job?._company?.logo}
+                                            alt={job?._company?.name}
+                                            company={job?._company?.name}
+                                            service={job?.service}
+                                            employees={job?._company?.staff}
+                                            offer={job?.title}
+                                            salary={job?.salary}
+                                            postDate={job?.createdAt}
+                                            status={job?.status}
+                                            promoted={job?.promoted}
+                                            isDirectApply={job?.isDirectApply}
                                         />
                                     )
                                 })}
@@ -83,19 +88,21 @@ const Recruiter = ():JSX.Element => {
 
                             </Tab.Panel>
                             <Tab.Panel>
-                                {jobData.map((job) => {
+                                {allJobs?.map((job) => {
                                     return (
-                                        <JobCard key={job.company}
-                                            image={job.image}
-                                            alt={"company image"}
-                                            company={job.company}
-                                            service={job.service}
-                                            employees={job.employees}
-                                            offer={job.offer}
-                                            salary={job.priceRange}
-                                            postDate={job.postDate}
-                                            status={job.hiring}
-                                            promoted={job.promoted}
+                                        <JobCard key={job?._id}
+                                            forDashboard={true}
+                                            image={job?._company?.logo}
+                                            alt={job?._company?.name}
+                                            company={job?._company?.name}
+                                            service={job?.service}
+                                            employees={job?._company?.staff}
+                                            offer={job?.title}
+                                            salary={job?.salary}
+                                            postDate={job?.createdAt}
+                                            status={job?.status}
+                                            promoted={job?.promoted}
+                                            isDirectApply={job?.isDirectApply}
                                         />
                                     )
                                 })}
