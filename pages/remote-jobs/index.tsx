@@ -3,7 +3,6 @@ import Head from "next/head";
 import GeneralLayout from "layouts/generalLayout";
 import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
 import Filter from "../../components/filterComponent/Filter";
-import { jobData } from "utils/fakeData";
 import JobCard from "@/components/jobCard";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api"
