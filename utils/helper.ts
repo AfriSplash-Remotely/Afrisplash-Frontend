@@ -6,8 +6,7 @@ export function generateUniqueId(): number {
 }
 
 export function capitalizeFirstLetter(word: string): string {
-  return word
-    .split(" ")
+  return word?.split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }

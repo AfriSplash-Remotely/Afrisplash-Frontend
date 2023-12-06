@@ -45,12 +45,9 @@ const Candidate = (): JSX.Element => {
                                         />
                                     )
                                 })}
-
-
                             </div>
                     </>
                 )}
-
                 {isError ? (<div className="py-4">
                     <p>No jobs found</p>
                 </div>) : null}

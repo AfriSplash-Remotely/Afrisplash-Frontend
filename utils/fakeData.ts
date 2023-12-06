@@ -28,6 +28,7 @@ import RobertImage from "assets/teams/robert.png";
 import WadeImage from "assets/teams/wade.png";
 import { FiBriefcase } from "react-icons/fi";
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const toArrayOfObjects = (objectDetails: any, length: number) => {
   let data: Array<any> = [];
   for (let i = 0; i < length; i++) {

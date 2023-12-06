@@ -1,17 +1,23 @@
-import { jobCat, jobData, toArrayOfObjects } from "utils/fakeData";
+import { jobCat, toArrayOfObjects } from "utils/fakeData";
 import JobCard from "components/jobCard";
 import JobCategory from "components/molecules/jobCategory";
 import styles from "./styles.module.scss";
 import { generateUniqueId } from "@/utils/helper";
 import { TFunction } from "i18next";
-
+import { useQuery } from "@tanstack/react-query";
+import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api";
 interface Props {
   translate: TFunction<["common", "home", "footer"], undefined>;
 }
 
 function HomeJobs({ translate }: Props): JSX.Element {
-  const homeJobData = toArrayOfObjects(jobData[0], 5);
+
+  const { data } = useQuery(["jobs"], fetchAllJobs)
+  const homeJobs = {...data?.data}
+
+  const homeJobData = toArrayOfObjects(homeJobs[0], 5);
   const homeJobCat = toArrayOfObjects(jobCat, 9);
+
 
   return (
     <section className={`w-full ${styles.bg_gray}`}>
@@ -42,19 +48,21 @@ function HomeJobs({ translate }: Props): JSX.Element {
           </div>
           <div className="w-full">
             {homeJobData.map(
-              (data): JSX.Element => (
-                <div key={generateUniqueId()}>
+              (job): JSX.Element => (
+                <div key={job?._id}>
                   <JobCard
-                    image={data.image}
-                    alt={"company image"}
-                    company={data.company}
-                    service={data.service}
-                    employees={data.employees}
-                    offer={data.offer}
-                    salary={data.priceRange}
-                    postDate={data.postDate}
-                    status={data.hiring}
-                    promoted={data.promoted}
+                    forDashboard={false}
+                    image={job?._company?.logo}
+                    alt={job?._company?.name}
+                    company={job?._company?.name}
+                    service={job?.service}
+                    employees={job?._company?.staff}
+                    offer={job?.title}
+                    salary={job?.salary}
+                    postDate={job?.createdAt}
+                    status={job?.status}
+                    promoted={job?.promoted}
+                    isDirectApply={job?.isDirectApply}
                   />
                 </div>
               )
