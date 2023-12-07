@@ -49,7 +49,7 @@ export default function TopAdmin({
             <Button type='filled'
               color="primary_green"
               text="Create Job"
-              classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-primary_green hover:bg-dark_blue"
+              classes="w-36 h-10  md:w-28 xl:w-36 font-medium rounded-md text-sm capitalize text-white bg-primary_green hover:bg-dark_blue"
               onClick={() => changePath('/dashboard/create-job')}
 
             />
