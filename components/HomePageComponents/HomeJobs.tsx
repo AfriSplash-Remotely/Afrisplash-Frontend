@@ -13,9 +13,8 @@ interface Props {
 function HomeJobs({ translate }: Props): JSX.Element {
 
   const { data } = useQuery(["jobs"], fetchAllJobs)
-  const homeJobs = {...data?.data}
+  const homeJobs = data?.data
 
-  const homeJobData = toArrayOfObjects(homeJobs[0], 5);
   const homeJobCat = toArrayOfObjects(jobCat, 9);
 
 
@@ -47,7 +46,7 @@ function HomeJobs({ translate }: Props): JSX.Element {
             </div>
           </div>
           <div className="w-full">
-            {homeJobData.map(
+            {homeJobs?.map(
               (job): JSX.Element => (
                 <div key={job?._id}>
                   <JobCard
