@@ -14,7 +14,6 @@ function HomeJobs({ translate }: Props): JSX.Element {
 
   const { data } = useQuery(["jobs"], fetchAllJobs)
   const homeJobs = data?.data
-
   const homeJobCat = toArrayOfObjects(jobCat, 9);
 
 

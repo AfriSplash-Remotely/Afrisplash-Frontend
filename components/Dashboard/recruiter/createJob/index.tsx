@@ -27,7 +27,7 @@ export default function CreateJobs():JSX.Element {
 
       <div className='mt-4'>
         <div className='mb-8'>
-          <div className='flex justify-between flex-wrap gap-3 mb-10 sm:mb-16 md:mb-10'>
+          <div className='flex  flex-wrap gap-2 mb-10 sm:mb-16 md:mb-10'>
             {createJobStep.map((jobStep) => (
               <div className='flex flex-col  flex-shrink-0 basis-40' key={jobStep.id}>
                 <div className={`h-1 w-96 rounded-full ${jobStep.id <= step ? `bg-green-900` : `bg-gray-400`} mb-1.5`}>
