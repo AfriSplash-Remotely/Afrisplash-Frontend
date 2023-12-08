@@ -59,7 +59,7 @@ export default function CreateJobs():JSX.Element {
           </Link>
           {step !== 3 && (
             <Link href="#" legacyBehavior>
-              <button className='bg-indigo-900 text-gray-400 general-btn'
+              <button className='bg-primary_green text-white general-btn'
                 onClick={() => step < 3 && setStep(step + 1)}
               >Next</button>
             </Link>

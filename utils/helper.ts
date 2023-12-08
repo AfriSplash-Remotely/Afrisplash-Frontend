@@ -1,3 +1,12 @@
+import { StylesConfig } from "react-select";
+
+export const selectStyle: StylesConfig = {
+  control: (styles) => ({
+    ...styles,
+    padding: "4px 2px",
+  }),
+};
+
 export let counter = 0;
 
 export function generateUniqueId(): number {
