@@ -25,11 +25,6 @@ const Signup: NextPage = () => {
   // const [signup] = useSignupMutation();
   const router = useRouter();
 
-  const talentOptions = [
-    { value: 'recruiter', label: 'Recruiter' },
-    { value: 'candidate', label: 'Candidate' }
-  ]
-
   const lang = ["signUp"];
   const { t: translate, i18n } = useTranslation("signUp", {
     bindI18n: "languageChanged loaded",
@@ -38,6 +33,12 @@ const Signup: NextPage = () => {
   React.useEffect(() => {
     i18n.reloadResources(i18n.resolvedLanguage, lang);
   }, []);
+
+  const talentOptions = [
+    { value: 'recruiter', label: `${translate('Recruiter')}` },
+    { value: 'candidate', label: `${translate('Candidate')}` }
+  ]
+
 
   const {
     register,
