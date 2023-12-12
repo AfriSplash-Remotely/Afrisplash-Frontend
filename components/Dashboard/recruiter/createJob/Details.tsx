@@ -53,10 +53,13 @@ export default function Details():JSX.Element {
         </div>
         <div className='mt-2'>
           <label htmlFor='description'>Job Description</label>
-          <textarea maxLength={150}
+          <textarea
+            {...register('jobDescribtion')}
+            maxLength={150}
             placeholder='Type your job description here|'
             className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
           />
+          <p className='text-red-800'>{errors.jobDescribtion?.message}</p>
         </div>
       </form>
     </div>
