@@ -18,10 +18,8 @@ export default function CreateJobs():JSX.Element {
     { id: 3, name: "Job Demographics" }
   ]
   const [formOneValues, setformOneValues] = useState<StepOne | null>(null)
-  // const { handleSubmit, reset, trigger } = useForm<CreateJobField>({
-  //   resolver: yupResolver(currentStep === 1 ? CreateJobSchema.stepOne
-  //     : currentStep === 2 ? CreateJobSchema.stepTwo : CreateJobSchema.stepThree)
-  // })
+  const [formTwoValues, setformTwoValues] = useState<StepTwo | null>(null)
+
 
   const form1 = useForm<StepOne>({
     resolver: yupResolver(CreateJobSchema.stepOne)
@@ -33,13 +31,28 @@ export default function CreateJobs():JSX.Element {
     resolver: yupResolver(CreateJobSchema.stepThree)
   })
 
-  const handleNext = async (result: StepOne) => {
-    console.log({ result });
-
-    const nextStep = currentStep + 1
-    setformOneValues(result)
-    setCurrentStep(nextStep)
+  const handlePrev = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1)
+    }
   }
+
+  const handleNext = async (result: StepOne | StepTwo) => {
+    console.log({ result });
+    const nextStep = currentStep + 1
+
+    if (currentStep === 1) {
+      setformOneValues(result as StepOne)
+      setCurrentStep(nextStep)
+    } else {
+      setformTwoValues(result as StepTwo)
+      setCurrentStep(nextStep)
+    }
+  }
+
+  // const onSubmit = (data: StepThree) => {
+  //   const completedSteps = { ...data, ...formOneValues }
+  // }
 
   return (
     <AdminLayout>
@@ -123,9 +136,6 @@ export default function CreateJobs():JSX.Element {
                   <p className='text-red-800'>{form1.formState.errors?.jobDescribtion?.message}</p>
                 }
               </div>
-              {/* <button className='border-gray-400 border general-btn'
-                onClick={form1.handleSubmit(handleNext)}
-              >Next</button> */}
             </form>
           </div>
         </>
@@ -179,7 +189,7 @@ export default function CreateJobs():JSX.Element {
                   render={({ field }) => (
                     <Select
                       {...field}
-                      id='job-type'
+                      id='jobType'
                       options={jobType}
                       styles={selectStyle}
                       onChange={(e) => field.onChange(e?.value)}
@@ -311,12 +321,16 @@ export default function CreateJobs():JSX.Element {
       <div className='absolute right-12'>
         <div className='flex justify-center items-center gap-4 md:gap-12 font-medium'>
             <button className='border-gray-400 border general-btn'
-              onClick={() => currentStep > 1 && setCurrentStep(currentStep - 1)}
+            onClick={handlePrev}
           >Prev</button>
-          {currentStep !== 3 && (
-              <button className='bg-primary_green text-white general-btn'
+          {currentStep === 1 && (
+            <button className='bg-primary_green text-white general-btn'
               onClick={form1.handleSubmit(handleNext)}
-                // onClick={() => currentStep < 3 && setCurrentStep(currentStep + 1)}
+            >Next</button>
+          )}
+          {currentStep === 2 && (
+            <button className='bg-primary_green text-white general-btn'
+              onClick={form2.handleSubmit(handleNext)}
             >Next</button>
           )}
           {currentStep === 3 && (
