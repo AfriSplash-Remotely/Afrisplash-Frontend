@@ -1,5 +1,6 @@
 import * as yup from "yup"
 
+
 export const CreateJobSchema = {
   stepOne:yup.object().shape({
     jobTitle:yup.string().required('Job Title is required'),
@@ -20,3 +21,8 @@ export const CreateJobSchema = {
     paymentPeriod:yup.string().required('Payment Period is required')
   })
 }
+
+
+export type StepOne = yup.InferType<(typeof CreateJobSchema)['stepOne']>
+export type StepTwo = yup.InferType<(typeof CreateJobSchema)['stepTwo']>
+export type StepThree = yup.InferType<(typeof CreateJobSchema)['stepThree']>

@@ -4,8 +4,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.format": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.format": "explicit"
   },
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow.json": "${workspaceRoot}/.github/workflows/deploy.yml"
