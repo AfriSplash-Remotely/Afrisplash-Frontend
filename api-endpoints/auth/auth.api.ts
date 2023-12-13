@@ -1,7 +1,7 @@
 import api from "@/utils/axios";
 import { responseMessage } from "@/utils";
 
-export const signUp = async (payload: any): Promise<responseMessage> => {
+export const signUp = async (payload: object): Promise<responseMessage> => {
   const { data } = await api.post("/auth/register", payload);
   return data;
 };
