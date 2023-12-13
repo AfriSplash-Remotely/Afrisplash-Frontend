@@ -50,9 +50,10 @@ export default function CreateJobs():JSX.Element {
     }
   }
 
-  // const onSubmit = (data: StepThree) => {
-  //   const completedSteps = { ...data, ...formOneValues }
-  // }
+  const onSubmit = (data: StepThree) => {
+    const completedSteps = { ...data, ...formOneValues, ...formTwoValues }
+    console.log({ completedSteps })
+  }
 
   return (
     <AdminLayout>
@@ -65,7 +66,7 @@ export default function CreateJobs():JSX.Element {
 
       <div className='mt-4'>
         <div className='mb-8'>
-          <div className='flex  flex-wrap gap-2 mb-10 sm:mb-16 md:mb-10'>
+          <div className='flex  gap-2 mb-10 sm:mb-16 md:mb-10'>
             {createJobStep.map((jobStep) => (
               <div className='flex flex-col  flex-shrink-0 basis-40' key={jobStep.id}>
                 <div className={`h-1 w-96 rounded-full ${jobStep.id <= currentStep ? `bg-green-900` : `bg-gray-400`} mb-1.5`}>
@@ -82,9 +83,9 @@ export default function CreateJobs():JSX.Element {
           </div>
         </div>
       </div>
-
-      {/* components */}
+      {/* Details */}
       {currentStep === 1 && (
+
         <>
           <div className='pr-24'>
             <div className='py-6'>
@@ -140,6 +141,7 @@ export default function CreateJobs():JSX.Element {
           </div>
         </>
       )}
+      {/* Requirements */}
       {currentStep === 2 && (
         <>
           <div className='pr-24'>
@@ -182,7 +184,7 @@ export default function CreateJobs():JSX.Element {
                 }
               </div>
               <div className='mt-2 mb-2'>
-                <label htmlFor='job-type'>Job type</label>
+                <label htmlFor='jobType'>Job type</label>
                 <Controller
                   name='jobType'
                   control={form2.control}
@@ -219,6 +221,7 @@ export default function CreateJobs():JSX.Element {
           </div>
         </>
       )}
+      {/* Demographics */}
       {currentStep === 3 && (
         <>
           <div className='pr-24'>
@@ -335,7 +338,7 @@ export default function CreateJobs():JSX.Element {
           )}
           {currentStep === 3 && (
             <button className="bg-primary_green text-white general-btn"
-            // onClick={handleSubmit}
+              onClick={form3.handleSubmit(onSubmit)}
             >Submit</button>
           )}
 
