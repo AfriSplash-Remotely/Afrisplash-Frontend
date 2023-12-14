@@ -15,7 +15,7 @@ export const CreateJobSchema = {
   
   }),
   stepThree:yup.object().shape({
-    title:yup.string().required('Job Title is required'),
+    location:yup.string().required('Job Location is required'),
     gender:yup.string().required('Gender is required'),
     salary:yup.string().required('Salary is required'),
     paymentPeriod:yup.string().required('Payment Period is required')

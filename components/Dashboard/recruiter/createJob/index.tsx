@@ -8,9 +8,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Select from "react-select";
 import { jobIndustry, expLevel, jobType, Location, gender, salary, payment } from './jobsData';
 import { selectStyle } from '@/utils/helper';
+import { useMutation } from '@tanstack/react-query';
+import { createJob } from '@/api-endpoints/jobs/jobs.api';
 
 
 export default function CreateJobs():JSX.Element {
+
   const [currentStep, setCurrentStep] = useState<number>(1)
   const createJobStep = [
     { id: 1, name: "Job Details" },
@@ -50,8 +53,12 @@ export default function CreateJobs():JSX.Element {
     }
   }
 
-  const onSubmit = (data: StepThree) => {
+  const { mutate } = useMutation(createJob)
+
+  const onSubmit = (data: StepThree, e: any) => {
+    e.preventDefault()
     const completedSteps = { ...data, ...formOneValues, ...formTwoValues }
+    mutate(completedSteps)
     console.log({ completedSteps })
   }
 
@@ -184,14 +191,14 @@ export default function CreateJobs():JSX.Element {
                 }
               </div>
               <div className='mt-2 mb-2'>
-                <label htmlFor='jobType'>Job type</label>
+                <label htmlFor='type'>Job type</label>
                 <Controller
                   name='jobType'
                   control={form2.control}
                   render={({ field }) => (
                     <Select
                       {...field}
-                      id='jobType'
+                      id='type'
                       options={jobType}
                       styles={selectStyle}
                       onChange={(e) => field.onChange(e?.value)}
@@ -230,14 +237,14 @@ export default function CreateJobs():JSX.Element {
             </div>
             <form className='text-gray-500 font-medium mb-4'>
               <div className='mt-2 mb-2'>
-                <label htmlFor="title">Job Title</label>
+                <label htmlFor="location">Job Location</label>
                 <Controller
-                  name='title'
+                  name='location'
                   control={form3.control}
                   render={({ field }) => (
                     <Select
                       {...field}
-                      id="title"
+                      id="location"
                       options={Location}
                       styles={selectStyle}
                       onChange={(e) => field.onChange(e?.value)}
@@ -248,8 +255,8 @@ export default function CreateJobs():JSX.Element {
                   )}
 
                 />
-                {form3.formState.errors.title &&
-                  <p className='text-red-800'>{form3.formState.errors?.title?.message}</p>
+                {form3.formState.errors.location &&
+                  <p className='text-red-800'>{form3.formState.errors?.location?.message}</p>
 
                 }
               </div>

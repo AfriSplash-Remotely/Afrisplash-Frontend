@@ -20,7 +20,7 @@ axios.interceptors.response.use(
   function (err) {
     if (err?.response?.status === 401) {
       Cookies.remove("access_token");
-      window.location.replace("/login");
+      window.location.replace("/auth/login");
     }
 
     return Promise.reject(err);
