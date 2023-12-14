@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import AdminLayout from '@/layouts/adminLayout';
 import Image from "next/image";
 import checked from "assets/candidateOnboarding/checked.svg";
+import unchecked from "assets/candidateOnboarding/unchecked.svg"
 import { CreateJobSchema, StepOne, StepTwo, StepThree } from '@/schema/job.schema';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,6 +11,9 @@ import { jobIndustry, expLevel, jobType, Location, gender, salary, payment } fro
 import { selectStyle } from '@/utils/helper';
 import { useMutation } from '@tanstack/react-query';
 import { createJob } from '@/api-endpoints/jobs/jobs.api';
+import ConfirmationBackgroundImage from "assets/confirmation.svg";
+import Button from '@/components/atoms/Button/Button';
+
 
 
 export default function CreateJobs():JSX.Element {
@@ -18,7 +22,8 @@ export default function CreateJobs():JSX.Element {
   const createJobStep = [
     { id: 1, name: "Job Details" },
     { id: 2, name: 'Job Requirements' },
-    { id: 3, name: "Job Demographics" }
+    { id: 3, name: "Job Demographics" },
+    { id: 4, name: "Confirmation" }
   ]
   const [formOneValues, setformOneValues] = useState<StepOne | null>(null)
   const [formTwoValues, setformTwoValues] = useState<StepTwo | null>(null)
@@ -73,14 +78,17 @@ export default function CreateJobs():JSX.Element {
 
       <div className='mt-4'>
         <div className='mb-8'>
-          <div className='flex  gap-2 mb-10 sm:mb-16 md:mb-10'>
+          <div className='grid grid-cols-4 gap-2 mb-10 sm:mb-16 md:mb-10'>
             {createJobStep.map((jobStep) => (
-              <div className='flex flex-col  flex-shrink-0 basis-40' key={jobStep.id}>
-                <div className={`h-1 w-96 rounded-full ${jobStep.id <= currentStep ? `bg-green-900` : `bg-gray-400`} mb-1.5`}>
+              <div className='flex flex-col flex-1 flex-shrink-0 basis-40' key={jobStep.id}>
+                <div className={`h-1 rounded-full ${jobStep.id <= currentStep ? `bg-green-900` : `bg-gray-400`} mb-1.5`}>
                   <div className='flex mt-2 items-center'>
                     <div className='flex-shrink-0'>
-                      <Image src={checked} width={15} height={15} alt="icon" />
-
+                      {jobStep.id <= currentStep ? (
+                        <Image src={checked} width={15} height={15} alt="icon" />
+                      ) : (
+                        <Image src={unchecked} width={15} height={15} alt="icon" />
+                      )}
                     </div>
                     <p className='text-sm font-medium text-gray-600 ml-1'>{jobStep.name}</p>
                   </div>
@@ -327,12 +335,48 @@ export default function CreateJobs():JSX.Element {
           </div>
         </>
       )}
+      {/* confirmation */}
+      {currentStep === 4 && (
+        <>
+          <div className='w-6/12 mx-auto'>
+            <Image src={ConfirmationBackgroundImage} alt="" width={825} />
+
+            <div className="text-center my-5  font-normal ">
+              <p className={`text-sm lg:text-base`}>
+                Thank you for submitting, your job has been posted. if you need help
+                please contact us via
+                <p>Email support: hiretalent@afrisplash.com</p>
+              </p>
+            </div>
+          </div>
+
+
+          <div className="flex space-x-4 items-center justify-center mb-5">
+            <div className="flex lg:flex space-x-4">
+              <Button
+                type="bordered"
+                color="dark_blue"
+                text="Manage jobs"
+                classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
+              />
+              <Button
+                type="filled"
+                color="white"
+                text="View jobs"
+                classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"
+              />
+            </div>
+          </div>
+        </>
+      )}
 
       <div className='absolute right-12'>
         <div className='flex justify-center items-center gap-4 md:gap-12 font-medium'>
+          {currentStep ===1 || currentStep != 4 && (
             <button className='border-gray-400 border general-btn'
-            onClick={handlePrev}
-          >Prev</button>
+              onClick={handlePrev}
+            >Prev</button>
+          )}
           {currentStep === 1 && (
             <button className='bg-primary_green text-white general-btn'
               onClick={form1.handleSubmit(handleNext)}
