@@ -5,7 +5,7 @@ import {
   LockClosedIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Select from "react-select";
@@ -18,15 +18,27 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import { signUp } from "@/api-endpoints/auth/auth.api";
+import { useTranslation } from "react-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Signup: NextPage = () => {
   // const [signup] = useSignupMutation();
   const router = useRouter();
 
+  const lang = ["signUp"];
+  const { t: translate, i18n } = useTranslation("signUp", {
+    bindI18n: "languageChanged loaded",
+  });
+
+  React.useEffect(() => {
+    i18n.reloadResources(i18n.resolvedLanguage, lang);
+  }, []);
+
   const talentOptions = [
-    { value: 'recruiter', label: 'Recruiter' },
-    { value: 'candidate', label: 'Candidate' }
+    { value: 'recruiter', label: `${translate('Recruiter')}` },
+    { value: 'candidate', label: `${translate('Candidate')}` }
   ]
+
 
   const {
     register,
@@ -83,25 +95,24 @@ const Signup: NextPage = () => {
         <h2
           className={`font-semibold text-[1.5rem] lg:text-[2rem] leading-9 mb-4`}
         >
-          Join The Community
+          {translate("Join The Community")}
         </h2>
         <p className={` text-base mb-14`}>
-          Find your dream remote job. Get skilled mentors. Connect with
-          other professionals
+          {translate("Find your dream remote job")}. {translate("Get skilled mentors")}. {translate("Connect with other professionals")}
         </p>
       </div>
       <button
-        className={`flex items-center w-full mb-6 ${styles.googleContainer}`}
+        className={`flex items-center w-full mb-6 gap-2 ${styles.googleContainer}`}
       >
         <Image src={google} alt="google" />
-        <p className={`font-[500] text-[0.875rem]`}>Sign up with Google</p>
+        <p className={`font-[500] text-[0.875rem]`}>{translate("Sign up with Google")}</p>
       </button>
 
       <h2 className={` ${styles.divider}`}>
         <span
           className={`text-light_grey bg-white  font-normal  text-[0.875rem] ${styles.emailSpan}`}
         >
-          or with email
+          {translate("or with email")}
         </span>
       </h2>
       <form className={`mt-9 w-full`} onSubmit={handleSubmit(onSubmit)}>
@@ -115,7 +126,7 @@ const Signup: NextPage = () => {
                 </span>
                 <input
                   type="text"
-                  placeholder="First Name"
+                  placeholder={translate("First Name")}
                   className={`${styles.inputField}`}
                   {...register("first_name", { required: true })}
                   aria-invalid={errors.first_name ? "true" : "false"}
@@ -123,7 +134,7 @@ const Signup: NextPage = () => {
               </div>
               {errors.first_name?.type === "required" && (
                 <p role="alert" className="error_message pl-2 py-2">
-                  First name is required
+                  {translate("First name is required")}
                 </p>
               )}
             </div>
@@ -136,7 +147,7 @@ const Signup: NextPage = () => {
                 </span>
                 <input
                   type="text"
-                  placeholder="Surname"
+                  placeholder={translate("Surname")}
                   className={`${styles.inputField}`}
                   {...register("last_name", { required: true })}
                   aria-invalid={errors.last_name ? "true" : "false"}
@@ -144,7 +155,7 @@ const Signup: NextPage = () => {
               </div>
               {errors.last_name?.type === "required" && (
                 <p role="alert" className="error_message pl-2 py-2">
-                  Surname is required
+                  {translate("Surname is required")}
                 </p>
               )}
             </div>
@@ -159,7 +170,7 @@ const Signup: NextPage = () => {
               </span>
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={translate("Email")}
                 className={`${styles.inputField}`}
                 {...register("email", { required: true })}
                 aria-invalid={errors.email ? "true" : "false"}
@@ -167,7 +178,7 @@ const Signup: NextPage = () => {
             </div>
             {errors.email?.type === "required" && (
               <p role="alert" className="error_message pl-2 py-2">
-                Email is required
+                {translate("Email is required")}
               </p>
             )}
           </div>
@@ -180,10 +191,10 @@ const Signup: NextPage = () => {
               </span>
               <input
                 type={passwordFieldType ? "text" : "password"}
-                placeholder="Password"
+                placeholder={translate("Password")}
                 className={`${styles.inputField}`}
                 {...register("password", {
-                  required: "Password is required",
+                  required: `${translate("Password is required")}`,
                   validate: (value) => validatePassword(value),
                 })}
                 aria-invalid={errors.password ? "true" : "false"}
@@ -207,7 +218,7 @@ const Signup: NextPage = () => {
             {/* <span className={`relative top-[1.8rem] z-50 ${styles.userIcon}`}>
               <UserCircleIcon className="w-4 h-4 ml-[.9rem]" />
             </span> */}
-            <Select placeholder="Talent account" styles={customStyles} options={talentOptions}
+            <Select placeholder={translate("Talent account")} styles={customStyles} options={talentOptions}
             />
           </div>
         </div>
@@ -215,23 +226,47 @@ const Signup: NextPage = () => {
         {/**Join now */}
         <input
           type="submit"
-          value="Join Now"
+          value={translate("Join Now")}
           className={`mt-12 w-full bg-dark_blue py-4 text-white rounded-xl ${styles.joinNowBtn}`}
         />
       </form>
       <div
         className={`flex justify-center mt-6 text-base`}
       >
-        <p className={``}>Already have an account?</p>
+        <p className={``}>{translate("Already have an account?")}</p>
         <Link
           href="/auth/login"
           className={`text-sunglow text-base ml-3 font-semibold`}
         >
-          Log in
+          {translate("Log in")}
         </Link>
       </div>
     </AuthLayout>
   );
+};
+
+type Props = {
+  _nextI18Next?: {
+    initialI18nStore: any;
+    initialLocale: string;
+    ns: string[];
+    userConfig: any;
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({
+  locale,
+}: any) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(
+        locale,
+        ["signUp"],
+        null,
+        ["en", "no"]
+      )),
+    },
+  };
 };
 
 export default Signup;
