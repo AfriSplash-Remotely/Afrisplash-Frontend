@@ -30,10 +30,10 @@ export const navLinks: IsideBarLinks[] = [
 
   },
   {
-    title: ACCOUNT_TYPE.recruiter ? 'Applicants' : 'Applied',
+    title: "Applied",
     icon: directsend,
     route: "/dashboard/applied",
-    role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
+    role: [ACCOUNT_TYPE.candidate]
 
   },
   {

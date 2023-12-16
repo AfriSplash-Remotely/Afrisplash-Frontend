@@ -2,6 +2,9 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 console.log({ endpoint: process.env.NEXT_PUBLIC_BACKEND_URL })
+console.log(Cookies.get(), 'ppe');
+
+
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 axios.interceptors.request.use(
   (request) => {

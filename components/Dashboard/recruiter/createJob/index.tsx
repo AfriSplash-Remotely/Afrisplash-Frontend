@@ -7,11 +7,12 @@ import { CreateJobSchema, StepOne, StepTwo, StepThree } from '@/schema/job.schem
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Select from "react-select";
-import { jobIndustry, expLevel, jobType, Location, gender, salary, payment } from './jobsData';
+import { jobIndustry, expLevel, jobsType, Location, gender, salary, payment } from './jobsData';
 import { selectStyle } from '@/utils/helper';
 import { useMutation } from '@tanstack/react-query';
 import { createJob } from '@/api-endpoints/jobs/jobs.api';
 import Confirmation from './confirmation';
+import LoadingIcon from "@/components/atoms/LoaingIcon";
 
 
 
@@ -57,7 +58,7 @@ export default function CreateJobs():JSX.Element {
     }
   }
 
-  const { mutate } = useMutation(createJob)
+  const { mutate, isLoading } = useMutation(createJob)
 
   const onSubmit = (data: StepThree, e: any) => {
     e.preventDefault()
@@ -198,25 +199,25 @@ export default function CreateJobs():JSX.Element {
                 }
               </div>
               <div className='mt-2 mb-2'>
-                <label htmlFor='type'>Job type</label>
+                <label htmlFor='jobType'>Job type</label>
+              
                 <Controller
                   name='jobType'
                   control={form2.control}
                   render={({ field }) => (
                     <Select
                       {...field}
-                      id='type'
-                      options={jobType}
+                      id='jobType'
+                      options={jobsType}
                       styles={selectStyle}
                       onChange={(e) => field.onChange(e?.value)}
-                      value={jobType.find((e) => e.value === field.value)}
+                      value={jobsType.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select job type' />
                   )}
                 />
                 {form2.formState.errors.jobType &&
                   <p className='text-red-800'>{form2.formState.errors?.jobType?.message}</p>
-
                 }
               </div>
               <div className='mt-2 mb-2'>
@@ -357,7 +358,9 @@ export default function CreateJobs():JSX.Element {
           {currentStep === 3 && (
             <button className="bg-primary_green text-white general-btn"
               onClick={form3.handleSubmit(onSubmit)}
-            >Submit</button>
+            >
+              <span className="flex gap-4 mx-auto item-center justify-center">{isLoading && <LoadingIcon />} Submit</span>
+              </button>
           )}
 
         </div>
