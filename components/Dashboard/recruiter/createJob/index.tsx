@@ -13,6 +13,7 @@ import { useMutation } from '@tanstack/react-query';
 import { createJob } from '@/api-endpoints/jobs/jobs.api';
 import Confirmation from './confirmation';
 import LoadingIcon from "@/components/atoms/LoaingIcon";
+import toast from "react-hot-toast";
 
 
 
@@ -46,7 +47,6 @@ export default function CreateJobs():JSX.Element {
   }
 
   const handleNext = async (result: StepOne | StepTwo) => {
-    console.log({ result });
     const nextStep = currentStep + 1
 
     if (currentStep === 1) {
@@ -58,13 +58,20 @@ export default function CreateJobs():JSX.Element {
     }
   }
 
-  const { mutate, isLoading } = useMutation(createJob)
+  const { mutate, isLoading } = useMutation(createJob, {
+    onSuccess: () => {
+      setCurrentStep(4)
+    },
+    onError: () => {
+      toast.error('An error occured')
+
+    }
+  })
 
   const onSubmit = (data: StepThree, e: any) => {
     e.preventDefault()
     const completedSteps = { ...data, ...formOneValues, ...formTwoValues }
     mutate(completedSteps)
-    console.log({ completedSteps })
   }
 
   return (
