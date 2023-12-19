@@ -45,21 +45,22 @@ export default function TopAdmin({
       </button>
       <section className="flex space-x-10 items-center">
         <div className="flex  items-center flex-end w-full space-x-10">
-          <GiftIcon className="w-5 h-5 cursor-pointer" />
-          <BellIcon
-            onClick={() => setIsOpen(!isOpen)}
-            className="w-5 h-5 cursor-pointer"
-          />
           {session && session.user && session.user.userType === ACCOUNT_TYPE.recruiter ? (
             <Button type='filled'
-              color="dark_blue"
+              color="primary_green"
               text="Create Job"
-              classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
+              classes="w-36 h-10  md:w-28 xl:w-36 font-medium rounded-md text-sm capitalize text-white bg-primary_green hover:bg-dark_blue"
               onClick={() => changePath('/dashboard/create-job')}
 
             />
           ) : null}
 
+          <GiftIcon className="w-5 h-5 cursor-pointer" />
+          <BellIcon
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-5 h-5 cursor-pointer"
+          />
+         
         </div>
         <div className="hidden md:flex">
           <AdminLoginAvatar imageSrc={avatar} text={avatarText} link="/dashboard/profile"/>

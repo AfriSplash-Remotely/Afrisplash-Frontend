@@ -12,7 +12,6 @@ import rootlo from "assets/icons/rootlo.svg";
 import safetyWing from "assets/icons/safetyWing.svg";
 import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
 import { generateUniqueId } from "@/utils/helper";
 import {
   Faq,
@@ -54,8 +53,8 @@ const Home: NextPage = () => {
           <h3 className="text-center text-gray-400 text-2xl font-light">
             {translate("Trusted by these global companies")}
           </h3>
-          <div className="flex justify-between ">
-            {globalCompanies.map((item: any) => (
+          <div className="flex justify-between">
+            {globalCompanies.map((item: string) => (
               <div key={generateUniqueId()}>
                 <Image src={item} alt="global companies" />
               </div>
