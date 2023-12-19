@@ -10,12 +10,13 @@ export const fetchAllJobs = async (): Promise<IJobApiResponse> => {
 
 
 
-export const createJob = async (jobPayload: object): Promise<ICreateJobApiResponse> => {
-  const { data } = await api.post("/jobs", jobPayload, {
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${Cookies.get("accessToken")}`
-    }
-  })
+export const createJob = async (jobPayload: object, jwt: string): Promise<ICreateJobApiResponse> => {
+
+  api.defaults.headers.common['Content-Type'] = 'application/json';
+  api.defaults.headers.common.accept = 'application/json';
+
+  api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
+
+  const { data } = await api.post("/jobs", jobPayload)
   return data
 }

@@ -14,10 +14,11 @@ import { createJob } from '@/api-endpoints/jobs/jobs.api';
 import Confirmation from './confirmation';
 import LoadingIcon from "@/components/atoms/LoaingIcon";
 import toast from "react-hot-toast";
+import { useSession } from "next-auth/react";
 
+export default function CreateJobs(): JSX.Element {
 
-
-export default function CreateJobs():JSX.Element {
+  const { data: session, status } = useSession()
 
   const [currentStep, setCurrentStep] = useState<number>(1)
   const createJobStep = [
@@ -58,7 +59,9 @@ export default function CreateJobs():JSX.Element {
     }
   }
 
-  const { mutate, isLoading } = useMutation(createJob, {
+  const { mutate, isLoading } = useMutation({
+    mutationFn: (payload: object) => createJob(payload, session?.user?.accessToken as string),
+
     onSuccess: () => {
       setCurrentStep(4)
     },
@@ -207,7 +210,7 @@ export default function CreateJobs():JSX.Element {
               </div>
               <div className='mt-2 mb-2'>
                 <label htmlFor='jobType'>Job type</label>
-              
+
                 <Controller
                   name='jobType'
                   control={form2.control}
@@ -217,7 +220,7 @@ export default function CreateJobs():JSX.Element {
                       id='jobType'
                       options={jobsType}
                       styles={selectStyle}
-                      onChange={(e) => field.onChange(e?.value)}
+                      onChange={(e: any) => field.onChange(e?.value)}
                       value={jobsType.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select job type' />
@@ -347,7 +350,7 @@ export default function CreateJobs():JSX.Element {
 
       <div className='absolute right-12'>
         <div className='flex justify-center items-center gap-4 md:gap-12 font-medium'>
-          {currentStep ===1 || currentStep != 4 && (
+          {currentStep === 1 || currentStep != 4 && (
             <button className='border-gray-400 border general-btn'
               onClick={handlePrev}
             >Prev</button>
@@ -367,12 +370,12 @@ export default function CreateJobs():JSX.Element {
               onClick={form3.handleSubmit(onSubmit)}
             >
               <span className="flex gap-4 mx-auto item-center justify-center">{isLoading && <LoadingIcon />} Submit</span>
-              </button>
+            </button>
           )}
 
         </div>
       </div>
-     
+
 
     </AdminLayout>
   )
