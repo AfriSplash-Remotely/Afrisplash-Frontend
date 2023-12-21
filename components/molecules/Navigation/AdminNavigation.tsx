@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import { IsideBarLinks, navLinks } from "./navLinks";
 import { useSession } from "next-auth/react";
+import Cookies from "js-cookie";
 
 
 export default function AdminNavigation({
@@ -23,6 +24,9 @@ export default function AdminNavigation({
 }): JSX.Element {
   const { data: session, status } = useSession()
   // session && session.user && session.user.role === ACCOUNT_TYPE.recruiter
+  const token = session?.user?.accessToken
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  Cookies.set('accessToken', token!)
   const router = useRouter();
 
   return (

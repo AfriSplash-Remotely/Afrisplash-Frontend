@@ -11,7 +11,12 @@ const config = {
   reactStrictMode: true,
   i18n,
   images: {
-    domains: ["images.unsplash.com", "source.unsplash.com", "unsplash.com"],
+    domains: [
+      "images.unsplash.com",
+      "source.unsplash.com",
+      "unsplash.com",
+      "example.com",
+    ],
   },
 };
 

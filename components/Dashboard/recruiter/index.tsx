@@ -1,103 +1,122 @@
-import RecruiterProfileLayout from "@/layouts/recruiterProfileLayout";
-import Image from "next/image";
-import pic9 from "assets/images/pic9.png";
-import { AvatarTick, BriefCase, ClockSvg, Pencil } from "@/assets/profile";
-import { userProfile } from "utils";
-import ToggleButton from "@/components/atoms/ToggleButton";
-import Tooltip from "@/components/atoms/Tooltip"
-import { MdOutlineInfo } from "react-icons/md";
-
+import DashboardCards from "@/components/atoms/DashboardCards/DashboardCards";
+import AdminLayout from "@/layouts/adminLayout";
+import { MdOutlineWorkOutline, MdOutlineBusinessCenter, MdMarkChatRead, MdGppBad } from "react-icons/md";
+import { Tab } from "@headlessui/react";
+import JobCard from "@/components/jobCard";
+import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api";
 
 const Recruiter = ():JSX.Element => {
+    const cardData = [
+        { title: 'Jobs', total: 30, icon: <MdOutlineBusinessCenter size='3rem' />, bgColor: '#D6ECDC' },
+        { title: 'Applicants', total: 30, icon: <MdOutlineWorkOutline size='3rem' />, bgColor: '#FDF1C9' },
+        { title: 'Interview Schedule', total: 30, icon: <MdMarkChatRead size='3rem' />, bgColor: '#F0FBF3' },
+        { title: 'Rejected', total: 30, icon: <MdGppBad size='3rem' />, bgColor: '#f87171' },
+    ]
+    const dash = ['Created Jobs', 'Applicants']
+
+    const classNames = (...classes: string[]) => {
+        return classes.filter(Boolean).join(" ");
+    };
+    const {data} = useQuery(["jobs"], fetchAllJobs)
+    const allJobs = data?.data
+
     return (
-        <RecruiterProfileLayout>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {/* user infor */}
-                <div className="bg-white rounded-xl divide-y divide-gray-100">
-                    <div className="flex flex-col px-4 pt-5 pb-6">
-                        <div className="flex items-center space-x-4 relative">
-                            <div className="relative w-20 h-20">
-                                <Image
-                                    src={`${pic9.src}`}
-                                    fill
-                                    alt=""
-                                    className="w-14 h-14 rounded-full"
-                                />
-                                <span className="top-0 left-14 absolute rounded-full">
-                                    <AvatarTick />
-                                </span>
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                <h3 className="text-lg font-bold">{userProfile.fullName}</h3>
-                                <div className="flex items-center space-x-2">
-                                    <BriefCase />
-                                    <p className="text-sm font-normal">{userProfile.job.title}</p>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                    <ClockSvg />
-                                    <p className="text-sm font-normal">
-                                        {userProfile.job.category}
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="top-0 right-0 absolute border border-grey_2 rounded-md p-1 cursor-pointer" >
-                                <Pencil />
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="px-4 py-4 flex justify-between items-center">
-                        <h6 className="text-base font-normal text-[#606172] mb-2">Actively hiring</h6>
-                        <ToggleButton onChange={console.log} />
-                    </div>
-
-                    <div className="px-4 py-6">
-                        <h4 className="text-base font-bold mb-2">Bio</h4>
-                        <div className="flex flex-col justify-between py-4 gap-4">
-                            <p>{userProfile.description}</p>
-                        </div>
-                    </div>
-                    <div className="px-4 py-6 relative">
-                        <h4 className="text-base font-bold mb-2">Contact</h4>
-                        <div className="flex flex-col justify-between py-4 gap-4">
-                            <div className="flex items-center gap-2">
-                                <span className="text-[#606172] font-semibold">Email: </span>{" "}
-                                <span className="text-[#9c9ca8] font-light">
-                                    {userProfile.email}
-                                </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[#606172] font-semibold">Phone: </span>{" "}
-                                <span className="text-[#9c9ca8] font-light">
-                                    {userProfile.phone}
-                                </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[#606172] font-semibold">Location: </span>{" "}
-                                <span className="text-[#9c9ca8] font-light">
-                                    {userProfile.location}
-                                </span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center gap-2">
-                                    <h6 className="text-[#606172] font-semibold">Private mode</h6>
-                                    <Tooltip
-                                        message="Private mode hides your contact details from candidates so they can’t reach you until you turn it off"
-                                        title={"Private mode"}>
-                                        <MdOutlineInfo />
-                                    </Tooltip>
-                                </div>
-
-                                <ToggleButton onChange={console.log} />
-                            </div>
-                        </div>
-                        <div className="top-4 right-4 absolute border border-grey_2 rounded-md p-1 cursor-pointer" >
-                            <Pencil />
-                        </div>
+        <AdminLayout>
+            <div>
+                <div>
+                    <h1 className="text-dark_black font-medium text-lg md:font-bold md:text-2xl lg:text-xl">Dashbaord</h1>
+                </div>
+                <div className="mt-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                        {cardData.map((card) => {
+                            return <DashboardCards
+                                key={card.title}
+                                title={card.title}
+                                icon={card.icon}
+                                total={card.total}
+                                bgColor={card.bgColor} />
+                        })}
                     </div>
                 </div>
+                <div className="mt-6">
+                    <Tab.Group>
+                        <Tab.List className='flex space-x-1 px-1 border-b-2 border-gray-100
+                        '>
+                            {dash.map((_dash) => {
+                                return (
+                                    <Tab key={_dash}
+                                        className={({ selected }) =>
+                                            classNames(
+                                                "w-full md:w-[20%] py-2.5 text-md font-medium leading-5 text-gray-800",
+                                                "focus:outline-none",
+                                                selected
+                                                    ? "bg-white border-b-4 border-primary_green text-primary_green"
+                                                    : "text-blue-800 hover:bg-primary_green/[0.1] hover:text-primary_green"
+                                            )
+                                        }
+                                    >
+                                        {_dash}
+                                    </Tab>
+                                )
+                            })}
+                        </Tab.List>
+                        <Tab.Panels className='mt-3'>
+                            <Tab.Panel>
+                                {allJobs?.map((job) => {
+                                    return (
+                                        <JobCard key={job?._id}
+                                            forDashboard={true}
+                                            image={job?._company?.logo}
+                                            alt={job?._company?.name}
+                                            company={job?._company?.name}
+                                            service={job?.service}
+                                            employees={job?._company?.staff}
+                                            offer={job?.title}
+                                            salary={job?.salary}
+                                            postDate={job?.createdAt}
+                                            status={job?.status}
+                                            promoted={job?.promoted}
+                                            isDirectApply={job?.isDirectApply}
+                                        />
+                                    )
+                                })}
+                                <div className="absolute right-12 py-2">
+                                    <Link href="/dashboard/jobs" className="text-primary_green text-base underline font-semibold">View All</Link>
+                                </div>
+
+                            </Tab.Panel>
+                            <Tab.Panel>
+                                {allJobs?.map((job) => {
+                                    return (
+                                        <JobCard key={job?._id}
+                                            forDashboard={true}
+                                            image={job?._company?.logo}
+                                            alt={job?._company?.name}
+                                            company={job?._company?.name}
+                                            service={job?.service}
+                                            employees={job?._company?.staff}
+                                            offer={job?.title}
+                                            salary={job?.salary}
+                                            postDate={job?.createdAt}
+                                            status={job?.status}
+                                            promoted={job?.promoted}
+                                            isDirectApply={job?.isDirectApply}
+                                        />
+                                    )
+                                })}
+                                <div className="absolute right-12 py-2">
+                                    <Link href="/dashboard/applied" className="text-primary_green text-base underline font-semibold">View All</Link>
+                                </div>
+                            </Tab.Panel>
+
+                        </Tab.Panels>
+                    </Tab.Group>
+
+                </div>
             </div>
-        </RecruiterProfileLayout>
+        </AdminLayout>
     )
 }
 

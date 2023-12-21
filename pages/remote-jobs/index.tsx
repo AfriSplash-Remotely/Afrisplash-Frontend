@@ -3,11 +3,14 @@ import Head from "next/head";
 import GeneralLayout from "layouts/generalLayout";
 import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
 import Filter from "../../components/filterComponent/Filter";
-import { jobData } from "utils/fakeData";
 import JobCard from "@/components/jobCard";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const RemoteJobs: NextPage = (): JSX.Element => {
+  const {data} = useQuery(["jobs"], fetchAllJobs)
+  const remoteJobs = data?.data
   return (
     <div>
       <Head>
@@ -41,21 +44,22 @@ const RemoteJobs: NextPage = (): JSX.Element => {
             </div>
           </div>
           <div className=" pb-12">
-            {jobData.flatMap((data, index): JSX.Element => {
+            {remoteJobs?.flatMap((job): JSX.Element => {
               return (
-                <div key={index}>
+                <div key={job?._id}>
                   <JobCard
-                    image={data.image}
-                    alt={"company logo"}
-                    company={data.company}
-                    service={data.service}
-                    employees={data.employees}
-                    offer={data.offer}
-                    salary={data.priceRange}
-                    postDate={data.postDate}
-                    status={data.hiring}
-                    promoted={data.promoted}
-                    isDirectApply={data.isDirectApply}
+                    forDashboard={false}
+                    image={job?._company?.logo}
+                    alt={job?._company?.name}
+                    company={job?._company?.name}
+                    service={job?.service}
+                    employees={job?._company?.staff}
+                    offer={job?.title}
+                    salary={job?.salary}
+                    postDate={job?.createdAt}
+                    status={job?.status}
+                    promoted={job?.promoted}
+                    isDirectApply={job?.isDirectApply}
                   />
                 </div>
               );

@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 
 function Notification(): JSX.Element {
     const { data: session, status } = useSession()
-    if (session && session.user && session.user.role === ACCOUNT_TYPE.recruiter) {
+    if (session && session.user && session.user.userType === ACCOUNT_TYPE.recruiter) {
         return <RecruiterNotification />
     }
     return <CandidateNotification />

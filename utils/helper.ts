@@ -1,3 +1,12 @@
+import { StylesConfig } from "react-select";
+
+export const selectStyle: StylesConfig = {
+  control: (styles) => ({
+    ...styles,
+    padding: "4px 2px",
+  }),
+};
+
 export let counter = 0;
 
 export function generateUniqueId(): number {
@@ -6,8 +15,7 @@ export function generateUniqueId(): number {
 }
 
 export function capitalizeFirstLetter(word: string): string {
-  return word
-    .split(" ")
+  return word?.split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }

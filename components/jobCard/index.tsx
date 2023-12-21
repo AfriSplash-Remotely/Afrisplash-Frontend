@@ -9,12 +9,13 @@ import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
 import { HiBolt } from "react-icons/hi2";
 import Button from "components/atoms/Button/Button";
-import { capitalizeFirstLetter, formatTimeAgo,formatCurrency } from "@/utils/helper";
+import { capitalizeFirstLetter, formatTimeAgo, formatCurrency } from "@/utils/helper";
 
 const jobDataProps = {
   image: PropTypes.string,
   company: PropTypes.string.isRequired,
   service: PropTypes.string,
+  hiring: PropTypes.string,
   employees: PropTypes.number,
   offer: PropTypes.string.isRequired,
   salary: PropTypes.shape({
@@ -40,7 +41,8 @@ const JobCard = ({
   postDate,
   alt,
   isDirectApply,
-  status: hiring,
+  status,
+  hiring,
   promoted,
   forDashboard = false,
 }: InferProps<typeof jobDataProps>): JSX.Element => {
@@ -111,9 +113,8 @@ const JobCard = ({
         </div>
 
         <div
-          className={`flex  flex-wrap sm:flex-col md:flex-row sm:gap-3 items-center md:justify-between mt-3 py-3 px-5 rounded-2xl ${
-            forDashboard ? "bg-zinc-200/40" : "bg-light_green"
-          }`}
+          className={`flex  flex-wrap sm:flex-col md:flex-row sm:gap-3 items-center md:justify-between mt-3 py-3 px-5 rounded-2xl ${forDashboard ? "bg-zinc-200/40" : "bg-light_green"
+            }`}
         >
           <div className="flex  flex-wrap sm:justify-between md:gap-40">
             <p className="font-[600] text-base w-full md:w-auto">
@@ -125,7 +126,7 @@ const JobCard = ({
           </div>
           <div className="flex flex-wrap gap-4 items-center sm:justify-between w-full md:w-auto my-4 md:my-0">
             <p className="font-[400] text-xs hidden md:block">
-              {formatTimeAgo(postDate)} 
+              {formatTimeAgo(postDate)}
             </p>
             <div className="flex gap-3 w-full  items-center md:w-auto">
               <Button

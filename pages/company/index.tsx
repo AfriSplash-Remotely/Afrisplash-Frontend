@@ -105,11 +105,11 @@ const Company: NextPage = () => {
                           alt={"company image"}
                           company={data.company}
                           service={data.service}
-                          employees={data.employees}
+                          // employees={data.employees}
                           offer={data.offer}
                           salary={data.priceRange}
                           postDate={data.postDate}
-                          status={data.hiring}
+                          // status={data.hiring}
                           promoted={data.promoted}
                         />
                       </div>

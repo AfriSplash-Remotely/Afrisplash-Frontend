@@ -54,6 +54,7 @@ interface Job {
   __v: number;
 }
 
+
 export interface IJobApiResponse {
   success: boolean;
   status: string;
@@ -61,4 +62,24 @@ export interface IJobApiResponse {
   count: number;
   pagination: Record<string, unknown>;
   data: Job[];
+}
+
+
+
+export interface ICreateJobApiResponse {
+  success: boolean;
+  redirect: boolean;
+  redirect_url: string;
+  verify: boolean;
+  private: boolean;
+  promoted: boolean;
+  publish: boolean;
+  expiry: string;
+  external_data: ExternalData;
+  createdAt: string;
+  updatedAt: string;
+  data: Job[]
+
+
+
 }
