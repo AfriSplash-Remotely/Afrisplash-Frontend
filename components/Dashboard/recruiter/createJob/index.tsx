@@ -139,7 +139,7 @@ export default function CreateJobs(): JSX.Element {
                       id="industry"
                       options={jobIndustry}
                       styles={selectStyle}
-                      onChange={(e) => field.onChange(e?.value)}
+                      onChange={(e: any) => field.onChange(e?.value)}
                       value={jobIndustry.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select Job Industy' />
@@ -197,7 +197,7 @@ export default function CreateJobs(): JSX.Element {
                       id='experience'
                       options={expLevel}
                       styles={selectStyle}
-                      onChange={(e) => field.onChange(e?.value)}
+                      onChange={(e: any) => field.onChange(e?.value)}
                       value={expLevel.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select experience level' />
@@ -265,7 +265,7 @@ export default function CreateJobs(): JSX.Element {
                       id="location"
                       options={Location}
                       styles={selectStyle}
-                      onChange={(e) => field.onChange(e?.value)}
+                      onChange={(e: any) => field.onChange(e?.value)}
                       value={Location.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select location or remote-based' />
@@ -288,7 +288,7 @@ export default function CreateJobs(): JSX.Element {
                       {...field}
                       id="gender" options={gender}
                       styles={selectStyle}
-                      onChange={(e) => field.onChange(e?.value)}
+                      onChange={(e: any) => field.onChange(e?.value)}
                       value={gender.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select gender' />
@@ -309,7 +309,7 @@ export default function CreateJobs(): JSX.Element {
                       {...field}
                       id="salary" options={salary}
                       styles={selectStyle}
-                      onChange={(e) => field.onChange(e?.value)}
+                      onChange={(e: any) => field.onChange(e?.value)}
                       value={salary.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select salary' />
@@ -330,7 +330,7 @@ export default function CreateJobs(): JSX.Element {
                       {...field}
                       id="payment" options={payment}
                       styles={selectStyle}
-                      onChange={(e) => field.onChange(e?.value)}
+                      onChange={(e: any) => field.onChange(e?.value)}
                       value={payment.find((e) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select payment period' />

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function LoadingIcon() {
+export default function LoadingIcon(): JSX.Element {
     return (
         <div role="status">
             <svg

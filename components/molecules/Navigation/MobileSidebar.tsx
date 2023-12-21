@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { NavItems } from "./AdminNavigation";
 import styles from "./Navigation.module.scss";
 import { navLinks } from "./navLinks";
 
@@ -59,7 +58,7 @@ const MobileSidebar = ({
           <div className="flex flex-col justify-between p-4">
             
             <ul className="flex flex-col space-y-5">
-              {navLinks.map((item: NavItems, index: number) => (
+              {navLinks.map((item: any, index: number) => (
                   <li key={index}>
                     <Link
                       href={item.route}

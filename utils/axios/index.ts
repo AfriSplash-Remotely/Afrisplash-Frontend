@@ -8,7 +8,6 @@ console.log(Cookies.get(), 'ppe');
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 axios.interceptors.request.use(
   (request) => {
-    request.headers["Authorization"] = `Bearer ${Cookies.get("access_token")}`;
     return request;
   },
   function (err) {
