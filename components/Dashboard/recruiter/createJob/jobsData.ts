@@ -7,24 +7,26 @@ export const jobIndustry = [
 ]
 
 export const expLevel = [
-    { value: "0-3years", label: "0-3 years" },
-    { value: "3-5years", label: "3-5 years" },
-    { value: "5-8years", label: "5-8 years" },
-    { value: "8-10years", label: "8-10 years" },
-    { value: "10-above", label: "10 & above" },
+  { value: "Intermediate", label: "Intermediate" },
+  { value: "Beginner", label: "Beginner" },
+  { value: "Senior", label: "Senior" },
+  { value: "Junior", label: "Junior" },
+  { value: "All", label: "All" },
 
   ]
 
 export const jobsType = [
-  { value: "hybrid", label: "Hybrid" },
-  { value: "on-site", label: "On-Site" },
-  { value: "remote", label: "Remote" }
+  { value: "Hybrid", label: "Hybrid" },
+  { value: "Onsite", label: "Onsite" },
+  { value: "Remote", label: "Remote" }
 ]
 
 export const Location = [
   { value: 'Lagos', label: "Lagos" },
   { value: 'London', label: "London" },
-  { value: 'Remote', label: "Remote" },
+  { value: 'USA', label: "USA" },
+  { value: 'New York', label: "New York" },
+
 
 ]
 export const gender = [

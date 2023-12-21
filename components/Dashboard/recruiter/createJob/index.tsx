@@ -123,15 +123,15 @@ export default function CreateJobs(): JSX.Element {
                 <label htmlFor="title">Job Title</label>
                 <input type='text' id='title' className='input-el mt-2'
                   placeholder='Product designer, Product manager, Programmer etc.'
-                  {...form1.register('jobTitle')}
+                  {...form1.register('title')}
                 />
-                {form1.formState.errors.jobTitle &&
-                  <p className='text-red-800'>{form1.formState.errors?.jobTitle?.message}</p>}
+                {form1.formState.errors.title &&
+                  <p className='text-red-800'>{form1.formState.errors?.title?.message}</p>}
               </div>
               <div className='mt-2 mb-2'>
                 <label htmlFor="industry">Job Industry</label>
                 <Controller
-                  name='jobIndustry'
+                  name='industry'
                   control={form1.control}
                   render={({ field }) => (
                     <Select
@@ -146,20 +146,20 @@ export default function CreateJobs(): JSX.Element {
                   )}
 
                 />
-                {form1.formState.errors.jobIndustry &&
-                  <p className='text-red-800'>{form1.formState.errors?.jobIndustry?.message}</p>
+                {form1.formState.errors.industry &&
+                  <p className='text-red-800'>{form1.formState.errors?.industry?.message}</p>
                 }
               </div>
               <div className='mt-2'>
                 <label htmlFor='description'>Job Description</label>
                 <textarea
-                  {...form1.register('jobDescribtion')}
+                  {...form1.register('description')}
                   maxLength={150}
                   placeholder='Type your job description here|'
                   className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
                 />
-                {form1.formState.errors.jobDescribtion &&
-                  <p className='text-red-800'>{form1.formState.errors?.jobDescribtion?.message}</p>
+                {form1.formState.errors.description &&
+                  <p className='text-red-800'>{form1.formState.errors?.description?.message}</p>
                 }
               </div>
             </form>
@@ -209,10 +209,10 @@ export default function CreateJobs(): JSX.Element {
                 }
               </div>
               <div className='mt-2 mb-2'>
-                <label htmlFor='jobType'>Job type</label>
+                <label htmlFor='type'>Job type</label>
 
                 <Controller
-                  name='jobType'
+                  name='type'
                   control={form2.control}
                   render={({ field }) => (
                     <Select
@@ -226,8 +226,8 @@ export default function CreateJobs(): JSX.Element {
                       placeholder='Select job type' />
                   )}
                 />
-                {form2.formState.errors.jobType &&
-                  <p className='text-red-800'>{form2.formState.errors?.jobType?.message}</p>
+                {form2.formState.errors.type &&
+                  <p className='text-red-800'>{form2.formState.errors?.type?.message}</p>
                 }
               </div>
               <div className='mt-2 mb-2'>
