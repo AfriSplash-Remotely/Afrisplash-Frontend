@@ -47,7 +47,7 @@ export default function CreateJobs(): JSX.Element {
     }
   }
 
-  const handleNext = async (result: StepOne | StepTwo) => {
+  const handleNext = async (result: StepOne | StepTwo) => {    
     const nextStep = currentStep + 1
 
     if (currentStep === 1) {

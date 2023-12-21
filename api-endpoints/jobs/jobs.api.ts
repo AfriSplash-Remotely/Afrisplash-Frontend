@@ -1,6 +1,5 @@
 import api from "@/utils/axios";
 import { IJobApiResponse, ICreateJobApiResponse } from "./jobs.interface";
-import Cookies from "js-cookie";
 
 
 export const fetchAllJobs = async (): Promise<IJobApiResponse> => {
