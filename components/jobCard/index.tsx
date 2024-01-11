@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   CheckCircleIcon,
@@ -12,6 +12,7 @@ import Button from "components/atoms/Button/Button";
 import { capitalizeFirstLetter, formatTimeAgo, formatCurrency } from "@/utils/helper";
 import { ACCOUNT_TYPE } from "@/utils";
 import { useSession } from "next-auth/react";
+import JobApplicationModal from "./JobApplicationModal";
 
 const jobDataProps = {
   image: PropTypes.string,
@@ -48,6 +49,11 @@ const JobCard = ({
   forDashboard = false,
 }: InferProps<typeof jobDataProps>): JSX.Element => {
   const { data: session } = useSession()
+  const [open, setOpen] = useState<boolean>(false)
+
+  const handleModalOpen = () => {
+    setOpen(!open)
+  }
   return (
     <>
       <div className="bg-white rounded-xl border border-gray-200 p-3  mt-5">
@@ -142,7 +148,7 @@ const JobCard = ({
                     }
                   />
                   <Button
-                    onClick={() => console.log('solo makinde')}
+                    onClick={handleModalOpen}
                     text={"Apply"}
                     classes={
                       "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
@@ -157,6 +163,7 @@ const JobCard = ({
           </div>
         </div>
       </div>
+      <JobApplicationModal open={open} onClose={handleModalOpen} />
     </>
   );
 };

@@ -14,7 +14,7 @@ const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, children, dialogPanelClass }
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="relative z-14"
+        className="relative z-50 "
         onClose={() => setIsOpen(false)}
       >
         <Transition.Child
