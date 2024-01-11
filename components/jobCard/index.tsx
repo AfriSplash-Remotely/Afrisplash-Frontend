@@ -17,14 +17,14 @@ const jobDataProps = {
   image: PropTypes.string,
   company: PropTypes.string.isRequired,
   service: PropTypes.string,
-  hiring: PropTypes.string,
   employees: PropTypes.number,
   offer: PropTypes.string.isRequired,
-  salary: PropTypes.shape({
-    amount: PropTypes.number,
-    currency: PropTypes.string,
-    period: PropTypes.string,
-  }),
+  // salary: PropTypes.shape({
+  //   amount: PropTypes.number,
+  //   currency: PropTypes.string,
+  //   period: PropTypes.string,
+  // }),
+  salary: PropTypes.string.isRequired,
   postDate: PropTypes.string.isRequired,
   alt: PropTypes.string,
   status: PropTypes.string,
@@ -39,12 +39,11 @@ const JobCard = ({
   service,
   employees,
   offer,
-  salary: priceRange,
+  salary,
   postDate,
   alt,
   isDirectApply,
   status,
-  hiring,
   promoted,
   forDashboard = false,
 }: InferProps<typeof jobDataProps>): JSX.Element => {
@@ -89,7 +88,7 @@ const JobCard = ({
 
         <div className="flex flex-wrap items-center gap-6 my-5">
           <div>
-            {hiring === "Active" ? (
+            {status === "Active" ? (
               <div className="flex items-center gap-2 bg-light_green p-2 rounded-full">
                 <CheckCircleIcon className="w-5 h-5 bg-primary_green text-gray-200 rounded-full" />
                 <p className="text-primary_green text-xs font-medium">
@@ -124,7 +123,9 @@ const JobCard = ({
               {capitalizeFirstLetter(offer)}
             </p>
             <p className="font-[400] text-base">
-              {formatCurrency(priceRange?.amount ?? 0, priceRange?.currency ?? "$")}
+              {/* {formatCurrency(salary?.amount ?? 0, salary?.currency ?? "$")} */}
+              $ {salary}
+
             </p>
           </div>
           <div className="flex flex-wrap gap-4 items-center sm:justify-between w-full md:w-auto my-4 md:my-0">
@@ -141,6 +142,7 @@ const JobCard = ({
                     }
                   />
                   <Button
+                    onClick={() => console.log('solo makinde')}
                     text={"Apply"}
                     classes={
                       "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
