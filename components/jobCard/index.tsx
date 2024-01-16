@@ -156,7 +156,7 @@ const JobCard = ({
                   />
                 </div>
               </> : null}
-
+              
           </div>
           <div className="font-normal text-xs block md:hidden ">
             {formatTimeAgo(postDate)}
