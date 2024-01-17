@@ -122,3 +122,9 @@ export interface IJobDetailResponse {
 
 
 }
+
+export interface IJobApplyResponse {
+  success:boolean;
+  status:string;
+  error:string;
+}
