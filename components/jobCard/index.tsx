@@ -54,13 +54,10 @@ const JobCard = ({
 }: InferProps<typeof jobDataProps>): JSX.Element => {
   const { data: session } = useSession()
   const [open, setOpen] = useState<boolean>(false)
-  // const { data: jobDetail } = useQuery(["jobDet"], fetchJobDetails)
-  const { data, refetch } = useQuery(["jobDet"], async () => {
-    // console.log(data, 'hello');
 
+  const { data, refetch } = useQuery(["jobDet"], async () => {  
     const data = await fetchJobDetails(_id as string)
     console.log(data, 'lol');
-
     return data
   }, { enabled: false })
 
@@ -83,8 +80,6 @@ const JobCard = ({
                 height={35}
               />
             </div>
-            {_id}juueu 
-
             <div>
               <div className="flex items-center mb-3">
                 <h1 className="font-semibold text-base">

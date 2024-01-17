@@ -5,6 +5,7 @@ import typeIcon from "../../assets/icons/type.svg";
 import locateIcon from "../../assets/icons/locate.svg";
 import Button from "../atoms/Button/Button";
 
+
 interface ApplyModalProps {
   company: string;
   title: string;
