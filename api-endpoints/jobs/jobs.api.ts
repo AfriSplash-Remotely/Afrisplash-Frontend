@@ -1,5 +1,5 @@
 import api from "@/utils/axios";
-import { IJobApiResponse, ICreateJobApiResponse } from "./jobs.interface";
+import { IJobApiResponse, ICreateJobApiResponse, IJobDetailResponse } from "./jobs.interface";
 
 
 export const fetchAllJobs = async (): Promise<IJobApiResponse> => {
@@ -18,4 +18,9 @@ export const createJob = async (jobPayload: object, jwt: string): Promise<ICreat
 
   const { data } = await api.post("/jobs", jobPayload)
   return data
+}
+
+export const fetchJobDetails = async (jobId: string): Promise<IJobDetailResponse> => {
+  const { data } = await api.get(`/jobs/v/${jobId}`)
+  return data.data
 }

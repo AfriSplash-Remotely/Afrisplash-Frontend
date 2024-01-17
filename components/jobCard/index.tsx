@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { fetchJobDetails } from "@/api-endpoints/jobs/jobs.api";
+import { useQuery } from "@tanstack/react-query";
 
 import {
   CheckCircleIcon,
@@ -15,6 +17,7 @@ import { useSession } from "next-auth/react";
 import JobApplicationModal from "./JobApplicationModal";
 
 const jobDataProps = {
+  _id: PropTypes.string,
   image: PropTypes.string,
   company: PropTypes.string.isRequired,
   service: PropTypes.string,
@@ -35,6 +38,7 @@ const jobDataProps = {
 };
 
 const JobCard = ({
+  _id,
   image,
   company,
   service,
@@ -50,9 +54,21 @@ const JobCard = ({
 }: InferProps<typeof jobDataProps>): JSX.Element => {
   const { data: session } = useSession()
   const [open, setOpen] = useState<boolean>(false)
+  // const { data: jobDetail } = useQuery(["jobDet"], fetchJobDetails)
+  const { data, refetch } = useQuery(["jobDet"], async () => {
+    // console.log(data, 'hello');
+
+    const data = await fetchJobDetails(_id as string)
+    console.log(data, 'lol');
+
+    return data
+  }, { enabled: false })
 
   const handleModalOpen = () => {
+    console.log('klleoe', _id);
     setOpen(!open)
+    refetch()
+
   }
   return (
     <>
@@ -67,6 +83,8 @@ const JobCard = ({
                 height={35}
               />
             </div>
+            {_id}juueu 
+
             <div>
               <div className="flex items-center mb-3">
                 <h1 className="font-semibold text-base">
@@ -163,7 +181,18 @@ const JobCard = ({
           </div>
         </div>
       </div>
-      <JobApplicationModal open={open} onClose={handleModalOpen} />
+      <JobApplicationModal
+        open={open}
+        onClose={handleModalOpen}
+        company={data?.data?._company}
+        title={data?.title}
+        location={data?.location}
+        level={data?.experience}
+        type={data?.type}
+        salary={data?.salary} 
+        description={data?.description}
+        requirement={data?.requirement}
+        />
     </>
   );
 };
