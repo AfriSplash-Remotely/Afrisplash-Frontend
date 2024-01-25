@@ -187,6 +187,7 @@ const JobCard = ({
         salary={data?.salary} 
         description={data?.description}
         requirement={data?.requirement}
+        benefit={data?.benefit}
         />
     </>
   );

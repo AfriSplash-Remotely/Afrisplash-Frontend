@@ -7,14 +7,15 @@ import Button from "../atoms/Button/Button";
 
 
 interface ApplyModalProps {
-  company: string;
-  title: string;
-  location: string;
-  level: string;
-  type: string;
-  salary: string;
-  description:string;
-  requirement:string;
+  company?: string;
+  title?: string;
+  location?: string;
+  level?: string;
+  type?: string;
+  salary?: string;
+  description?:string;
+  requirement?:string;
+  benefit?:string;
   open: boolean;
   onClose: () => void;
 }
@@ -28,6 +29,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   salary,
   description,
   requirement,
+  benefit,
   open,
   onClose,
 }) => {
@@ -101,10 +103,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
           <div className="py-4">
             <h3 className="text-dark_black font-bold text-base">BENEFITS</h3>
             <p className="text-base text-dark_black mt-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-              error ullam eos ratione. Veniam numquam similique, officia
-              exercitationem explicabo aut quisquam doloribus blanditiis
-              voluptatibus repudiandae eveniet magnam in. Voluptatibus, natus?
+              {benefit}
             </p>
           </div>
         </div>

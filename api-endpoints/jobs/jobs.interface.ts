@@ -103,6 +103,7 @@ export interface IJobDetailResponse {
   description: string;
   requirement: string;
   experience: string;
+  benefit:string;
   type: string;
   status: string;
   location: string;
