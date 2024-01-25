@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetchJobDetails } from "@/api-endpoints/jobs/jobs.api";
+import {  fetchJobDetails } from "@/api-endpoints/jobs/jobs.api";
 import { useQuery } from "@tanstack/react-query";
 
 import {
@@ -67,6 +67,9 @@ const JobCard = ({
     refetch()
 
   }
+
+
+ 
   return (
     <>
       <div className="bg-white rounded-xl border border-gray-200 p-3  mt-5">

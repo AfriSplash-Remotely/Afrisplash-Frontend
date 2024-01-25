@@ -4,6 +4,11 @@ import Image from "next/image";
 import typeIcon from "../../assets/icons/type.svg";
 import locateIcon from "../../assets/icons/locate.svg";
 import Button from "../atoms/Button/Button";
+import { useMutation } from "@tanstack/react-query";
+import { applyForJob } from "@/api-endpoints/jobs/jobs.api";
+import toast from "react-hot-toast";
+import { AxiosError } from "axios";
+import { useSession } from "next-auth/react";
 
 
 interface ApplyModalProps {
@@ -33,6 +38,27 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   open,
   onClose,
 }) => {
+  const { data: session } = useSession()
+
+  const { mutate, isLoading } = useMutation({
+    mutationFn: (jobId: string) => applyForJob(jobId, session?.user?.accessToken as string),
+    onSuccess: (data) => {
+      toast.success(data?.error)
+    },
+    onError: (error: AxiosError<{ message: string }>) => {
+      if (error.response) {
+        toast.error(error?.response?.data?.message)
+      } else {
+        toast.error(error?.message)
+      }
+
+    }
+
+  })
+  // const onApplyForJob = (e: any, jobId: string) => {
+  //   const _id =
+  // }
+
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
       <div className="px-12 py-6">

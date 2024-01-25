@@ -129,3 +129,4 @@ export interface IJobApplyResponse {
   status:string;
   error:string;
 }
+
