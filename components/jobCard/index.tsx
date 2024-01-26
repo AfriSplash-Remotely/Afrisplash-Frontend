@@ -57,15 +57,13 @@ const JobCard = ({
 
   const { data, refetch } = useQuery(["jobDet"], async () => {  
     const data = await fetchJobDetails(_id as string)
-    console.log(data, 'lol');
     return data
   }, { enabled: false })
 
   const handleModalOpen = () => {
-    console.log('klleoe', _id);
+    sessionStorage.setItem("jobId", _id as string)
     setOpen(!open)
     refetch()
-
   }
 
 

@@ -9,6 +9,7 @@ import { applyForJob } from "@/api-endpoints/jobs/jobs.api";
 import toast from "react-hot-toast";
 import { AxiosError } from "axios";
 import { useSession } from "next-auth/react";
+import LoadingIcon from "../atoms/LoaingIcon";
 
 
 interface ApplyModalProps {
@@ -44,20 +45,23 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     mutationFn: (jobId: string) => applyForJob(jobId, session?.user?.accessToken as string),
     onSuccess: (data) => {
       toast.success(data?.error)
+      onClose()
+
     },
     onError: (error: AxiosError<{ message: string }>) => {
-      if (error.response) {
-        toast.error(error?.response?.data?.message)
-      } else {
         toast.error(error?.message)
       }
 
-    }
-
   })
-  // const onApplyForJob = (e: any, jobId: string) => {
-  //   const _id =
-  // }
+  const onApplyForJob = (e: any) => {
+    e.preventDefault()
+    console.log('lover');
+
+
+    const jobId = sessionStorage.getItem("jobId")
+    mutate(jobId as string)
+
+  }
 
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
@@ -142,11 +146,13 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
             }
           />
           <Button
-            text={"Apply"}
+            onClick={onApplyForJob}
             classes={
               "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
             }
-          />
+          >
+            <span className="flex gap-4 mx-auto item-center justify-center">{isLoading && <LoadingIcon />} Apply</span>
+          </Button>
         </div>
       </div>
     </Modal>
