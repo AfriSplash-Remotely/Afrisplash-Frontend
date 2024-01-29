@@ -13,11 +13,11 @@ interface Author {
   bio: string | null;
 }
 
-interface Salary {
-  amount: number;
-  currency: string;
-  period: string;
-}
+// interface Salary {
+//   amount: number;
+//   currency: string;
+//   period: string;
+// }
 
 interface ExternalData {
   image: string | null;
