@@ -60,6 +60,7 @@ export default function Jobs():JSX.Element{
             return (
               <div key={job?._id}>
                 <JobCard
+                  _id={job?._id}
                   forDashboard={true}
                   image={job?._company?.logo}
                   alt={job?._company?.name}

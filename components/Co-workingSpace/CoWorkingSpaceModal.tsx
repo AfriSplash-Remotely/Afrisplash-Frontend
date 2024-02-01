@@ -13,7 +13,7 @@ interface ModalProps {
 const CoWorkingSpaceModal: React.FC<ModalProps> = ({ open, onClose }) => {
 
     const customStyles = {
-        control: (base: any,) => ({
+        control: (base: any) => ({
             ...base,
             height: "62px",
             marginTop: "20px",
