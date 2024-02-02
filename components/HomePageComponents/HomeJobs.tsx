@@ -9,18 +9,12 @@ import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api";
 interface Props {
   translate: TFunction<["common", "home", "footer"], undefined>;
 }
-const fetchData = async () => {
-  const response = await fetch('https://afrisplash-473196ceadbb.herokuapp.com/api/v1/jobs/');
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-};
+
 
 function HomeJobs({ translate }: Props): JSX.Element {
 
-  // const { data } = useQuery(["jobs"], fetchAllJobs);
-  const { data, isLoading, error } = useQuery(['jobs'], fetchData);
+  const { data } = useQuery(["jobs"], fetchAllJobs);
+
   const homeJobs = data?.data
   const homeJobCat = toArrayOfObjects(jobCat, 9);
 console.log(homeJobs);  
@@ -53,7 +47,7 @@ console.log(homeJobs);
               {translate("Live, work, and succeed anywhere in Africa")}
             </div>
           </div>
-          {/* <div className="w-full grid lg:grid-cols-4  sm:grid-cols-1">
+          <div className="w-full grid grid-cols-1">
             {homeJobs?.map(
               (job): JSX.Element => (
                 <div key={job?._id}>
@@ -74,7 +68,7 @@ console.log(homeJobs);
                 </div>
               )
             )}
-          </div> */}
+          </div>
         </section>
       </div>
     </section>
