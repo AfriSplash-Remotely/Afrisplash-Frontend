@@ -21,11 +21,11 @@ function Faq({ translate }: Props): JSX.Element {
   };
 
   return (
-    <section className={`w-full bg-white py-28`}>
+    <section className={`w-full bg-white py-12 lg:py-28`}>
       <ContactModal isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="w-11/12 xl:w-10/12 mx-auto flex justify-center items-center">
         <div className="w-full pt-14">
-          <h3 className="mx-auto text-center text-black-300 text-3xl font-semibold mb-12">
+          <h3 className="mx-auto text-center text-black-300 text-2xl lg:text-[42px] font-semibold mb-12">
             FAQs
           </h3>
           <Tab.Group>
@@ -63,7 +63,7 @@ function Faq({ translate }: Props): JSX.Element {
                           >
                             {({ open }) => (
                               <>
-                                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                                <Disclosure.Button className="flex w-full justify-between rounded-lg bg-white py-4 px-4 text-left text-base lg:text-xl font-medium text-black-900 hover:bg-info-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                                   <span>{question.title}</span>
                                   <ChevronUpIcon
                                     className={`${
@@ -86,7 +86,7 @@ function Faq({ translate }: Props): JSX.Element {
             </Tab.Panels>
           </Tab.Group>
 
-          <p className="mx-auto text-center text-black-300 text-lg flex justify-center align-content-center mb-3">
+          <p className="mx-auto text-center text-black-300 text-base lg:text-lg flex justify-center align-content-center mb-3">
             {translate(
               "If you still can’t find the answers you’re looking for"
             )}

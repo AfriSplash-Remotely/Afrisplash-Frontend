@@ -30,6 +30,14 @@
     line-height: 58px;
     color: #1C1D36;
 }
+@media  (max-width:600px) {
+.Newsletter h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #1C1D36;
+}
+}
 
 .Newsletter-btn {
     color: #1C1D36;

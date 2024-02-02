@@ -53,9 +53,9 @@ const Home: NextPage = () => {
           <h3 className="text-center text-gray-400 text-2xl font-light">
             {translate("Trusted by these global companies")}
           </h3>
-          <div className="flex justify-between">
+          <div className="flex justify-around lg:justify-between flex-wrap gap-4">
             {globalCompanies.map((item: string) => (
-              <div key={generateUniqueId()}>
+              <div key={generateUniqueId()} className="w-auto max-w-[120px]  md:w-auto">
                 <Image src={item} alt="global companies" />
               </div>
             ))}

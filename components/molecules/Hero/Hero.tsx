@@ -23,13 +23,13 @@ const Hero = ({ translate }: Props): JSX.Element => {
       className={`${styles.wrapper} w-full`}
     >
       <div className="w-10/12 mx-auto flex justify-between">
-        <section className="w-full md:w-6/12 mt-20">
+        <section className="w-full md:w-6/12 mt-0 lg:mt-20">
           <motion.div className="space-y-4">
             <motion.h1
               initial={{ y: -100 }}
               whileInView={{ y: 0 }}
               transition={{ duration: 0.8 }}
-              className="capitalize text-6xl font-bold text-dark_blue"
+              className="capitalize text-4xl lg:text-6xl font-bold text-dark_blue"
             >
               {translate("The")}{" "}
               <span className="text-primary_green">{translate("gateway")}</span>{" "}
