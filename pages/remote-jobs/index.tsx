@@ -49,6 +49,7 @@ const RemoteJobs: NextPage = (): JSX.Element => {
               return (
                 <div key={job?._id}>
                   <JobCard
+                    _id={job?._id}
                     forDashboard={false}
                     image={job?._company?.logo}
                     alt={job?._company?.name}
