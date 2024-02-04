@@ -33,3 +33,19 @@ export const applyForJob = async (jobId: string, jwt: string): Promise<IJobApply
   const { data } = await api.post(`/jobs/a/${jobId}`)
   return data
 }
+export const searchJobByType = async (type: string): Promise<IJobApiResponse> => {
+  const { data } = await api.get(`/jobs/search/t/${type}`)
+  return data.data
+};
+export const searchJobByCompany = async (company: string): Promise<IJobApiResponse> => {
+  const { data } = await api.get(`/jobs/search/c/${company}`)
+  return data.data
+};
+export const searchJobByLocation = async (location: string): Promise<IJobApiResponse> => {
+  const { data } = await api.get(`/jobs/search/l/${location}`)
+  return data.data
+};
+export const searchJobByDate = async (date: string): Promise<IJobApiResponse> => {
+  const { data } = await api.get(`/jobs/search/d/${date}`)
+  return data.data
+};

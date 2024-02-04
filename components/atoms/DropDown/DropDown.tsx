@@ -25,9 +25,9 @@ const DropDown = ({
 
   return (
     <>
-      <div className="mr-8">
+      <div className="mr-8 ">
         <button
-          className="flex flex-row justify-between items-center py-2 px-4 border border-solid rounded-lg relative w-fit-content cursor-pointer"
+          className=" w-full flex flex-row justify-between items-center py-2 px-4 border border-solid rounded-lg relative w-fit-content cursor-pointer"
           onClick={() => onClick && onClick()}
         >
           {imageUrl && (
@@ -53,10 +53,10 @@ const DropDown = ({
               <span
                 key={generateUniqueId()}
                 className="text-sm block capitalize w-100 my-4 hover:cursor-pointer hover:underline"
-                onClick={() => setMakeSelectOption(optText)}
+                onClick={() =>  setMakeSelectOption(optText)}
               >
-                {" "}
-                {optText}{" "}
+                
+                {optText}
               </span>
             ))}
           </div>
