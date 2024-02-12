@@ -10,7 +10,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const RemoteJobs: NextPage = (): JSX.Element => {
   const {data} = useQuery(["jobs"], fetchAllJobs)
-  const remoteJobs = data?.data
+  const remoteJobs = data?.data 
+  
   return (
     <div>
       <Head>

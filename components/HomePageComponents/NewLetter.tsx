@@ -17,7 +17,7 @@ function Newsletter({ translate }: Props): JSX.Element {
         >
           <div>
             <div className="mb-6">
-              <h3 className="text-3xl text-black font-semibold">
+              <h3 className="text-3xl ">
                 {translate("Be in the know")}
               </h3>
               <p>
@@ -50,7 +50,7 @@ function Newsletter({ translate }: Props): JSX.Element {
                 </div>
 
                 <button
-                  className="block outline-none rounded-lg text-white bg-black py-3 px-8 mt-6"
+                  className="block outline-none rounded-lg text-white bg-black py-2 px-8 mt-6"
                   type="submit"
                 >
                   {translate("Sign me up")}
