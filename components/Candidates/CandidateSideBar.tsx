@@ -2,7 +2,8 @@ import React from 'react'
 import DropDown from 'components/atoms/DropDown/DropDown'
 import RadioBtn from 'components/atoms/RadioButton/RadioBtn'
 import Image from 'next/image'
-import  filters  from 'assets/filters.png';
+import filters from 'assets/filters.png';
+import { useState } from 'react';
 
 const experienceRadio = [
     { label: "0-1 year" },
@@ -11,17 +12,20 @@ const experienceRadio = [
     { label: "5-6 years" },
     { label: "7-8 years" },
 ]
-const jobRadio =[
-    { label:"Full-time"},
+const jobRadio = [
+    { label: "Full-time" },
     { label: "Part-time" },
     { label: "Contract-based" },
     { label: "Freelance" },
     { label: "Internship" },
 ]
 export default function CandidateSideBar(): JSX.Element {
+    const [openJobCat, setOpenJobCat] = useState<boolean>(false);
+    const [openCountry, setOpenCountry] = useState<boolean>(false);
+    const [openSkills, setOpenSkills] = useState<boolean>(false);
     return (
         <div className='bg-[#F8F8F8] rounded-lg p-4 '>
-            <div className='mx-12'>
+            <div className='mx-0 md:mx-12'>
                 <div className='py-4'>
                     <h3 className='font-medium'>Sort by</h3>
 
@@ -29,9 +33,9 @@ export default function CandidateSideBar(): JSX.Element {
                     <RadioBtn label={'Date'} value={'Date'} />
                 </div>
                 <hr className='mt-6 mx-4 mb-12' />
-                <div>
+                <div className='w-full'>
                     <h3 className='font-medium mb-4'>Job Category</h3>
-                    <DropDown />
+                    <DropDown text="select category" options={["Health", "Technology", "Business"]} isOpen={openJobCat} onClick={() => setOpenJobCat(!openJobCat)} />
                 </div>
                 <hr className='mt-12 mx-4 mb-12' />
                 <div>
@@ -51,7 +55,7 @@ export default function CandidateSideBar(): JSX.Element {
                             <input type='range' className='w-full' />
 
                         </div>
-                    </div>                
+                    </div>
 
                 </div>
                 <hr className='mt-12 mx-4 mb-12' />
@@ -66,7 +70,7 @@ export default function CandidateSideBar(): JSX.Element {
                         Indicate below if employee can work from any country, or must
                         be lin a specific location</p>
                     <RadioBtn label={'Anywhere'} value={'Anywhere'} />
-                    <DropDown />
+                    <DropDown text="select country" options={["Nigeria", "United Kingdom", "United States"]} isOpen={openCountry} onClick={() => setOpenCountry(!openCountry)} />
 
                 </div>
                 <hr className='mt-12 mx-4 mb-12' />
@@ -87,7 +91,7 @@ export default function CandidateSideBar(): JSX.Element {
                 <hr className='mt-12 mx-4 mb-12' />
                 <div>
                     <h3 className='font-medium mb-4'>Skills</h3>
-                    <DropDown />
+                    <DropDown text="select skills" options={["Health", "Technology", "Business"]} isOpen={openSkills} onClick={() => setOpenSkills(!openSkills)} />
                     <div className='mt-6 flex justify-center'>
                         <button className=" w-64 h-12  md:w-64 xl:w-full flex gap-2 bg-[#0D5520] items-center justify-center  p-4 rounded-md hover:opacity-80">
                             <Image src={filters} alt="sms" />

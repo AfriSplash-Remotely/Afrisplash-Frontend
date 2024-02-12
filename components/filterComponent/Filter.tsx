@@ -19,7 +19,7 @@ export default function Filter(): JSX.Element {
         </div>
 
         <div
-          className="mt-24 flex items-center justify-between gap-8 px-4 pb-24
+          className="mt-24 flex md:flex-row flex-col md:items-center md:justify-between gap-8 px-4 pb-24
         "
         >
           <PositionSearchProps placeholder="Select a position or job title" />
