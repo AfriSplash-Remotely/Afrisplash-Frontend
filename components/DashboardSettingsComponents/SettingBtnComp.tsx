@@ -13,7 +13,7 @@ export default function SettingBtnComp({ title, isActive, routeLink }: InferProp
     return (
             <Link href={routeLink}>
                 <button
-                className={`rounded-xl px-3 py-2 w-auto  md:w-80 text-[#0D5520] font-[300] mb-6 border border-solid border-[#0D5520] ${isActive ? `${styles.active}` : undefined
+                className={`rounded-xl px-3 py-2 w-auto  md:w-60 text-[#0D5520] font-[300] mb-6 border border-solid border-[#0D5520] ${isActive ? `${styles.active}` : undefined
                         } `}
                 >
                     {title}
