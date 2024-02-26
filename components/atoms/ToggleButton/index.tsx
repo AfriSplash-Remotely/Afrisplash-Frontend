@@ -5,11 +5,13 @@ import styles from "./toggleButton.module.scss";
 const jobDataProps = {
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  isChecked: PropTypes.bool.isRequired,
 };
 
 function ToggleButton({
   label,
   onChange,
+  isChecked,
 }: InferProps<typeof jobDataProps>): JSX.Element {
   return (
     <div>
@@ -19,6 +21,7 @@ function ToggleButton({
           name="toggle"
           onChange={(e): React.ChangeEvent<HTMLInputElement> => onChange(e)}
           id="toggle"
+          defaultChecked={isChecked}
           className={`${styles.toggleCheckbox} border-2 border-gray-300 absolute block w-6 h-6 rounded-full bg-white appearance-none cursor-pointer`}
         />
         <label
