@@ -86,7 +86,7 @@ const Hero = ({ translate }: Props): JSX.Element => {
                 transition={{ duration: 0.8 }}
                 className={`${styles.imageWrapper_image} ${styles.imageWrapper_image_1}`}
               >
-                <Image src={card_1} alt="card_1" />
+                <Image src={card_1} alt="card_1" className="absolute top-0 left-0" />
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.1 }}
@@ -98,7 +98,7 @@ const Hero = ({ translate }: Props): JSX.Element => {
                 className={`${styles.imageWrapper_image} ${styles.imageWrapper_image_2}`}
               >
                 <Image
-                  className="absolute top-48 left-0"
+                  className="absolute top-32 left-0"
                   src={card_2}
                   alt="card_2"
                 />
@@ -113,7 +113,7 @@ const Hero = ({ translate }: Props): JSX.Element => {
                 className={`${styles.imageWrapper_image} ${styles.imageWrapper_image_3}`}
               >
                 <Image
-                  className="absolute bottom-0 left-48"
+                  className="absolute -bottom-12 left-52"
                   src={card_3}
                   alt="card_3"
                 />

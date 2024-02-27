@@ -14,7 +14,7 @@ import { generateUniqueId } from "@/utils/helper";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 
-interface headerType {
+export interface headerType {
   title: string;
   icon?: ReactNode;
   link: string;
@@ -59,7 +59,7 @@ const Navigation = (): JSX.Element => {
     {
       title: `${translate("Resources")}`,
       icon: <ChevronDownIcon className="w-5 h-5" />,
-      link: "#",
+      link: "/coming-soon",
       active: false,
       dropDown: [{ title: "item", href: "#" }],
       redirect: false
@@ -74,7 +74,7 @@ const Navigation = (): JSX.Element => {
     {
       title: `${translate("Employer")}`,
       icon: "",
-      link: "/",
+      link: "/coming-soon",
       active: false,
       redirect: false
     },
@@ -95,7 +95,7 @@ const Navigation = (): JSX.Element => {
     {
       title: `${translate("Pricing")}`,
       icon: "",
-      link: "/",
+      link: "/coming-soon",
       active: false,
       redirect: false
     },
