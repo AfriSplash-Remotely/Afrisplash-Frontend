@@ -10,7 +10,7 @@ const Candidate = (): JSX.Element => {
     const { data: session } = useSession();
     const jwtToken = session?.user?.accessToken as string;
 
-    const { data } = useQuery(["recruiterProfile"], async () => {
+    const { data } = useQuery(["candidateProfile"], async () => {
         const response = await getCandidateProfile(jwtToken as string)
         return response.data[0];
     });
@@ -37,7 +37,7 @@ const Candidate = (): JSX.Element => {
                                 <h3 className="text-lg font-bold">{data?.first_name} {data?.last_name}</h3>
                                 <div className="flex items-center space-x-2">
                                     <BriefCase />
-                                    <p className="text-sm font-normal">{data?.role ?? "Backend Engineer"}</p>
+                                    <p className="text-sm font-normal">{data?.role}</p>
                                 </div>
                                 <div className="flex items-center space-x-2">
                                     <ClockSvg />
