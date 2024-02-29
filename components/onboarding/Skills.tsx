@@ -1,12 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Select, { StylesConfig } from "react-select";
-import {
-  experienceAction,
-  skillsAction,
-  skillsCategoryAction,
-} from "@/store/candidateOnboarding/_formSlice";
-import type { RootState } from "store/store";
+import Select, { MultiValue, StylesConfig } from "react-select";
 
 const selectStyle: StylesConfig = {
   control: (styles) => ({
@@ -16,88 +9,41 @@ const selectStyle: StylesConfig = {
 };
 
 const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+  { value: "react", label: "React" },
+  { value: "vue", label: "Vue" },
+  { value: "node", label: "Node" },
 ];
 
-const Skills = (): JSX.Element => {
-  // const [isActive, setActive] = useState(false)
 
-  // const btnSelect = "bg-green-900 text-white border px-20 py-2.5 rounded-full"
-  // const btnDefault =
-  //     "text-black border border-gray-500 px-20 py-2.5 rounded-full"
+const Skills = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {
+  const [skills, setSkills] = React.useState<MultiValue<{ label: string, value: string }>>([])
 
-  const dispatch = useDispatch();
-  // const { skillsCategory, experience, skills } = useSelector(
-  //   (state: RootState) => state.form
-  // );
+  React.useEffect(() => {
+    if (getDataFn) getDataFn({ skills: skills.map(s => s.value) })
+  }, [skills])
 
-  // const onToggle = () => {
-  //     setActive(!isActive)
-  // }
-
-  const { skillsCategory, experience, skills } = { skillsCategory: '', experience: '', skills: '', }
-
-
+  const handleSkills = (arg: any) => {
+    setSkills(arg)
+  }
   return (
     <div className="px-6 sm:px-12 md:px-16 mb-8">
       <p className="font-medium text-lg mb-4">Add your skills</p>
       <form className="flex flex-wrap justify-between text-gray-500 mb-4">
-        <label htmlFor="degree" className="basis-[100%] mt-5">
-          <p>Category</p>
-          <Select
-            id="degree"
-            options={options}
-            styles={selectStyle}
-            placeholder={skillsCategory}
-            onChange={(e: any) => dispatch(skillsCategoryAction(e.value))}
-          />
-        </label>
-        <label htmlFor="field" className="basis-[100%] mt-5">
-          <p>Industy Expertise</p>
-          <Select
-            id="field"
-            options={options}
-            styles={selectStyle}
-            placeholder={experience}
-            onChange={(e: any) => dispatch(experienceAction(e.value))}
-          />
-        </label>
+
         <label htmlFor="degree" className="basis-[100%] mt-5">
           <p>Skills</p>
           <Select
-            id="degree"
+            id="skills"
             options={options}
             styles={selectStyle}
+            onChange={(arg) => handleSkills(arg)}
             isMulti
-            placeholder={skills}
-            onChange={(e: any) => dispatch(skillsAction(e))}
           />
         </label>
       </form>
       <div className="px-2 py-8">
         <p className="font-medium text-lg mb-8">Suggested skills</p>
-        {/* <div className="flex justify-between">
-                    <button
-                        className={isActive ? btnSelect : btnDefault}
-                        onClick={() => onToggle()}                        
-                    >
-                        Photoshop
-                    </button>
-                    <button
-                        className={isActive ? btnSelect : btnDefault}
-                        onClick={() => onToggle()}                        
-                    >
-                        Figma
-                    </button>
-                    <button
-                        className={isActive ? btnSelect : btnDefault}
-                        onClick={() => onToggle()}                        
-                    >
-                        Illustrator
-                    </button>
-                </div> */}
+
       </div>
     </div>
   );

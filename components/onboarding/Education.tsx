@@ -1,54 +1,56 @@
-import { useDispatch, useSelector } from "react-redux";
-import Select, { StylesConfig } from "react-select";
-import {
-  degreeAction,
-  eduDescriptionAction,
-  eduEndDateAction,
-  eduStartDateAction,
-  fieldStudyAction,
-  institutionNameAction,
-} from "@/store/candidateOnboarding/_formSlice";
-import type { RootState } from "store/store";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import Select from "react-select";
 
-const selectStyle: StylesConfig = {
-  control: (styles) => ({
+const selectStyle = {
+  control: (styles: any) => ({
     ...styles,
     padding: "4px 2px",
   }),
 };
 
-const degreeOptions = [
+const degreeOptions: any = [
   { value: "B.Sc", label: "B.Sc" },
   { value: "HND", label: "HND" },
   { value: "NCE", label: "NCE" },
 ];
 
-const Education = (): JSX.Element => {
-  // const {
-  //   institutionName,
-  //   degree,
-  //   fieldStudy,
-  //   eduStartDate,
-  //   eduEndDate,
-  //   eduDescription,
-  // } = useSelector((state: RootState) => state.form);
-  const {
-    institutionName,
-    degree,
-    fieldStudy,
-    eduStartDate,
-    eduEndDate,
-    eduDescription,
-  } = {
-    institutionName: '',
-    degree: '',
-    fieldStudy: '',
-    eduStartDate: '',
-    eduEndDate: '',
-    eduDescription: '',
-  }
+// Assuming `fieldOptions` for the "Field of Study" select, replace `degreeOptions` with appropriate options if necessary
+const fieldOptions: any = [
+  { value: "Computer Science", label: "Computer Science" },
+  { value: "Business Administration", label: "Business Administration" },
+  // Add more options as needed
+];
 
-  const dispatch = useDispatch();
+const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }) => {
+  const { control, handleSubmit, watch } = useForm({
+    defaultValues: {
+      institutionName: '',
+      degree: { label: '', value: '' },
+      fieldOfStudy: { label: '', value: '' },
+      startDate: '',
+      endDate: '',
+      description: '',
+    }
+  });
+  const formData = watch();
+
+  React.useEffect(() => {
+    if (getDataFn) getDataFn({
+      education: [{
+        institution_name: formData.institutionName,
+        degree: formData.degree?.value as string,
+        field_of_study: formData.fieldOfStudy?.value as string,
+        date_start: formData.startDate,
+        date_end: formData.endDate,
+        description: formData.description
+      }]
+    });
+
+  }, [formData]);
+
+  // Watch the description field for dynamic character count
+  const description = watch("description");
 
   return (
     <div className="px-6 sm:px-12 md:px-16 mb-8">
@@ -56,79 +58,73 @@ const Education = (): JSX.Element => {
         Add your educational background
       </p>
       <form className="flex flex-wrap justify-between text-gray-500 mb-4">
-        <label htmlFor="company" className="basis-[100%] mt-5">
-          <p>Institution name</p>
+        <div className="basis-[100%] mt-5">
+          <label htmlFor="institutionName">Institution name</label>
           <input
+            {...control.register("institutionName")}
             type="text"
-            id="company"
+            id="institutionName"
             className="input-el"
-            value={institutionName}
-            onChange={(e) => dispatch(institutionNameAction(e.target.value))}
             placeholder="eg. Kenyatta University"
           />
-        </label>
-        <label htmlFor="degree" className="basis-[100%] md:basis-[45%] mt-5">
-          <p>Degree</p>
-          <Select
-            id="degree"
-            options={degreeOptions}
-            styles={selectStyle}
-            placeholder={degree}
-            onChange={(e: any) => dispatch(degreeAction(e.value))}
+        </div>
+
+        <div className="basis-[100%] md:basis-[45%] mt-5">
+          <label htmlFor="degree">Degree</label>
+          <Controller
+            name="degree"
+            control={control}
+            render={({ field }) => (
+              <Select {...field} options={degreeOptions} styles={selectStyle} />
+            )}
           />
-        </label>
-        <label htmlFor="field" className="basis-[100%] md:basis-[45%] mt-5">
-          <p>Field of study</p>
-          <Select
-            id="field"
-            options={degreeOptions}
-            styles={selectStyle}
-            placeholder={fieldStudy}
-            onChange={(e: any) => dispatch(fieldStudyAction(e.value))}
+        </div>
+
+        <div className="basis-[100%] md:basis-[45%] mt-5">
+          <label htmlFor="fieldOfStudy">Field of study</label>
+          <Controller
+            name="fieldOfStudy"
+            control={control}
+            render={({ field }) => (
+              <Select {...field} options={fieldOptions} styles={selectStyle} />
+            )}
           />
-        </label>
-        <label htmlFor="company" className="basis-[100%] md:basis-[45%] mt-5">
-          <p>Start date</p>
+        </div>
+
+        <div className="basis-[100%] md:basis-[45%] mt-5">
+          <label htmlFor="startDate">Start date</label>
           <input
+            {...control.register("startDate")}
             type="date"
-            id="company"
-            value={eduStartDate}
-            placeholder="dd/mm/yy"
-            className="input-el"
-            onChange={(e) => dispatch(eduStartDateAction(e.target.value))}
-          />
-        </label>
-        <label htmlFor="position" className="basis-[100%] md:basis-[45%] mt-5">
-          <p>End Date</p>
-          <input
-            type="date"
-            id="position"
-            value={eduEndDate}
-            onChange={(e) => dispatch(eduEndDateAction(e.target.value))}
-            placeholder="dd/mm/yy"
+            id="startDate"
             className="input-el"
           />
-        </label>
-      </form>
-      <div className="px-2 py-8">
-        <label htmlFor="bio">
-          <p className="block font-medium text-md text-gray-500 mb-4">
-            Description
-          </p>
+        </div>
+
+        <div className="basis-[100%] md:basis-[45%] mt-5">
+          <label htmlFor="endDate">End Date</label>
+          <input
+            {...control.register("endDate")}
+            type="date"
+            id="endDate"
+            className="input-el"
+          />
+        </div>
+
+        <div className="px-2 py-8 w-full">
+          <label htmlFor="description">Description</label>
           <textarea
-            name="bio"
-            id="bio"
+            {...control.register("description")}
+            id="description"
             maxLength={150}
-            value={eduDescription}
-            onChange={(e) => dispatch(eduDescriptionAction(e.target.value))}
             className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
             placeholder="Tell us a little about yourself"
           />
           <p className="text-right text-sm text-gray-500">
-            {eduDescription.length}/150
+            {description?.length || 0}/150
           </p>
-        </label>
-      </div>
+        </div>
+      </form>
     </div>
   );
 };

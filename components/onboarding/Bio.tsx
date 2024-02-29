@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useDropzone } from "react-dropzone";
@@ -8,7 +9,8 @@ import {
 } from "@/store/candidateOnboarding/_formSlice";
 import type { RootState } from "store/store";
 
-function Bio(): JSX.Element {
+function Bio({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Element {
+  const [bio, setBio] = React.useState("")
   // const { imgURL }: any = useSelector((state: RootState) => state.form.imgFile);
   const imgURL = ''
   const bioDesc = 'lorem'
@@ -28,6 +30,11 @@ function Bio(): JSX.Element {
       });
     },
   });
+  React.useEffect(() => {
+    if (getDataFn) {
+      getDataFn({ bio })
+    }
+  }, [bio])
 
   return (
     <div className="px-8 md:px-16">
@@ -79,8 +86,7 @@ function Bio(): JSX.Element {
           id="bio"
           className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
           placeholder="Introduce yourself briefly. Talk about your work, your interests, and your achievements"
-          onChange={(e) => dispatch(bioAction(e.target.value))}
-          value={bioDesc}
+          onChange={(e) => setBio(e.target.value)}
           maxLength={150}
         />
         <p className="text-right text-sm text-gray-500">{bioDesc.length}/150</p>
