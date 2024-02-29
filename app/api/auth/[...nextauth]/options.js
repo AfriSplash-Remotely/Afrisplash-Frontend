@@ -35,7 +35,7 @@ export const options = {
             credentialDetails
           );
           if (data) {
-            // console.log({ data })
+
             return { ...data.user, token: data.token };
           }
         } catch (error) {
@@ -48,7 +48,7 @@ export const options = {
   ],
   callbacks: {
     session: ({ session, token }) => {
-      console.log({ session, token });
+
       return {
         ...session,
         user: {
@@ -56,11 +56,12 @@ export const options = {
           id: token.id,
           accessToken: token.accessToken,
           userType: token.userType,
+          account_setup_completed: token.account_setup_completed,
         },
       };
     },
     jwt: ({ token, user }) => {
-      console.log({ token, user });
+
       if (user) {
         const u = user;
         return {
@@ -68,6 +69,7 @@ export const options = {
           id: u._id,
           accessToken: u.token,
           userType: u.user_type,
+          account_setup_completed: u.account_setup_completed,
         };
       }
       return token;
