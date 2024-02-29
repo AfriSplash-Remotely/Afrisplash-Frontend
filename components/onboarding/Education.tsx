@@ -22,7 +22,7 @@ const fieldOptions: any = [
   // Add more options as needed
 ];
 
-const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }) => {
+const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       institutionName: '',

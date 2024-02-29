@@ -54,7 +54,7 @@ const Signup: NextPage = () => {
 
   const onSubmit: SubmitHandler<RegisterRequest> = async (data) => {
     try {
-      await signUp({ ...data, user_type: data.user_type?.value || "", gender: data.gender.value });
+      await signUp({ ...data, user_type: data.user_type?.value || "", gender: data?.gender?.value });
       toast.success("Signup successful");
       router.push("/auth/login")
     } catch (err: any) {
@@ -230,7 +230,7 @@ const Signup: NextPage = () => {
                 placeholder={translate("Gender")}
                 {...field}
                 options={genderOptions}
-                value={genderOptions.find(option => option.value === field.value.value)}
+                value={genderOptions.find(option => option.value === field?.value?.value)}
                 onChange={(value) => field.onChange(value)}
               />}
             />
@@ -254,7 +254,7 @@ const Signup: NextPage = () => {
                 placeholder={translate("Talent account")}
                 {...field}
                 options={talentOptions}
-                value={talentOptions.find(option => option.value === field.value.value)}
+                value={talentOptions.find(option => option.value === field?.value?.value)}
                 onChange={(value) => field.onChange(value)}
               />}
             />

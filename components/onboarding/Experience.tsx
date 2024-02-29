@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import Select, { GroupBase, Options } from "react-select";
+import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import React from "react";
 
@@ -16,10 +16,10 @@ const jobOptions: any = [
   { value: "UI/UX", label: "UI/UX" },
 ];
 
-const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }) => {
+const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {
 
   const [noJobExp, setNoJobExp] = useState(false)
-  const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
+  const { control, register, watch, formState: { errors } } = useForm({
     defaultValues: {
       companyName: '',
       positionHeld: '',
@@ -37,12 +37,12 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }) => {
     }
   }
 
-  let company_name = watch("companyName")
-  let position_held = watch("positionHeld")
-  let location = watch("location")
-  let date_start = watch("startDate")
-  let date_end = watch("endDate")
-  let jdLen = watch("jobDescription")
+  const company_name = watch("companyName")
+  const position_held = watch("positionHeld")
+  const location = watch("location")
+  const date_start = watch("startDate")
+  const date_end = watch("endDate")
+  const jdLen = watch("jobDescription")
 
 
   React.useEffect(() => {
@@ -172,8 +172,6 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }) => {
                 value=""
                 id="default-toggle"
                 className="sr-only peer"
-                onClick={() => {
-                }}
               />
               <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-200 dark:peer-focus:ring-green-900 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
             </label>
