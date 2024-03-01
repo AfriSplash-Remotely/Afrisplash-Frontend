@@ -117,18 +117,14 @@ const MobileNav = ({ present }: any) => {
 
     return (
         <div>
-            <div className="w-full bg-white pt-4   nav-index  flex flex-col lg:hidden ">
+            <div className={`w-full bg-white pt-4   nav-index  flex flex-col lg:hidden  ${show ? "h-screen overflow-y-hidden fixed top-0 right-0 left-0 bottom-0 z-high" : ""} `}>
                 <div className="w-full flex items-center justify-between px-4 h-[65px]">
                     <Link href="/">
                         <Image src={logo} alt="logo" width={logo.width} height={logo.height} />
                     </Link>
                     <div className="flex gap-6 items-center relative">
 
-                        <div className="w-fit" onClick={() => setShow(!show)}>
-                            {
-                                show ? <Times /> : <Bars />
-                            }
-                        </div>
+                      
                         <Menu as="div" className="relative inline-block text-left">
                             <Menu.Button
                                 title="Select language"
@@ -173,6 +169,11 @@ const MobileNav = ({ present }: any) => {
                                 </Menu.Items>
                             </Transition>
                         </Menu>
+                        <div className="w-fit" onClick={() => setShow(!show)}>
+                            {
+                                show ? <Times /> : <Bars />
+                            }
+                        </div>
                     </div>
                 </div>
 
