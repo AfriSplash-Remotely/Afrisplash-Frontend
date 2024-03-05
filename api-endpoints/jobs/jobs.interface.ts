@@ -13,11 +13,12 @@ interface Author {
   bio: string | null;
 }
 
-// interface Salary {
-//   amount: number;
-//   currency: string;
-//   period: string;
-// }
+interface Salary {
+  min: number | string;
+  max: number | string;
+  currency: string;
+  period: string;
+}
 
 interface ExternalData {
   image: string | null;
@@ -38,8 +39,8 @@ interface Job {
   type: string;
   status: "Active" | "Inactive";
   location: string;
-  // salary: Salary;
-  salary: string;
+  salary: Salary;
+  // salary: string;
   redirect: boolean;
   redirect_url: string;
   verify: boolean;
