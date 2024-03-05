@@ -17,8 +17,6 @@ function HomeJobs({ translate }: Props): JSX.Element {
 
   const homeJobs = data?.data
   const homeJobCat = toArrayOfObjects(jobCat, 9);
-console.log(homeJobs);  
-
 
   return (
     <section className={`w-full ${styles.bg_gray}`}>
@@ -60,7 +58,7 @@ console.log(homeJobs);
                     service={job?.service}
                     employees={job?._company?.staff}
                     offer={job?.title}
-                    salary={job?.salary}
+                    salary={`${job?.salary?.min} - ${job.salary?.max}`}
                     postDate={job?.createdAt}
                     status={job?.status}
                     promoted={job?.promoted}
