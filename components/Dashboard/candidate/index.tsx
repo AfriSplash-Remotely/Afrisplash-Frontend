@@ -39,7 +39,7 @@ const Candidate = (): JSX.Element => {
                                                 service={job?.service}
                                                 employees={job?._company?.staff}
                                                 offer={job?.title}
-                                                salary={job?.salary}
+                                                salary={`${job?.salary?.min} - ${job.salary?.max}`}
                                                 postDate={job?.createdAt}
                                                 status={job?.status}
                                                 promoted={job?.promoted}
