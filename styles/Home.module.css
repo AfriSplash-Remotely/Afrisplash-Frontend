@@ -54,6 +54,7 @@
   transition: background 200ms, border 200ms;
 }
 
+
 .card span {
   display: inline-block;
   transition: transform 200ms;
