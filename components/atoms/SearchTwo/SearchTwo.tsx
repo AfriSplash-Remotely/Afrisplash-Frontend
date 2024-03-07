@@ -11,6 +11,7 @@ export default function SearchTwo({
     placeholder,
     classes,
     childClasses,
+    ...props
 }: InferProps<typeof SearchTwoProps>): JSX.Element {
     return (
         <div className={`w-full  ${classes}`}>
@@ -20,6 +21,7 @@ export default function SearchTwo({
                     type="text"
                     placeholder={placeholder}
                     className="focus:outline-none w-full pr-2 "
+                    {...props}
                 />
                 <MagnifyingGlassIcon className="w-6 h-6 " />
 

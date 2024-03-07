@@ -9,7 +9,9 @@
   margin: 0;
   padding: 0;
 }
-
+.z-high{
+  z-index: 1000 !important;
+}
 .dark_500 {
   background: #00000099;
 }

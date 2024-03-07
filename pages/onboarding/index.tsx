@@ -11,20 +11,45 @@ import Bio from "components/onboarding/Bio";
 import Education from "components/onboarding/Education";
 import Experience from "components/onboarding/Experience";
 import Skills from "components/onboarding/Skills";
+import { postCaditateOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
+import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter, useSearchParams } from "next/navigation";
+import React from "react";
 
 const Onboarding = (): JSX.Element => {
-  const [step, setStep] = useState(1);
+  const { data: session, status } = useSession()
+  const router = useRouter();
 
+  const [step, setStep] = useState(1);
+  const [candidateOnbardingData, setCandidateOnbardingData] = useState({})
   const arr = [
     { id: 1, name: "Profile" },
     { id: 2, name: "Experience" },
     { id: 3, name: "Education" },
     { id: 4, name: "Skills" },
   ];
-  // const formData = useSelector((state: RootState) => state.form);
+
+  const handleGetData = (data: any) => {
+    setCandidateOnbardingData((prev) => { return { ...prev, ...data } })
+  }
+
   const handleSubmit = () => {
-    // console.log(formData);
+
+    postCaditateOnBoarding(candidateOnbardingData, session?.user?.accessToken as string).then((data) => {
+      router.push("/dashboard");
+
+    }).catch((err: any) => {
+      toast.error("An Error Occured while trying to onboard user");
+    })
   };
+
+  React.useEffect(() => {
+    if (session && session?.user?.accessToken && session?.user?.account_setup_completed) {
+      router.push("/dashboard");
+    }
+  }, [session])
+
   return (
     <div className={styles.bg}>
       <div className="max-w-5xl mx-auto mt-5 pb-10 bg-white shadow-xl rounded-xl px-3">
@@ -67,10 +92,10 @@ const Onboarding = (): JSX.Element => {
             ))}
           </div>
         </div>
-        {step === 1 && <Bio />}
-        {step === 2 && <Experience />}
-        {step === 3 && <Education />}
-        {step === 4 && <Skills />}
+        {step === 1 && <Bio getDataFn={(d) => handleGetData(d)} />}
+        {step === 2 && <Experience getDataFn={(d) => handleGetData(d)} />}
+        {step === 3 && <Education getDataFn={(d) => handleGetData(d)} />}
+        {step === 4 && <Skills getDataFn={(d) => handleGetData(d)} />}
         <div className="flex justify-center items-center gap-4 md:gap-12 font-medium">
           <Link href="#" legacyBehavior>
             <button
@@ -81,16 +106,14 @@ const Onboarding = (): JSX.Element => {
             </button>
           </Link>
           {step !== 4 && (
-            <Link href="#" legacyBehavior>
-              <button
-                className="bg-indigo-900 text-gray-400 general-btn"
-                onClick={() => {
-                  step < 4 && setStep(step + 1);
-                }}
-              >
-                Next
-              </button>
-            </Link>
+            <button
+              className="bg-indigo-900 text-gray-400 general-btn"
+              onClick={() => {
+                step < 4 && setStep(step + 1);
+              }}
+            >
+              Next
+            </button>
           )}
           {step === 4 && (
             <button

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NextPage } from "next";
 import Slider from "react-slick";
 import GeneralLayout from "@/layouts/generalLayout";
@@ -8,8 +8,13 @@ import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "@heroicons/react/24/s
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { pricingData } from "@/utils";
+import { useRouter } from "next/router";
 
 const Pricing: NextPage = () => {
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/")
+  }, []);
   const [activeSlide, setActiveSlide] = React.useState<number>(0);
 
   const settings = {

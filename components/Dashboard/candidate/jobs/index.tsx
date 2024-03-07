@@ -60,6 +60,7 @@ export default function Jobs():JSX.Element{
             return (
               <div key={job?._id}>
                 <JobCard
+                  _id={job?._id}
                   forDashboard={true}
                   image={job?._company?.logo}
                   alt={job?._company?.name}
@@ -67,7 +68,7 @@ export default function Jobs():JSX.Element{
                   service={job?.service}
                   employees={job?._company?.staff}
                   offer={job?.title}
-                  salary={job?.salary}
+                  salary={`${job?.salary?.min} - ${job.salary?.max}`}
                   postDate={job?.createdAt}
                   status={job?.status}
                   promoted={job?.promoted}

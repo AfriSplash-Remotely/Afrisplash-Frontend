@@ -12,16 +12,16 @@ interface Props {
 
 function MapWorkSpace({ translate }: Props): JSX.Element {
   return (
-    <section className={`w-full ${styles.bg_gray} py-28`}>
-      <div className="w-10/12 mx-auto flex flex-wrap justify-between items-center">
-        <div className={`w-full md:w-6/12`}>
+    <section className={`w-full ${styles.bg_gray} py-12 lg:py-28`}>
+      <div className="w-full px-4 lg:px-0 lg:w-10/12 mx-auto flex flex-wrap flex-col lg:flex-row lg:justify-between items-center">
+        <div className={`w-full lg:w-6/12`}>
           <Image src={HomeMap} alt="home map" />
         </div>
-        <div className={`w-full md:w-5/12 space-y-5`}>
-          <h3 className="text-4xl w-9/12 font-medium">
+        <div className={`w-full lg:w-5/12 space-y-5 lg:space-y-5 mt-6 lg:mt-0`}>
+          <h3 className="text-2xl lg:text-4xl w-full lg:w-9/12 font-medium">
             {translate("Your office away from the office")}
           </h3>
-          <p className="w-10/12 text-gray-500">
+          <p className=" w-full lg:w-10/12 text-gray-500">
             {translate(
               "Your remote work lifestyle deserves a workspace that supports it. That's why we've curated over 5000 workspaces across Africa you can choose from. Do your best work, no matter where you are"
             )}

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image"
@@ -8,8 +9,13 @@ import GeneralLayout from 'layouts/generalLayout';
 import { employerData } from "utils";
 import employerImg from "assets/general/employer-team.svg"
 import { CompHiringCard, EmployerSideBar } from '../../components/Employer';
-
+import { useRouter } from "next/router";
 const Employer: NextPage = () => {
+    const router = useRouter();
+    useEffect(() => {
+        router.push("/")
+    }, []);
+    
     return (
         <div>
             <Head>

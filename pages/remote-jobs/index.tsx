@@ -10,7 +10,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const RemoteJobs: NextPage = (): JSX.Element => {
   const {data} = useQuery(["jobs"], fetchAllJobs)
-  const remoteJobs = data?.data
+  const remoteJobs = data?.data 
+  
   return (
     <div>
       <Head>
@@ -22,7 +23,7 @@ const RemoteJobs: NextPage = (): JSX.Element => {
       <GeneralLayout>
         <div className="afri-container ">
           <div className="relative flex justify-center w-full mt-12">
-            <div className="w-1/3">
+            <div className="w-full lg:w-1/3">
               <SearchTwo placeholder="Search jobs, keywords , and companies" />
             </div>
           </div>
@@ -31,14 +32,14 @@ const RemoteJobs: NextPage = (): JSX.Element => {
           </div>
 
           <div className="mt-12 flex items-center gap-8">
-            <div className="my-8 font-medium">16 Results</div>
+            <div className="my-8 font-medium">{remoteJobs?.length} Results</div>
             <div className="flex items-center">
-              <div>Sort by</div>
+              <div>Date Posted</div>
               <div>
                 <select className="bg-[#D9DEDC] rounded-full outline-none py-1.5  px-4  ml-2">
-                  <option>Recommended</option>
-                  <option>Recommended</option>
-                  <option>Recommended</option>
+                  <option>Any time</option>
+                  <option>24 hours</option>
+                  <option>One week</option>
                 </select>
               </div>
             </div>
@@ -48,6 +49,7 @@ const RemoteJobs: NextPage = (): JSX.Element => {
               return (
                 <div key={job?._id}>
                   <JobCard
+                    _id={job?._id}
                     forDashboard={false}
                     image={job?._company?.logo}
                     alt={job?._company?.name}
@@ -55,7 +57,7 @@ const RemoteJobs: NextPage = (): JSX.Element => {
                     service={job?.service}
                     employees={job?._company?.staff}
                     offer={job?.title}
-                    salary={job?.salary}
+                    salary={`${job?.salary?.min} - ${job.salary?.max}`}
                     postDate={job?.createdAt}
                     status={job?.status}
                     promoted={job?.promoted}

@@ -29,20 +29,24 @@ const Candidate = (): JSX.Element => {
                         <div className="mt-6">
                                 {recommendJobs?.map((job) => {
                                     return (
-                                        <JobCard key={job?._id}
-                                            forDashboard={true}
-                                            image={job?._company?.logo}
-                                            alt={job?._company?.name}
-                                            company={job?._company?.name}
-                                            service={job?.service}
-                                            employees={job?._company?.staff}
-                                            offer={job?.title}
-                                            salary={job?.salary}
-                                            postDate={job?.createdAt}
-                                            status={job?.status}
-                                            promoted={job?.promoted}
-                                            isDirectApply={job?.isDirectApply}
-                                        />
+                                        <div key={job?._id}>
+                                            <JobCard
+                                                _id={job?._id}
+                                                forDashboard={true}
+                                                image={job?._company?.logo}
+                                                alt={job?._company?.name}
+                                                company={job?._company?.name}
+                                                service={job?.service}
+                                                employees={job?._company?.staff}
+                                                offer={job?.title}
+                                                salary={`${job?.salary?.min} - ${job.salary?.max}`}
+                                                postDate={job?.createdAt}
+                                                status={job?.status}
+                                                promoted={job?.promoted}
+                                                isDirectApply={job?.isDirectApply}
+                                            />
+                                        </div>
+
                                     )
                                 })}
                             </div>

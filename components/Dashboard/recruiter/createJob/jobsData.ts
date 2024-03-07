@@ -17,8 +17,8 @@ export const expLevel = [
 
 export const jobsType = [
   { value: "Hybrid", label: "Hybrid" },
-  { value: "Onsite", label: "Onsite" },
   { value: "Remote", label: "Remote" }
+
 ]
 
 export const Location = [

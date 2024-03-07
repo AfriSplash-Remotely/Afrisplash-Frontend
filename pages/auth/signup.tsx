@@ -8,13 +8,13 @@ import {
 import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Select from "react-select";
+import Select, { GroupBase, OptionsOrGroups } from "react-select";
 import google from "../../assets/svg/google.svg";
 import styles from "../../styles/Signup.module.scss";
 import AuthLayout from "@/layouts/Auth.layout";
 import Head from "next/head";
 import { RegisterRequest, useSignupMutation } from "store/services/auth";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import { signUp } from "@/api-endpoints/auth/auth.api";
@@ -39,8 +39,14 @@ const Signup: NextPage = () => {
     { value: 'candidate', label: `${translate('Candidate')}` }
   ]
 
+  const genderOptions = [
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+    { value: 'others', label: 'Others' }
+  ];
 
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -48,7 +54,7 @@ const Signup: NextPage = () => {
 
   const onSubmit: SubmitHandler<RegisterRequest> = async (data) => {
     try {
-      await signUp({ ...data, user_type: "candidate", gender: "male" });
+      await signUp({ ...data, user_type: data.user_type?.value || "", gender: data?.gender?.value });
       toast.success("Signup successful");
       router.push("/auth/login")
     } catch (err: any) {
@@ -212,14 +218,51 @@ const Signup: NextPage = () => {
               </p>
             )}
           </div>
+          <div className={` w-full`}>
+
+            <Controller
+              control={control}
+              {...register("gender", {
+                required: `${translate("Gender is required")}`,
+              })}
+
+              render={({ field }) => <Select
+                placeholder={translate("Gender")}
+                {...field}
+                options={genderOptions}
+                value={genderOptions.find(option => option.value === field?.value?.value)}
+                onChange={(value) => field.onChange(value)}
+              />}
+            />
+            {errors.gender && (
+              <p role="alert" className="error_message w-8/12  pl-2 py-2">
+                {(errors.gender as any).message}
+              </p>
+            )}
+          </div>
 
           {/**Talent account */}
           <div className={` w-full`}>
-            {/* <span className={`relative top-[1.8rem] z-50 ${styles.userIcon}`}>
-              <UserCircleIcon className="w-4 h-4 ml-[.9rem]" />
-            </span> */}
-            <Select placeholder={translate("Talent account")} styles={customStyles} options={talentOptions}
+
+            <Controller
+              control={control}
+              {...register("user_type", {
+                required: `${translate("Account Type is required")}`,
+              })}
+
+              render={({ field }) => <Select
+                placeholder={translate("Talent account")}
+                {...field}
+                options={talentOptions}
+                value={talentOptions.find(option => option.value === field?.value?.value)}
+                onChange={(value) => field.onChange(value)}
+              />}
             />
+            {errors.user_type && (
+              <p role="alert" className="error_message w-8/12  pl-2 py-2">
+                {(errors.user_type as any).message}
+              </p>
+            )}
           </div>
         </div>
 

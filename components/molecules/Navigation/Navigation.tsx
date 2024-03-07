@@ -14,11 +14,12 @@ import { generateUniqueId } from "@/utils/helper";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 
-interface headerType {
+export interface headerType {
   title: string;
   icon?: ReactNode;
   link: string;
   active: boolean;
+  redirect?: boolean;
   dropDown?: {
     title: string;
     href: string;
@@ -53,43 +54,50 @@ const Navigation = (): JSX.Element => {
       icon: "",
       link: "/",
       active: true,
+      redirect: false
     },
     {
       title: `${translate("Resources")}`,
       icon: <ChevronDownIcon className="w-5 h-5" />,
-      link: "#",
+      link: "/coming-soon",
       active: false,
       dropDown: [{ title: "item", href: "#" }],
+      redirect: false
     },
     {
       title: `${translate("Candidates")}`,
       icon: "",
       link: "/candidates",
       active: false,
+      redirect: false
     },
     {
       title: `${translate("Employer")}`,
       icon: "",
-      link: "/employer",
+      link: "/coming-soon",
       active: false,
+      redirect: false
     },
     {
       title: `${translate("Hire Talent")}`,
       icon: "",
-      link: "/hire-talent",
+      link: "https://airtable.com/appMVjLaBQ4TFl1lV/shrDnNaoOtIXdevS2/tblwA0qs67n8fIoYh",
       active: false,
+      redirect: true
     },
     {
       title: `${translate("Remote Jobs")}`,
       icon: "",
       link: "/remote-jobs",
       active: false,
+      redirect: false
     },
     {
       title: `${translate("Pricing")}`,
       icon: "",
-      link: "/pricing",
+      link: "/coming-soon",
       active: false,
+      redirect: false
     },
   ];
 
@@ -101,6 +109,18 @@ const Navigation = (): JSX.Element => {
     header.map((item) => (item.active = false));
     if (router.pathname === item.link) {
       header[index].active = true;
+    }
+    // If redirect is true, open link in a new tab
+    if (item.redirect) {
+      const newTab = window.open(item.link, '_blank');
+      if (newTab) {
+        newTab.focus();
+      } else {
+        console.error('Failed to open new tab');
+      }
+    } else {
+      // Handle regular navigation behavior here if needed
+      router.push(item.link);
     }
   };
   return (
@@ -122,9 +142,10 @@ const Navigation = (): JSX.Element => {
           <nav className="hidden lg:flex items-center h-full ">
             <ul className="flex lg:space-x-3 xl:space-x-5">
               {header.map((item: headerType, index: number) => (
-                <Link href={item.link} key={generateUniqueId()}>
+          
                   <li
                     onClick={() => handleMenuClick(item, index)}
+                    key={generateUniqueId()}
                     className={`text-sm flex capitalize cursor-pointer hover:text-primary_green hover:underline hover:underline-offset-4 ${
                       item.active &&
                       "text-primary_green underline underline-offset-4"
@@ -133,7 +154,7 @@ const Navigation = (): JSX.Element => {
                     <span>{item.title}</span>
                     <span>{item.icon ? item.icon : ""}</span>
                   </li>
-                </Link>
+                
               ))}
             </ul>
           </nav>

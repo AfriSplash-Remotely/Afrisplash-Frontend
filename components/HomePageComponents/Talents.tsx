@@ -15,20 +15,20 @@ interface Props {
 function Talents({ translate }: Props): JSX.Element {
   return (
     <section className="w-full ">
-      <div className="py-28 space-y-24 w-11/12 xl:w-10/12 mx-auto">
+      <div className="py-12 lg:py-28 space-y-24 w-11/12 xl:w-10/12 mx-auto">
         <section>
-          <div className="text-center space-y-5">
-            <h3 className="capitalize text-5xl font-semibold mb-4 md:mb-7">
+          <div className="text-center  lg:space-y-5">
+            <h3 className="capitalize text-2xl md:text-5xl font-semibold mb-4 md:mb-7">
               {translate("our top talents")}
             </h3>
-            <div className="text-gray-700 text-lg flex justify-center">
-              <p className="text-xl">
+            <div className="text-gray-700 text-base md:text-lg flex justify-center">
+              <p className=" text-base lg:text-xl">
                 {translate("Find highly-skilled talents from our community")}
               </p>
             </div>
           </div>
           <div className=" my-10 space-y-6">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-6  s:grid-cols-1 lg:grid-cols-4">
               {topTalentData.map((mentor) => (
                 <MentorCard
                   key={mentor.id}
@@ -63,7 +63,7 @@ function Talents({ translate }: Props): JSX.Element {
                 </div>
               </div>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2  lg:grid-cols-4">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-1  lg:grid-cols-4">
               {mentorsData.map((mentor) => (
                 <MentorCard
                   key={mentor.id}
