@@ -31,7 +31,7 @@ const Recruiter = (): JSX.Element => {
                                     src={`${data?.profile_image ?? pic9.src}`}
                                     fill
                                     alt=""
-                                    className="w-14 h-14 rounded-full"
+                                    className="w-14 h-14 rounded-full aspect-square"
                                 />
                                 <span className="top-0 left-14 absolute rounded-full">
                                     <AvatarTick />
