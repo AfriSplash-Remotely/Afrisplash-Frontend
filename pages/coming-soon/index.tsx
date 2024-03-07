@@ -1,7 +1,9 @@
 import GeneralLayout from '@/layouts/generalLayout'
 import Image from 'next/image'
-import comingImage from "../../assets/coming-soon.png"
+import comingImage from "@/assets/coming-soon.png"
 import Link from 'next/link'
+
+
 const ComingSoon = () => {
     return (
         <GeneralLayout>

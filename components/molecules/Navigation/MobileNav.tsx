@@ -2,22 +2,15 @@ import { Fragment, useState } from 'react'
 
 import Image from 'next/image';
 import Link from 'next/link';
-import bars from "../../assets/svg/bars.svg"
-import close from "../../assets/svg/close.svg"
 import { useRouter } from 'next/router';
 import { ChevronDownIcon, LanguageIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 import { headerType } from './Navigation';
 import { Bars, Times } from '@/assets/svg';
-import logo from "../../../assets/afrisplash-logo-main.png"
+import logo from "@/assets/afrisplash-logo-main.png"
 import { Menu, Transition } from '@headlessui/react';
 import { generateUniqueId } from '@/utils/helper';
 
-
-const MobileNav = ({ present }: any) => {
-    const [show, setShow] = useState(false);
-    const { t: translate } = useTranslation("home");
-    const router = useRouter();
 
     const languages: { language: string; tag: string }[] = [
         { language: "English", tag: "en" },
@@ -30,6 +23,11 @@ const MobileNav = ({ present }: any) => {
         { language: "Hausa", tag: "ha" },
         { language: "Yoruba", tag: "yo" },
     ];
+
+const MobileNav = () => {
+    const [show, setShow] = useState<boolean>(false);
+    const { t: translate } = useTranslation("home");
+    const router = useRouter();
 
     const handleClick = (locale: string) => {
         router.push(router.pathname, undefined, {
@@ -111,7 +109,7 @@ const MobileNav = ({ present }: any) => {
         } else {
             // Handle regular navigation behavior here if needed
             router.push(item.link);
-            
+
         }
     };
 
@@ -124,7 +122,7 @@ const MobileNav = ({ present }: any) => {
                     </Link>
                     <div className="flex gap-6 items-center relative">
 
-                      
+
                         <Menu as="div" className="relative inline-block text-left">
                             <Menu.Button
                                 title="Select language"
