@@ -7,7 +7,7 @@ import { CreateJobSchema, StepOne, StepTwo, StepThree } from '@/schema/job.schem
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Select from "react-select";
-import { jobIndustry, expLevel, jobsType, Location, gender, salary, payment } from './jobsData';
+import { jobIndustry, expLevel, jobsType, Location, gender, payment, currency } from './jobsData';
 import { selectStyle } from '@/utils/helper';
 import { useMutation } from '@tanstack/react-query';
 import { createJob } from '@/api-endpoints/jobs/jobs.api';
@@ -300,30 +300,51 @@ export default function CreateJobs(): JSX.Element {
                 }
               </div>
               <div className='mt-2 mb-2'>
-                <label htmlFor="salary">Salary</label>
+                <label htmlFor="cuurency">Currency</label>
                 <Controller
-                  name='salary'
+                  name='salary.currency'
                   control={form3.control}
                   render={({ field }) => (
                     <Select
                       {...field}
-                      id="salary" options={salary}
+                      id="currency"
+                      options={currency}
                       styles={selectStyle}
                       onChange={(e: any) => field.onChange(e?.value)}
-                      value={salary.find((e) => e.value === field.value)}
+                      value={currency.find((e) => e.value === field.value)}
                       ref={field.ref}
-                      placeholder='Select salary' />
+                      placeholder='Select Payment Currency' />
                   )}
-                />
-                {form3.formState.errors.salary &&
-                  <p className='text-red-800'>{form3.formState.errors?.salary?.message}</p>
 
+                />
+                {form3.formState.errors.salary?.currency &&
+                  <p className='text-red-800'>{form3.formState.errors?.salary?.currency?.message}</p>
                 }
+              </div>
+              <div className=' flex justify-between items-center gap-8'>
+                <div className='w-full mt-2 mb-2'>
+                  <label htmlFor="salaryMin">Min Salary</label>
+                  <input type='text' id='salaryMin'
+                    className='input-el mt-2' placeholder='Minimum Salary for this job'
+                    {...form3.register('salary.min')}
+                  />
+                  {form3.formState.errors.salary?.min &&
+                    <p className='text-red-800'>{form3.formState.errors?.salary?.min?.message}</p>}
+                </div>
+                <div className='w-full mt-2 mb-2'>
+                  <label htmlFor="salaryMax">Max Salary</label>
+                  <input type='text' id='salaryMax'
+                    className='input-el mt-2' placeholder='Maximum Salary for this job'
+                    {...form3.register('salary.max')}
+                  />
+                  {form3.formState.errors.salary?.max &&
+                    <p className='text-red-800'>{form3.formState.errors?.salary?.max?.message}</p>}
+                </div>
               </div>
               <div className='mt-2 mb-2'>
                 <label htmlFor="payment">Payment Period</label>
                 <Controller
-                  name='paymentPeriod'
+                  name='salary.period'
                   control={form3.control}
                   render={({ field }) => (
                     <Select
@@ -336,8 +357,8 @@ export default function CreateJobs(): JSX.Element {
                       placeholder='Select payment period' />
                   )}
                 />
-                {form3.formState.errors.paymentPeriod &&
-                  <p className='text-red-800'>{form3.formState.errors?.paymentPeriod?.message}</p>
+                {form3.formState.errors.salary?.period &&
+                  <p className='text-red-800'>{form3.formState.errors?.salary?.period?.message}</p>
                 }
               </div>
 

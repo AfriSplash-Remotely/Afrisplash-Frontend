@@ -35,12 +35,10 @@ export const gender = [
     { value: "any", label: "Any" }
   ]
 
-export const salary = [
-  { value: "10000-12000", label: "100000-120000" },
-  { value: "10000-12000", label: "100000-120000" },
-  { value: "10000-12000", label: "100000-120000" },
-  { value: "10000-12000", label: "100000-120000" },
-
+export const currency = [
+  {value:'USD', label:"USD"},
+  {value:"NGN", label:"NGN"},
+  {value:'EUR', label:'EUR'}
 ]
 
 export const payment = [
