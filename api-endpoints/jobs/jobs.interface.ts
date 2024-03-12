@@ -40,7 +40,6 @@ interface Job {
   status: "Active" | "Inactive";
   location: string;
   salary: Salary;
-  // salary: string;
   redirect: boolean;
   redirect_url: string;
   verify: boolean;
