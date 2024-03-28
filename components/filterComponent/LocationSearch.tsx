@@ -3,6 +3,7 @@ import { MapPinIcon } from "@heroicons/react/24/solid";
 import PropTypes, { InferProps } from "prop-types";
 import Image from "next/image";
 import filtersearch from "assets/co-workingSpace/filter-search.svg";
+import { Location } from "../Dashboard/recruiter/createJob/jobsData";
 
 const LocationSearchProps = {
   placeholder: PropTypes.string.isRequired,
@@ -33,9 +34,10 @@ export default function LocationSearch({
         <div >
           {showSelect ? (
             <select className="bg-[#D9DEDC] rounded-full outline-none py-1.5  px-2 mx-2">
-              <option>Hybrid</option>
-              <option>Remote</option>
-              <option>On site</option>
+              {Location.map((locate) => (
+                <option key={locate.label}>{locate.value}</option>
+
+              ))}
             </select>
           ) : null}
 
