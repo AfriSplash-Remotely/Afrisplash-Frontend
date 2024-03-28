@@ -33,6 +33,15 @@ export const applyForJob = async (jobId: string, jwt: string): Promise<IJobApply
   const { data } = await api.post(`/jobs/a/${jobId}`)
   return data
 }
+export const saveJob = async (jobId: string, jwt: string): Promise<IJobApplyResponse> => {
+  api.defaults.headers.common['Content-Type'] = 'application/json';
+  api.defaults.headers.common.accept = 'application/json';
+  api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
+
+  const { data } = await api.patch(`/candidate/job/save/${jobId}`)
+  return data
+}
+
 export const searchJobByType = async (type: string): Promise<IJobApiResponse> => {
   const { data } = await api.get(`/jobs/search/t/${type}`)
   return data.data
@@ -49,3 +58,4 @@ export const searchJobByDate = async (date: string): Promise<IJobApiResponse> =>
   const { data } = await api.get(`/jobs/search/d/${date}`)
   return data.data
 };
+
