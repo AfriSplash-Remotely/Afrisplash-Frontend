@@ -59,3 +59,19 @@ export const searchJobByDate = async (date: string): Promise<IJobApiResponse> =>
   return data.data
 };
 
+
+export const getAllSavedJobs = async (jwt: string): Promise<IJobApiResponse> => {
+  api.defaults.headers.common['Content-Type'] = 'application/json';
+  api.defaults.headers.common.accept = 'application/json';
+  api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
+  const { data } = await api.get(`/candidate/jobs/save-apply?jobType=saved`)
+  return data.data
+};
+export const getAllAppliedJobs = async (jwt: string): Promise<IJobApiResponse> => {
+  api.defaults.headers.common['Content-Type'] = 'application/json';
+  api.defaults.headers.common.accept = 'application/json';
+  api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
+  const { data } = await api.get(`/candidate/jobs/save-apply?jobType=applied`)
+  return data.data
+};
+

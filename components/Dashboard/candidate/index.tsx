@@ -43,6 +43,7 @@ const Candidate = (): JSX.Element => {
                                                 postDate={job?.createdAt}
                                                 status={job?.status}
                                                 promoted={job?.promoted}
+                                                location={job?.location}
                                                 isDirectApply={job?.isDirectApply}
                                             />
                                         </div>

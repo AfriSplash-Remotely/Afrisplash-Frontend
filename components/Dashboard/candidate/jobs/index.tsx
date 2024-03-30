@@ -4,7 +4,7 @@ import JobCard from "components/jobCard";
 import AdminLayout from "layouts/adminLayout";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllJobs, searchJobByCompany, searchJobByLocation, searchJobByDate, searchJobByType } from "@/api-endpoints/jobs/jobs.api"
-
+import { Location } from "../../recruiter/createJob/jobsData";
 const options = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
@@ -70,7 +70,7 @@ export default function Jobs(): JSX.Element {
     <AdminLayout>
       <div className="flex flex-wrap gap-1	lg:gap-4">
         <div className="w-[47.5%]	lg:w-2/12	">
-          <Select options={location} placeholder="location" onChange={(e: any) => { setCurrent(1); setLocations(e.value) }} />
+          <Select options={Location} placeholder="location" onChange={(e: any) => { setCurrent(1); setLocations(e.value) }} />
         </div>
         <div className="w-[47.5%]	lg:w-2/12">
           <Select options={options} placeholder="Salary" onChange={(e: any) => { setCurrent(2); setSalary(e.value) }} />
@@ -92,7 +92,8 @@ export default function Jobs(): JSX.Element {
       ) : (<>
           <div className="my-8 font-medium">Jobs Found (<span>{data?.total || 0}</span>)</div>
           {/* @ts-ignore */}
-        {finalData?.map((job): JSX.Element => {
+          {finalData?.map((job): JSX.Element => {
+         
           return (
             <div key={job?._id}>
               <JobCard
@@ -109,6 +110,7 @@ export default function Jobs(): JSX.Element {
                 status={job?.status}
                 promoted={job?.promoted}
                 isDirectApply={job?.isDirectApply}
+                location={job?.location}
               />
             </div>
           );

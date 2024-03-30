@@ -10,20 +10,23 @@ import toast from "react-hot-toast";
 import { AxiosError } from "axios";
 import { useSession } from "next-auth/react";
 import LoadingIcon from "../atoms/LoaingIcon";
-
+import { saveJob } from "@/api-endpoints/jobs/jobs.api";
+import { Salary } from "@/api-endpoints/jobs/jobs.interface";
 
 interface ApplyModalProps {
   company?: string;
   title?: string;
   location?: string;
   level?: string;
-  type?: string;
-  salary?: string;
+  type?: string | any;
+  salary?: Salary;
   description?:string;
   requirement?:string;
   benefit?:string;
   open: boolean;
+  salaryType: string;
   onClose: () => void;
+  isApplied?:boolean
 }
 
 const JobApplicationModal: React.FC<ApplyModalProps> = ({
@@ -37,31 +40,53 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   requirement,
   benefit,
   open,
+  salaryType,
+  isApplied,
   onClose,
 }) => {
+  
   const { data: session } = useSession()
 
-  const { mutate, isLoading } = useMutation({
+  const { mutate: applyMutation, isLoading: applyLoading } = useMutation({
     mutationFn: (jobId: string) => applyForJob(jobId, session?.user?.accessToken as string),
     onSuccess: (data) => {
-      toast.success(data?.error)
+      toast.success("Job applied successfully ")
       onClose()
-
     },
-    onError: (error: AxiosError<{ message: string }>) => {
-        toast.error(error?.message)
-      }
-
+    onError: (error: AxiosError<{ error: any }>) => {
+      toast.error(error?.response?.data?.error);
+    }
   })
+
+  const { mutate: saveMutation, isLoading: saveLoading } = useMutation({
+    mutationFn: (jobId: string) => saveJob(jobId, session?.user?.accessToken as string),
+    onSuccess: (data) => {
+      toast.success("Job saved successfully")
+      onClose()
+      // Additional logic after saving the job
+    },
+    onError: (error: AxiosError<{ error: any }>) => {
+      toast.error(error?.response?.data?.error);
+      
+    }
+  })
+
   const onApplyForJob = (e: any) => {
     e.preventDefault()
-    console.log('lover');
-
+    console.log('Apply for job');
 
     const jobId = sessionStorage.getItem("jobId")
-    mutate(jobId as string)
-
+    applyMutation(jobId as string)
   }
+
+  const onSaveJob = (e: any) => {
+    e.preventDefault()
+    console.log('Save job');
+
+    const jobId = sessionStorage.getItem("jobId")
+    saveMutation(jobId as string)
+  }
+
 
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
@@ -108,7 +133,16 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
               <span className="text-grey_3 text-lg">Salary</span>
             </div>
             <p className="text-primary_green  font-bold text-lg ml-8 mt-1">
-              {salary}
+              {
+                salaryType && (<span>
+                  
+                  {
+                    salaryType === "range" ? `${salary?.min} - ${salary?.max}` : ` ${salary?.amount}`
+                  }
+                  </span>
+                )
+             }
+            
             </p>
           </div>
         </div>
@@ -140,19 +174,27 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
 
         <div className="mt-4 flex gap-3 items-center">
           <Button
-            text={"Share"}
+            text={"Save"}
+            onClick={onSaveJob}
             classes={
               "border border-solid text-sm border-[#0D5520] px-12 py-2 rounded-lg w-1/2  md:w-auto"
             }
-          />
-          <Button
-            onClick={onApplyForJob}
-            classes={
-              "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
-            }
           >
-            <span className="flex gap-4 mx-auto item-center justify-center">{isLoading && <LoadingIcon />} Apply</span>
+            <span className="flex gap-4 mx-auto item-center justify-center">{saveLoading && <LoadingIcon />} Save</span>
           </Button>
+          {
+            !isApplied && (
+              <Button
+                onClick={onApplyForJob}
+                classes={
+                  "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
+                }
+              >
+                <span className="flex gap-4 mx-auto item-center justify-center">{applyLoading && <LoadingIcon />} Apply</span>
+              </Button>
+            )
+          }
+       
         </div>
       </div>
     </Modal>
