@@ -47,7 +47,7 @@ export const navLinks: IsideBarLinks[] = [
     title: "Forum",
     icon: messages_2,
     route: "/dashboard/forum",
-    role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
+    role: []
 
   },
   {

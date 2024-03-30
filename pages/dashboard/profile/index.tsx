@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 function Profile(): JSX.Element {
     const { data: session, status } = useSession()
     console.log({ session, status })
-    if (session && session.user && session.user.userType === ACCOUNT_TYPE.recruiter) {
+    if (session && session.user && session.user.userType === ACCOUNT_TYPE.candidate) {
         return <CandidateProfile />;
     }
 

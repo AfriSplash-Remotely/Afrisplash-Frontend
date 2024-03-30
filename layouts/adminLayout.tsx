@@ -71,7 +71,7 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
             handleShowSidebar={handleShowSidebar}
           />
           <main>
-            <div className="py-8">{children}</div>
+            <div className="py-8 relative">{children}</div>
           </main>
         </div>
       </div>
