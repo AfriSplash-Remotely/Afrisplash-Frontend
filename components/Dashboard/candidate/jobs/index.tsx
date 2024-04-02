@@ -11,11 +11,7 @@ const options = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-const location = [
-  { value: "London", label: "London" },
-  { value: "New York", label: "New York" },
-  { value: "enugu", label: "Enugu" },
-];
+
 
 const jobType = [
   { value: "Onsite", label: "Onsite" },

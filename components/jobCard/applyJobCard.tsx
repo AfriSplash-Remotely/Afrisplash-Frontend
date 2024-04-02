@@ -73,14 +73,12 @@ const ApplyJobCard = ({
     }
 
 
-    const handleNothing = () => {
-   
-}
+  
 
 
     return (
         <>
-            <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={ isApplied ? handleNothing : handleModalOpen}>
+            <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={ isApplied ? () => {} : handleModalOpen}>
                 <div className="flex justify-between ">
                     <div className="flex items-center gap-3">
                         <div className="p-4 bg-gray-50  border border-solid border-gray-300 rounded-xl">
@@ -199,7 +197,7 @@ const ApplyJobCard = ({
                 description={data?.description}
                 requirement={data?.requirement}
                 benefit={data?.benefit}
-                salaryType={data?.salaryType}
+                salaryType={data?.salaryType ? data?.salaryType : ""}
             />
         </>
     );

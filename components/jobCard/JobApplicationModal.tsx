@@ -20,13 +20,13 @@ interface ApplyModalProps {
   level?: string;
   type?: string | any;
   salary?: Salary;
-  description?:string;
-  requirement?:string;
-  benefit?:string;
+  description?: string;
+  requirement?: string;
+  benefit?: string;
   open: boolean;
   salaryType: string;
   onClose: () => void;
-  isApplied?:boolean
+  isApplied?: boolean
 }
 
 const JobApplicationModal: React.FC<ApplyModalProps> = ({
@@ -44,7 +44,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   isApplied,
   onClose,
 }) => {
-  
+
   const { data: session } = useSession()
 
   const { mutate: applyMutation, isLoading: applyLoading } = useMutation({
@@ -67,7 +67,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     },
     onError: (error: AxiosError<{ error: any }>) => {
       toast.error(error?.response?.data?.error);
-      
+
     }
   })
 
@@ -135,14 +135,12 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
             <p className="text-primary_green  font-bold text-lg ml-8 mt-1">
               {
                 salaryType && (<span>
-                  
                   {
                     salaryType === "range" ? `${salary?.min} - ${salary?.max}` : ` ${salary?.amount}`
                   }
-                  </span>
+                </span>
                 )
-             }
-            
+              }
             </p>
           </div>
         </div>
@@ -194,7 +192,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
               </Button>
             )
           }
-       
+
         </div>
       </div>
     </Modal>

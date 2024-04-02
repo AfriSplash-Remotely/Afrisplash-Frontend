@@ -119,7 +119,7 @@ export interface IJobDetailResponse {
   publish: boolean;
   expiry: string;
   external_data: ExternalData;
-  salaryType: string | undefined | any;
+  salaryType: string;
   applicants: [];
   createdAt: string;
   updatedAt: string;
