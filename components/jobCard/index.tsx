@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  fetchJobDetails } from "@/api-endpoints/jobs/jobs.api";
+import { fetchJobDetails } from "@/api-endpoints/jobs/jobs.api";
 import { useQuery } from "@tanstack/react-query";
 
 import {
@@ -35,6 +35,9 @@ const jobDataProps = {
   promoted: PropTypes.bool,
   isDirectApply: PropTypes.bool,
   forDashboard: PropTypes.bool,
+  location: PropTypes.string,
+  salaryType: PropTypes.string
+
 };
 
 const JobCard = ({
@@ -48,6 +51,7 @@ const JobCard = ({
   postDate,
   alt,
   isDirectApply,
+  location,
   status,
   promoted,
   forDashboard = false,
@@ -55,7 +59,7 @@ const JobCard = ({
   const { data: session } = useSession()
   const [open, setOpen] = useState<boolean>(false)
 
-  const { data, refetch } = useQuery(["jobDet"], async () => {  
+  const { data, refetch } = useQuery(["jobDet"], async () => {
     const data = await fetchJobDetails(_id as string)
     return data
   }, { enabled: false })
@@ -67,10 +71,12 @@ const JobCard = ({
   }
 
 
- 
+
+
+
   return (
     <>
-      <div className="bg-white rounded-xl border border-gray-200 p-3  mt-5">
+      <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={handleModalOpen}>
         <div className="flex justify-between ">
           <div className="flex items-center gap-3">
             <div className="p-4 bg-gray-50  border border-solid border-gray-300 rounded-xl">
@@ -144,7 +150,7 @@ const JobCard = ({
             </p>
             <p className="font-[400] text-base">
               {/* {formatCurrency(salary?.amount ?? 0, salary?.currency ?? "$")} */}
-              $ {salary}
+              {location}
 
             </p>
           </div>
@@ -152,7 +158,7 @@ const JobCard = ({
             <p className="font-[400] text-xs hidden md:block">
               {formatTimeAgo(postDate)}
             </p>
-            {session && session.user && session.user.userType === ACCOUNT_TYPE.candidate ?
+            {/* {session && session.user && session.user.userType === ACCOUNT_TYPE.candidate ?
               <>
                 <div className="flex gap-3 w-full  items-center md:w-auto">
                   <Button
@@ -162,15 +168,15 @@ const JobCard = ({
                     }
                   />
                   <Button
-                    onClick={handleModalOpen}
+                 
                     text={"Apply"}
                     classes={
                       "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
                     }
                   />
                 </div>
-              </> : null}
-              
+              </> : null} */}
+
           </div>
           <div className="font-normal text-xs block md:hidden ">
             {formatTimeAgo(postDate)}
@@ -185,11 +191,12 @@ const JobCard = ({
         location={data?.location}
         level={data?.experience}
         type={data?.type}
-        salary={data?.salary} 
+        salary={data?.salary}
         description={data?.description}
         requirement={data?.requirement}
         benefit={data?.benefit}
-        />
+        salaryType={data?.salaryType}
+      />
     </>
   );
 };

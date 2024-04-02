@@ -13,11 +13,12 @@ interface Author {
   bio: string | null;
 }
 
-interface Salary {
+export interface Salary {
   min: number | string;
   max: number | string;
   currency: string;
   period: string;
+  amount?:string
 }
 
 interface ExternalData {
@@ -52,6 +53,7 @@ interface Job {
   isDirectApply:boolean;
   createdAt: string;
   updatedAt: string;
+  salaryType: string;
   __v: number;
 }
 
@@ -108,7 +110,7 @@ export interface IJobDetailResponse {
   type: string;
   status: string;
   location: string;
-  salary: string;
+  salary: Salary;
   redirect: boolean;
   redirect_url: string;
   verify: boolean;
@@ -117,6 +119,7 @@ export interface IJobDetailResponse {
   publish: boolean;
   expiry: string;
   external_data: ExternalData;
+  salaryType: string;
   applicants: [];
   createdAt: string;
   updatedAt: string;
