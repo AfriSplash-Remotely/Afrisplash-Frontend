@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import AdminLayout from '@/layouts/adminLayout';
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Select from "react-select";
+import AdminLayout from '@/layouts/adminLayout';
 import checked from "assets/candidateOnboarding/checked.svg";
 import unchecked from "assets/candidateOnboarding/unchecked.svg"
 import { CreateJobSchema, StepOne, StepTwo, StepThree } from '@/schema/job.schema';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Select from "react-select";
 import { jobIndustry, expLevel, jobsType, Location, gender, payment, currency } from './jobsData';
 import { selectStyle } from '@/utils/helper';
 import { useMutation } from '@tanstack/react-query';
@@ -14,7 +15,6 @@ import { createJob } from '@/api-endpoints/jobs/jobs.api';
 import Confirmation from './confirmation';
 import LoadingIcon from "@/components/atoms/LoaingIcon";
 import toast from "react-hot-toast";
-import { useSession } from "next-auth/react";
 
 export default function CreateJobs(): JSX.Element {
 
@@ -154,7 +154,6 @@ export default function CreateJobs(): JSX.Element {
                 <label htmlFor='description'>Job Description</label>
                 <textarea
                   {...form1.register('description')}
-                  maxLength={150}
                   placeholder='Type your job description here|'
                   className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
                 />
@@ -177,7 +176,7 @@ export default function CreateJobs(): JSX.Element {
             <form className='text-gray-500 font-medium mb-4'>
               <div className='mt-2 mb-2'>
                 <label htmlFor='requirement'>Requirement</label>
-                <textarea maxLength={150}
+                <textarea
                   {...form2.register("requirement")}
                   placeholder='Type your job requirements here|'
                   className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
@@ -234,7 +233,6 @@ export default function CreateJobs(): JSX.Element {
                 <label htmlFor='benefit'>Benefits</label>
                 <textarea
                   {...form2.register("benefits")}
-                  maxLength={150}
                   placeholder='Type the job benefits here|'
                   className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
                 />

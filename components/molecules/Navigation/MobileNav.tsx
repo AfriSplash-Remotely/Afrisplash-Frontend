@@ -24,7 +24,7 @@ import { generateUniqueId } from '@/utils/helper';
         { language: "Yoruba", tag: "yo" },
     ];
 
-const MobileNav = () => {
+const MobileNav = (): JSX.Element => {
     const [show, setShow] = useState<boolean>(false);
     const { t: translate } = useTranslation("home");
     const router = useRouter();
@@ -87,10 +87,6 @@ const MobileNav = () => {
             redirect: false
         },
     ];
-
-    const changePath = (path: string) => {
-        router.push(path);
-    };
 
     const handleMenuClick = (item: headerType, index: number) => {
         header.map((item) => (item.active = false));

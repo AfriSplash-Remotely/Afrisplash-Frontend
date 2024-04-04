@@ -72,13 +72,13 @@ const ApplyJobCard = ({
         refetch()
     }
 
-
-  
-
+    const ifIsApplied = () => {
+        // do something 
+    }
 
     return (
         <>
-            <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={ isApplied ? () => {} : handleModalOpen}>
+            <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={ isApplied ? ifIsApplied : handleModalOpen}>
                 <div className="flex justify-between ">
                     <div className="flex items-center gap-3">
                         <div className="p-4 bg-gray-50  border border-solid border-gray-300 rounded-xl">
@@ -151,7 +151,6 @@ const ApplyJobCard = ({
                             {capitalizeFirstLetter(offer)}
                         </p>
                         <p className="font-[400] text-base">
-                            {/* {formatCurrency(salary?.amount ?? 0, salary?.currency ?? "$")} */}
                             {location}
 
                         </p>
@@ -160,24 +159,6 @@ const ApplyJobCard = ({
                         <p className="font-[400] text-xs hidden md:block">
                             {formatTimeAgo(postDate)}
                         </p>
-                        {/* {session && session.user && session.user.userType === ACCOUNT_TYPE.candidate ?
-              <>
-                <div className="flex gap-3 w-full  items-center md:w-auto">
-                  <Button
-                    text={"Save"}
-                    classes={
-                      "border border-solid text-sm border-[#0D5520] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
-                    }
-                  />
-                  <Button
-                 
-                    text={"Apply"}
-                    classes={
-                      "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
-                    }
-                  />
-                </div>
-              </> : null} */}
 
                     </div>
                     <div className="font-normal text-xs block md:hidden ">

@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from "react";
-import AdminLayout from "@/layouts/adminLayout";
-import { getAllAppliedJobs, getAllSavedJobs } from "@/api-endpoints/jobs/jobs.api";
-import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
+import { useQuery } from "@tanstack/react-query";
+import { getAllAppliedJobs, getAllSavedJobs } from "@/api-endpoints/jobs/jobs.api";
+import AdminLayout from "@/layouts/adminLayout";
 import ApplyJobCard from "@/components/jobCard/applyJobCard";
+
 const styles = {
     active: "h-[48px] min-w-[162px] text-white bg-[#0D5520] rounded-[8px] flex items-center justify-center cursor-pointer",
     inactive:"h-[48px] min-w-[162px]  border-[#0D5520] border rounded-[8px] flex items-center justify-center text-[#0d5520] cursor-pointer"
@@ -29,8 +31,8 @@ export default function Applied(): JSX.Element {
         }
     };
     const { data, isLoading, isError } = useQuery(['jobs', current], fetchData);
-    let finalData = current === 0 ? data : data
-    console.log(finalData);
+    const finalData = current === 0 ? data : data
+    
     return (
         <AdminLayout>
             <div className="w-full flex flex-col">

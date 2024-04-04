@@ -11,7 +11,6 @@ import sms from "assets/sms.png";
 import { NextPage } from "next";
 import { forgotPassword } from '@/api-endpoints/auth/auth.api';
 
-
 type FormInputs = {
   email: string;
 };

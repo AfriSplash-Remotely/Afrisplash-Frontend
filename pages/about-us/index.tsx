@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import GeneralLayout from "layouts/generalLayout";
-import Ellipsis from "assets/about_us/ellipsis_large.svg";
 import Ellipsis1 from "assets/about_us/Ellipse_bg_large.png"
 import SmilingLady from "assets/about_us/lady_smiling_looking_and_at_laptop.png";
 import Underline from "assets/about_us/underline.svg"
