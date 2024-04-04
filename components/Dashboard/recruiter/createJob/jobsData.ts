@@ -24,6 +24,13 @@ export const jobIndustry = [
   { value: "Embedded Systems", label: "Embedded Systems" },
   { value: "Robotics", label: "Robotics" },
   { value: "Software Testing and Quality Assurance", label: "Software Testing and Quality Assurance" },
+  { value: "Property Technology", label: "Property Technology" },
+  { value: "AgriTech", label: "AgriTech" },
+  { value: "Insurance Technology", label: "Insurance Technology" },
+  { value: "LegalTech", label: "LegalTech" },
+  { value: "Marketing Technology", label: "Marketing Technology" },
+
+
 ]
 
 export const expLevel = [
