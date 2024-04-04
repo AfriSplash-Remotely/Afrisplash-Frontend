@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState } from "react";
 import Select, { SingleValue } from "react-select";
 import JobCard from "components/jobCard";
@@ -59,7 +60,7 @@ export default function Jobs(): JSX.Element {
   const { data, isLoading, isError } = useQuery(['jobs', current, locations, salary, jobTypes, jobCat, exp], fetchData);
  
 
-  let finalData  = current === 0 ? data?.data : data
+  const finalData = current === 0 ? data?.data : data
  
 
   return (

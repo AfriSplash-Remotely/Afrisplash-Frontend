@@ -1,16 +1,16 @@
+import React from "react";
 import { useState } from "react";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import styles from "styles/Onboarding.module.scss";
 import checked from "assets/candidateOnboarding/checked.svg";
 import logo from "assets/candidateOnboarding/logo.svg";
 import Bio from "@/components/onboarding/recruiter/Bio";
 import { postCompanyOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
-import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
-import { useRouter, useSearchParams } from "next/navigation";
-import React from "react";
 import GetStarted from "./GetStarted";
 
 const RecruiterOnboarding = (): JSX.Element => {

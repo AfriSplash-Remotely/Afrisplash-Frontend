@@ -14,7 +14,7 @@ function Bio({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Element {
   return (
     <div className="px-8 md:px-16">
       <div className="text-center">
-        <h1 className=" font-bold text-2xl mb-1">Let's Set up your work space</h1>
+        <h1 className=" font-bold text-2xl mb-1">Let&apos;s Set up your work space</h1>
         <p className="font-medium text-lg text-gray-700 mb-6">Tell us more about your workspace</p>
 
       </div>

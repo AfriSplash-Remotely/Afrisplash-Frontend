@@ -24,7 +24,7 @@ interface ApplyModalProps {
   requirement?: string;
   benefit?: string;
   open: boolean;
-  salaryType: string;
+  salaryType: string | any;
   onClose: () => void;
   isApplied?: boolean
 }

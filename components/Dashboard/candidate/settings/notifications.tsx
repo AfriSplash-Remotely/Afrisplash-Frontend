@@ -20,7 +20,7 @@ const Notifications = (): JSX.Element => {
         >
           <p className={`pt-[17px] pb-[13px]`}>Show notifications</p>
           <div className={`pt-[17px] pb-[13px]`}>
-            <ToggleButton onChange={console.log} />
+            <ToggleButton onChange={console.log} isChecked={false} />
           </div>
         </div>
 
@@ -29,7 +29,7 @@ const Notifications = (): JSX.Element => {
         >
           <p className={`pt-[17px] pb-[13px]`}>Mentions</p>
           <div className={`pt-[17px] pb-[13px]`}>
-            <ToggleButton onChange={console.log} />
+            <ToggleButton onChange={console.log} isChecked={false} />
           </div>
         </div>
 
@@ -38,7 +38,7 @@ const Notifications = (): JSX.Element => {
         >
           <p className={`pt-[17px] pb-[13px]`}>News</p>
           <div className={`pt-[17px] pb-[13px]`}>
-            <ToggleButton onChange={console.log} />
+            <ToggleButton onChange={console.log} isChecked={false} />
           </div>
         </div>
 
@@ -47,7 +47,7 @@ const Notifications = (): JSX.Element => {
         >
           <p className={`pt-[17px] pb-[13px]`}>Messages</p>
           <div className={`pt-[17px] pb-[13px]`}>
-            <ToggleButton onChange={console.log} />
+            <ToggleButton onChange={console.log} isChecked={false} />
           </div>
         </div>
 
@@ -56,7 +56,7 @@ const Notifications = (): JSX.Element => {
         >
           <p className={`pt-[17px] pb-[13px]`}>Events</p>
           <div className={`pt-[17px] pb-[13px]`}>
-            <ToggleButton onChange={console.log} />
+            <ToggleButton onChange={console.log} isChecked={false} />
           </div>
         </div>
 
