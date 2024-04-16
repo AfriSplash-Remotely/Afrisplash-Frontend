@@ -1,5 +1,5 @@
 import api from "@/utils/axios";
-import { IJobApiResponse, ICreateJobApiResponse, IJobDetailResponse, IJobApplyResponse } from "./jobs.interface";
+import { IJobApiResponse, ICreateJobApiResponse, IJobDetailResponse, IJobApplyResponse, IRecruiterStatRespone } from "./jobs.interface";
 
 
 export const fetchAllJobs = async (): Promise<IJobApiResponse> => {
@@ -75,3 +75,12 @@ export const getAllAppliedJobs = async (jwt: string): Promise<IJobApiResponse> =
   return data.data
 };
 
+
+export const getRecruiterStats = async (jwt: string): Promise<IRecruiterStatRespone> => {
+  api.defaults.headers.common['Content-Type'] = 'application/json';
+  api.defaults.headers.common.accept = 'application/json';
+  api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
+
+  const { data } = await api.get('/recruiter/dashboard')
+  return data
+}

@@ -1,19 +1,13 @@
-import DashboardCards from "@/components/atoms/DashboardCards/DashboardCards";
-import AdminLayout from "@/layouts/adminLayout";
-import { MdOutlineWorkOutline, MdOutlineBusinessCenter, MdMarkChatRead, MdGppBad } from "react-icons/md";
-import { Tab } from "@headlessui/react";
-import JobCard from "@/components/jobCard";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import { Tab } from "@headlessui/react";
 import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api";
+import DashboardCards from "@/components/atoms/DashboardCards/DashboardCards";
+import AdminLayout from "@/layouts/adminLayout";
+import JobCard from "@/components/jobCard";
 
 const Recruiter = ():JSX.Element => {
-    const cardData = [
-        { title: 'Jobs', total: 30, icon: <MdOutlineBusinessCenter size='3rem' />, bgColor: '#D6ECDC' },
-        { title: 'Applicants', total: 30, icon: <MdOutlineWorkOutline size='3rem' />, bgColor: '#FDF1C9' },
-        { title: 'Interview Schedule', total: 30, icon: <MdMarkChatRead size='3rem' />, bgColor: '#F0FBF3' },
-        { title: 'Rejected', total: 30, icon: <MdGppBad size='3rem' />, bgColor: '#f87171' },
-    ]
+
     const dash = ['Created Jobs', 'Applicants']
 
     const classNames = (...classes: string[]) => {
@@ -22,6 +16,7 @@ const Recruiter = ():JSX.Element => {
     const {data} = useQuery(["jobs"], fetchAllJobs)
     const allJobs = data?.data
 
+
     return (
         <AdminLayout>
             <div>
@@ -29,16 +24,7 @@ const Recruiter = ():JSX.Element => {
                     <h1 className="text-dark_black font-medium text-lg md:font-bold md:text-2xl lg:text-xl">Dashbaord</h1>
                 </div>
                 <div className="mt-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-                        {cardData.map((card) => {
-                            return <DashboardCards
-                                key={card.title}
-                                title={card.title}
-                                icon={card.icon}
-                                total={card.total}
-                                bgColor={card.bgColor} />
-                        })}
-                    </div>
+                    <DashboardCards />
                 </div>
                 <div className="mt-6">
                     <Tab.Group>

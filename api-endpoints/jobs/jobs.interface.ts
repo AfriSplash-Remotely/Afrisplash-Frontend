@@ -134,3 +134,15 @@ export interface IJobApplyResponse {
   error:string;
 }
 
+interface RecruiterStat {
+  totalJobs: number;
+  totalApplicants: number;
+}
+export interface IRecruiterStatRespone {
+  success: boolean;
+  status: string;
+  data: RecruiterStat,
+  error: string;
+}
+
+
