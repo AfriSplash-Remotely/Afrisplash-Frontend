@@ -46,7 +46,7 @@ export const jobsType = [
 
 ]
 
-export const Location = [
+export const Location:any = [
   { label: "Afghanistan", value: "Afghanistan" },
   { label: "Albania", value: "Albania" },
   { label: "Algeria", value: "Algeria" },

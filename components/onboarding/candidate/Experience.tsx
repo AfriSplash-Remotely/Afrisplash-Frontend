@@ -1,19 +1,17 @@
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
-import React from "react";
+import { Location } from "@/components/Dashboard/recruiter/createJob/jobsData";
 
-const locationOptions: any = [
-  { value: "Lagos", label: "Lagos" },
-  { value: "Abuja", label: "Abuja" },
-  { value: "Ibadan", label: "Ibadan" },
-];
 
 const jobOptions: any = [
-  { value: "Software Engineer", label: "Software Engineer" },
-  { value: "Product Manager", label: "Product Manager" },
-  { value: "UI/UX", label: "UI/UX" },
+  { value: "Full time", label: "Full time" },
+  { value: "Part-time", label: "Part-time" },
+  { value: "Internship", label: "Internship" },
+  { value: "Contract", label: "Contract" },
+  { value: "Self-employed", label: "Self-employed" },
+  { value: "Freelance", label: "Freelance" }
 ];
 
 const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {
@@ -91,7 +89,7 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Ele
             control={control}
             rules={{ required: "Location is required" }}
             render={({ field, fieldState: { error } }) => (
-              <Select {...field} isDisabled={noJobExp} options={locationOptions} placeholder="Select location" classNamePrefix="select" />
+              <Select {...field} isDisabled={noJobExp} options={Location} placeholder="Select location" classNamePrefix="select" />
             )}
           />
           {errors.location && <p className="text-red-500">{errors.location.message}</p>}
@@ -185,8 +183,6 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Ele
             <textarea
               id="bio"
               {...register("jobDescription", { disabled: noJobExp })}
-
-              maxLength={200}
               className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
             />
             <p className="text-right text-sm text-gray-500">

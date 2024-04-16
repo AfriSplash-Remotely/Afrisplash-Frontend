@@ -10,24 +10,21 @@ const selectStyle = {
 };
 
 const degreeOptions: any = [
-  { value: "B.Sc", label: "B.Sc" },
-  { value: "HND", label: "HND" },
-  { value: "NCE", label: "NCE" },
+  { value: "Secondary school/High school", label: "Secondary school/High school" },
+  { value: "Bachelors degree", label: "Bachelors degree" },
+  { value: "Master's degree", label: "Master's degree" },
+  { value: "Doctorate (Ph.D.)", label: "Doctorate (Ph.D.)" },
+  { value: "Diploma/Certificate", label: "Diploma/Certificate" },
+  { value: "Professional Certifications", label: "Professional Certifications" },
 ];
 
-// Assuming `fieldOptions` for the "Field of Study" select, replace `degreeOptions` with appropriate options if necessary
-const fieldOptions: any = [
-  { value: "Computer Science", label: "Computer Science" },
-  { value: "Business Administration", label: "Business Administration" },
-  // Add more options as needed
-];
 
 const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       institutionName: '',
       degree: { label: '', value: '' },
-      fieldOfStudy: { label: '', value: '' },
+      fieldOfStudy: '',
       startDate: '',
       endDate: '',
       description: '',
@@ -40,7 +37,7 @@ const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Elem
       education: [{
         institution_name: formData.institutionName,
         degree: formData.degree?.value as string,
-        field_of_study: formData.fieldOfStudy?.value as string,
+        field_of_study: formData.fieldOfStudy,
         date_start: formData.startDate,
         date_end: formData.endDate,
         description: formData.description
@@ -82,12 +79,12 @@ const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Elem
 
         <div className="basis-[100%] md:basis-[45%] mt-5">
           <label htmlFor="fieldOfStudy">Field of study</label>
-          <Controller
-            name="fieldOfStudy"
-            control={control}
-            render={({ field }) => (
-              <Select {...field} options={fieldOptions} styles={selectStyle} />
-            )}
+          <input
+            {...control.register("fieldOfStudy")}
+            type="text"
+            id="fieldOfStudy"
+            className="input-el"
+            placeholder="eg. Computer Science"
           />
         </div>
 
@@ -116,12 +113,11 @@ const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Elem
           <textarea
             {...control.register("description")}
             id="description"
-            maxLength={150}
             className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
             placeholder="Tell us a little about yourself"
           />
           <p className="text-right text-sm text-gray-500">
-            {description?.length || 0}/150
+            {description?.length || 0}/200
           </p>
         </div>
       </form>
