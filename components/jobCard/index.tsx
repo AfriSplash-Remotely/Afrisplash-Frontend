@@ -77,7 +77,7 @@ const JobCard = ({
   return (
     <>
       <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={handleModalOpen}>
-        <div className="flex justify-between ">
+        <div className="flex justify-between">
           <div className="flex items-center gap-3">
             <div className="p-4 bg-gray-50  border border-solid border-gray-300 rounded-xl">
               <Image

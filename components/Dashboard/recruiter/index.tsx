@@ -1,12 +1,16 @@
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import { Tab } from "@headlessui/react";
-import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api";
+import { fetchAllJobs, getJobsCreated } from "@/api-endpoints/jobs/jobs.api";
 import DashboardCards from "@/components/atoms/DashboardCards/DashboardCards";
 import AdminLayout from "@/layouts/adminLayout";
 import JobCard from "@/components/jobCard";
+import CreatedJobCard from "@/components/jobCard/CreatedJobCard";
+
 
 const Recruiter = ():JSX.Element => {
+    const { data: session } = useSession()
 
     const dash = ['Created Jobs', 'Applicants']
 
@@ -16,6 +20,8 @@ const Recruiter = ():JSX.Element => {
     const {data} = useQuery(["jobs"], fetchAllJobs)
     const allJobs = data?.data
 
+    const { data: fetchCreatedJobs } = useQuery(['createdJobs'], () => getJobsCreated(session?.user?.accessToken as string))
+    const allCreatedJObs = fetchCreatedJobs?.data
 
     return (
         <AdminLayout>
@@ -50,7 +56,7 @@ const Recruiter = ():JSX.Element => {
                         </Tab.List>
                         <Tab.Panels className='mt-3'>
                             <Tab.Panel>
-                                {allJobs?.map((job) => {
+                                {/* {allJobs?.map((job) => {
                                     return (
                                         <JobCard key={job?._id}
                                             forDashboard={true}
@@ -70,7 +76,26 @@ const Recruiter = ():JSX.Element => {
                                 })}
                                 <div className="absolute right-12 py-2">
                                     <Link href="/dashboard/jobs" className="text-primary_green text-base underline font-semibold">View All</Link>
-                                </div>
+                                </div> */}
+                                {
+                                    allCreatedJObs?.map((cJob) => (
+                                        <CreatedJobCard
+                                            key={cJob?._id}
+                                            title={cJob?.title}
+                                            industry={cJob?.industry}
+                                            postDate={cJob?.createdAt}
+                                            experience={cJob?.experience}
+                                            status={cJob?.status}
+                                            location={cJob?.location}
+                                            promoted={cJob?.promoted}
+                                            publish={cJob?.publish}
+                                            expiry={cJob?.expiry}
+                                            type={cJob?.type}
+                                            salary={`${cJob?.salary?.currency} ${cJob?.salary?.min} - ${cJob?.salary?.max}  ${cJob?.salary?.period}`}
+                                        />
+                                    ))
+                                }
+
 
                             </Tab.Panel>
                             <Tab.Panel>
