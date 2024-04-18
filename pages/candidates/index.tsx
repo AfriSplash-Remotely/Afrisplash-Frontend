@@ -1,19 +1,27 @@
 
+import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
 import GeneralLayout from "@/layouts/generalLayout";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/solid";
 import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
 import { CandidateSideBar } from "@/components/Candidates";
-import Image from "next/image";
 import sms from 'assets/sms.png';
 import { MentorCard } from "@/components/Forum/MentorCardComponent";
-import { mentorsData } from "@/utils";
 import Button from "@/components/atoms/Button/Button";
-import { useState } from "react";
+import { getTotalCandidates } from "@/api-endpoints/get-candidates/get-candidates.api";
+import GhanaFlag from "assets/general/ghana-flag.svg";
 
 const Candidates: NextPage = () => {
     const [openFilter, setOpenFilter] = useState<boolean>(false);
+
+    const { data } = useQuery(["candidatesList"], async () => {
+        const response = await getTotalCandidates();
+        return response.data;
+    });
+
     return (
         <div>
             <Head>
@@ -70,16 +78,19 @@ const Candidates: NextPage = () => {
                             </div>
                             <div className="mt-8">
                                 <div className="grid gap-6 grid-cols-1  lg:grid-cols-3">
-                                    {mentorsData.map((mentor) => (
-                                        <MentorCard
-                                            key={mentor.id}
-                                            name={mentor.name}
-                                            position={mentor.position}
-                                            role={mentor.role}
-                                            flag={mentor.flag}
-                                            src={mentor.src}
-                                        />
-                                    ))}
+                                    {data && data.map((candidate) => {
+                                        const fullName = `${candidate.first_name} ${candidate.last_name}`;
+                                        return (
+                                            <MentorCard
+                                                key={candidate._id}
+                                                name={fullName}
+                                                position='Senior Developer'
+                                                role={candidate.role}
+                                                flag={GhanaFlag}
+                                                src={candidate.profile_image}
+                                            />
+                                        );
+                                    })}
                                 </div>
                                 <div className='mt-12  flex justify-center'>
                                     <Button
