@@ -1,18 +1,26 @@
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import { TFunction } from "i18next";
+import Link from "next/link";
 import talentStars from "assets/home-page/talent_stars_bg.svg";
 import talentUser from "assets/home-page/talent_user.svg";
 import { MentorCard } from "@/components/Forum/MentorCardComponent";
 import Button from "@/components/atoms/Button/Button";
-import Link from "next/link";
-import { mentorsData, topTalentData } from "utils/fakeData";
+import { mentorsData } from "utils/fakeData";
 import styles from "./styles.module.scss";
-import { TFunction } from "i18next";
+import { getTotalCandidates } from "@/api-endpoints/get-candidates/get-candidates.api";
+import GhanaFlag from "assets/general/ghana-flag.svg";
 
 interface Props {
   translate: TFunction<"home", undefined>;
 }
 
 function Talents({ translate }: Props): JSX.Element {
+  const { data } = useQuery(["candidatesList"], async () => {
+    const response = await getTotalCandidates();
+    return response.data;
+  });
+
   return (
     <section className="w-full ">
       <div className="py-12 lg:py-28 space-y-24 w-11/12 xl:w-10/12 mx-auto">
@@ -29,16 +37,19 @@ function Talents({ translate }: Props): JSX.Element {
           </div>
           <div className=" my-10 space-y-6">
             <div className="grid gap-6  s:grid-cols-1 lg:grid-cols-4">
-              {topTalentData.map((mentor) => (
-                <MentorCard
-                  key={mentor.id}
-                  name={mentor.name}
-                  position={mentor.position}
-                  role={mentor.role}
-                  flag={mentor.flag}
-                  src={mentor.src}
-                />
-              ))}
+              {data && data.map((candidate) => {
+                const fullName = `${candidate.first_name} ${candidate.last_name}`;
+                return (
+                  <MentorCard
+                    key={candidate._id}
+                    name={fullName}
+                    position='Senior Developer'
+                    role={candidate.role}
+                    flag={GhanaFlag}
+                    src={candidate.profile_image}
+                  />
+                );
+              })}
               <div
                 className={`w-full rounded-xl p-4 bg-cover shadow-sm  bg-no-repeat space-y-10 mt-2 ${styles.createProfileCard}`}
               >
