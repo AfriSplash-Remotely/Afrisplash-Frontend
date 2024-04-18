@@ -31,7 +31,6 @@ export default function DashboardCards(): JSX.Element {
           <div>
             <p className='text-dark_black font-medium text-lg'>Applicants</p>
             <h3 className='text-dark_black text-4xl font-semibold'>{recruiterStat?.totalApplicants}</h3>
-
           </div>
         </div>
       </div>

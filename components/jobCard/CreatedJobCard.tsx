@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes, { InferProps } from "prop-types";
+import CreatedJobDetDrawer from './createdJobDetDrawer';
 import { HiBolt } from "react-icons/hi2";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import { capitalizeFirstLetter, formatTimeAgo, formatCurrency } from "@/utils/helper";
+import { capitalizeFirstLetter, formatTimeAgo } from "@/utils/helper";
 
 const createJobCardProps = {
   _id: PropTypes.string,
@@ -10,7 +11,6 @@ const createJobCardProps = {
   industry: PropTypes.string.isRequired,
   experience: PropTypes.string.isRequired,
   status: PropTypes.string,
-  // salary: PropTypes.string,
   salary: PropTypes.shape({
     amount: PropTypes.number,
     currency: PropTypes.string,
@@ -18,14 +18,15 @@ const createJobCardProps = {
     min: PropTypes.number || PropTypes.string,
     max: PropTypes.number || PropTypes.string,
   }),
-
   location: PropTypes.string,
   promoted: PropTypes.bool,
   publish: PropTypes.bool,
   expiry: PropTypes.string,
   postDate: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-
+  description: PropTypes.string,
+  requirement: PropTypes.string,
+  benefit: PropTypes.string,
 }
 
 export default function CreatedJobCard({
@@ -40,11 +41,20 @@ export default function CreatedJobCard({
   publish,
   expiry,
   postDate,
-  type
+  type,
+  description,
+  requirement,
+  benefit,
 }: InferProps<typeof createJobCardProps>): JSX.Element {
+
+  const [isOpen, setIsOpen] = React.useState<boolean>(false)
+
+  const handleDrawerOpen = () => {
+    setIsOpen(!isOpen)
+  }
   return (
     <>
-      <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" >
+      <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={handleDrawerOpen} >
         <div className="flex justify-between">
           <div className="px-6 flex items-center gap-3">
             <div>
@@ -52,17 +62,17 @@ export default function CreatedJobCard({
                 <h1 className="font-semibold text-lg">
                   {capitalizeFirstLetter(title)}
                 </h1>
-
               </div>
-              <p className="mt-1 text-base font-semibold">{capitalizeFirstLetter(industry)}</p>
-              <p className="mt-1 text-base ">{capitalizeFirstLetter(experience)}</p>
-              <p className="mt-1 text-base ">{capitalizeFirstLetter(type)}</p>
-
+              <div className='flex items-center gap-6 mt-1'>
+                <div className="text-xs font-semibold py-1 px-4 rounded-full  text-primary_green">{capitalizeFirstLetter(industry)}</div>
+                <div className="text-xs font-semibold  py-1 px-4 rounded-full text-primary_green">{capitalizeFirstLetter(experience)}</div>
+                <div className="text-xs font-semibold py-1 px-4 rounded-full text-primary_green">{capitalizeFirstLetter(type)}</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6 my-5">
+        <div className="flex flex-wrap items-center gap-6 py-4 my-5">
           <div>
             {status === "Active" ? (
               <div className="flex items-center gap-2 bg-light_green p-2 rounded-full">
@@ -97,27 +107,36 @@ export default function CreatedJobCard({
               {location}
             </p>
             <p className="font-[400] text-base">
-              {/* {formatCurrency(salary?.min ?? 0, salary?.currency ?? "$")} */}
-              {/* {salary?.currency}  {salary?.min } - {salary?.max} {salary?.period} */}
-              {salary}
-
+              {salary as any}
             </p>
             <p className="font-[400] text-base">
-              {expiry}
+              Expires: {new Date(expiry as string).toDateString()}
             </p>
           </div>
           <div className="flex flex-wrap gap-4 items-center sm:justify-between w-full md:w-auto my-4 md:my-0">
             <p className="font-[400] text-xs hidden md:block">
               {formatTimeAgo(postDate)}
             </p>
-
           </div>
           <div className="font-normal text-xs block md:hidden ">
             {formatTimeAgo(postDate)}
-            keie
           </div>
         </div>
       </div>
+
+      <CreatedJobDetDrawer isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        title={title}
+        industry={industry}
+        experience={experience}
+        type={type}
+        description={description as string}
+        requirement={requirement as string}
+        benefit={benefit as string}
+        location={location as string}
+        salary={salary}
+        expiry={expiry as string}
+      />
     </>
   )
 }

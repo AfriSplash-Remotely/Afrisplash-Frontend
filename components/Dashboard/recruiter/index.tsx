@@ -1,13 +1,10 @@
-import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import { Tab } from "@headlessui/react";
-import { fetchAllJobs, getJobsCreated } from "@/api-endpoints/jobs/jobs.api";
+import { getJobsCreated } from "@/api-endpoints/jobs/jobs.api";
 import DashboardCards from "@/components/atoms/DashboardCards/DashboardCards";
 import AdminLayout from "@/layouts/adminLayout";
-import JobCard from "@/components/jobCard";
 import CreatedJobCard from "@/components/jobCard/CreatedJobCard";
-
 
 const Recruiter = ():JSX.Element => {
     const { data: session } = useSession()
@@ -17,8 +14,6 @@ const Recruiter = ():JSX.Element => {
     const classNames = (...classes: string[]) => {
         return classes.filter(Boolean).join(" ");
     };
-    const {data} = useQuery(["jobs"], fetchAllJobs)
-    const allJobs = data?.data
 
     const { data: fetchCreatedJobs } = useQuery(['createdJobs'], () => getJobsCreated(session?.user?.accessToken as string))
     const allCreatedJObs = fetchCreatedJobs?.data
@@ -56,27 +51,6 @@ const Recruiter = ():JSX.Element => {
                         </Tab.List>
                         <Tab.Panels className='mt-3'>
                             <Tab.Panel>
-                                {/* {allJobs?.map((job) => {
-                                    return (
-                                        <JobCard key={job?._id}
-                                            forDashboard={true}
-                                            image={job?._company?.logo}
-                                            alt={job?._company?.name}
-                                            company={job?._company?.name}
-                                            service={job?.service}
-                                            employees={job?._company?.staff}
-                                            offer={job?.title}
-                                            salary={`${job?.salary?.min} - ${job.salary?.max}`}
-                                            postDate={job?.createdAt}
-                                            status={job?.status}
-                                            promoted={job?.promoted}
-                                            isDirectApply={job?.isDirectApply}
-                                        />
-                                    )
-                                })}
-                                <div className="absolute right-12 py-2">
-                                    <Link href="/dashboard/jobs" className="text-primary_green text-base underline font-semibold">View All</Link>
-                                </div> */}
                                 {
                                     allCreatedJObs?.map((cJob) => (
                                         <CreatedJobCard
@@ -91,45 +65,26 @@ const Recruiter = ():JSX.Element => {
                                             publish={cJob?.publish}
                                             expiry={cJob?.expiry}
                                             type={cJob?.type}
+                                            description={cJob?.description}
+                                            benefit={cJob?.benefit}
+                                            requirement={cJob?.requirement}
                                             salary={`${cJob?.salary?.currency} ${cJob?.salary?.min} - ${cJob?.salary?.max}  ${cJob?.salary?.period}`}
                                         />
                                     ))
                                 }
-
-
                             </Tab.Panel>
                             <Tab.Panel>
-                                {allJobs?.map((job) => {
-                                    return (
-                                        <JobCard key={job?._id}
-                                            forDashboard={true}
-                                            image={job?._company?.logo}
-                                            alt={job?._company?.name}
-                                            company={job?._company?.name}
-                                            service={job?.service}
-                                            employees={job?._company?.staff}
-                                            offer={job?.title}
-                                            salary={`${job?.salary?.min} - ${job.salary?.max}`}
-                                            postDate={job?.createdAt}
-                                            status={job?.status}
-                                            promoted={job?.promoted}
-                                            isDirectApply={job?.isDirectApply}
-                                        />
-                                    )
-                                })}
-                                <div className="absolute right-12 py-2">
-                                    <Link href="/dashboard/applied" className="text-primary_green text-base underline font-semibold">View All</Link>
+                                <div className="flex justify-center items-center py-6">
+                                    <h1 className="text-4xl text-primary_green">Work in progress....</h1>
                                 </div>
                             </Tab.Panel>
 
                         </Tab.Panels>
                     </Tab.Group>
-
                 </div>
             </div>
         </AdminLayout>
     )
 }
-
 
 export default Recruiter
