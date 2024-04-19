@@ -264,7 +264,7 @@ export default function CreateJobs(): JSX.Element {
                       options={Location}
                       styles={selectStyle}
                       onChange={(e: any) => field.onChange(e?.value)}
-                      value={Location.find((e) => e.value === field.value)}
+                      value={Location.find((e: { value: string; }) => e.value === field.value)}
                       ref={field.ref}
                       placeholder='Select location or remote-based' />
 

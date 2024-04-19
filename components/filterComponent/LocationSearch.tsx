@@ -12,6 +12,10 @@ const LocationSearchProps = {
   showSelect: PropTypes.bool,
   showFilter: PropTypes.bool,
 };
+interface LocateI {
+  label: React.Key | null | undefined;
+  value: string | number | boolean | null;
+}
 export default function LocationSearch({
   placeholder,
   classes,
@@ -34,7 +38,7 @@ export default function LocationSearch({
         <div >
           {showSelect ? (
             <select className="bg-[#D9DEDC] rounded-full outline-none py-1.5  px-2 mx-2">
-              {Location.map((locate) => (
+              {Location.map((locate: LocateI) => (
                 <option key={locate.label}>{locate.value}</option>
 
               ))}

@@ -134,3 +134,59 @@ export interface IJobApplyResponse {
   error:string;
 }
 
+interface RecruiterStat {
+  totalJobs: number;
+  totalApplicants: number;
+}
+export interface IRecruiterStatRespone {
+  success: boolean;
+  status: string;
+  data: RecruiterStat,
+  error: string;
+}
+export interface Applicant {
+  _user: string
+  date: string
+  rejected: boolean
+  _id: string
+  accepted?: boolean
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface Pagination { }
+export interface RecruiterJobData {
+  _id: string
+  _company: string
+  _author: any
+  title: string
+  industry: string
+  description: string
+  requirement: string
+  benefit?: string
+  experience: string
+  type: string
+  status: string
+  salaryType?: string
+  salary?: Salary
+  redirect: boolean
+  redirect_url?: string
+  verify: boolean
+  private: boolean
+  promoted: boolean
+  publish: boolean
+  expiry: string
+  external_data: ExternalData
+  applicants: Applicant[]
+  createdAt: string
+  updatedAt: string
+  __v: number
+  location?: string
+}
+export interface IRecruiterJobCreatedRes{
+  success: boolean
+  status: string
+  count: number
+  pagination: Pagination
+  data: RecruiterJobData[]
+}
+
