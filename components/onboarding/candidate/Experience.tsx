@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
-import { Location } from "@/components/Dashboard/recruiter/createJob/jobsData";
+import { Location, LocationType } from "@/components/Dashboard/recruiter/createJob/jobsData";
 
 
 const jobOptions: any = [
@@ -134,7 +134,6 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Ele
               min="1970-01-01"
               className="input-el"
               {...register("endDate", { disabled: noJobExp })}
-            // disabled={dateStatus || workExp}
             />
           </label>
         </div>

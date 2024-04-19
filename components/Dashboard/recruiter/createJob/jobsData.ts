@@ -1,3 +1,7 @@
+export type LocationType = {
+  label: string;
+  value: string;
+}
 export const jobIndustry = [
   { value: "Software Development", label: "Software Development" },
   { value: "Web Development", label: "Web Development" },
@@ -37,17 +41,14 @@ export const expLevel = [
   { value: "Senior", label: "Senior" },
   { value: "Junior", label: "Junior" },
   { value: "All", label: "All" },
-
   ]
 
 export const jobsType = [
   { value: "Hybrid", label: "Hybrid" },
   { value: "Remote", label: "Remote" }
-
 ]
 
-
-export const Location: Array<{ label: string, value: string }> = [
+export const Location: LocationType[] = [
   { label: "Afghanistan", value: "Afghanistan" },
   { label: "Albania", value: "Albania" },
   { label: "Algeria", value: "Algeria" },
