@@ -1,4 +1,5 @@
-import { Dialog } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 import { MdClose } from "react-icons/md";
 
 type DrawerProps = {
@@ -31,14 +32,35 @@ export default function CreatedJobDetDrawer({
   setIsOpen,
 }: DrawerProps): JSX.Element {
   return (
+    <Transition show={isOpen} as={Fragment}>
     <Dialog
-      unmount={false}
-      open={isOpen}
+        unmount={false}
       onClose={() => setIsOpen(false)}
       className="fixed z-50 inset-0 overflow-y-auto"
     >
       <div className="flex h-screen">
-        <Dialog.Overlay className="z-40 fixed inset-1 bg-black bg-opacity-30 w-3/4" />
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-30"
+            entered="opacity-30"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-30"
+            leaveTo="opacity-0"
+          >
+            <Dialog.Overlay className="z-40 fixed inset-1 bg-black  w-3/4" />
+          </Transition.Child>
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-linear duration-300 transform"
+            enterFrom="-translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-linear duration-300 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-x-full"
+          >
+
         <div className={`z-50 flex flex-col justify-between bg-white_2 w-3/4 max-w-lg py-8 px-6 overflow-hidden text-left shadow-xl ml-auto`}>
           <div>
             <Dialog.Title className="float-right" >
@@ -82,7 +104,9 @@ export default function CreatedJobDetDrawer({
             </Dialog.Description>
           </div>
         </div>
+          </Transition.Child>
       </div>
     </Dialog>
+    </Transition>
   );
 }
