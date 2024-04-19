@@ -89,7 +89,10 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Ele
             control={control}
             rules={{ required: "Location is required" }}
             render={({ field, fieldState: { error } }) => (
-              <Select {...field} isDisabled={noJobExp} options={Location} placeholder="Select location" classNamePrefix="select" />
+              <Select {...field} isDisabled={noJobExp} options={Location.map((location: { label: string; value: string; }) => ({
+                label: location.label,
+                value: location.value
+              }))} placeholder="Select location" classNamePrefix="select" />
             )}
           />
           {errors.location && <p className="text-red-500">{errors.location.message}</p>}

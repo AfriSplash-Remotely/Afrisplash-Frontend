@@ -48,7 +48,7 @@ export const jobsType = [
   { value: "Remote", label: "Remote" }
 ]
 
-export const Location: LocationType[] = [
+export const Location: LocationType[] | any = [
   { label: "Afghanistan", value: "Afghanistan" },
   { label: "Albania", value: "Albania" },
   { label: "Algeria", value: "Algeria" },
