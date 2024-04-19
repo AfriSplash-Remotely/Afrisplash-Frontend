@@ -46,7 +46,8 @@ export const jobsType = [
 
 ]
 
-export const Location:any = [
+
+export const Location: Array<{ label: string, value: string }> = [
   { label: "Afghanistan", value: "Afghanistan" },
   { label: "Albania", value: "Albania" },
   { label: "Algeria", value: "Algeria" },
