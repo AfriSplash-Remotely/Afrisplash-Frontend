@@ -28,7 +28,7 @@ export default function LocationSearch({
       <div
         className={`w-full flex justify-around items-center  border bg-white h-12  px-2  rounded-lg ${childClasses}`}
       >
-        <MapPinIcon className="w-6 h-6 mr-4" />
+        <MapPinIcon className="w-16 h-16 mr-4" />
 
         <input
           type="text"
