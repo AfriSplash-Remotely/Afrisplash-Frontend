@@ -6,15 +6,24 @@
 - Install [Docker](https://docs.docker.com/get-docker/)
 
 # Tech Stack
-React - Nextjs :smiley:, tailwindCSS :hugs:, Redux :relieved:, Sass :wink:.
+React - Nextjs :smiley:, TailwindCSS :hugs:, Redux :relieved:, Sass :wink:.
 
-Please run the following after cloning:
+# Run Locally
 
-To install dependencies;
+ Install dependencies
 
 ```
 npm install
 ```
+Add the below config to your  `.env`  file
+
+```env
+NEXT_PUBLIC_BACKEND_URL='Afrisplash Backend Url'
+NEXTAUTH_SECRET= 'Afrisplash Next Auth Secret'
+NEXTAUTH_URL=http://localhost:3000/
+```
+
+**PS: Please reach out to any of the Project Maintainers for the `NEXTAUTH_SECRET` and `NEXT_PUBLIC_BACKEND_URL` values**
 
 To run project;
 ```
