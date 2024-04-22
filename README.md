@@ -18,12 +18,12 @@ npm install
 Add the below config to your  `.env`  file
 
 ```env
-NEXT_PUBLIC_BACKEND_URL=https://afrisplash-473196ceadbb.herokuapp.com/api/v1
+NEXT_PUBLIC_BACKEND_URL='Afrisplash Backend Url'
 NEXTAUTH_SECRET= 'Afrisplash Next Auth Secret'
 NEXTAUTH_URL=http://localhost:3000/
 ```
 
-**PS: Please reach out to any of the Project Maintainers for the `NEXTAUTH_SECRET` value**
+**PS: Please reach out to any of the Project Maintainers for the `NEXTAUTH_SECRET` and `NEXT_PUBLIC_BACKEND_URL` values**
 
 To run project;
 ```
