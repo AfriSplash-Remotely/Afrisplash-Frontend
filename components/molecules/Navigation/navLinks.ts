@@ -54,12 +54,6 @@ export const navLinks: IsideBarLinks[] = [
     route: "/dashboard/settings",
     role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
   },
-  {
-    title: "Applicants",
-    icon: setting_3,
-    route: "/dashboard/applicants",
-    role: [ACCOUNT_TYPE.recruiter,]
-  },
 ];
 
 
