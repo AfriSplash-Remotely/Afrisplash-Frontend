@@ -1,20 +1,75 @@
+
+import { useState } from "react";
 import AdminLayout from "@/layouts/adminLayout";
 import Image from "next/image";
 import { AwardSvg, AvatarTick, BriefCase, ClockSvg } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
 import { useSession } from "next-auth/react";
-import { getCandidateProfile } from "@/api-endpoints/user-profile/user-profile.api";
-import { useQuery } from "@tanstack/react-query";
+import { addEducation, addExperience, getCandidateProfile } from "@/api-endpoints/user-profile/user-profile.api";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import AddEducationModal from "./add-education-modal";
+import AddExperienceModal from "./add-experience-modal";
+import { AxiosError } from "axios";
+import toast from "react-hot-toast";
 
 const Candidate = (): JSX.Element => {
+    const [openEducation, setOpenEducation] = useState<boolean>(false);
+    const [openExperience, setOpenExperience] = useState<boolean>(false);
     const { data: session } = useSession();
+    const [educationData, setEducationData] = useState([]);
+    const [experienceData, setExperienceData] = useState([]);
     const jwtToken = session?.user?.accessToken as string;
 
-    const { data } = useQuery(["candidateProfile"], async () => {
+    const { data,refetch } = useQuery(["candidateProfile"], async () => {
         const response = await getCandidateProfile(jwtToken as string)
+    
         return response.data[0];
     });
 
+   
+
+    const { mutate: updateEducationMutation, isLoading: educationLoading } = useMutation({
+        mutationFn: (body: object[]) => addEducation(body, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("education updated successfully ");
+            setEducationData([]);
+            setOpenEducation(false);
+            refetch();
+        
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleAddEduction = () => { 
+            
+        const body = educationData;
+        updateEducationMutation(body);
+    }
+    const { mutate: updateExperienceMutation, isLoading: experienceLoading } = useMutation({
+        mutationFn: (body: object[]) => addExperience(body, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("experience updated successfully ");
+            setExperienceData([]);
+            setOpenExperience(false);
+            refetch();
+        
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleAddExperience = () => { 
+            
+        const body = experienceData;
+      
+        updateExperienceMutation(body);
+    }
+
+  
+ 
     return (
         <AdminLayout>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -152,6 +207,12 @@ const Candidate = (): JSX.Element => {
                                 )
                             })}
                         </div>
+                        <div className="w-full flex justify-center items-center mt-6 ">
+                            <button className="h-[56px] rounded-[16px] min-w-[204px] cursor-pointer border border-[#D9DEDC] text-[#1C1D36] font-semibold" onClick={() => setOpenExperience(true)}>
+                                <span className="text-[#0D5520]">+</span>
+                                Add Experience
+                            </button>
+                        </div>
                     </div>
                 )}
 
@@ -187,10 +248,18 @@ const Candidate = (): JSX.Element => {
                                 )
                             })}
                         </div>
+                        <div className="w-full flex justify-center items-center mt-6 ">
+                            <button className="h-[56px] rounded-[16px] min-w-[204px] cursor-pointer border border-[#D9DEDC] text-[#1C1D36] font-semibold" onClick={() => setOpenEducation(true)}>
+                                <span className="text-[#0D5520]">+</span>
+                                Add Education
+</button>
+                        </div>
                     </div>
                 )}
 
             </div>
+       <AddEducationModal open={openEducation} setOpen={setOpenEducation} onClick={ handleAddEduction}  setData={setEducationData} loading={educationLoading}   />
+       <AddExperienceModal open={openExperience} setOpen={setOpenExperience} onClick={ handleAddExperience}  setData={setExperienceData} loading={experienceLoading}   />
         </AdminLayout>
     )
 }

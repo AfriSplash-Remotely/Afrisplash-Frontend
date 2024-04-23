@@ -44,7 +44,7 @@ const AdminLayout: NextPage<InferProps<typeof AdminLayoutProps>> = ({
   };
 
   return (
-    <div className="w-full flex">
+    <div className="w-full flex relative">
       <AdminNavigation
         focused={focused}
         navSwitch={navSwitch}
