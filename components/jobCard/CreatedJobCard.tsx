@@ -3,7 +3,7 @@ import PropTypes, { InferProps } from "prop-types";
 import CreatedJobDetDrawer from "./createdJobDetDrawer";
 import { HiBolt } from "react-icons/hi2";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import { formatTimeAgo } from "@/utils/helper";
+import { formatDate, formatTimeAgo } from "@/utils/helper";
 
 const createJobCardProps = {
   _id: PropTypes.string,
@@ -50,6 +50,8 @@ export default function CreatedJobCard({
   const handleDrawerOpen = () => {
     setIsOpen(!isOpen);
   };
+  console.log(expiry);
+
   return (
     <>
       <div
@@ -100,14 +102,14 @@ export default function CreatedJobCard({
             )}
           </div>
 
-          <div className="flex flex-wrap sm:flex-col md:flex-row sm:gap-3 md:items-center md:justify-between py-3 px-5 rounded-2xl bg-light_green">
+          <div className="py-3 px-5 rounded-2xl bg-light_green">
             <div className="flex flex-col md:flex-row md:items-center justify-between w-full space-y-3 md:space-y-0 md:space-x-3">
-              <span className="font-normal text-sm md:text-base">{location ?? ''}</span>
-              <span className="font-normal text-sm md:text-base">{salary as unknown as string ?? ''}</span>
-              <span className="font-normal text-sm md:text-base">
-                Expires: {new Date(expiry as unknown as string).toDateString()}
+              <span className="font-normal text-xs md:text-sm">{location ?? ''}</span>
+              <span className="font-normal text-xs md:text-sm">{salary as unknown as string}</span>
+              <span className="font-normal text-xs md:text-sm">
+                Expires: {formatDate(expiry as unknown as string)}
               </span>
-              <span className="font-normal text-xs">
+              <span className="font-normal text-xs md:text-sm">
                 {formatTimeAgo(postDate)}
               </span>
             </div>
@@ -133,3 +135,4 @@ export default function CreatedJobCard({
     </>
   );
 }
+

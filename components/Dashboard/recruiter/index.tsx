@@ -77,7 +77,8 @@ const Recruiter = (): JSX.Element => {
                                                     description={cJob?.description}
                                                     benefit={cJob?.benefit}
                                                     requirement={cJob?.requirement}
-                                                    salary={`${cJob?.salary?.currency} ${cJob?.salary?.min} - ${cJob?.salary?.max}  ${cJob?.salary?.period}`}
+                                                    salary={`${cJob?.salary?.currency || ''} ${cJob?.salary?.min || ''} - ${cJob?.salary?.max || ''}  ${cJob?.salary?.period || ''}`}
+
                                                 />
                                             ))}
                                         </div>
@@ -90,11 +91,11 @@ const Recruiter = (): JSX.Element => {
                                         <div className="space-y-4 -border border-red-300">
                                             {allCreatedJObs.map((applicant) => (
                                                 <ApplicantAccordion
-                                                    key={applicant._id}
-                                                    _id={applicant._id}
-                                                    title={applicant.title}
-                                                    description={applicant.description}
-                                                    applicants={applicant.applicants}
+                                                    key={applicant?._id}
+                                                    _id={applicant?._id}
+                                                    title={applicant?.title}
+                                                    description={applicant?.description}
+                                                    applicants={applicant?.applicants}
                                                 />
                                             ))}
                                         </div>
