@@ -60,25 +60,27 @@ const Recruiter = (): JSX.Element => {
                             <>
                                 {selectedIndex === 0 ? (
                                     <div role="tabPanel">
-                                        {allCreatedJObs.map((cJob) => (
-                                            <CreatedJobCard
-                                                key={cJob?._id}
-                                                title={cJob?.title}
-                                                industry={cJob?.industry}
-                                                postDate={cJob?.createdAt}
-                                                experience={cJob?.experience}
-                                                status={cJob?.status}
-                                                location={cJob?.location}
-                                                promoted={cJob?.promoted}
-                                                publish={cJob?.publish}
-                                                expiry={cJob?.expiry}
-                                                type={cJob?.type}
-                                                description={cJob?.description}
-                                                benefit={cJob?.benefit}
-                                                requirement={cJob?.requirement}
-                                                salary={`${cJob?.salary?.currency} ${cJob?.salary?.min} - ${cJob?.salary?.max}  ${cJob?.salary?.period}`}
-                                            />
-                                        ))}
+                                        <div className="space-y-4 -border border-red-300">
+                                            {allCreatedJObs.map((cJob) => (
+                                                <CreatedJobCard
+                                                    key={cJob?._id}
+                                                    title={cJob?.title}
+                                                    industry={cJob?.industry}
+                                                    postDate={cJob?.createdAt}
+                                                    experience={cJob?.experience}
+                                                    status={cJob?.status}
+                                                    location={cJob?.location}
+                                                    promoted={cJob?.promoted}
+                                                    publish={cJob?.publish}
+                                                    expiry={cJob?.expiry}
+                                                    type={cJob?.type}
+                                                    description={cJob?.description}
+                                                    benefit={cJob?.benefit}
+                                                    requirement={cJob?.requirement}
+                                                    salary={`${cJob?.salary?.currency} ${cJob?.salary?.min} - ${cJob?.salary?.max}  ${cJob?.salary?.period}`}
+                                                />
+                                            ))}
+                                        </div>
                                     </div>
                                 ) : (
                                     <div

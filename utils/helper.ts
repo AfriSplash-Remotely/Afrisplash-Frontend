@@ -74,3 +74,28 @@ export function formatCurrency(amount: number, currencyType: string): string {
     return amount?.toString();
   }
 }
+
+/**
+ * 
+ * @param date 
+ * @returns string
+ * @description 11-04-2024
+ */
+export function formatDate(date: string): string {
+  const d = new Date(date);
+  let month = "" + (d.getMonth() + 1);
+  let day = "" + d.getDate();
+  const year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  function roughScale(x: string) {
+    if (!x) {
+      return "NOT AVAILABLE";
+    }
+    return x;
+  }
+
+  return roughScale([day, month, year].join("-"));
+}
