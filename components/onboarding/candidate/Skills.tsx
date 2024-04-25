@@ -105,7 +105,7 @@ const options = [
     label: "Other Technical Skills",
     options: [
       { value: "Object-Oriented Programming", label: "Object-Oriented Programming (OOP)" }, { value: "Data Structures and Algorithms", label: "Data Structures and Algorithms" },
-      { value: "Artificial Intelligence", label: "Artificial Intelligence (AI)" }, { value: "Machine Learning and Data Science", label: "Machine Learning and Data Science (if relevant)" },
+      { value: "artificial intelligence", label: "Artificial Intelligence (AI)" }, { value: "Machine Learning and Data Science", label: "Machine Learning and Data Science (if relevant)" },
       { value: "Software Design Patterns", label: "Software Design Patterns" }, { value: "Natural Language Processing", label: "Natural Language Processing (NLP)" }, { value: "Computer Vision", label: "Computer Vision" },
       { value: "Big Data Technologies", label: "Big Data Technologies (Hadoop, Spark)" }, { value: "Cybersecurity Principles", label: "Cybersecurity Principles" },
     ]
