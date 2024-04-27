@@ -168,10 +168,6 @@ const Skills = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element
           </p>
         </label>
       </form>
-      <div className="px-2 py-8">
-        <p className="font-medium text-lg mb-8">Suggested skills</p>
-
-      </div>
     </div>
   );
 };
