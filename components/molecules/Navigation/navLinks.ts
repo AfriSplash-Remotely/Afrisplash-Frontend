@@ -6,8 +6,6 @@ import messages from "assets/admin_icons/messages.svg";
 import setting_3 from "assets/admin_icons/setting-3.svg";
 import dashboard from "assets/admin_icons/dashboard.svg"
 
-
-
 export interface IsideBarLinks {
   title: string;
   route: string;
@@ -55,7 +53,6 @@ export const navLinks: IsideBarLinks[] = [
     icon: setting_3,
     route: "/dashboard/settings",
     role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
-
   },
 ];
 

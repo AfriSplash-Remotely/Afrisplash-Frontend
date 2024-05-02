@@ -1,5 +1,6 @@
 import React from "react";
 import Select, { MultiValue, StylesConfig } from "react-select";
+import options from "../../../utils/options"
 
 const selectStyle: StylesConfig = {
   control: (styles) => ({
@@ -8,11 +9,6 @@ const selectStyle: StylesConfig = {
   }),
 };
 
-const options = [
-  { value: "react", label: "React" },
-  { value: "vue", label: "Vue" },
-  { value: "node", label: "Node" },
-];
 
 
 const Skills = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {
@@ -38,13 +34,12 @@ const Skills = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element
             styles={selectStyle}
             onChange={(arg) => handleSkills(arg)}
             isMulti
+            isSearchable
           />
+          <p className="mt-2">{skills && skills.map((prev) => (<>{prev.label}, </>))}
+          </p>
         </label>
       </form>
-      <div className="px-2 py-8">
-        <p className="font-medium text-lg mb-8">Suggested skills</p>
-
-      </div>
     </div>
   );
 };
