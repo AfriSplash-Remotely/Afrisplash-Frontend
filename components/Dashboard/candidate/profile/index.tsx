@@ -5,19 +5,29 @@ import Image from "next/image";
 import { AwardSvg, AvatarTick, BriefCase, ClockSvg } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
 import { useSession } from "next-auth/react";
-import { addEducation, addExperience, getCandidateProfile } from "@/api-endpoints/user-profile/user-profile.api";
+import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile } from "@/api-endpoints/user-profile/user-profile.api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import AddEducationModal from "./add-education-modal";
 import AddExperienceModal from "./add-experience-modal";
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
+import EditContactDetails from "./edit-contact-details.modal";
+import editIcon from "../../../../assets/general/edit-icon.svg";
+import EditBio from "./edit-bio-modal";
+import UpdateSkillModal from "./update-skills-modal";
 
 const Candidate = (): JSX.Element => {
     const [openEducation, setOpenEducation] = useState<boolean>(false);
     const [openExperience, setOpenExperience] = useState<boolean>(false);
+    const [openContact, setOpenContact] = useState<boolean>(false);
+    const [openBio, setOpenBio] = useState<boolean>(false);
+    const [openSkills, setOpenSkills] = useState<boolean>(false);
     const { data: session } = useSession();
     const [educationData, setEducationData] = useState([]);
     const [experienceData, setExperienceData] = useState([]);
+    const [contactData, setContactData] = useState([]);
+    const [bioData, setBioData] = useState([]);
+    const [skillData, setSkillsData] = useState([]);
     const jwtToken = session?.user?.accessToken as string;
 
     const { data,refetch } = useQuery(["candidateProfile"], async () => {
@@ -26,6 +36,7 @@ const Candidate = (): JSX.Element => {
         return response.data[0];
     });
 
+    console.log(data);
    
 
     const { mutate: updateEducationMutation, isLoading: educationLoading } = useMutation({
@@ -66,6 +77,46 @@ const Candidate = (): JSX.Element => {
         const body = experienceData;
       
         updateExperienceMutation(body);
+    }
+    const { mutate: updateContactMutation, isLoading: contactLoading } = useMutation({
+        mutationFn: (body: object[]) => editContactDetails(body, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("contact updated successfully ");
+            setContactData([]);
+            setOpenContact(false);
+            refetch();
+        
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleEditContact = () => { 
+            
+        const body = contactData;
+      
+        updateContactMutation(body);
+    }
+    const { mutate: updateBioMutation, isLoading: bioLoading } = useMutation({
+        mutationFn: (body: object[]) => editBio(body, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("contact updated successfully ");
+            setBioData([]);
+            setOpenBio(false);
+            refetch();
+        
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleEditBio = () => { 
+            
+        const body = bioData;
+      
+        updateBioMutation(body);
     }
 
   
@@ -113,13 +164,26 @@ const Candidate = (): JSX.Element => {
                     </div>
 
                     <div className="px-4 py-6">
-                        <h4 className="text-base font-bold mb-2">Bio</h4>
+                        <div className="w-full flex items-center justify-between">
+
+                            <h4 className="text-base font-bold mb-2">Bio</h4>
+                            <span onClick={() => setOpenBio(true)}>
+                                <Image src={editIcon} alt="edit-icon" />
+                            </span>
+                        </div>
                         <div className="flex flex-col justify-between py-4 gap-4">
                             <p>{data?.bio}</p>
+                          
                         </div>
                     </div>
                     <div className="px-4 py-6">
-                        <h4 className="text-base font-bold mb-2">Contact</h4>
+                        <div className="w-full flex items-center justify-between">
+
+                            <h4 className="text-base font-bold mb-2">Contact</h4>
+                            <span onClick={() => setOpenContact(true)}>
+                                <Image src={editIcon} alt="edit-icon" />
+                            </span>
+                        </div>
                         <div className="flex flex-col justify-between py-4 gap-4">
                             <div className="flex items-center gap-2">
                                 <span className="text-[#606172] font-semibold">Email: </span>{" "}
@@ -143,7 +207,13 @@ const Candidate = (): JSX.Element => {
                     </div>
 
                     <div className="px-4 py-6">
-                        <h4 className="text-base font-bold mb-1">Skills</h4>
+                        <div className="w-full flex items-center justify-between">
+
+                            <h4 className="text-base font-bold mb-1">Skills</h4>
+                            <span onClick={() => setOpenSkills(true)}>
+                                <Image src={editIcon} alt="edit-icon" />
+                            </span>
+                        </div>
                         <div className="flex flex-wrap gap-4 py-4">
                             {data?.skills.map((skill, index) => (
                                 <div
@@ -260,6 +330,9 @@ const Candidate = (): JSX.Element => {
             </div>
        <AddEducationModal open={openEducation} setOpen={setOpenEducation} onClick={ handleAddEduction}  setData={setEducationData} loading={educationLoading}   />
        <AddExperienceModal open={openExperience} setOpen={setOpenExperience} onClick={ handleAddExperience}  setData={setExperienceData} loading={experienceLoading}   />
+       <EditContactDetails open={openContact} setOpen={setOpenContact} onClick={ handleEditContact}  setData={setContactData} loading={contactLoading}   />
+       <EditBio open={openBio} setOpen={setOpenBio} onClick={ handleEditBio}  setData={setBioData} loading={bioLoading}   />
+       <UpdateSkillModal open={openSkills} setOpen={setOpenSkills} onClick={ handleEditBio}  setData={setSkillsData} loading={bioLoading}   />
         </AdminLayout>
     )
 }

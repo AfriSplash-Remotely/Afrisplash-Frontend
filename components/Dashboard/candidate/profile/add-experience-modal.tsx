@@ -32,7 +32,7 @@ const techJobTypes = [
     "Cloud Architect",
   
 ];
-const AddExperienceModal = ({ open, setOpen, onClick, setData, loading }: modalcompProps) => {
+const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
     const [name, setName] = useState("");
     const [position, setPosition] = useState("");
    

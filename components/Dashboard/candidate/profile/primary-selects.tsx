@@ -1,4 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
+import React from "react";
 import { Listbox, Transition } from "@headlessui/react";
 
 import { Fragment } from "react";
@@ -16,14 +17,14 @@ function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function PrimarySelect({
+ const   PrimarySelect : React.FC<selectProps> = ({
     label,
     selected,
     setSelected,
     data,
     name,
     height,
-}: selectProps) {
+}) => {
     // const [selected, setSelected] = useState(people[3])
 
     return (
@@ -103,3 +104,5 @@ export default function PrimarySelect({
         </Listbox>
     );
 }
+
+export default PrimarySelect

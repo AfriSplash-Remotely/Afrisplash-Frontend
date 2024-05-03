@@ -1,4 +1,4 @@
-
+import React from "react";
 
 interface buttonProps extends React.HTMLProps<HTMLButtonElement> {
     name?: string | undefined;
@@ -12,7 +12,7 @@ interface buttonProps extends React.HTMLProps<HTMLButtonElement> {
     id?: string; //pass 'google' or 'github' as id if using social auth
 }
 
-export const Button = ({
+export const Button : React.FC<buttonProps> = ({
     name,
     type,
     loading,
@@ -21,7 +21,7 @@ export const Button = ({
     onClick,
     className,
     height
-}: buttonProps) => {
+}) => {
     return (
         <button
             type={type}
@@ -34,7 +34,7 @@ export const Button = ({
     );
 };
 
-export const OutlineBtn = ({
+export const OutlineBtn : React.FC<buttonProps> = ({
     name,
     type,
     loading,
@@ -43,7 +43,7 @@ export const OutlineBtn = ({
     onClick,
     className,
     height
-}: buttonProps) => {
+}) => {
     return (
         <button
             type={type}

@@ -27,7 +27,7 @@ const fieldsOfStudy = [
     "Business Administration",
     // Add more fields as needed
 ];
-const AddEducationModal = ({ open, setOpen, onClick, setData,loading }: modalcompProps) => {
+const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
     const [name, setName] = useState("");
     const [degreeType, setDegreeType] = useState("");
     const [startDate, setStartDate] = useState("");

@@ -93,7 +93,7 @@ export const editUserDetail = async (body: object, jwt: string): Promise<IGetUse
 
     api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
 
-    const { data } = await api.put("/candidate/edit/user/contact", body)
+    const { data } = await api.put("/candidate/edit/user", body)
     return data
 }
 export const editBio = async (body: object, jwt: string): Promise<IGetUserProfileApiResponse> => {

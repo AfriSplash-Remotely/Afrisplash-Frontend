@@ -7,7 +7,7 @@ interface ModalProps {
   children?: ReactNode;
   width?:string
 }
-export default function ReUseModal({ open, setOpen, children,width }: ModalProps) {
+ const ReUseModal : React.FC<ModalProps> = ({ open, setOpen, children,width }) => {
 
 
   return (
@@ -59,3 +59,5 @@ export default function ReUseModal({ open, setOpen, children,width }: ModalProps
     </Transition.Root>
   );
 }
+
+export default ReUseModal

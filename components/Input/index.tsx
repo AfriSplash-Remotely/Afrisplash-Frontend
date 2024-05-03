@@ -6,7 +6,26 @@ interface dateProps {
     className?: string;
     height?: string;
 }
-export const Input = ({
+interface InputProps  {
+    className ?: string;
+    label: string;
+    value: any;
+    setValue: any;
+    placeholder ?: string;
+    type ?: string;
+    height ?: string
+
+}
+interface UrlProps {
+    className?: string;
+    label: string;
+    value: any;
+    setValue: any;
+    placeholder?: string;
+    type?: string;
+    preUrl?: string
+}
+export const Input : React.FC<InputProps> = ({
     className,
     label,
     value,
@@ -14,15 +33,6 @@ export const Input = ({
     type,
     placeholder,
     height
-
-}: {
-    className?: string;
-    label: string;
-    value: any;
-    setValue: any;
-    placeholder?: string;
-    type?: string;
-    height?: string
 
 }) => {
     return (
@@ -42,7 +52,7 @@ export const Input = ({
 
 
 
-export default function UrlInput({
+const  UrlInput : React.FC<UrlProps> = ({
     className,
     label,
     value,
@@ -50,15 +60,7 @@ export default function UrlInput({
     type,
     placeholder,
     preUrl
-}: {
-    className?: string;
-    label: string;
-    value: any;
-    setValue: any;
-    placeholder?: string;
-    type?: string;
-    preUrl?: string
-}) {
+} ) => {
     return (
         <div className="w-full">
             <label
@@ -88,12 +90,12 @@ export default function UrlInput({
 }
 
 
-export const DateInput = ({
+export const DateInput : React.FC<dateProps> = ({
     date,
     setDate,
     className,
     height,
-}: dateProps) => {
+}) => {
     const inputRef = useRef<any>(null);
     const onCalenderIconClick = () => {
         if (inputRef?.current) {
@@ -128,4 +130,6 @@ export const DateInput = ({
         </div>
     );
 };
+
+export default UrlInput
 
