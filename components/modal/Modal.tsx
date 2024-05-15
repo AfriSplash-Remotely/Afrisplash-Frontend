@@ -14,7 +14,7 @@ interface ModalProps {
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto z-powerful"
+        className="fixed z-50 inset-0 overflow-y-auto "
         onClose={setOpen}
       >
         <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -27,7 +27,7 @@ interface ModalProps {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-75 transition-opacity " style={{"zIndex" : "9999 !important"}} />
+            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-75 transition-opacity "  />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState,KeyboardEvent } from 'react';
 import Modal from '@/components/modal/Modal';
-import { CancelIcon, SearchIcon } from '@/assets';
-import { Input } from '@/components/Input';
+import { CancelIcon } from '@/assets';
 import { Button, OutlineBtn } from '@/components/button';
 interface modalcompProps {
     open: boolean;
@@ -9,39 +8,35 @@ interface modalcompProps {
     onClick: any;
     loading: boolean;
     setData: any;
+    data: any;
 }
 
 
 
 
 
-const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
+const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,data }) => {
     const [keyword, setKeyword] = useState("");
-    const [list, setList] = useState([]);
-
-
-
-
-
-
-
+    const [list, setList] = useState<any>([]);
+  
     useEffect(() => {
-        const bodyData =
-        {
-            "skills": list
-        }
+       
 
 
-        setData(bodyData);
+        // setData(data);
+        setList(data)
 
 
-    }, [list])
+    }, [data])
+  
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
             const newList:any = [...list];
             newList.push(keyword);
-         setList(newList)
+            setKeyword("");
+            setList(newList)
+            setData(newList);
         }
     };
 
@@ -63,15 +58,16 @@ const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, s
                             Update Skills
                         </h1>
 
-                        <div className="w-full mt-8    gap-4  ">
+                        <div className="w-full mt-8    gap-4 flex flex-col  ">
+                            <label htmlFor="">
+                                Add skill set 
+                            </label>
                             <div className="w-full  h-[56px] rounded-[15px] px-2 flex items-center gap-2 border border-[#63685E]">
-                                <span className="min-w-[16px]">
-                                    <SearchIcon />
-                                </span>
+                             
                                 <input
                                     type="text"
                                     className="border-none outline-none focus:outline-none flex-grow placeholder:text-xs bg-transparent placeholder:text-[#c6c6c6]"
-                                    placeholder="Search player"
+                                    placeholder="Press enter to add "
                                     onChange={(e) => setKeyword(e.target?.value)}
                                     value={keyword}
                                     onKeyDown={handleKeyDown}

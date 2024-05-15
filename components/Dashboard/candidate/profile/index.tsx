@@ -1,11 +1,11 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminLayout from "@/layouts/adminLayout";
 import Image from "next/image";
 import { AwardSvg, AvatarTick, BriefCase, ClockSvg } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
 import { useSession } from "next-auth/react";
-import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile } from "@/api-endpoints/user-profile/user-profile.api";
+import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile, addSkill } from "@/api-endpoints/user-profile/user-profile.api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import AddEducationModal from "./add-education-modal";
 import AddExperienceModal from "./add-experience-modal";
@@ -24,20 +24,34 @@ const Candidate = (): JSX.Element => {
     const [openSkills, setOpenSkills] = useState<boolean>(false);
     const { data: session } = useSession();
     const [educationData, setEducationData] = useState([]);
+    const [bio, setBio] = useState<string>("");
     const [experienceData, setExperienceData] = useState([]);
-    const [contactData, setContactData] = useState([]);
+    const [contactData, setContactData] = useState({});
     const [bioData, setBioData] = useState([]);
-    const [skillData, setSkillsData] = useState([]);
+    const [skillData, setSkillsData] = useState<any>([]);
     const jwtToken = session?.user?.accessToken as string;
 
-    const { data,refetch } = useQuery(["candidateProfile"], async () => {
+    const { data, refetch } = useQuery(["candidateProfile"], async () => {
         const response = await getCandidateProfile(jwtToken as string)
-    
+
         return response.data[0];
     });
 
-    console.log(data);
-   
+useEffect(() => {
+    if (data) {
+        setBio(data?.bio);
+        setContactData({
+            email: data?.email,
+            phone: data?.phone_number,
+            location: data?.location
+        });
+        setSkillsData(data?.skills);
+    }
+}, [data?.skills, data?.email, data?.phone_number, data?.location, data?.bio, data,openSkills]);
+
+    
+
+
 
     const { mutate: updateEducationMutation, isLoading: educationLoading } = useMutation({
         mutationFn: (body: object[]) => addEducation(body, session?.user?.accessToken as string),
@@ -46,15 +60,15 @@ const Candidate = (): JSX.Element => {
             setEducationData([]);
             setOpenEducation(false);
             refetch();
-        
+
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
         }
     })
 
-    const handleAddEduction = () => { 
-            
+    const handleAddEduction = () => {
+
         const body = educationData;
         updateEducationMutation(body);
     }
@@ -65,37 +79,37 @@ const Candidate = (): JSX.Element => {
             setExperienceData([]);
             setOpenExperience(false);
             refetch();
-        
+
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
         }
     })
 
-    const handleAddExperience = () => { 
-            
+    const handleAddExperience = () => {
+
         const body = experienceData;
-      
+
         updateExperienceMutation(body);
     }
     const { mutate: updateContactMutation, isLoading: contactLoading } = useMutation({
-        mutationFn: (body: object[]) => editContactDetails(body, session?.user?.accessToken as string),
+        mutationFn: (body: object) => editContactDetails(body, session?.user?.accessToken as string),
         onSuccess: (data) => {
             toast.success("contact updated successfully ");
             setContactData([]);
             setOpenContact(false);
             refetch();
-        
+
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
         }
     })
 
-    const handleEditContact = () => { 
-            
+    const handleEditContact = () => {
+
         const body = contactData;
-      
+
         updateContactMutation(body);
     }
     const { mutate: updateBioMutation, isLoading: bioLoading } = useMutation({
@@ -105,22 +119,43 @@ const Candidate = (): JSX.Element => {
             setBioData([]);
             setOpenBio(false);
             refetch();
-        
+
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
         }
     })
 
-    const handleEditBio = () => { 
-            
+    const handleEditBio = () => {
+
         const body = bioData;
-      
+
         updateBioMutation(body);
     }
+    const { mutate: updateSkillMutation, isLoading: skillLoading } = useMutation({
+        mutationFn: (body: object[]) => addSkill(body, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("contact updated successfully ");
+            setSkillsData([]);
+            setOpenSkills(false);
+            refetch();
 
-  
- 
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleAddSkill = () => {
+
+        const body = skillData;
+
+        updateSkillMutation(body);
+    }
+
+
+    console.log(skillData)
+
     return (
         <AdminLayout>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -173,7 +208,7 @@ const Candidate = (): JSX.Element => {
                         </div>
                         <div className="flex flex-col justify-between py-4 gap-4">
                             <p>{data?.bio}</p>
-                          
+
                         </div>
                     </div>
                     <div className="px-4 py-6">
@@ -322,17 +357,17 @@ const Candidate = (): JSX.Element => {
                             <button className="h-[56px] rounded-[16px] min-w-[204px] cursor-pointer border border-[#D9DEDC] text-[#1C1D36] font-semibold" onClick={() => setOpenEducation(true)}>
                                 <span className="text-[#0D5520]">+</span>
                                 Add Education
-</button>
+                            </button>
                         </div>
                     </div>
                 )}
 
             </div>
-       <AddEducationModal open={openEducation} setOpen={setOpenEducation} onClick={ handleAddEduction}  setData={setEducationData} loading={educationLoading}   />
-       <AddExperienceModal open={openExperience} setOpen={setOpenExperience} onClick={ handleAddExperience}  setData={setExperienceData} loading={experienceLoading}   />
-       <EditContactDetails open={openContact} setOpen={setOpenContact} onClick={ handleEditContact}  setData={setContactData} loading={contactLoading}   />
-       <EditBio open={openBio} setOpen={setOpenBio} onClick={ handleEditBio}  setData={setBioData} loading={bioLoading}   />
-       <UpdateSkillModal open={openSkills} setOpen={setOpenSkills} onClick={ handleEditBio}  setData={setSkillsData} loading={bioLoading}   />
+            <AddEducationModal open={openEducation} setOpen={setOpenEducation} onClick={handleAddEduction} setData={setEducationData} loading={educationLoading} />
+            <AddExperienceModal open={openExperience} setOpen={setOpenExperience} onClick={handleAddExperience} setData={setExperienceData} loading={experienceLoading} />
+            <EditContactDetails data={contactData} open={openContact} setOpen={setOpenContact} onClick={handleEditContact} setData={setContactData} loading={contactLoading} />
+            <EditBio bio={bio} setBio={setBio} open={openBio} setOpen={setOpenBio} onClick={handleEditBio} setData={setBioData} loading={bioLoading} />
+            <UpdateSkillModal data={skillData} open={openSkills} setOpen={setOpenSkills} onClick={handleAddSkill} setData={setSkillsData} loading={bioLoading} />
         </AdminLayout>
     )
 }

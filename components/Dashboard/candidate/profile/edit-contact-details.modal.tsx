@@ -1,44 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { SetStateAction, useEffect, useState } from 'react'
 import Modal from '@/components/modal/Modal'
 import { CancelIcon } from '@/assets';
-import { DateInput, Input } from '@/components/Input';
+import {  Input } from '@/components/Input';
 import { Location } from '../../recruiter/createJob/jobsData';
 import { Button, OutlineBtn } from '@/components/button';
 import PrimarySelect from './primary-selects';
 interface modalcompProps {
     open: boolean;
-    setOpen: any;
+    setOpen: React.Dispatch<SetStateAction<boolean>>;
     onClick: any;
     loading: boolean;
     setData: any;
+    data: any;
 }
 
 
 
 
-const techJobTypes = [
-    "Software Developer",
-    "Web Developer",
-    "Mobile App Developer",
-    "Data Scientist",
-    "Data Analyst",
-    "Database Administrator",
-    "Network Engineer",
-    "Systems Analyst",
-    "UI/UX Designer",
-    "DevOps Engineer",
-    "QA Engineer",
-    "Cybersecurity Analyst",
-    "Cloud Architect",
-
-];
-const EditContactDetails: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
+const EditContactDetails: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,data }) => {
+    const [email, setEmail] = useState<string>(data.email ? data?.email :"");
+    const [phone, setPhone] = useState<string>(data.phone ? data?.phone : "");
 
   
     const [field, setField] = useState<any>({});
-    const [location, setLocation] = useState<any>({ name: "", label: "" });
+    const [location, setLocation] = useState<any>({ name: data.location ? data?.location : "", label: "" });
 
     const locationList = Location?.map((item: any) => (
         { name: item.value, label: item.label }

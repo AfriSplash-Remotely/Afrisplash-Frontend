@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import Modal from '@/components/modal/Modal';
 import { CancelIcon } from '@/assets';
 import { Input } from '@/components/Input';
 import { Button, OutlineBtn } from '@/components/button';
 interface modalcompProps {
     open: boolean;
-    setOpen: any;
-    onClick: any;
+    setOpen: React.Dispatch<SetStateAction<boolean>>;
+    onClick: () => void;
     loading: boolean;
     setData: any;
+    bio: string,
+    setBio:React.Dispatch<SetStateAction<string>>
 }
 
 
 
 
 
-const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
-    const [bio, setBio] = useState("");
+const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,bio,setBio }) => {
+  
 
 
 
@@ -34,7 +36,7 @@ const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, lo
 
     }, [bio])
 
-
+   
 
 
 

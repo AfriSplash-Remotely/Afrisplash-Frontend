@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { SetStateAction, useEffect, useState } from 'react'
 import Modal from '@/components/modal/Modal'
 import { CancelIcon } from '@/assets';
 import { DateInput, Input } from '@/components/Input';
 import { Location } from '../../recruiter/createJob/jobsData';
 import { Button, OutlineBtn } from '@/components/button';
+import { techJobTypes } from '@/utils';
 import PrimarySelect from './primary-selects';
 interface modalcompProps {
     open: boolean;
-    setOpen: any;
-    onClick: any;
+    setOpen: React.Dispatch<SetStateAction<boolean>>;
+    onClick: () => void;
     loading: boolean;
     setData: any;
 }
@@ -16,22 +17,6 @@ interface modalcompProps {
 
 
 
-const techJobTypes = [
-    "Software Developer",
-    "Web Developer",
-    "Mobile App Developer",
-    "Data Scientist",
-    "Data Analyst",
-    "Database Administrator",
-    "Network Engineer",
-    "Systems Analyst",
-    "UI/UX Designer",
-    "DevOps Engineer",
-    "QA Engineer",
-    "Cybersecurity Analyst",
-    "Cloud Architect",
-  
-];
 const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
     const [name, setName] = useState("");
     const [position, setPosition] = useState("");
@@ -82,7 +67,7 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                     </div>
                     <div className="lg:w-10/12 w-full mx-auto mt-4 flex flex-col">
                         <h1 className='text-black text-2xl lg:text-4xl font-bold'>
-                            Update Experience
+                            Add Experience
                         </h1>
 
                         <div className="w-full mt-8 grid grid-cols-1 lg:grid-cols-2  gap-4  ">

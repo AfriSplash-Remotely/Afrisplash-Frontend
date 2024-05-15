@@ -1,38 +1,28 @@
-import React,{useEffect, useState} from 'react'
+import React,{SetStateAction, useEffect, useState} from 'react'
 import Modal from '@/components/modal/Modal'
 import { CancelIcon } from '@/assets';
 import { DateInput, Input } from '@/components/Input';
-
+import { fieldsOfStudy } from '@/utils';
 import { Button, OutlineBtn } from '@/components/button';
 import PrimarySelect from './primary-selects';
 interface modalcompProps {
     open: boolean;
-    setOpen: any;
-    onClick: any;
+    setOpen: React.Dispatch<SetStateAction<boolean>>;
+    onClick:  () => void;
     loading: boolean;
     setData: any;
 }
 
 
 
-const fieldsOfStudy = [
-    "Computer Science",
-    "Engineering",
-    "Mathematics",
-    "Physics",
-    "Biology",
-    "Chemistry",
-    "Psychology",
-    "Sociology",
-    "Business Administration",
-    // Add more fields as needed
-];
+
+
 const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
-    const [name, setName] = useState("");
-    const [degreeType, setDegreeType] = useState("");
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
-    const [desc, setDesc] = useState("");
+    const [name, setName] = useState<string>("");
+    const [degreeType, setDegreeType] = useState<string>("");
+    const [startDate, setStartDate] = useState<string>("");
+    const [endDate, setEndDate] = useState<string>("");
+    const [desc, setDesc] = useState<string>("");
     const [field, setField] = useState<any>({});
     const fieldsOfStudyList = fieldsOfStudy.map(field => ({
         name: field.toLowerCase().replace(/\s+/g, "_"),
@@ -68,7 +58,7 @@ const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, s
                   </div>
                   <div className="lg:w-10/12 w-full mx-auto mt-4 flex flex-col">
                       <h1 className='text-black text-2xl lg:text-4xl font-bold'>
-                          Update Educational Qualification
+                          Add Educational Qualification
                       </h1>
 
                       <div className="w-full mt-8 ">
