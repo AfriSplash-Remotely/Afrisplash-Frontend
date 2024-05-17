@@ -28,7 +28,7 @@ export const removeEducation = async (id: string, jwt: string): Promise<IGetUser
 
     api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
 
-    const { data } = await api.put(`/candidate/edit/remove/education/${id}`)
+    const { data } = await api.delete(`/candidate/edit/remove/education/${id}`)
     return data
 }
 export const updateInterviewStatus = async (body: object, jwt: string): Promise<IGetUserProfileApiResponse> => {
@@ -73,7 +73,7 @@ export const removeLanguage = async (id: string, jwt: string): Promise<IGetUserP
 
     api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
 
-    const { data } = await api.delete(`/candidate/edit/remove/experience/${id}`)
+    const { data } = await api.delete(`/candidate/edit/remove/language/${id}`)
     return data
 }
 

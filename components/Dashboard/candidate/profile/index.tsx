@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AwardSvg, AvatarTick, BriefCase, ClockSvg } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
 import { useSession } from "next-auth/react";
-import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile, addSkill } from "@/api-endpoints/user-profile/user-profile.api";
+import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile, addSkill, addLanguage, removeLanguage, removeExperience, removeEducation } from "@/api-endpoints/user-profile/user-profile.api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import AddEducationModal from "./add-education-modal";
 import AddExperienceModal from "./add-experience-modal";
@@ -15,12 +15,16 @@ import EditContactDetails from "./edit-contact-details.modal";
 import editIcon from "../../../../assets/general/edit-icon.svg";
 import EditBio from "./edit-bio-modal";
 import UpdateSkillModal from "./update-skills-modal";
+import AddLanguage from "./add-language-modal";
+import { FiDelete } from "react-icons/fi";
+import LoadingComponent from "@/components/atoms/Loading/loading-component";
 
 const Candidate = (): JSX.Element => {
     const [openEducation, setOpenEducation] = useState<boolean>(false);
     const [openExperience, setOpenExperience] = useState<boolean>(false);
     const [openContact, setOpenContact] = useState<boolean>(false);
     const [openBio, setOpenBio] = useState<boolean>(false);
+    const [openLanguage, setOpenLanguage] = useState<boolean>(false);
     const [openSkills, setOpenSkills] = useState<boolean>(false);
     const { data: session } = useSession();
     const [educationData, setEducationData] = useState([]);
@@ -29,6 +33,7 @@ const Candidate = (): JSX.Element => {
     const [contactData, setContactData] = useState({});
     const [bioData, setBioData] = useState([]);
     const [skillData, setSkillsData] = useState<any>([]);
+    const [langData, setLangData] = useState<any>([]);
     const jwtToken = session?.user?.accessToken as string;
 
     const { data, refetch } = useQuery(["candidateProfile"], async () => {
@@ -152,9 +157,86 @@ useEffect(() => {
 
         updateSkillMutation(body);
     }
+    const { mutate: updateLanguageMutation, isLoading: langLoading } = useMutation({
+        mutationFn: (body: object[]) => addLanguage(body, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("language added successfully ");
+            setLangData([]);
+            setOpenLanguage(false);
+            refetch();
+
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleAddLanguage = () => {
+
+        const body = langData;
+
+        updateLanguageMutation(body);
+    }
+    const { mutate: removeLanguageMutation, isLoading: removelangLoading } = useMutation({
+        mutationFn: (id:string) => removeLanguage(id as string, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("Language removed successfully ");
+        
+            refetch();
+
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleRemoveLanguage = (id:string) => {
+
+        
+
+        removeLanguageMutation(id);
+    }
+    const { mutate: removeExperienceMutation, isLoading: removeExperienceLoading } = useMutation({
+        mutationFn: (id:string) => removeExperience(id as string, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("Experience removed successfully ");
+          
+            refetch();
+
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleRemoveExperience = (id:string) => {
+
+        
+
+        removeExperienceMutation(id);
+    }
+    const { mutate: removeEducationMutation, isLoading: removeEducationLoading } = useMutation({
+        mutationFn: (id:string) => removeEducation(id as string, session?.user?.accessToken as string),
+        onSuccess: (data) => {
+            toast.success("Education removed successfully ");
+          
+            refetch();
+
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleRemoveEducation = (id:string) => {
+
+        
+
+        removeEducationMutation(id);
+    }
+console.log(data)
 
 
-    console.log(skillData)
 
     return (
         <AdminLayout>
@@ -261,106 +343,162 @@ useEffect(() => {
                         </div>
                     </div>
 
-                    {data?.languages && (
-                        <div className="px-4 py-6">
-                            <h4 className="text-base font-bold mb-1">Languages</h4>
+                            <div className="px-4 py-6">
+                            <div className="w-full flex items-center justify-between">
+
+                                <h4 className="text-base font-bold mb-1">Languages</h4>
+                                <span onClick={() => setOpenLanguage(true)}>
+                                    <Image src={editIcon} alt="edit-icon" />
+                                </span>
+                        </div>
+                        {
+                            removelangLoading ? (
+                                <div className="mt-6 px-4">
+                                    <LoadingComponent />
+                            </div>
+                            ): (
+                                <>
+                                   {data?.langauge && (
+                          
                             <div className="flex justify-between flex-wrap gap-4 py-4">
-                                {data?.languages.map((language, index) => (
-                                    <div className="" key={index}>
-                                        <span className="text-[#606172] font-semibold">
+                                {data?.langauge?.map((language, index) => (
+                                    <div className="flex items-center gap-2" key={index}>
+                                        <span className="text-[#606172] font-semibold capitalize">
                                             {language.name}
                                         </span>{" "}
                                         -{" "}
-                                        <span className="text-[#9c9ca8] font-light">
+                                        <span className="text-[#9c9ca8] capitalize font-light">
                                             {language.level}
+                                        </span>
+                                        <span className="cursor-pointer" onClick={() => handleRemoveLanguage(language?._id)}>
+                                            <FiDelete className="text-[#666]" />
                                         </span>
                                     </div>
                                 ))}
                             </div>
-                        </div>
                     )}
+                                </>
+                            )
+                        }
+                 
                 </div>
+                    </div>
                 {/* user experience */}
-                {data?.experience && (
-                    <div className="bg-white rounded-xl">
+                <div className="bg-white rounded-xl">
                         <div className="flex items-center space-x-2 p-4 pb-0">
                             <AwardSvg />
                             <h3 className="text-lg font-bold">Experience</h3>
-                        </div>
-                        <div className="divide-y divide-gray-100">
-                            {data?.experience.map((exp, index) => {
-                                const startDate = new Date(exp.date_start);
-                                const endDate = new Date(exp.date_end);
+                    </div>
+                    {
+                        removeExperienceLoading ? (
+                            <div className="mt-6 px-4">
+                                <LoadingComponent />
+                            </div>
+                        ) : (
+                                <>
+                                    {data?.experience && (
+                                        <div className="divide-y divide-gray-100">
+                                            {data?.experience.map((exp, index) => {
+                                                const startDate = new Date(exp.date_start);
+                                                const endDate = new Date(exp.date_end);
 
-                                // Extracting years
-                                const startYear = startDate.getFullYear();
-                                const endYear = endDate.getFullYear();
+                                                // Extracting years
+                                                const startYear = startDate.getFullYear();
+                                                const endYear = endDate.getFullYear();
 
-                                return (
-                                    <div className="px-4 py-6" key={index}>
-                                        <h4 className="text-base font-bold mb-2">{startYear} - {endYear}</h4>
-                                        <h5 className="text-base font-bold text-sunglow mb-2">
-                                            {exp.company_name}
-                                        </h5>
-                                        <h6 className="text-base font-normal text-[#606172] mb-2">
-                                            {exp.position_held}
-                                        </h6>
-                                        <div>
-                                            <p>{exp.description}</p>
+                                                return (
+                                                    <div className="px-4 py-6" key={index}>
+                                                        <div className="flex items-center justify-between">
+
+                                                            <h4 className="text-base font-bold mb-2">{startYear} - {endYear}</h4>
+                                                            <span className="cursor-pointer" onClick={() => handleRemoveExperience(exp?._id)}>
+                                                                <FiDelete className="text-[#666]" />
+                                                            </span>
+                                                        </div>
+                                                        <h5 className="text-base font-bold text-sunglow mb-2 capitalize">
+                                                            {exp.company_name}
+                                                        </h5>
+                                                        <h6 className="text-base font-normal text-[#606172] mb-2 capitalize">
+                                                            {exp.position_held}
+                                                        </h6>
+                                                        <div>
+                                                            <p>{exp.description}</p>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })}
                                         </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <div className="w-full flex justify-center items-center mt-6 ">
+                                    )}
+                                </>
+                        )
+                    }
+
+              
+                        <div className="w-full flex justify-center items-center mt-6 mb-8 ">
                             <button className="h-[56px] rounded-[16px] min-w-[204px] cursor-pointer border border-[#D9DEDC] text-[#1C1D36] font-semibold" onClick={() => setOpenExperience(true)}>
                                 <span className="text-[#0D5520]">+</span>
                                 Add Experience
                             </button>
                         </div>
-                    </div>
-                )}
+                </div>
 
                 {/* user education */}
-                {data?.education && (
                     <div className="bg-white rounded-xl">
                         <div className="flex items-center space-x-2 p-4 pb-0">
                             <AwardSvg />
                             <h3 className="text-lg font-bold">Education</h3>
-                        </div>
-                        <div className="divide-y divide-gray-100">
-                            {data.education.map((edu, index) => {
-                                const startDate = new Date(edu.date_start);
-                                const endDate = new Date(edu.date_end);
+                    </div>
+                    {
+                        removeEducationLoading ? (
+                            <div className="mt-6 px-4">
+                                <LoadingComponent />
+                            </div>
+                        ) : (
+                                <>
+                                    {data?.education && (
+                                        <div className="divide-y divide-gray-100">
+                                            {data.education.map((edu, index) => {
+                                                const startDate = new Date(edu.date_start);
+                                                const endDate = new Date(edu.date_end);
 
-                                // Extracting years
-                                const startYear = startDate.getFullYear();
-                                const endYear = endDate.getFullYear();
+                                                // Extracting years
+                                                const startYear = startDate.getFullYear();
+                                                const endYear = endDate.getFullYear();
 
-                                return (
-                                    <div className="px-4 py-6" key={index}>
-                                        <h4 className="text-base font-bold mb-2">{startYear} - {endYear}</h4>
-                                        <h5 className="text-base font-bold text-sunglow mb-2">
-                                            {edu.institution_name}
-                                        </h5>
-                                        <h6 className="text-base font-normal text-[#606172] mb-2">
-                                            {edu.field_of_study}
-                                        </h6>
-                                        <div>
-                                            <p>{edu.description}</p>
+                                                return (
+                                                    <div className="px-4 py-6" key={index}>
+                                                        <div className="flex justify-between items-center">
+
+                                                            <h4 className="text-base font-bold mb-2">{startYear} - {endYear}</h4>
+                                                            <span className="cursor-pointer" onClick={() => handleRemoveEducation(edu?._id)}>
+                                                                <FiDelete className="text-[#666]" />
+                                                            </span>
+                                                        </div>
+                                                        <h5 className="text-base font-bold text-sunglow mb-2">
+                                                            {edu.institution_name}
+                                                        </h5>
+                                                        <h6 className="text-base font-normal text-[#606172] mb-2">
+                                                            {edu.field_of_study}
+                                                        </h6>
+                                                        <div>
+                                                            <p>{edu.description}</p>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })}
                                         </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <div className="w-full flex justify-center items-center mt-6 ">
+                                    )}
+                                </>
+                )
+                    }
+              
+                        <div className="w-full flex justify-center items-center mt-6 mb-8 ">
                             <button className="h-[56px] rounded-[16px] min-w-[204px] cursor-pointer border border-[#D9DEDC] text-[#1C1D36] font-semibold" onClick={() => setOpenEducation(true)}>
                                 <span className="text-[#0D5520]">+</span>
                                 Add Education
                             </button>
                         </div>
                     </div>
-                )}
 
             </div>
             <AddEducationModal open={openEducation} setOpen={setOpenEducation} onClick={handleAddEduction} setData={setEducationData} loading={educationLoading} />
@@ -368,6 +506,7 @@ useEffect(() => {
             <EditContactDetails data={contactData} open={openContact} setOpen={setOpenContact} onClick={handleEditContact} setData={setContactData} loading={contactLoading} />
             <EditBio bio={bio} setBio={setBio} open={openBio} setOpen={setOpenBio} onClick={handleEditBio} setData={setBioData} loading={bioLoading} />
             <UpdateSkillModal data={skillData} open={openSkills} setOpen={setOpenSkills} onClick={handleAddSkill} setData={setSkillsData} loading={bioLoading} />
+            <AddLanguage  open={openLanguage} setOpen={setOpenLanguage} onClick={handleAddLanguage} setData={setLangData} loading={langLoading} />
         </AdminLayout>
     )
 }

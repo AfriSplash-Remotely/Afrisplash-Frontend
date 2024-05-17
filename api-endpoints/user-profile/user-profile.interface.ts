@@ -1,6 +1,7 @@
 interface Language {
     name: string;
     level: string;
+    _id?:string | any
 }
 
 
@@ -12,6 +13,7 @@ interface Experience {
     date_start: string;
     date_end: string;
     description: string;
+    _id?:string | any
 }
 
 interface Education {
@@ -21,6 +23,7 @@ interface Education {
     date_start: string;
     date_end: string;
     description: string;
+    _id?:string | any
 }
 
 interface Jobs {
@@ -50,7 +53,7 @@ export interface UserProfile {
     thumbnail: string;
     cover_letter: string;
     cv: string;
-    languages: Array<Language>;
+    langauge: Array<Language>;
     account_setup_completed: boolean;
     location: string;
     role: string;

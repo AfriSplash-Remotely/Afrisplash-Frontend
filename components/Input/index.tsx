@@ -32,7 +32,8 @@ export const Input : React.FC<InputProps> = ({
     setValue,
     type,
     placeholder,
-    height
+    height,
+    ...props
 
 }) => {
     return (
@@ -42,7 +43,7 @@ export const Input : React.FC<InputProps> = ({
             </label>
             <input
                 type={type ? type : "text"}
-                className={`  rounded-[4px] px-3 py-[15px] flex items-center border border-[#BBBBC3] outline-none  placeholder:text-opacity-50 bg-transparent focus:bg-transparent placeholder:text-sm text-black text-sm placeholder:text-[#606172]  ${height ? height : "h-[56px] rounded-[10px]"} `}
+                className={`  rounded-[4px] px-3 py-[15px] flex items-center border border-[#BBBBC3] outline-none  placeholder:text-opacity-50 bg-transparent focus:bg-transparent placeholder:text-sm text-black text-sm placeholder:text-[#606172]  ${height ? height : "h-[56px] rounded-[10px]"} `} {...props}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
