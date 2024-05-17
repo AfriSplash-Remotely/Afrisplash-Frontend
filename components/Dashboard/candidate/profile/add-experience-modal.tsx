@@ -25,7 +25,8 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
     const [endDate, setEndDate] = useState("");
     const [desc, setDesc] = useState("");
     const [field, setField] = useState<any>({});
-    const [location, setLocation] = useState<any>({ name: "", label:""});
+    const [location, setLocation] = useState<any>({ name: "", label: "" });
+    const [currentlyWorking, setCurrentlyWorking] = useState<boolean>(false);
     const techJobTypesList = techJobTypes.map(jobType => ({
         name: jobType,
         label: jobType,
@@ -42,7 +43,7 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                 "location": location?.name,
                 "job_type": field?.name,
                 "date_start": startDate,
-                "date_end": endDate,
+                "date_end": currentlyWorking? "till-date" : endDate,
                 "description": desc
             }
         ];
@@ -98,13 +99,17 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                                 <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
                                     End Date
                                 </label>
+                                <div className={`${currentlyWorking? "cursor-not-allowed opacity-50" : ""}`}>
+
                                 <DateInput date={endDate} setDate={setEndDate} />
+                                </div>
                                 <div className="flex items-center justify-between mt-3">
                                     <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
                                         I currently work here
                                     </label>
                                     <span>
-                                        <input type="checkbox" name="" id="" className='w-4 h-4' />
+                                        <input type="checkbox" name="" id="" className='w-4 h-4' checked={currentlyWorking}
+                                            onChange={(e) => setCurrentlyWorking(e.target.checked)} />
                                      </span>
                                 </div>
                             </div>

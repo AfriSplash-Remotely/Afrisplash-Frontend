@@ -270,14 +270,7 @@ console.log(data)
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-around pt-6">
-                            <button className="text-dark_blue px-6 py-2 rounded-2xl border border-[#D9DEDC]">
-                                Message
-                            </button>
-                            <button className="text-white px-6 py-2 rounded-2xl bg-sunglow">
-                                View Resume
-                            </button>
-                        </div>
+                   
                     </div>
 
                     <div className="px-4 py-6">
@@ -400,11 +393,11 @@ console.log(data)
                                         <div className="divide-y divide-gray-100">
                                             {data?.experience.map((exp, index) => {
                                                 const startDate = new Date(exp.date_start);
-                                                const endDate = new Date(exp.date_end);
+                                                const endDate =  new Date(exp.date_end);
 
                                                 // Extracting years
                                                 const startYear = startDate.getFullYear();
-                                                const endYear = endDate.getFullYear();
+                                                const endYear = exp.date_end === "till-date"? "till Date" : endDate.getFullYear();
 
                                                 return (
                                                     <div className="px-4 py-6" key={index}>
