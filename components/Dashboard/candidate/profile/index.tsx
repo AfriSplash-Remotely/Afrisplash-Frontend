@@ -467,10 +467,10 @@ console.log(data)
                                                                 <FiDelete className="text-[#666]" />
                                                             </span>
                                                         </div>
-                                                        <h5 className="text-base font-bold text-sunglow mb-2">
+                                                        <h5 className="text-base font-bold text-sunglow mb-2 capitalize">
                                                             {edu.institution_name}
                                                         </h5>
-                                                        <h6 className="text-base font-normal text-[#606172] mb-2">
+                                                        <h6 className="text-base font-normal text-[#606172] mb-2 capitalize">
                                                             {edu.field_of_study}
                                                         </h6>
                                                         <div>
