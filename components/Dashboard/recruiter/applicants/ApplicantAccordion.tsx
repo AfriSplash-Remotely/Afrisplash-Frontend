@@ -68,9 +68,9 @@ export const ApplicantAccordion = (props: Partial<RecruiterJobData>): JSX.Elemen
 													console.log({ resumeid: c._id });
 
 												}}
-												className="text-[10px] md:text-xs font-thin underline"
+												className="text-xs md:text-xs font-thin underline text-black"
 											>
-												View resume
+												View Application
 											</button>
 										</div>
 									</div>

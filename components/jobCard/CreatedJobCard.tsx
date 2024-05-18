@@ -50,7 +50,6 @@ export default function CreatedJobCard({
   const handleDrawerOpen = () => {
     setIsOpen(!isOpen);
   };
-  console.log(expiry);
 
   return (
     <>
