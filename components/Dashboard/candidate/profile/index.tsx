@@ -260,7 +260,7 @@ console.log(data)
                                 <h3 className="text-lg font-bold">{data?.first_name} {data?.last_name}</h3>
                                 <div className="flex items-center space-x-2">
                                     <BriefCase />
-                                    <p className="text-sm font-normal">{data?.role}</p>
+                                    <p className="text-sm font-normal">{data?.role === null  ? "___" : data?.role}</p>
                                 </div>
                                 <div className="flex items-center space-x-2">
                                     <ClockSvg />
