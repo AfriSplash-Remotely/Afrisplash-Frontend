@@ -1,11 +1,18 @@
-import axios from "axios";
-import Cookies from "js-cookie";
+import Axios from "axios";
+import toast from "react-hot-toast";
+import { ACCESSTOKEN, getToken, getUserSession } from "./constant";
 
-console.log({ endpoint: process.env.NEXT_PUBLIC_BACKEND_URL })
-console.log(Cookies.get(), 'ppe');
+const userSession = getUserSession()?.user.accessToken;
+const _token = getToken(ACCESSTOKEN) ? userSession : null
 
+const axios = Axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
+  headers: {
+    "Content-Type": "application/json",
+    ...(_token && { Authorization: `Bearer ${_token}` }),
+  },
+});
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 axios.interceptors.request.use(
   (request) => {
     return request;
@@ -21,12 +28,13 @@ axios.interceptors.response.use(
   },
   function (err) {
     if (err?.response?.status === 401) {
-      Cookies.remove("access_token");
-      window.location.replace("/auth/login");
+      toast.error('Unauthorized access')
+      // window.location.replace("/auth/login");
     }
 
     return Promise.reject(err);
   }
+
 );
 
 export default axios;
