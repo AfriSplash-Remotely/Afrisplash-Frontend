@@ -78,19 +78,12 @@ export const getAllAppliedJobs = async (jwt: string): Promise<IJobApiResponse> =
   return data.data
 };
 
-export const getRecruiterStats = async (jwt: string): Promise<IRecruiterStatRespone> => {
-  api.defaults.headers.common['Content-Type'] = 'application/json';
-  api.defaults.headers.common.accept = 'application/json';
-  api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
-
+export const getRecruiterStats = async (): Promise<IRecruiterStatRespone> => {
   const { data } = await api.get('/recruiter/dashboard')
   return data
 }
 
-export const getJobsCreated = async (jwt: string): Promise<IRecruiterJobCreatedRes> => {
-  api.defaults.headers.common['Content-Type'] = 'application/json';
-  api.defaults.headers.common.accept = 'application/json';
-  api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
+export const getJobsCreated = async (): Promise<IRecruiterJobCreatedRes> => {
 
   const { data } = await api.get('/jobs/p')
   return data

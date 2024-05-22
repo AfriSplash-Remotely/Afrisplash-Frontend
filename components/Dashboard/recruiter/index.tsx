@@ -14,11 +14,11 @@ const Recruiter = (): JSX.Element => {
     const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
     const { data: fetchCreatedJobs } = useQuery(["createdJobs"], () =>
-        getJobsCreated(session?.user?.accessToken as unknown as string)
+        getJobsCreated()
     );
     const allCreatedJObs = fetchCreatedJobs?.data;
 
-    const { data } = useQuery(['recruiterStat'], () => getRecruiterStats(session?.user?.accessToken as unknown as string))
+    const { data } = useQuery(['recruiterStat'], () => getRecruiterStats())
     const recruiterStat = data?.data
 
     return (
