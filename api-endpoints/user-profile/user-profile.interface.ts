@@ -1,7 +1,7 @@
 interface Language {
     name: string;
     level: string;
-    _id?:string | any
+    _id:string
 }
 
 
@@ -13,7 +13,7 @@ interface Experience {
     date_start: string;
     date_end: string;
     description: string;
-    _id?:string | any
+    _id:string
 }
 
 interface Education {
@@ -23,7 +23,7 @@ interface Education {
     date_start: string;
     date_end: string;
     description: string;
-    _id?:string | any
+    _id:string 
 }
 
 interface Jobs {

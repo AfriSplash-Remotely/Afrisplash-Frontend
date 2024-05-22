@@ -16,10 +16,6 @@ interface Language {
     name: string;
     level: string;
 }
-
-
-
-
 const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,  }) => {
 
 
@@ -45,18 +41,11 @@ const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData
         setLanguages(newLanguages);
     };
 
-
     useEffect(() => {
       
         setData(languages)
     }, [languages])
     
-
-
-
-
-
-
     return (
         <div className='relative'>
             <Modal open={open} setOpen={setOpen} >
@@ -76,7 +65,7 @@ const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData
                                
                                 <input
                                     type={ "text"}
-                                    className={`   px-3 py-[15px] flex items-center border border-[#BBBBC3] outline-none  placeholder:text-opacity-50 bg-transparent focus:bg-transparent placeholder:text-sm text-black text-sm placeholder:text-[#606172]  h-[56px] rounded-[10px] `} 
+                                    className={`   px-3 py-[15px] flex items-center border border-grey outline-none  placeholder:text-opacity-50 bg-transparent focus:bg-transparent placeholder:text-sm text-black text-sm placeholder:grey_3  h-[56px] rounded-[10px] `} 
                                     value={inputValue}
                                     onChange={(e: ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
                                     onKeyDown={handleAddLanguage}
@@ -136,13 +125,6 @@ const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData
                             </span>
                             <Button name={'Update'} loading={loading} onClick={onClick} disabled={loading} />
                         </div>
-
-
-
-
-
-
-
                     </div>
 
                 </div>

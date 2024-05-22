@@ -5,17 +5,14 @@ import { DateInput, Input } from '@/components/Input';
 import { fieldsOfStudy } from '@/utils';
 import { Button, OutlineBtn } from '@/components/button';
 import PrimarySelect from './primary-selects';
+
 interface modalcompProps {
     open: boolean;
     setOpen: React.Dispatch<SetStateAction<boolean>>;
     onClick:  () => void;
     loading: boolean;
-    setData: any;
+    setData: React.Dispatch<SetStateAction<object[]>>;
 }
-
-
-
-
 
 const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
     const [name, setName] = useState<string>("");
@@ -45,8 +42,6 @@ const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, s
 
     }, [name,degreeType,startDate,endDate,desc,field])
     
-
-
   return (
     <div className='relative'>
           <Modal open={open} setOpen={setOpen} >
@@ -70,29 +65,29 @@ const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, s
                           <Input label={'Degree type'} value={degreeType} setValue={setDegreeType} />
                           </div>
                           <div className='w-full flex flex-col'>
-                              <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                              <label className="text-sm  lg:text-base text-grey_3 font-semibold  mb-2">
                                   Field of Study 
                               </label>
                            <PrimarySelect data={fieldsOfStudyList} selected={field} setSelected={setField} label={''} />
                           </div>
                           <div className='flex flex-col'>
-                              <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                              <label className="text-sm  lg:text-base text-grey_3 font-semibold  mb-2">
                                   Start Date
                               </label>
                               <DateInput date={startDate} setDate={setStartDate}  />
                           </div>
                           <div className='flex flex-col'>
-                              <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                              <label className="text-sm  lg:text-base text-grey_3 font-semibold  mb-2">
                                   End Date
                               </label>
                               <DateInput date={endDate} setDate={setEndDate}  />
                           </div>
                       </div>
                       <div className="w-full mt-4 flex flex-col">
-                          <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                          <label className="text-sm  lg:text-base text-grey_3 font-semibold  mb-2">
                               Description
                           </label>
-                          <textarea className='h-[120px] p-4 border border-[#BBBBC3] rounded-[10px]  ' onChange={(e) => setDesc(e.target.value) } value={desc}  /> 
+                          <textarea className='h-[120px] p-4 border border-grey rounded-[10px]  ' onChange={(e) => setDesc(e.target.value) } value={desc}  /> 
 
                       </div>
 
@@ -103,12 +98,6 @@ const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, s
                           <Button name={'Update'} loading={loading} onClick={onClick} disabled={loading} />
                       </div>
                       
-
-
-
-
-
-
                   </div>
 
               </div>

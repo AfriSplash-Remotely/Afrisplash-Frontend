@@ -43,6 +43,7 @@ module.exports = {
         map_border: "#CECECE",
         lighter_green: "rgba(214, 236, 220, 0.4)",
         chat_gray: "#F2F2F2",
+        placeholder: "#c6c6c6",
       },
     },
   },

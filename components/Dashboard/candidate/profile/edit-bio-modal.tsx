@@ -13,31 +13,15 @@ interface modalcompProps {
     setBio:React.Dispatch<SetStateAction<string>>
 }
 
-
-
-
-
 const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,bio,setBio }) => {
   
-
-
-
-
-
     useEffect(() => {
         const bodyData =
         {
             "bio": bio
         }
-
-
         setData(bodyData);
-
-
     }, [bio])
-
-   
-
 
 
     return (
@@ -55,24 +39,15 @@ const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, lo
                         </h1>
 
                         <div className="w-full mt-8 grid grid-cols-1   gap-4  ">
-                            <textarea value={bio} onChange={(e: any) => setBio(e.target.value)} className='h-[152px] p-5 border border-[#BBBBC3] rounded-[10px] ' />
+                            <textarea value={bio} onChange={(e: any) => setBio(e.target.value)} className='h-[152px] p-5 border border-grey rounded-[10px] ' />
 
                         </div>
-
-
-
                         <div className="w-full flex flex-col md:justify-center gap-4 items-center lg:items-center md:flex-row mt-12">
                             <span>
                                 <OutlineBtn name='Cancel' onClick={() => setOpen(false)} />
                             </span>
                             <Button name={'Update'} loading={loading} onClick={onClick} disabled={loading} />
                         </div>
-
-
-
-
-
-
 
                     </div>
 

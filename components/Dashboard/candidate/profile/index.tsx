@@ -19,6 +19,10 @@ import AddLanguage from "./add-language-modal";
 import { FiDelete } from "react-icons/fi";
 import LoadingComponent from "@/components/atoms/Loading/loading-component";
 
+export interface contactProps 
+    { email: string; phone: string; location: string }
+
+
 const Candidate = (): JSX.Element => {
     const [openEducation, setOpenEducation] = useState<boolean>(false);
     const [openExperience, setOpenExperience] = useState<boolean>(false);
@@ -27,10 +31,10 @@ const Candidate = (): JSX.Element => {
     const [openLanguage, setOpenLanguage] = useState<boolean>(false);
     const [openSkills, setOpenSkills] = useState<boolean>(false);
     const { data: session } = useSession();
-    const [educationData, setEducationData] = useState([]);
+    const [educationData, setEducationData] = useState<object[]>([]);
     const [bio, setBio] = useState<string>("");
-    const [experienceData, setExperienceData] = useState([]);
-    const [contactData, setContactData] = useState({});
+    const [experienceData, setExperienceData] = useState<object[]>([]);
+    const [contactData, setContactData] = useState<contactProps>({ email: "", phone: "", location: "" });
     const [bioData, setBioData] = useState([]);
     const [skillData, setSkillsData] = useState<any>([]);
     const [langData, setLangData] = useState<any>([]);
@@ -101,7 +105,7 @@ useEffect(() => {
         mutationFn: (body: object) => editContactDetails(body, session?.user?.accessToken as string),
         onSuccess: (data) => {
             toast.success("contact updated successfully ");
-            setContactData([]);
+            setContactData({location:"",phone:"",email:""});
             setOpenContact(false);
             refetch();
 

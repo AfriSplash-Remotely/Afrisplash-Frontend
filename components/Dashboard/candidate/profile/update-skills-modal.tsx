@@ -1,35 +1,23 @@
-import React, { useEffect, useState,KeyboardEvent } from 'react';
+import React, { useEffect, useState,KeyboardEvent, SetStateAction } from 'react';
 import Modal from '@/components/modal/Modal';
 import { CancelIcon } from '@/assets';
 import { Button, OutlineBtn } from '@/components/button';
 interface modalcompProps {
     open: boolean;
-    setOpen: any;
-    onClick: any;
+    setOpen: React.Dispatch<SetStateAction<boolean>>;
+    onClick: () => void;
     loading: boolean;
-    setData: any;
-    data: any;
+    setData: React.Dispatch<SetStateAction<string[]>>;
+    data: string[];
 }
-
-
-
-
-
 const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,data }) => {
     const [keyword, setKeyword] = useState("");
     const [list, setList] = useState<any>([]);
   
     useEffect(() => {
-       
-
-
-        // setData(data);
         setList(data)
-
-
     }, [data])
   
-
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
             const newList:any = [...list];
@@ -39,10 +27,6 @@ const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, s
             setData(newList);
         }
     };
-
-
-
-
 
     return (
         <div className='relative'>
@@ -62,11 +46,11 @@ const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, s
                             <label htmlFor="">
                                 Add skill set 
                             </label>
-                            <div className="w-full  h-[56px] rounded-[15px] px-2 flex items-center gap-2 border border-[#63685E]">
+                            <div className="w-full  h-[56px] rounded-[15px] px-2 flex items-center gap-2 border border-grey">
                              
                                 <input
                                     type="text"
-                                    className="border-none outline-none focus:outline-none flex-grow placeholder:text-xs bg-transparent placeholder:text-[#c6c6c6]"
+                                    className="border-none outline-none focus:outline-none flex-grow placeholder:text-xs bg-transparent placeholder:text-placeholder"
                                     placeholder="Press enter to add "
                                     onChange={(e) => setKeyword(e.target?.value)}
                                     value={keyword}

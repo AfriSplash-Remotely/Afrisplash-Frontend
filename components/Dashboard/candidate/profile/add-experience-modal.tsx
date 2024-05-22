@@ -6,24 +6,21 @@ import { Location } from '../../recruiter/createJob/jobsData';
 import { Button, OutlineBtn } from '@/components/button';
 import { techJobTypes } from '@/utils';
 import PrimarySelect from './primary-selects';
+
 interface modalcompProps {
     open: boolean;
     setOpen: React.Dispatch<SetStateAction<boolean>>;
     onClick: () => void;
     loading: boolean;
-    setData: any;
+    setData: React.Dispatch<React.SetStateAction<object[]>>;
 }
 
-
-
-
 const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading }) => {
-    const [name, setName] = useState("");
-    const [position, setPosition] = useState("");
-   
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
-    const [desc, setDesc] = useState("");
+    const [name, setName] = useState<string>("");
+    const [position, setPosition] = useState<string>("");
+    const [startDate, setStartDate] = useState<string>("");
+    const [endDate, setEndDate] = useState<string>("");
+    const [desc, setDesc] = useState<string>("");
     const [field, setField] = useState<any>({});
     const [location, setLocation] = useState<any>({ name: "", label: "" });
     const [currentlyWorking, setCurrentlyWorking] = useState<boolean>(false);
@@ -31,8 +28,8 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
         name: jobType,
         label: jobType,
     }));
-    const locationList = Location?.map((item:any) => (
-        {name:item.value, label:item.label}
+    const locationList = Location?.map((item: any) => (
+        { name: item.value, label: item.label }
     ))
 
     useEffect(() => {
@@ -43,19 +40,13 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                 "location": location?.name,
                 "job_type": field?.name,
                 "date_start": startDate,
-                "date_end": currentlyWorking? "till-date" : endDate,
+                "date_end": currentlyWorking ? "till-date" : endDate,
                 "description": desc
             }
         ];
 
         setData(bodyData);
-   
-
     }, [name, position, location, startDate, endDate, desc, field])
-
-    
-
-
 
     return (
         <div className='relative'>
@@ -76,49 +67,49 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                             <Input label={'Position held'} value={position} setValue={setPosition} />
                         </div>
                         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-4 mt-4">
-                           
+
                             <div className='w-full flex flex-col'>
-                                <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                                <label className="text-sm  lg:text-base text-grey_3  font-semibold  mb-2">
                                     Location
                                 </label>
                                 <PrimarySelect data={locationList} selected={location} setSelected={setLocation} label={''} />
                             </div>
                             <div className='w-full flex flex-col'>
-                                <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                                <label className="text-sm  lg:text-base text-grey_3  font-semibold  mb-2">
                                     Job type
                                 </label>
                                 <PrimarySelect data={techJobTypesList} selected={field} setSelected={setField} label={''} />
                             </div>
                             <div className='flex flex-col'>
-                                <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                                <label className="text-sm  lg:text-base text-grey_3  font-semibold  mb-2">
                                     Start Date
                                 </label>
                                 <DateInput date={startDate} setDate={setStartDate} />
                             </div>
                             <div className='flex flex-col'>
-                                <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                                <label className="text-sm  lg:text-base text-grey_3  font-semibold  mb-2">
                                     End Date
                                 </label>
-                                <div className={`${currentlyWorking? "cursor-not-allowed opacity-50" : ""}`}>
+                                <div className={`${currentlyWorking ? "cursor-not-allowed opacity-50" : ""}`}>
 
-                                <DateInput date={endDate} setDate={setEndDate} />
+                                    <DateInput date={endDate} setDate={setEndDate} />
                                 </div>
                                 <div className="flex items-center justify-between mt-3">
-                                    <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                                    <label className="text-sm  lg:text-base text-grey_3  font-semibold  mb-2">
                                         I currently work here
                                     </label>
                                     <span>
                                         <input type="checkbox" name="" id="" className='w-4 h-4' checked={currentlyWorking}
                                             onChange={(e) => setCurrentlyWorking(e.target.checked)} />
-                                     </span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div className="w-full mt-4 flex flex-col">
-                            <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                            <label className="text-sm  lg:text-base text-grey_3  font-semibold  mb-2">
                                 Description
                             </label>
-                            <textarea className='h-[120px] p-4 border border-[#BBBBC3] rounded-[10px]  ' onChange={(e) => setDesc(e.target.value)} value={desc} />
+                            <textarea className='h-[120px] p-4 border border-grey rounded-[10px]  ' onChange={(e) => setDesc(e.target.value)} value={desc} />
 
                         </div>
 

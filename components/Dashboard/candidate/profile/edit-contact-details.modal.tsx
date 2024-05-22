@@ -5,25 +5,25 @@ import {  Input } from '@/components/Input';
 import { Location } from '../../recruiter/createJob/jobsData';
 import { Button, OutlineBtn } from '@/components/button';
 import PrimarySelect from './primary-selects';
+import { contactProps } from '.';
 interface modalcompProps {
     open: boolean;
     setOpen: React.Dispatch<SetStateAction<boolean>>;
-    onClick: any;
+    onClick: () => void;
     loading: boolean;
-    setData: any;
-    data: any;
+    setData: React.Dispatch<SetStateAction<contactProps>>;
+    data: { email: string; phone: string; location:string };
 }
 
+interface locationObj {
+    name: string;
+    label: string;
 
-
-
+}
 const EditContactDetails: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,data }) => {
-    const [email, setEmail] = useState<string>(data.email ? data?.email :"");
-    const [phone, setPhone] = useState<string>(data.phone ? data?.phone : "");
-
-  
-    const [field, setField] = useState<any>({});
-    const [location, setLocation] = useState<any>({ name: data.location ? data?.location : "", label: "" });
+    const [email, setEmail] = useState<string>("");
+    const [phone, setPhone] = useState<string>( "");
+    const [location, setLocation] = useState<locationObj>({name:"",label:""});
 
     const locationList = Location?.map((item: any) => (
         { name: item.value, label: item.label }
@@ -36,16 +36,8 @@ const EditContactDetails: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                 "email": email,
                 "location": location?.name
             }
-        
-
         setData(bodyData);
-
-
     }, [ location, phone,email])
-
-
-
-
 
     return (
         <div className='relative'>
@@ -62,40 +54,28 @@ const EditContactDetails: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                         </h1>
 
                         <div className="w-full mt-8 grid grid-cols-1   gap-4  ">
-                            <Input label={'Email'} value={email} setValue={setEmail} />
+                            <Input label={'Email'} value={email || data.email} setValue={setEmail} />
                         
                         </div>
                         <div className="w-full grid grid-cols-1  gap-x-4 gap-y-4 mt-4">
 
                             <div className='w-full flex flex-col'>
-                                <label className="text-sm  lg:text-base text-[#606172]  font-semibold  mb-2">
+                                <label className="text-sm  lg:text-base text-grey_3  font-semibold  mb-2">
                                     Location
                                 </label>
-                                <PrimarySelect data={locationList} selected={location} setSelected={setLocation} label={''} />
+                                <PrimarySelect data={locationList} selected={location} setSelected={setLocation} label={''} name={location.name || data.location} />
                             </div>
                             <div className='w-full flex flex-col'>
-                                <Input label={'Phone'} value={phone} setValue={setPhone} type='tel' />
+                                <Input label={'Phone'} value={phone || data.phone} setValue={setPhone} type='tel' />
                             </div>
-                         
-                         
                         </div>
-                     
-
                         <div className="w-full flex flex-col md:justify-center gap-4 items-center lg:items-center md:flex-row mt-12">
                             <span>
                                 <OutlineBtn name='Cancel' onClick={() => setOpen(false)} />
                             </span>
                             <Button name={'Update'} loading={loading} onClick={onClick} disabled={loading} />
                         </div>
-
-
-
-
-
-
-
                     </div>
-
                 </div>
             </Modal>
         </div>
