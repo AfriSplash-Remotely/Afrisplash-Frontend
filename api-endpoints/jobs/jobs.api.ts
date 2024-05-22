@@ -3,6 +3,7 @@ import {
   IJobApiResponse, ICreateJobApiResponse, IJobDetailResponse,
   IJobApplyResponse, IRecruiterStatRespone, IRecruiterJobCreatedRes
 } from "./jobs.interface";
+import { setApiHeaders } from "@/constants/setApiHeaders";
 
 export const fetchAllJobs = async (): Promise<IJobApiResponse> => {
   const { data } = await api.get("/jobs");
@@ -93,5 +94,13 @@ export const getJobsCreated = async (jwt: string): Promise<IRecruiterJobCreatedR
   api.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
 
   const { data } = await api.get('/jobs/p')
+  return data
+}
+
+export const getApplicants = async (jwt: string) => {
+  setApiHeaders(jwt)
+
+  const { data } = await api.get('/')
+
   return data
 }
