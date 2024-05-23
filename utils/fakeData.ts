@@ -773,3 +773,33 @@ export const userEducation: UserEducationT[] = [
     jobDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
   },
 ];
+
+export const fieldsOfStudy = [
+  "Computer Science",
+  "Engineering",
+  "Mathematics",
+  "Physics",
+  "Biology",
+  "Chemistry",
+  "Psychology",
+  "Sociology",
+  "Business Administration",
+  // Add more fields as needed
+];
+
+export const techJobTypes = [
+    "Software Developer",
+    "Web Developer",
+    "Mobile App Developer",
+    "Data Scientist",
+    "Data Analyst",
+    "Database Administrator",
+    "Network Engineer",
+    "Systems Analyst",
+    "UI/UX Designer",
+    "DevOps Engineer",
+    "QA Engineer",
+    "Cybersecurity Analyst",
+    "Cloud Architect",
+
+  ];
