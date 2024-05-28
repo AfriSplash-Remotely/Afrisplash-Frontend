@@ -11,6 +11,11 @@ const options = [
   { value: "strawberry", label: "Strawberry" },
   { value: "vanilla", label: "Vanilla" },
 ];
+const salaryData = [
+  { value: "1-100000", label: "1-100000" },
+  { value: "100000- 500000", label: "100000- 500000" },
+  { value: "500000-1000000", label: "500000- 1000000" },
+];
 
 
 
@@ -67,10 +72,10 @@ export default function Jobs(): JSX.Element {
     <AdminLayout>
       <div className="flex flex-wrap gap-1	lg:gap-4">
         <div className="w-[47.5%]	lg:w-2/12	">
-          <Select options={Location} placeholder="location" onChange={(e: any) => { setCurrent(1); setLocations(e.value) }} />
+          <Select  options={Location} placeholder="location" onChange={(e: any) => { setCurrent(1); setLocations(e.value) }} />
         </div>
         <div className="w-[47.5%]	lg:w-2/12">
-          <Select options={options} placeholder="Salary" onChange={(e: any) => { setCurrent(2); setSalary(e.value) }} />
+          <Select options={salaryData} placeholder="Salary" onChange={(e: any) => { setCurrent(2); setSalary(e.value) }} />
         </div>
         <div className="w-[47.5%]	lg:w-2/12	">
           <Select options={jobType} placeholder="Job type" onChange={(e: any) => { setCurrent(3); setJobTypes(e.value) }} />
@@ -78,9 +83,9 @@ export default function Jobs(): JSX.Element {
         <div className="w-[47.5%]	lg:w-2/12	">
           <Select options={options} placeholder="Job category" onChange={(e: any) => { setCurrent(4); setJobCat(e.value) }} />
         </div>
-        <div className="w-[47.5%]	lg:w-2/12	">
+        {/* <div className="w-[47.5%]	lg:w-2/12	">
           <Select options={experience} placeholder="Experience" onChange={(e: any) => { setCurrent(5); setExp(e.value) }} />
-        </div>
+        </div> */}
       </div>
       {isLoading ? (
         <div className="py-10">

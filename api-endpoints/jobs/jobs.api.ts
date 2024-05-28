@@ -10,6 +10,7 @@ export const fetchAllJobs = async (): Promise<IJobApiResponse> => {
   return data;
 };
 
+
 export const createJob = async (jobPayload: object, jwt: string): Promise<ICreateJobApiResponse> => {
   api.defaults.headers.common['Content-Type'] = 'application/json';
   api.defaults.headers.common.accept = 'application/json';
