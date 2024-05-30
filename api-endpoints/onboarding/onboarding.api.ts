@@ -1,6 +1,5 @@
 import api from "@/utils/axios";
 
-
 export const postCaditateOnBoarding = async (payload: object): Promise<object> => {
     const { data: { data } } = await api.post(`candidate/onboarding`, { ...payload });
     return data;

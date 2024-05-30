@@ -27,10 +27,8 @@ const RecruiterOnboarding = (): JSX.Element => {
     }
 
     const handleSubmit = () => {
-
         postCompanyOnBoarding(companyOnbardingData).then(() => {
             router.push("/dashboard");
-
         }).catch(() => {
             toast.error("An Error Occured while trying to onboard user");
         })
@@ -41,9 +39,7 @@ const RecruiterOnboarding = (): JSX.Element => {
             <div className="max-w-5xl mx-auto mt-5 pb-10 bg-white shadow-xl rounded-xl px-3">
                 <div className="flex mb-14 justify-center items-center">
                     <Link href="/">
-
                         <ArrowLeftIcon className="w-6 ml-4" />
-
                     </Link>
                     <div className="flex items-center justify-center flex-1">
                         <div className="w-12 h-12 relative">

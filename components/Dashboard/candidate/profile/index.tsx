@@ -1,17 +1,13 @@
-import AdminLayout from "@/layouts/adminLayout";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import { getCandidateProfile } from "@/api-endpoints/user-profile/user-profile.api";
+import AdminLayout from "@/layouts/adminLayout";
 import { AwardSvg, AvatarTick, BriefCase, ClockSvg } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
-import { useSession } from "next-auth/react";
-import { getCandidateProfile } from "@/api-endpoints/user-profile/user-profile.api";
-import { useQuery } from "@tanstack/react-query";
 
 const Candidate = (): JSX.Element => {
-    const { data: session } = useSession();
-    const jwtToken = session?.user?.accessToken as string;
-
     const { data } = useQuery(["candidateProfile"], async () => {
-        const response = await getCandidateProfile(jwtToken as string)
+        const response = await getCandidateProfile()
         return response.data[0];
     });
 
@@ -194,6 +190,5 @@ const Candidate = (): JSX.Element => {
         </AdminLayout>
     )
 }
-
 
 export default Candidate

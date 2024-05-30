@@ -1,21 +1,17 @@
 import React from "react";
-import RecruiterProfileLayout from "@/layouts/recruiterProfileLayout";
 import Image from "next/image";
-import pic9 from "assets/images/pic9.png";
-import { AvatarTick, BriefCase, ClockSvg, Pencil } from "@/assets/profile";
+import { useQuery } from "@tanstack/react-query";
+import { MdOutlineInfo } from "react-icons/md";
+import RecruiterProfileLayout from "@/layouts/recruiterProfileLayout";
 import ToggleButton from "@/components/atoms/ToggleButton";
 import Tooltip from "@/components/atoms/Tooltip";
-import { MdOutlineInfo } from "react-icons/md";
-import { useSession } from "next-auth/react";
-import { useQuery } from "@tanstack/react-query";
 import { getRecruiterProfile } from "@/api-endpoints/user-profile/user-profile.api";
+import { AvatarTick, BriefCase, ClockSvg, Pencil } from "@/assets/profile";
+import pic9 from "assets/images/pic9.png";
 
 const Recruiter = (): JSX.Element => {
-    const { data: session } = useSession();
-    const jwtToken = session && (session?.user?.accessToken as string);
-
     const { data } = useQuery(["recruiterProfile"], async () => {
-        const response = await getRecruiterProfile(jwtToken as string);
+        const response = await getRecruiterProfile();
         return response.data[0];
     });
 
