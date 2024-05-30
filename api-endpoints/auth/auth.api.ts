@@ -6,7 +6,6 @@ export const signUp = async (payload: object): Promise<responseMessage> => {
   return data;
 };
 
-
 export const forgotPassword = async (email: string): Promise<responseMessage> => {
   const { data } = await api.post("/auth/forgot-password", { email });
   return data;

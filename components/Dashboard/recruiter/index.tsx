@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import { getJobsCreated, getRecruiterStats } from "@/api-endpoints/jobs/jobs.api";
 import AdminLayout from "@/layouts/adminLayout";
@@ -10,7 +9,6 @@ import pic9 from "assets/images/pic9.png";
 import { ApplicantsStatsCard } from "./applicants/StatsCard";
 
 const Recruiter = (): JSX.Element => {
-    const { data: session } = useSession();
     const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
     const { data: fetchCreatedJobs } = useQuery(["createdJobs"], () =>

@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Select from "react-select";
-import AdminLayout from '@/layouts/adminLayout';
-import checked from "assets/candidateOnboarding/checked.svg";
-import unchecked from "assets/candidateOnboarding/unchecked.svg"
-import { CreateJobSchema, StepOne, StepTwo, StepThree } from '@/schema/job.schema';
 import { Controller, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { jobIndustry, expLevel, jobsType, Location, gender, payment, currency } from './jobsData';
-import { selectStyle } from '@/utils/helper';
+import toast from "react-hot-toast";
 import { useMutation } from '@tanstack/react-query';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { createJob } from '@/api-endpoints/jobs/jobs.api';
+import AdminLayout from '@/layouts/adminLayout';
+import { CreateJobSchema, StepOne, StepTwo, StepThree } from '@/schema/job.schema';
 import Confirmation from './confirmation';
 import LoadingIcon from "@/components/atoms/LoaingIcon";
-import toast from "react-hot-toast";
+import { selectStyle } from '@/utils/helper';
+import { jobIndustry, expLevel, jobsType, Location, gender, payment, currency } from './jobsData';
+import unchecked from "assets/candidateOnboarding/unchecked.svg"
+import checked from "assets/candidateOnboarding/checked.svg";
 
 export default function CreateJobs(): JSX.Element {
-
-  const { data: session, status } = useSession()
 
   const [currentStep, setCurrentStep] = useState<number>(1)
   const createJobStep = [
@@ -60,8 +57,7 @@ export default function CreateJobs(): JSX.Element {
   }
 
   const { mutate, isLoading } = useMutation({
-    mutationFn: (payload: object) => createJob(payload, session?.user?.accessToken as string),
-
+    mutationFn: (payload: object) => createJob(payload),
     onSuccess: () => {
       setCurrentStep(4)
     },
