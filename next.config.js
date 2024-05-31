@@ -16,6 +16,7 @@ const config = {
       "source.unsplash.com",
       "unsplash.com",
       "example.com",
+      "firebasestorage.googleapis.com",
     ],
   },
 };
