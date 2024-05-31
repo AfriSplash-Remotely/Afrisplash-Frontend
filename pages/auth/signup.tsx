@@ -116,7 +116,7 @@ const Signup: NextPage = () => {
 
       <h2 className={` ${styles.divider}`}>
         <span
-          className={`text-light_grey bg-white  font-normal  text-[0.875rem] ${styles.emailSpan}`}
+          className={`text-primary_grey bg-white  font-normal  text-[0.875rem] ${styles.emailSpan}`}
         >
           {translate("or with email")}
         </span>
