@@ -60,7 +60,7 @@ const Candidate = (): JSX.Element => {
 
 
     const { mutate: updateEducationMutation, isLoading: educationLoading } = useMutation({
-        mutationFn: (body: object[]) => addEducation(body, session?.user?.accessToken as string),
+        mutationFn: (body: object[]) => addEducation(body),
         onSuccess: () => {
             toast.success("education updated successfully ");
             setEducationData([]);
@@ -79,7 +79,7 @@ const Candidate = (): JSX.Element => {
         updateEducationMutation(body);
     }
     const { mutate: updateExperienceMutation, isLoading: experienceLoading } = useMutation({
-        mutationFn: (body: object[]) => addExperience(body, session?.user?.accessToken as string),
+        mutationFn: (body: object[]) => addExperience(body),
         onSuccess: () => {
             toast.success("experience updated successfully ");
             setExperienceData([]);
@@ -99,7 +99,7 @@ const Candidate = (): JSX.Element => {
         updateExperienceMutation(body);
     }
     const { mutate: updateContactMutation, isLoading: contactLoading } = useMutation({
-        mutationFn: (body: object) => editContactDetails(body, session?.user?.accessToken as string),
+        mutationFn: (body: object) => editContactDetails(body),
         onSuccess: () => {
             toast.success("contact updated successfully ");
             setContactData({ location: "", phone: "", email: "" });
@@ -117,7 +117,7 @@ const Candidate = (): JSX.Element => {
         updateContactMutation(body);
     }
     const { mutate: updateBioMutation, isLoading: bioLoading } = useMutation({
-        mutationFn: (body: object[]) => editBio(body, session?.user?.accessToken as string),
+        mutationFn: (body: object[]) => editBio(body),
         onSuccess: () => {
             toast.success("contact updated successfully ");
             setBioData([]);
@@ -133,8 +133,8 @@ const Candidate = (): JSX.Element => {
         const body = bioData;
         updateBioMutation(body);
     }
-    const { mutate: updateSkillMutation, isLoading: skillLoading } = useMutation({
-        mutationFn: (body: object[]) => addSkill(body, session?.user?.accessToken as string),
+    const { mutate: updateSkillMutation} = useMutation({
+        mutationFn: (body: object[]) => addSkill(body),
         onSuccess: () => {
             toast.success("contact updated successfully ");
             setSkillsData([]);
@@ -152,7 +152,7 @@ const Candidate = (): JSX.Element => {
         updateSkillMutation(body);
     }
     const { mutate: updateLanguageMutation, isLoading: langLoading } = useMutation({
-        mutationFn: (body: object[]) => addLanguage(body, session?.user?.accessToken as string),
+        mutationFn: (body: object[]) => addLanguage(body),
         onSuccess: () => {
             toast.success("language added successfully ");
             setLangData([]);
@@ -172,7 +172,7 @@ const Candidate = (): JSX.Element => {
         updateLanguageMutation(body);
     }
     const { mutate: removeLanguageMutation, isLoading: removelangLoading } = useMutation({
-        mutationFn: (id: string) => removeLanguage(id as string, session?.user?.accessToken as string),
+        mutationFn: (id: string) => removeLanguage(id as string),
         onSuccess: () => {
             toast.success("Language removed successfully ");
             refetch();
@@ -186,7 +186,7 @@ const Candidate = (): JSX.Element => {
         removeLanguageMutation(id);
     }
     const { mutate: removeExperienceMutation, isLoading: removeExperienceLoading } = useMutation({
-        mutationFn: (id: string) => removeExperience(id as string, session?.user?.accessToken as string),
+        mutationFn: (id: string) => removeExperience(id as string),
         onSuccess: () => {
             toast.success("Experience removed successfully ");
             refetch();
@@ -201,7 +201,7 @@ const Candidate = (): JSX.Element => {
         removeExperienceMutation(id);
     }
     const { mutate: removeEducationMutation, isLoading: removeEducationLoading } = useMutation({
-        mutationFn: (id: string) => removeEducation(id as string, session?.user?.accessToken as string),
+        mutationFn: (id: string) => removeEducation(id as string),
         onSuccess: () => {
             toast.success("Education removed successfully ");
             refetch();
