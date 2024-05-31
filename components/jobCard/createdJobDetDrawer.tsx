@@ -49,7 +49,7 @@ export default function CreatedJobDetDrawer({
             leaveFrom="opacity-30"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="z-40 fixed inset-1 bg-black  w-3/4" />
+            <Dialog.Overlay className="z-40 fixed inset-0 bg-black bg-opacity-50  w-3/4" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
