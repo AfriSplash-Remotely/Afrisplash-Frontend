@@ -1,25 +1,29 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
-import { getJobsCreated, getRecruiterStats } from "@/api-endpoints/jobs/jobs.api";
+import {
+    getJobsCreated,
+    getRecruiterStats,
+} from "@/api-endpoints/jobs/jobs.api";
 import AdminLayout from "@/layouts/adminLayout";
 import CreatedJobCard from "@/components/jobCard/CreatedJobCard";
 import { ApplicantsTab } from "./applicants/ApplicantTab";
 import { ApplicantAccordion } from "./applicants/ApplicantAccordion";
-import pic9 from "assets/images/pic9.png";
 import { ApplicantsStatsCard } from "./applicants/StatsCard";
 
 const Recruiter = (): JSX.Element => {
     const { data: session } = useSession();
     const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
+    const jwt = session?.user?.accessToken as unknown as string;
+
     const { data: fetchCreatedJobs } = useQuery(["createdJobs"], () =>
-        getJobsCreated(session?.user?.accessToken as unknown as string)
+        getJobsCreated(jwt)
     );
     const allCreatedJObs = fetchCreatedJobs?.data;
 
-    const { data } = useQuery(['recruiterStat'], () => getRecruiterStats(session?.user?.accessToken as unknown as string))
-    const recruiterStat = data?.data
+    const { data } = useQuery(["recruiterStat"], () => getRecruiterStats(jwt));
+    const recruiterStat = data?.data;
 
     return (
         <AdminLayout>
@@ -28,8 +32,14 @@ const Recruiter = (): JSX.Element => {
                     Dashbaord
                 </h1>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    <ApplicantsStatsCard title="Jobs" data={`${recruiterStat?.totalJobs ?? 0}`} />
-                    <ApplicantsStatsCard title="Applicants" data={`${recruiterStat?.totalApplicants ?? 0}`} />
+                    <ApplicantsStatsCard
+                        title="Jobs"
+                        data={`${recruiterStat?.totalJobs ?? 0}`}
+                    />
+                    <ApplicantsStatsCard
+                        title="Applicants"
+                        data={`${recruiterStat?.totalApplicants ?? 0}`}
+                    />
                     <ApplicantsStatsCard title="Interview Schedule" data="-" />
                     <ApplicantsStatsCard title="Rejected" data="-" />
                 </div>
@@ -44,47 +54,55 @@ const Recruiter = (): JSX.Element => {
                     </div>
 
                     <div role="tabPanels">
-                        {selectedIndex === 0 ? (
-                            <div role="tabPanel">
-                                {allCreatedJObs?.map((cJob) => (
-                                    <CreatedJobCard
-                                        key={cJob?._id}
-                                        title={cJob?.title}
-                                        industry={cJob?.industry}
-                                        postDate={cJob?.createdAt}
-                                        experience={cJob?.experience}
-                                        status={cJob?.status}
-                                        location={cJob?.location}
-                                        promoted={cJob?.promoted}
-                                        publish={cJob?.publish}
-                                        expiry={cJob?.expiry}
-                                        type={cJob?.type}
-                                        description={cJob?.description}
-                                        benefit={cJob?.benefit}
-                                        requirement={cJob?.requirement}
-                                        salary={`${cJob?.salary?.currency} ${cJob?.salary?.min} - ${cJob?.salary?.max}  ${cJob?.salary?.period}`}
-                                    />
-                                ))}
-                            </div>
+                        {!allCreatedJObs ? (
+                            <h5 className="text-lg font-medium text-gray-300">Loading...</h5>
                         ) : (
-                            <div role="tabPanel" className="bg-white rounded-xl space-y-6 p-4 md:p-6">
-                                <div className="space-y-4 -border border-red-300">
-                                    {[1, 2, 3, 4].map((_, i) => (
-                                        <ApplicantAccordion
-                                            key={i}
-                                            jobTitle="Software Developer Job"
-                                            desc="Job description goes here and works as expected"
-                                            candidate={[
-                                                {
-                                                    id: "eretr",
-                                                    name: "Geo Johnson",
-                                                    avatar: `${pic9.src}`,
-                                                },
-                                            ]}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
+                            <>
+                                {selectedIndex === 0 ? (
+                                    <div role="tabPanel">
+                                        <div className="space-y-4 -border border-red-300">
+                                            {allCreatedJObs.map((cJob) => (
+                                                <CreatedJobCard
+                                                    key={cJob?._id}
+                                                    title={cJob?.title}
+                                                    industry={cJob?.industry}
+                                                    postDate={cJob?.createdAt}
+                                                    experience={cJob?.experience}
+                                                    status={cJob?.status}
+                                                    location={cJob?.location}
+                                                    promoted={cJob?.promoted}
+                                                    publish={cJob?.publish}
+                                                    expiry={cJob?.expiry}
+                                                    type={cJob?.type}
+                                                    description={cJob?.description}
+                                                    benefit={cJob?.benefit}
+                                                    requirement={cJob?.requirement}
+                                                    salary={`${cJob?.salary?.currency || ""} ${cJob?.salary?.min || ""
+                                                        } - ${cJob?.salary?.max || ""}  ${cJob?.salary?.period || ""
+                                                        }`}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div
+                                        role="tabPanel"
+                                        className="bg-white rounded-xl space-y-6 p-4 md:p-6"
+                                    >
+                                        <div className="space-y-4 -border border-red-300">
+                                            {allCreatedJObs.map((applicant) => (
+                                                <ApplicantAccordion
+                                                    key={applicant?._id}
+                                                    _id={applicant?._id}
+                                                    title={applicant?.title}
+                                                    description={applicant?.description}
+                                                    applicants={applicant?.applicants}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </>
                         )}
                     </div>
                 </div>

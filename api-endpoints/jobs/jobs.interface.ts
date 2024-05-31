@@ -18,7 +18,7 @@ export interface Salary {
   max: number | string;
   currency: string;
   period: string;
-  amount?:string
+  amount?: string
 }
 
 interface ExternalData {
@@ -50,7 +50,7 @@ interface Job {
   expiry: string;
   service: string;
   external_data: ExternalData;
-  isDirectApply:boolean;
+  isDirectApply: boolean;
   createdAt: string;
   updatedAt: string;
   salaryType: string;
@@ -84,29 +84,29 @@ export interface ICreateJobApiResponse {
   data: Job[]
 }
 
-export interface IJobDetailAuthor{
-  _id:string;
-  first_name:string;
-  last_name:string;
-  bio:string;
-  profile_image:string;
-  thumbnail:string;
+export interface IJobDetailAuthor {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  bio: string;
+  profile_image: string;
+  thumbnail: string;
 }
 export interface IJobDetatilData {
-  _id:string;
-  _company:string;
+  _id: string;
+  _company: string;
   _author: IJobDetailAuthor;
-  
+
 }
 export interface IJobDetailResponse {
-  success:boolean;
+  success: boolean;
   data: IJobDetatilData;
   title: string;
   industry: string;
   description: string;
   requirement: string;
   experience: string;
-  benefit:string;
+  benefit: string;
   type: string;
   status: string;
   location: string;
@@ -129,9 +129,9 @@ export interface IJobDetailResponse {
 }
 
 export interface IJobApplyResponse {
-  success:boolean;
-  status:string;
-  error:string;
+  success: boolean;
+  status: string;
+  error: string;
 }
 
 interface RecruiterStat {
@@ -182,11 +182,27 @@ export interface RecruiterJobData {
   __v: number
   location?: string
 }
-export interface IRecruiterJobCreatedRes{
+export interface IRecruiterJobCreatedRes {
   success: boolean
   status: string
   count: number
   pagination: Pagination
   data: RecruiterJobData[]
+}
+
+export type JobApplicants = {
+  status: string
+  message: string
+  data: {
+    external_applicants: Array<{
+      firstName: string
+      lastName: string
+      email: string
+      country: string
+      phoneNumber: string
+      resumeURL: string
+      jobTitle?: string
+    }>
+  }
 }
 
