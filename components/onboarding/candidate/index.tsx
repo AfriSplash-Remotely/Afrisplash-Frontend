@@ -1,22 +1,19 @@
 import { useState } from "react";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { postCaditateOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
 import styles from "styles/Onboarding.module.scss";
-import checked from "assets/candidateOnboarding/checked.svg";
-import logo from "assets/candidateOnboarding/logo.svg";
 import Bio from "@/components/onboarding/candidate/Bio";
 import Education from "components/onboarding/candidate/Education";
 import Experience from "components/onboarding/candidate/Experience";
 import Skills from "components/onboarding/candidate/Skills";
-import { postCaditateOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
-import { useSession } from "next-auth/react";
-import toast from "react-hot-toast";
-import { useRouter, useSearchParams } from "next/navigation";
-import React from "react";
+import checked from "assets/candidateOnboarding/checked.svg";
+import logo from "assets/candidateOnboarding/logo.svg";
 
 const CandidateOnboarding = (): JSX.Element => {
-    const { data: session, status } = useSession()
     const router = useRouter();
 
     const [step, setStep] = useState(1);
@@ -34,15 +31,13 @@ const CandidateOnboarding = (): JSX.Element => {
 
     const handleSubmit = () => {
 
-        postCaditateOnBoarding(candidateOnbardingData, session?.user?.accessToken as string).then((data) => {
+        postCaditateOnBoarding(candidateOnbardingData).then(() => {
             router.push("/dashboard");
 
-        }).catch((err: any) => {
+        }).catch(() => {
             toast.error("An Error Occured while trying to onboard user");
         })
     };
-
-
 
     return (
         <div className={styles.bg}>

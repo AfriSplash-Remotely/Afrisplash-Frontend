@@ -1,17 +1,15 @@
 import React from "react";
-import Modal from "../atoms/Modal/Modal";
 import Image from "next/image";
+import { AxiosError } from "axios";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import LoadingIcon from "../atoms/LoaingIcon";
+import Modal from "../atoms/Modal/Modal";
+import Button from "../atoms/Button/Button";
+import { applyForJob, saveJob } from "@/api-endpoints/jobs/jobs.api";
+import { Salary } from "@/api-endpoints/jobs/jobs.interface";
 import typeIcon from "../../assets/icons/type.svg";
 import locateIcon from "../../assets/icons/locate.svg";
-import Button from "../atoms/Button/Button";
-import { useMutation } from "@tanstack/react-query";
-import { applyForJob } from "@/api-endpoints/jobs/jobs.api";
-import toast from "react-hot-toast";
-import { AxiosError } from "axios";
-import { useSession } from "next-auth/react";
-import LoadingIcon from "../atoms/LoaingIcon";
-import { saveJob } from "@/api-endpoints/jobs/jobs.api";
-import { Salary } from "@/api-endpoints/jobs/jobs.interface";
 
 interface ApplyModalProps {
   company?: string;
@@ -45,11 +43,10 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   onClose,
 }) => {
 
-  const { data: session } = useSession()
 
   const { mutate: applyMutation, isLoading: applyLoading } = useMutation({
-    mutationFn: (jobId: string) => applyForJob(jobId, session?.user?.accessToken as string),
-    onSuccess: (data) => {
+    mutationFn: (jobId: string) => applyForJob(jobId),
+    onSuccess: () => {
       toast.success("Job applied successfully ")
       onClose()
     },
@@ -59,8 +56,8 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   })
 
   const { mutate: saveMutation, isLoading: saveLoading } = useMutation({
-    mutationFn: (jobId: string) => saveJob(jobId, session?.user?.accessToken as string),
-    onSuccess: (data) => {
+    mutationFn: (jobId: string) => saveJob(jobId),
+    onSuccess: () => {
       toast.success("Job saved successfully")
       onClose()
       // Additional logic after saving the job
@@ -71,22 +68,15 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     }
   })
 
-  const onApplyForJob = (e: any) => {
-    e.preventDefault()
-    console.log('Apply for job');
-
+  const onApplyForJob = () => {
     const jobId = sessionStorage.getItem("jobId")
     applyMutation(jobId as string)
   }
 
-  const onSaveJob = (e: any) => {
-    e.preventDefault()
-    console.log('Save job');
-
+  const onSaveJob = () => {
     const jobId = sessionStorage.getItem("jobId")
     saveMutation(jobId as string)
   }
-
 
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
@@ -105,7 +95,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
               <Image src={locateIcon} alt="icon" />
               <span className="text-grey_3 text-lg">Location</span>
             </div>
-            <p className="text-primary_green  font-bold text-lg ml-8 mt-1">
+            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
               {location}
             </p>
           </div>
@@ -114,7 +104,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
               <Image src={locateIcon} alt="icon" />
               <span className="text-grey_3 text-lg">Level</span>
             </div>
-            <p className="text-primary_green  font-bold text-lg ml-8 mt-1">
+            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
               {level}
             </p>
           </div>
@@ -123,7 +113,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
               <Image src={typeIcon} alt="icon" />
               <span className="text-grey_3 text-lg">Type</span>
             </div>
-            <p className="text-primary_green  font-bold text-lg ml-8 mt-1">
+            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
               {type}
             </p>
           </div>
@@ -132,7 +122,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
               <Image src={locateIcon} alt="icon" />
               <span className="text-grey_3 text-lg">Salary</span>
             </div>
-            <p className="text-primary_green  font-bold text-lg ml-8 mt-1">
+            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
               {
                 salaryType && (<span>
                   {

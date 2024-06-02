@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import {
     getJobsCreated,
@@ -12,17 +11,15 @@ import { ApplicantAccordion } from "./applicants/ApplicantAccordion";
 import { ApplicantsStatsCard } from "./applicants/StatsCard";
 
 const Recruiter = (): JSX.Element => {
-    const { data: session } = useSession();
     const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-    const jwt = session?.user?.accessToken as unknown as string;
 
     const { data: fetchCreatedJobs } = useQuery(["createdJobs"], () =>
-        getJobsCreated(jwt)
+        getJobsCreated()
     );
     const allCreatedJObs = fetchCreatedJobs?.data;
 
-    const { data } = useQuery(["recruiterStat"], () => getRecruiterStats(jwt));
+    const { data } = useQuery(["recruiterStat"], () => getRecruiterStats());
     const recruiterStat = data?.data;
 
     return (

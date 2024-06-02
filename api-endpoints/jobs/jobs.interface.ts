@@ -5,14 +5,12 @@ interface Company {
   thumbnail: string;
   staff: number;
 }
-
 interface Author {
   _id: string;
   first_name: string;
   last_name: string;
   bio: string | null;
 }
-
 export interface Salary {
   min: number | string;
   max: number | string;
@@ -20,13 +18,11 @@ export interface Salary {
   period: string;
   amount?: string
 }
-
 interface ExternalData {
   image: string | null;
   url: string | null;
   date: string | null;
 }
-
 interface Job {
   _id: string;
   _company: Company;
@@ -56,8 +52,6 @@ interface Job {
   salaryType: string;
   __v: number;
 }
-
-
 export interface IJobApiResponse {
   success: boolean;
   status: string;
@@ -66,9 +60,6 @@ export interface IJobApiResponse {
   pagination: Record<string, unknown>;
   data: Job[];
 }
-
-
-
 export interface ICreateJobApiResponse {
   success: boolean;
   redirect: boolean;
@@ -96,7 +87,6 @@ export interface IJobDetatilData {
   _id: string;
   _company: string;
   _author: IJobDetailAuthor;
-
 }
 export interface IJobDetailResponse {
   success: boolean;
@@ -124,16 +114,12 @@ export interface IJobDetailResponse {
   createdAt: string;
   updatedAt: string;
   __v: number
-
-
 }
-
 export interface IJobApplyResponse {
   success: boolean;
   status: string;
   error: string;
 }
-
 interface RecruiterStat {
   totalJobs: number;
   totalApplicants: number;

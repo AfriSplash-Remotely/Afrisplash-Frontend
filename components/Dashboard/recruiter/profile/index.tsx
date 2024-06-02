@@ -1,21 +1,17 @@
 import React from "react";
-import RecruiterProfileLayout from "@/layouts/recruiterProfileLayout";
 import Image from "next/image";
-import pic9 from "assets/images/pic9.png";
-import { AvatarTick, BriefCase, ClockSvg, Pencil } from "@/assets/profile";
+import { useQuery } from "@tanstack/react-query";
+import { MdOutlineInfo } from "react-icons/md";
+import RecruiterProfileLayout from "@/layouts/recruiterProfileLayout";
 import ToggleButton from "@/components/atoms/ToggleButton";
 import Tooltip from "@/components/atoms/Tooltip";
-import { MdOutlineInfo } from "react-icons/md";
-import { useSession } from "next-auth/react";
-import { useQuery } from "@tanstack/react-query";
 import { getRecruiterProfile } from "@/api-endpoints/user-profile/user-profile.api";
+import { AvatarTick, BriefCase, ClockSvg, Pencil } from "@/assets/profile";
+import pic9 from "assets/images/pic9.png";
 
 const Recruiter = (): JSX.Element => {
-    const { data: session } = useSession();
-    const jwtToken = session && session?.user?.accessToken as string;
-
     const { data } = useQuery(["recruiterProfile"], async () => {
-        const response = await getRecruiterProfile(jwtToken as string)
+        const response = await getRecruiterProfile();
         return response.data[0];
     });
 
@@ -38,7 +34,9 @@ const Recruiter = (): JSX.Element => {
                                 </span>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <h3 className="text-lg font-bold">{data?.first_name} {data?.last_name}</h3>
+                                <h3 className="text-lg font-bold">
+                                    {data?.first_name} {data?.last_name}
+                                </h3>
                                 <div className="flex items-center space-x-2">
                                     <BriefCase />
                                     <p className="text-sm font-normal">{data?.role}</p>
@@ -46,7 +44,7 @@ const Recruiter = (): JSX.Element => {
                                 <div className="flex items-center space-x-2">
                                     <ClockSvg />
                                     <p className="text-sm font-normal">
-                                        {data?.availability[0]}
+                                        {data?.availability ?? ""}
                                     </p>
                                 </div>
                             </div>
@@ -59,7 +57,10 @@ const Recruiter = (): JSX.Element => {
                         <h6 className="text-base font-normal text-[#606172] mb-2">
                             Actively hiring
                         </h6>
-                        <ToggleButton onChange={console.log} isChecked={data?.activelyHiring ?? false} />
+                        <ToggleButton
+                            onChange={console.log}
+                            isChecked={data?.activelyHiring ?? false}
+                        />
                     </div>
 
                     <div className="px-4 py-6">
@@ -73,9 +74,7 @@ const Recruiter = (): JSX.Element => {
                         <div className="flex flex-col justify-between py-4 gap-4">
                             <div className="flex items-center gap-2">
                                 <span className="text-[#606172] font-semibold">Email: </span>{" "}
-                                <span className="text-[#9c9ca8] font-light">
-                                    {data?.email}
-                                </span>
+                                <span className="text-[#9c9ca8] font-light">{data?.email}</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className="text-[#606172] font-semibold">Phone: </span>{" "}
@@ -100,7 +99,10 @@ const Recruiter = (): JSX.Element => {
                                     </Tooltip>
                                 </div>
 
-                                <ToggleButton onChange={console.log} isChecked={data?.privateMode ?? false} />
+                                <ToggleButton
+                                    onChange={console.log}
+                                    isChecked={data?.privateMode ?? false}
+                                />
                             </div>
                         </div>
                         <div className="top-4 right-4 absolute border border-grey_2 rounded-md p-1 cursor-pointer">

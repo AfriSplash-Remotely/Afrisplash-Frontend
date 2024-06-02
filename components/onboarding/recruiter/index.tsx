@@ -3,18 +3,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import styles from "styles/Onboarding.module.scss";
+import { postCompanyOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
+import Bio from "@/components/onboarding/recruiter/Bio";
+import GetStarted from "./GetStarted";
 import checked from "assets/candidateOnboarding/checked.svg";
 import logo from "assets/candidateOnboarding/logo.svg";
-import Bio from "@/components/onboarding/recruiter/Bio";
-import { postCompanyOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
-import toast from "react-hot-toast";
-import GetStarted from "./GetStarted";
 
 const RecruiterOnboarding = (): JSX.Element => {
-    const { data: session, status } = useSession()
     const router = useRouter();
 
     const [step, setStep] = useState(1);
@@ -29,11 +27,9 @@ const RecruiterOnboarding = (): JSX.Element => {
     }
 
     const handleSubmit = () => {
-
-        postCompanyOnBoarding(companyOnbardingData, session?.user?.accessToken as string).then((data) => {
+        postCompanyOnBoarding(companyOnbardingData).then(() => {
             router.push("/dashboard");
-
-        }).catch((err: any) => {
+        }).catch(() => {
             toast.error("An Error Occured while trying to onboard user");
         })
     };
@@ -43,9 +39,7 @@ const RecruiterOnboarding = (): JSX.Element => {
             <div className="max-w-5xl mx-auto mt-5 pb-10 bg-white shadow-xl rounded-xl px-3">
                 <div className="flex mb-14 justify-center items-center">
                     <Link href="/">
-
                         <ArrowLeftIcon className="w-6 ml-4" />
-
                     </Link>
                     <div className="flex items-center justify-center flex-1">
                         <div className="w-12 h-12 relative">
