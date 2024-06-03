@@ -7,17 +7,6 @@ import {
 } from "@heroicons/react/24/outline";
 import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
-<<<<<<< HEAD
-import Link from "next/link";
-import Select, { GroupBase, OptionsOrGroups } from "react-select";
-import google from "../../assets/svg/google.svg";
-import styles from "../../styles/Signup.module.scss";
-import AuthLayout from "@/layouts/Auth.layout";
-import Head from "next/head";
-import { RegisterRequest, useSignupMutation } from "store/services/auth";
-import { SubmitHandler, useForm, Controller } from "react-hook-form";
-import { useRouter } from "next/router";
-=======
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Select from "react-select";
@@ -25,21 +14,14 @@ import AuthLayout from "@/layouts/Auth.layout";
 import Head from "next/head";
 import { RegisterRequest } from "store/services/auth";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
->>>>>>> head reset
 import toast from "react-hot-toast";
 import { signUp } from "@/api-endpoints/auth/auth.api";
 import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-<<<<<<< HEAD
-
-const Signup: NextPage = () => {
-  // const [signup] = useSignupMutation();
-=======
 import styles from "../../styles/Signup.module.scss";
 import google from "../../assets/svg/google.svg";
 
 const Signup: NextPage = () => {
->>>>>>> head reset
   const router = useRouter();
 
   const lang = ["signUp"];
@@ -49,11 +31,7 @@ const Signup: NextPage = () => {
 
   React.useEffect(() => {
     i18n.reloadResources(i18n.resolvedLanguage, lang);
-<<<<<<< HEAD
-  }, []);
-=======
   });
->>>>>>> head reset
 
   const talentOptions = [
     { value: 'recruiter', label: `${translate('Recruiter')}` },
@@ -92,17 +70,6 @@ const Signup: NextPage = () => {
     setPasswordFieldType(!passwordFieldType);
   };
 
-<<<<<<< HEAD
-  const customStyles = {
-    control: (base: any, state: any) => ({
-      ...base,
-      height: "50px",
-      borderRadius: "10px",
-      border: state.isSelected ? '1px solid #bbbbc3' : '1px solid #bbbbc3'
-    }),
-  };
-=======
->>>>>>> head reset
 
   const validatePassword = (password: string) => {
 
@@ -238,11 +205,7 @@ const Signup: NextPage = () => {
             </div>
             {errors.password && (
               <p role="alert" className="error_message w-8/12  pl-2 py-2">
-<<<<<<< HEAD
-                {(errors.password as any).message}
-=======
                 {(errors.password).message}
->>>>>>> head reset
               </p>
             )}
           </div>
@@ -264,11 +227,7 @@ const Signup: NextPage = () => {
             />
             {errors.gender && (
               <p role="alert" className="error_message w-8/12  pl-2 py-2">
-<<<<<<< HEAD
-                {(errors.gender as any).message}
-=======
                 {(errors.gender).message}
->>>>>>> head reset
               </p>
             )}
           </div>
@@ -292,11 +251,7 @@ const Signup: NextPage = () => {
             />
             {errors.user_type && (
               <p role="alert" className="error_message w-8/12  pl-2 py-2">
-<<<<<<< HEAD
-                {(errors.user_type as any).message}
-=======
                 {(errors.user_type).message}
->>>>>>> head reset
               </p>
             )}
           </div>

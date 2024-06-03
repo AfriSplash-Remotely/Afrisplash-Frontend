@@ -3,11 +3,6 @@ import Image from 'next/image'
 import DropDown from 'components/atoms/DropDown/DropDown'
 import RadioBtn from 'components/atoms/RadioButton/RadioBtn'
 import filters from 'assets/filters.png';
-<<<<<<< HEAD
-import { Location } from '../Dashboard/recruiter/createJob/jobsData';
-
-=======
->>>>>>> head reset
 
 const experienceRadio = [
     { label: "0-1 year" },
