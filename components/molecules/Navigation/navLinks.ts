@@ -5,7 +5,11 @@ import messages_2 from "assets/admin_icons/messages-2.svg";
 import messages from "assets/admin_icons/messages.svg";
 import setting_3 from "assets/admin_icons/setting-3.svg";
 import dashboard from "assets/admin_icons/dashboard.svg"
+<<<<<<< HEAD
 
+=======
+import logout from "assets/admin_icons/logout.svg"
+>>>>>>> head reset
 export interface IsideBarLinks {
   title: string;
   route: string;
@@ -54,6 +58,15 @@ export const navLinks: IsideBarLinks[] = [
     route: "/dashboard/settings",
     role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
   },
+<<<<<<< HEAD
+=======
+  {
+    title: "Log Out",
+    icon: logout,
+    route: "/logout",
+    role: [ACCOUNT_TYPE.recruiter, ACCOUNT_TYPE.candidate]
+  }
+>>>>>>> head reset
 ];
 
 

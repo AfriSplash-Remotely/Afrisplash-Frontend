@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* eslint-disable @typescript-eslint/no-explicit-any */
+>>>>>>> head reset
 import React from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
@@ -29,7 +33,11 @@ const Home: NextPage = () => {
 
   React.useEffect(() => {
     i18n.reloadResources(i18n.resolvedLanguage, lang);
+<<<<<<< HEAD
   }, []);
+=======
+  });
+>>>>>>> head reset
 
   const globalCompanies = [
     chipper,

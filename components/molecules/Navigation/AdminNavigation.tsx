@@ -7,9 +7,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import { IsideBarLinks, navLinks } from "./navLinks";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Cookies from "js-cookie";
-import { ACCESSTOKEN } from "@/utils/axios/constant";
+import { ACCESSTOKEN, removeToken, LOGGED_IN_USER } from "@/utils/axios/constant";
 
 export default function AdminNavigation({
   focused,
@@ -26,6 +26,12 @@ export default function AdminNavigation({
   const router = useRouter();
 
   Cookies.set(ACCESSTOKEN, session?.user?.accessToken as unknown as string);
+
+  const logout = () => {
+    removeToken(ACCESSTOKEN)
+    removeToken(LOGGED_IN_USER)
+    signOut()
+  }
 
   return (
     <>
@@ -57,43 +63,82 @@ export default function AdminNavigation({
                   ) {
                     return (
                       <li key={index}>
-                        <Link
-                          href={item.route}
-                          onMouseEnter={() => setFocused(item.title)}
-                          className={`text-sm  flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"
-                            } py-2 rounded-lg ${router.pathname === item.route &&
-                            "text-primary_green bg-light_green"
-                            }`}
-                        >
-                          <div className="flex space-x-2 items-center z-10">
-                            <span>
-                              <Image
-                                alt={item.title}
-                                src={item.icon ? item.icon : ""}
-                                height={18}
-                                width={18}
+                        {item.route === '/logout' ? (
+                          <a
+                            href="#"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              logout();
+                            }}
+                            onMouseEnter={() => setFocused(item.title)}
+                            className={`text-sm flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"} 
+                            py-2 rounded-lg ${router.pathname === item.route && "text-primary_green bg-light_green"}`}
+                          >
+                            <div className="flex space-x-2 items-center z-10">
+                              <span>
+                                <Image
+                                  alt={item.title}
+                                  src={item.icon}
+                                  height={18}
+                                  width={18}
+                                />
+                              </span>
+                              <span className={`${navSwitch === true ? "hidden" : ""}`}>
+                                {item.title}
+                              </span>
+                            </div>
+                            {focused === item.title && (
+                              <motion.div
+                                transition={{
+                                  layout: {
+                                    duration: 0.2,
+                                    ease: "easeOut",
+                                  },
+                                }}
+                                className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
+                                layoutId="highlight"
                               />
-                            </span>
-                            <span
-                              className={`${navSwitch === true ? "hidden" : ""
+                            )}
+                          </a>
+                        ) : (
+                            <Link
+                              href={item.route}
+                              onMouseEnter={() => setFocused(item.title)}
+                              className={`text-sm  flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"
+                                } py-2 rounded-lg ${router.pathname === item.route &&
+                                "text-primary_green bg-light_green"
                                 }`}
                             >
-                              {item.title}
-                            </span>
-                          </div>
-                          {focused === item.title ? (
-                            <motion.div
-                              transition={{
-                                layout: {
-                                  duration: 0.2,
-                                  ease: "easeOut",
-                                },
-                              }}
-                              className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
-                              layoutId="highlight"
-                            />
-                          ) : null}
-                        </Link>
+                              <div className="flex space-x-2 items-center z-10">
+                                <span>
+                                  <Image
+                                    alt={item.title}
+                                    src={item.icon ? item.icon : ""}
+                                    height={18}
+                                    width={18}
+                                  />
+                                </span>
+                                <span
+                                  className={`${navSwitch === true ? "hidden" : ""
+                                    }`}
+                                >
+                                  {item.title}
+                                </span>
+                              </div>
+                              {focused === item.title ? (
+                                <motion.div
+                                  transition={{
+                                    layout: {
+                                      duration: 0.2,
+                                      ease: "easeOut",
+                                    },
+                                  }}
+                                  className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
+                                  layoutId="highlight"
+                                />
+                              ) : null}
+                            </Link>
+                        )}
                       </li>
                     );
                   }
