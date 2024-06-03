@@ -2,11 +2,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
-<<<<<<< HEAD
-import { Location, LocationType } from "@/components/Dashboard/recruiter/createJob/jobsData";
-=======
 import { Location } from "@/components/Dashboard/recruiter/createJob/jobsData";
->>>>>>> head reset
 
 
 const jobOptions: any = [
@@ -63,11 +59,7 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Ele
       })
     }
 
-<<<<<<< HEAD
-  }, [company_name, position_held, location, date_start, date_end, jdLen])
-=======
   }, [company_name, position_held, location, date_start, date_end, jdLen, getDataFn])
->>>>>>> head reset
 
   return (
     <div className="px-8 sm:px-12 md:px-16 mb-8">
@@ -96,11 +88,7 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Ele
             name="location"
             control={control}
             rules={{ required: "Location is required" }}
-<<<<<<< HEAD
-            render={({ field, fieldState: { error } }) => (
-=======
             render={({ field }) => (
->>>>>>> head reset
               <Select {...field} isDisabled={noJobExp} options={Location.map((location: { label: string; value: string; }) => ({
                 label: location.label,
                 value: location.value
@@ -117,11 +105,7 @@ const Experience = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Ele
             name="jobType"
             control={control}
             rules={{ required: "Job type is required" }}
-<<<<<<< HEAD
-            render={({ field, fieldState: { error } }) => (
-=======
             render={({ field }) => (
->>>>>>> head reset
               <Select {...field} isDisabled={noJobExp} options={jobOptions} placeholder="Select job type" classNamePrefix="select" />
             )}
           />
