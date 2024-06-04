@@ -31,8 +31,6 @@ const Navigation = (): JSX.Element => {
   const { data: session, status } = useSession()
   const isUserSignedIn = session?.user?.accessToken && status === 'authenticated';
 
-  console.log("loloao", session, status);
-
   const { t: translate } = useTranslation("home");
   const router = useRouter();
 
@@ -183,14 +181,6 @@ const Navigation = (): JSX.Element => {
                   onClick={() => changePath("/auth/login")}
                 />
               )}
-
-              {/*
-              <Button
-                type="bordered"
-                color="dark_blue"
-                text={translate("Post Jobs")}
-                classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-primary_green hover:text-white"
-              /> */}
             </div>
             <div className="flex lg:hidden h-full items-center">
               <Bars3Icon className="w-8 h-6" />

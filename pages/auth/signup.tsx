@@ -31,7 +31,7 @@ const Signup: NextPage = () => {
 
   React.useEffect(() => {
     i18n.reloadResources(i18n.resolvedLanguage, lang);
-  });
+  },[]);
 
   const talentOptions = [
     { value: 'recruiter', label: `${translate('Recruiter')}` },

@@ -39,7 +39,7 @@ axios.interceptors.response.use(
       // remove invalid or expired token if it exits
       removeToken(ACCESSTOKEN)
       // redirect user to login page
-      window.location.replace("/auth/login");
+      // window.location.replace("/auth/login");
     }
     return Promise.reject(err);
   }

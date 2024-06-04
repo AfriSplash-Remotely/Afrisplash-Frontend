@@ -15,7 +15,7 @@ const Employer: NextPage = () => {
     const router = useRouter();
     useEffect(() => {
         router.push("/")
-    });
+    },[]);
     
     return (
         <div>

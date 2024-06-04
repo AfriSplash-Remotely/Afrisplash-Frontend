@@ -14,7 +14,7 @@ const Pricing: NextPage = () => {
   const router = useRouter();
   useEffect(() => {
     router.push("/")
-  });
+  },[]);
   const [activeSlide, setActiveSlide] = React.useState<number>(0);
 
   const settings = {

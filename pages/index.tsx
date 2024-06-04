@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 
   React.useEffect(() => {
     i18n.reloadResources(i18n.resolvedLanguage, lang);
-  });
+  },[]);
 
   const globalCompanies = [
     chipper,
