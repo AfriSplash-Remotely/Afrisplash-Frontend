@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -9,7 +9,9 @@ import styles from "./Navigation.module.scss";
 import { IsideBarLinks, navLinks } from "./navLinks";
 import { signOut, useSession } from "next-auth/react";
 import Cookies from "js-cookie";
-import { ACCESSTOKEN, removeToken, LOGGED_IN_USER } from "@/utils/axios/constant";
+import { ACCESSTOKEN } from "@/utils/axios/constant";
+import LogOutModal from "../LogOutModal";
+
 
 export default function AdminNavigation({
   focused,
@@ -27,11 +29,18 @@ export default function AdminNavigation({
 
   Cookies.set(ACCESSTOKEN, session?.user?.accessToken as unknown as string);
 
-  const logout = () => {
-    removeToken(ACCESSTOKEN)
-    removeToken(LOGGED_IN_USER)
+  const [open, setOpen] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  const handleOpenModal = () => {
+    setOpen(!open)
+  }
+
+  const handleLogout = () => {
+    setIsLoading(!isLoading)
     signOut()
   }
+
 
   return (
     <>
@@ -66,10 +75,7 @@ export default function AdminNavigation({
                         {item.route === '/logout' ? (
                           <a
                             href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              logout();
-                            }}
+                            onMouseDown={handleOpenModal}
                             onMouseEnter={() => setFocused(item.title)}
                             className={`text-sm flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"} 
                             py-2 rounded-lg ${router.pathname === item.route && "text-primary_green bg-light_green"}`}
@@ -156,6 +162,8 @@ export default function AdminNavigation({
           <ChevronLeftIcon className="w-4 h-4 z-50" />
         </div>
       </aside>
+
+      <LogOutModal open={open} onClose={handleOpenModal} onLogOut={handleLogout} loading={isLoading} />
     </>
   );
 }

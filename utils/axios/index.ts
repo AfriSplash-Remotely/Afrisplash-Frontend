@@ -29,15 +29,15 @@ axios.interceptors.response.use(
   function (err) {
     if (err?.response?.status === 401) {
       // check if user access token exits
-      if (_token) {
+      // if (_token) {
         // if token exits, then its either invalid or expired
         toast.error('Unauthorized access - Your session has expired.');
-      } else {
+      // } else {
         // if token does not exits then user is not logged in
-        toast.error('Unauthorized access - Please log in.');
-      }
+        // toast.error('Unauthorized access - Please log in.');
+      // }
       // remove invalid or expired token if it exits
-      removeToken(ACCESSTOKEN)
+      // removeToken(ACCESSTOKEN)
       // redirect user to login page
       // window.location.replace("/auth/login");
     }
