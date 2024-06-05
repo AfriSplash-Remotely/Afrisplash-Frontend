@@ -8,8 +8,6 @@ import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import { IsideBarLinks, navLinks } from "./navLinks";
 import { signOut, useSession } from "next-auth/react";
-import Cookies from "js-cookie";
-import { ACCESSTOKEN } from "@/utils/axios/constant";
 import LogOutModal from "../LogOutModal";
 
 
@@ -27,8 +25,6 @@ export default function AdminNavigation({
   const { data: session } = useSession();
   const router = useRouter();
 
-  Cookies.set(ACCESSTOKEN, session?.user?.accessToken as unknown as string);
-
   const [open, setOpen] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
@@ -39,6 +35,8 @@ export default function AdminNavigation({
   const handleLogout = () => {
     setIsLoading(!isLoading)
     signOut()
+    // removeToken(ACCESSTOKEN)
+    // removeToken(LOGGED_IN_USER)
   }
 
 

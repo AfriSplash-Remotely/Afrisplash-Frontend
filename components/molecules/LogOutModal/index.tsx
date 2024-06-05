@@ -4,9 +4,9 @@ import Button from '@/components/atoms/Button/Button';
 
 interface LogOutModalProps {
   open: boolean;
+  loading: boolean;
   onClose: () => void;
   onLogOut: () => void;
-  loading: boolean;
 }
 
 export default function LogOutModal({ open, onClose, onLogOut, loading }: LogOutModalProps): JSX.Element {

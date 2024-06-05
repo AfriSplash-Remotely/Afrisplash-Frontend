@@ -1,9 +1,9 @@
 import Axios from "axios";
 import toast from "react-hot-toast";
-import { ACCESSTOKEN, getToken, getUserSession, removeToken } from "./constant";
+import { getUserSession, removeToken } from "./constant";
 
 const userSession = getUserSession()?.user?.accessToken;
-const _token = getToken(ACCESSTOKEN) ? userSession : null
+const _token = userSession ?? null
 
 const axios = Axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
@@ -29,17 +29,17 @@ axios.interceptors.response.use(
   function (err) {
     if (err?.response?.status === 401) {
       // check if user access token exits
-      // if (_token) {
+      if (_token) {
         // if token exits, then its either invalid or expired
         toast.error('Unauthorized access - Your session has expired.');
-      // } else {
+      } else {
         // if token does not exits then user is not logged in
-        // toast.error('Unauthorized access - Please log in.');
-      // }
+        toast.error('Unauthorized access - Please log in.');
+      }
       // remove invalid or expired token if it exits
-      // removeToken(ACCESSTOKEN)
+      removeToken(_token as string)
       // redirect user to login page
-      // window.location.replace("/auth/login");
+      window.location.replace("/auth/login");
     }
     return Promise.reject(err);
   }
