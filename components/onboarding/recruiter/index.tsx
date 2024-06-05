@@ -12,13 +12,14 @@ import Bio from "@/components/onboarding/recruiter/Bio";
 import { postCompanyOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
 import toast from "react-hot-toast";
 import GetStarted from "./GetStarted";
+import usePostRequest from "@/utils/axios/usePostRequest";
 
 const RecruiterOnboarding = (): JSX.Element => {
     const { data: session, status } = useSession()
     const router = useRouter();
 
     const [step, setStep] = useState(1);
-    const [companyOnbardingData, setCompanyOnbardingData] = useState({})
+    const [companyOnbardingData, setCompanyOnbardingData] = useState({role:"Doctor"})
     const arr = [
         { id: 1, name: "Get Started" },
         { id: 2, name: "Bio" },
@@ -27,16 +28,31 @@ const RecruiterOnboarding = (): JSX.Element => {
     const handleGetData = (data: any) => {
         setCompanyOnbardingData((prev) => { return { ...prev, ...data } })
     }
+    const [response, setResponse] = useState(null);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        const url = 'https://afrisplash-473196ceadbb.herokuapp.com/api/v1/recruiter/onboarding';
+        const data = companyOnbardingData; // Your request payload
+        const token = session?.user?.accessToken as string; // Replace with your actual token
 
-        postCompanyOnBoarding(companyOnbardingData, session?.user?.accessToken as string).then((data) => {
+        try {
+            const result = await usePostRequest({ url, data, token });
+            setResponse(result);
             router.push("/dashboard");
-
-        }).catch((err: any) => {
-            toast.error("An Error Occured while trying to onboard user");
-        })
+        } catch (error) {
+            console.error('Request failed:', error);
+        }
     };
+
+    // const handleSubmit = () => {
+
+    //     postCompanyOnBoarding(companyOnbardingData, session?.user?.accessToken as string).then((data) => {
+    //         router.push("/dashboard");
+
+    //     }).catch((err: any) => {
+    //         toast.error("An Error Occured while trying to onboard user");
+    //     })
+    // };
 
     return (
         <div className={styles.bg}>

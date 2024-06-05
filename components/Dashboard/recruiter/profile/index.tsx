@@ -46,7 +46,7 @@ const Recruiter = (): JSX.Element => {
                                 <div className="flex items-center space-x-2">
                                     <ClockSvg />
                                     <p className="text-sm font-normal">
-                                        {data?.availability[0]}
+                                        {data?.availability?.[0]}
                                     </p>
                                 </div>
                             </div>

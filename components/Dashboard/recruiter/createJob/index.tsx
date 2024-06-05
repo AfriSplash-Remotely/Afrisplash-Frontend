@@ -73,8 +73,31 @@ export default function CreateJobs(): JSX.Element {
 
   const onSubmit = (data: StepThree, e: any) => {
     e.preventDefault()
-    const completedSteps = { ...data, ...formOneValues, ...formTwoValues }
-    mutate(completedSteps)
+    // const completedSteps = { ...data, ...formOneValues, ...formTwoValues, "Company": "66562ec61f8782ff4ca079d9" }
+    const sentData = {
+      "title": "Badass Engineer",
+      "industry": "Technology",
+      "description": "We're looking for a skilled MLOPs Engineer...",
+      "requirement": "Proficiency in Machine Learning and Chatgpt...",
+      "benefit": "Competitive salary, remote work...",
+      "experience": "Intermediate",
+      "type": "Remote",
+      "status": "Active",
+      "location": "New York, USA",
+      "salaryType": "range",
+      "salary": {
+        "min": 70000,
+        "max": 100000,
+        "currency": "USD",
+        "period": "Yearly"
+      },
+      "redirect": false,
+      "redirect_url": "http://example.com/job_redirect",
+      "private": false,
+      "promoted": false,
+      "publish": true
+    }
+    mutate(sentData)
   }
 
   return (
