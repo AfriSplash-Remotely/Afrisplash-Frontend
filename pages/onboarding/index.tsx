@@ -1,6 +1,7 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import CandidateOnboarding from "@/components/onboarding/candidate";
 import RecruiterOnboarding from "@/components/onboarding/recruiter";
 
@@ -29,8 +30,11 @@ const Onboarding = (): JSX.Element => {
 
   return (
     <div>
-      {isReady ? (<div className="h-screen flex justify-center items-center">
-        <h5 className="text-4xl font-medium text-primary_green">Loading...</h5>
+      {isReady ? (
+        <div className="h-screen flex justify-center items-center">
+          <div className={`relative mx-auto w-36 h-12 sm:w-28 md:w-32 md:h-14 flex items-center cursor-pointer`} >
+            <Image src="/admin_logo.svg" alt="logo" fill />
+          </div>
       </div>) : (
         session && session.user && onboarding[session.user.userType] || <></>
       )}
