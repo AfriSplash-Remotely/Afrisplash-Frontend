@@ -35,8 +35,6 @@ export default function AdminNavigation({
   const handleLogout = () => {
     setIsLoading(!isLoading)
     signOut()
-    // removeToken(ACCESSTOKEN)
-    // removeToken(LOGGED_IN_USER)
   }
 
 
