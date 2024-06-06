@@ -22,7 +22,7 @@ export default function LogOutModal({ open, onClose, onLogOut, loading }: LogOut
           <Button
             onClick={onClose}
             classes={
-              "border border-solid text-sm border-[#0D5520] px-6 md:px-12 py-2 rounded-lg  w-1/2  md:w-auto"
+              "border border-solid text-sm border-primary_green px-6 md:px-12 py-2 rounded-lg  w-1/2  md:w-auto"
             }
           >
             <span className="flex gap-4 mx-auto item-center justify-center font-bold">Cancel</span>
@@ -31,7 +31,7 @@ export default function LogOutModal({ open, onClose, onLogOut, loading }: LogOut
           <Button
             onClick={onLogOut}
             classes={
-              "bg-[#0D5520] text-sm text-[white] px-6 md:px-12 py-2 rounded-lg w-1/2  md:w-auto"
+              "bg-primary_green text-sm text-white px-6 md:px-12 py-2 rounded-lg w-1/2  md:w-auto"
             }
           >
             <span className="flex gap-4 mx-auto item-center justify-center font-bold">{loading ? 'Loging Out ...' : 'Yes,Logout'}</span>
