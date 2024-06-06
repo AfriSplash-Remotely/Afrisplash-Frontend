@@ -18,11 +18,11 @@ export default function LogOutModal({ open, onClose, onLogOut, loading }: LogOut
           <p className='text-lg text-center'>You're about to be logged out. Remember,your profile and application history are always available when you log back in.</p>
         </div>
 
-        <div className='mt-8 flex justify-between items-center gap-8'>
+        <div className='mt-8 flex justify-between items-center gap-8 '>
           <Button
             onClick={onClose}
             classes={
-              "border border-solid text-sm border-[#0D5520] px-12 py-2 rounded-lg w-1/2  md:w-auto"
+              "border border-solid text-sm border-[#0D5520] px-6 md:px-12 py-2 rounded-lg  w-1/2  md:w-auto"
             }
           >
             <span className="flex gap-4 mx-auto item-center justify-center font-bold">Cancel</span>
@@ -31,10 +31,10 @@ export default function LogOutModal({ open, onClose, onLogOut, loading }: LogOut
           <Button
             onClick={onLogOut}
             classes={
-              "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
+              "bg-[#0D5520] text-sm text-[white] px-6 md:px-12 py-2 rounded-lg w-1/2  md:w-auto"
             }
           >
-            <span className="flex gap-4 mx-auto item-center justify-center font-bold">{loading ? 'Loging Out ...' : 'Yes, Logout'}</span>
+            <span className="flex gap-4 mx-auto item-center justify-center font-bold">{loading ? 'Loging Out ...' : 'Yes,Logout'}</span>
           </Button>
         </div>
       </div>
