@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
@@ -9,7 +10,7 @@ const selectStyle = {
   }),
 };
 
-const degreeOptions: any = [
+const degreeOptions = [
   { value: "Secondary school/High school", label: "Secondary school/High school" },
   { value: "Bachelors degree", label: "Bachelors degree" },
   { value: "Master's degree", label: "Master's degree" },
@@ -20,7 +21,7 @@ const degreeOptions: any = [
 
 
 const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {
-  const { control, handleSubmit, watch } = useForm({
+  const { control, watch } = useForm({
     defaultValues: {
       institutionName: '',
       degree: { label: '', value: '' },
@@ -44,7 +45,7 @@ const Education = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Elem
       }]
     });
 
-  }, [formData]);
+  }, [formData, getDataFn]);
 
   // Watch the description field for dynamic character count
   const description = watch("description");

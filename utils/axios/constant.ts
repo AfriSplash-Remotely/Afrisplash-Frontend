@@ -2,8 +2,6 @@ import Cookies from "js-cookie";
 import { Session } from "next-auth";
 
 export const LOGGED_IN_USER = "afri_user";
-export const ACCESSTOKEN = "accessToken"
-
 export interface User {
   user: {
     email: string;

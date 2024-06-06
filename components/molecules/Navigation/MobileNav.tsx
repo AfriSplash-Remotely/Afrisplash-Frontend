@@ -4,25 +4,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ChevronDownIcon, LanguageIcon } from '@heroicons/react/24/outline';
+import { Menu, Transition } from '@headlessui/react';
 import { useTranslation } from 'react-i18next';
 import { headerType } from './Navigation';
 import { Bars, Times } from '@/assets/svg';
 import logo from "@/assets/afrisplash-logo-main.png"
-import { Menu, Transition } from '@headlessui/react';
 import { generateUniqueId } from '@/utils/helper';
 
 
-    const languages: { language: string; tag: string }[] = [
-        { language: "English", tag: "en" },
-        { language: "French", tag: "fr" },
-        { language: "Arabic", tag: "ara" },
-        { language: "Swahili", tag: "sw" },
-        { language: "Zulu", tag: "zu" },
-        { language: "Tigrinya", tag: "ti" },
-        { language: "Igbo", tag: "ig" },
-        { language: "Hausa", tag: "ha" },
-        { language: "Yoruba", tag: "yo" },
-    ];
+
+const languages: { language: string; tag: string }[] = [
+    { language: "English", tag: "en" },
+    { language: "French", tag: "fr" },
+    { language: "Arabic", tag: "ara" },
+    { language: "Swahili", tag: "sw" },
+    { language: "Zulu", tag: "zu" },
+    { language: "Tigrinya", tag: "ti" },
+    { language: "Igbo", tag: "ig" },
+    { language: "Hausa", tag: "ha" },
+    { language: "Yoruba", tag: "yo" },
+];
 
 const MobileNav = (): JSX.Element => {
     const [show, setShow] = useState<boolean>(false);
@@ -41,6 +42,13 @@ const MobileNav = (): JSX.Element => {
             icon: "",
             link: "/",
             active: true,
+            redirect: false
+        },
+        {
+            title: `${translate("Dashboard")}`,
+            icon: "",
+            link: "/dashboard",
+            active: false,
             redirect: false
         },
         {
@@ -86,6 +94,7 @@ const MobileNav = (): JSX.Element => {
             active: false,
             redirect: false
         },
+
     ];
 
     const handleMenuClick = (item: headerType, index: number) => {
@@ -117,8 +126,6 @@ const MobileNav = (): JSX.Element => {
                         <Image src={logo} alt="logo" width={logo.width} height={logo.height} />
                     </Link>
                     <div className="flex gap-6 items-center relative">
-
-
                         <Menu as="div" className="relative inline-block text-left">
                             <Menu.Button
                                 title="Select language"

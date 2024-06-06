@@ -4,14 +4,12 @@ import RecruiterLanguage from "@/components/Dashboard/recruiter/settings/languag
 import { ACCOUNT_TYPE } from "@/utils";
 import { useSession } from "next-auth/react";
 
-
 function Language(): JSX.Element {
-    const { data: session, status } = useSession()
+    const { data: session } = useSession()
     if (session && session.user && session.user.userType === ACCOUNT_TYPE.recruiter) {
         return <RecruiterLanguage />
     }
     return <CandidateLanguage />
 }
-
 
 export default Language

@@ -2,19 +2,20 @@ import { useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image"
+import { useRouter } from "next/router";
+import GeneralLayout from 'layouts/generalLayout';
 import Button from "components/atoms/Button/Button";
 import DropDown from "components/atoms/DropDown/DropDown";
 import Search from "components/atoms/Search/Search";
-import GeneralLayout from 'layouts/generalLayout';
+import { CompHiringCard, EmployerSideBar } from '../../components/Employer';
 import { employerData } from "utils";
 import employerImg from "assets/general/employer-team.svg"
-import { CompHiringCard, EmployerSideBar } from '../../components/Employer';
-import { useRouter } from "next/router";
+
 const Employer: NextPage = () => {
     const router = useRouter();
     useEffect(() => {
         router.push("/")
-    }, []);
+    },[]);
     
     return (
         <div>

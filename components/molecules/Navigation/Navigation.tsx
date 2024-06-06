@@ -1,18 +1,19 @@
 import React, { ReactNode, Fragment } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { Menu, Transition } from "@headlessui/react";
+import { useSession } from "next-auth/react";
 import {
   Bars3Icon,
   ChevronDownIcon,
   LanguageIcon,
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navigation.module.scss";
 import Button from "../../atoms/Button/Button";
-import { motion } from "framer-motion";
 import { generateUniqueId } from "@/utils/helper";
-import { Menu, Transition } from "@headlessui/react";
-import { useTranslation } from "react-i18next";
 
 export interface headerType {
   title: string;
@@ -27,6 +28,9 @@ export interface headerType {
 }
 
 const Navigation = (): JSX.Element => {
+  const { data: session, status } = useSession()
+  const isUserSignedIn = session?.user?.accessToken && status === 'authenticated';
+
   const { t: translate } = useTranslation("home");
   const router = useRouter();
 
@@ -158,23 +162,25 @@ const Navigation = (): JSX.Element => {
               ))}
             </ul>
           </nav>
-          <div className="flex space-x-4 items-center">
+          <div className="flex space-x-8 items-center">
             <div className="hidden md:flex space-x-4">
-              <Button
-                type="filled"
-                // bgColor="dark_blue"
-                color="white"
-                text={translate("Sign In")}
-                classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
-                onClick={() => changePath("/auth/login")}
-              />
-              <Button
-                type="bordered"
-                color="dark_blue"
-                text={translate("Post Jobs")}
-                // borderColor="dark_blue"
-                classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-primary_green hover:text-white"
-              />
+              {isUserSignedIn ? (
+                <Button
+                  type="filled"
+                  color="white"
+                  text={translate("Dashboard")}
+                  classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
+                  onClick={() => changePath("/dashboard")}
+                />
+              ) : (
+                <Button
+                  type="filled"
+                  color="white"
+                  text={translate("Sign In")}
+                  classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
+                  onClick={() => changePath("/auth/login")}
+                />
+              )}
             </div>
             <div className="flex lg:hidden h-full items-center">
               <Bars3Icon className="w-8 h-6" />

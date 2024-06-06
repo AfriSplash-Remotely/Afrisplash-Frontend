@@ -10,7 +10,7 @@ interface CheckboxGroupProps {
     onChange: (selectedValues: string[]) => void;
 }
 
-const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ options, onChange }) => {
+const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ options }) => {
     const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
     const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ options, onChange }) => {
                         value={option.value}
                         checked={isChecked(option.value)}
                         onChange={handleCheckboxChange}
-                        className=" appearance-none h-5 w-5 checked:bg-no-repeat checked:bg-cover checked:bg-[url(../assets/co-workingSpace/charm_tick.svg)]  focus:outline-none bg-[#E5E5E5] "
+                        className="appearance-none h-5 w-5 checked:bg-no-repeat checked:bg-cover checked:bg-[url(../assets/co-workingSpace/charm_tick.svg)]  focus:outline-none bg-[#E5E5E5]"
                     />
                     <span className="text-gray-800">{option.label}</span>
                 </label>

@@ -1,19 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useDropzone } from "react-dropzone";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
-  bioAction,
   imgUploadAction,
 } from "@/store/candidateOnboarding/_formSlice";
 
 function Bio({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Element {
   const [bio, setBio] = React.useState("")
-  // const { imgURL }: any = useSelector((state: RootState) => state.form.imgFile);
   const imgURL = ''
   const bioDesc = 'lorem'
-  // const bioDesc: string = useSelector((state: RootState) => state.form.bio);
 
   const dispatch = useDispatch();
   const { getRootProps, getInputProps } = useDropzone({

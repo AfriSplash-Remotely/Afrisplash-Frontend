@@ -1,10 +1,13 @@
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import LogOutModal from "../LogOutModal";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { IsideBarLinks, navLinks } from "./navLinks";
 import styles from "./Navigation.module.scss";
-import { navLinks } from "./navLinks";
 
 type MobileSidebarT = {
   isOpen: boolean;
@@ -22,6 +25,19 @@ const MobileSidebar = ({
   setFocused,
 }: MobileSidebarT): JSX.Element => {
   const router = useRouter();
+  const { data: session } = useSession();
+  const [open, setOpen] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+
+  const handleOpenModal = () => {
+    setOpen(!open)
+  }
+  const handleLogout = () => {
+    setIsLoading(!isLoading)
+    signOut()
+  }
+
 
   return (
     <div
@@ -56,52 +72,101 @@ const MobileSidebar = ({
         </div>
         <div className="relative w-screen max-w-[15rem] flex flex-col space-y-6 overflow-y-scroll h-full">
           <div className="flex flex-col justify-between p-4">
-            
-            <ul className="flex flex-col space-y-5">
-              {navLinks.map((item: any, index: number) => (
-                  <li key={index}>
-                    <Link
-                      href={item.route}
-                      onMouseEnter={() => setFocused(item.title)}
-                      className={`text-sm  flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"
-                        } py-2 rounded-lg ${router.pathname === item.route &&
-                        "text-primary_green bg-light_green"
-                        }`}
-                    >
-                      <div className="flex space-x-5 items-center z-10">
-                        <span>
-                          <Image
-                            alt={item.title}
-                            src={item.icon ? item.icon : ""}
-                            height={18}
-                            width={18}
-                          />
-                        </span>
-                        <span className={`${navSwitch === true ? "hidden" : ""}`}>
-                          {item.title}
-                        </span>
-                      </div>
-                      {focused === item.title ? (
-                        <motion.div
-                          transition={{
-                            layout: {
-                              duration: 0.2,
-                              ease: "easeOut",
-                            },
-                          }}
-                          className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
-                        />
-                      ) : null}
-                    </Link>
-                  </li>
-              ))}
 
-             
+            <ul className="flex flex-col space-y-5">
+              {navLinks.map((item: IsideBarLinks, index: number) => {
+                if (
+                  session &&
+                  session.user &&
+                  item.role.includes(session?.user?.userType)
+                ) {
+                  return (
+                    <li key={index}>
+                      {item.route === '/logout' ? (
+                        <a
+                          href="#"
+                          onMouseDown={handleOpenModal}
+                          onMouseEnter={() => setFocused(item.title)}
+                          className={`text-sm flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"} 
+                            py-2 rounded-lg ${router.pathname === item.route && "text-primary_green bg-light_green"}`}
+                        >
+                          <div className="flex space-x-2 items-center z-10">
+                            <span>
+                              <Image
+                                alt={item.title}
+                                src={item.icon}
+                                height={18}
+                                width={18}
+                              />
+                            </span>
+                            <span className={`${navSwitch === true ? "hidden" : ""}`}>
+                              {item.title}
+                            </span>
+                          </div>
+                          {focused === item.title && (
+                            <motion.div
+                              transition={{
+                                layout: {
+                                  duration: 0.2,
+                                  ease: "easeOut",
+                                },
+                              }}
+                              className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
+                              layoutId="highlight"
+                            />
+                          )}
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.route}
+                          onMouseEnter={() => setFocused(item.title)}
+                          className={`text-sm  flex capitalize cursor-pointer relative ${navSwitch === true ? "px-5" : "px-5 pr-8"
+                            } py-2 rounded-lg ${router.pathname === item.route &&
+                            "text-primary_green bg-light_green"
+                            }`}
+                        >
+                          <div className="flex space-x-2 items-center z-10">
+                            <span>
+                              <Image
+                                alt={item.title}
+                                src={item.icon ? item.icon : ""}
+                                height={18}
+                                width={18}
+                              />
+                            </span>
+                            <span
+                              className={`${navSwitch === true ? "hidden" : ""
+                                }`}
+                            >
+                              {item.title}
+                            </span>
+                          </div>
+                          {focused === item.title ? (
+                            <motion.div
+                              transition={{
+                                layout: {
+                                  duration: 0.2,
+                                  ease: "easeOut",
+                                },
+                              }}
+                              className="absolute bottom-0 left-0 right-0 w-full h-full text-primary_green bg-light_green px-5 pr-8 m-0 z-0 rounded-lg space-x-0"
+                              layoutId="highlight"
+                            />
+                          ) : null}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                }
+              })}
+
+
             </ul>
           </div>
         </div>
       </aside>
 
+      <LogOutModal open={open} onClose={handleOpenModal} onLogOut={handleLogout} loading={isLoading} />
       <div
         className="w-screen h-full cursor-pointer "
         onClick={() => {

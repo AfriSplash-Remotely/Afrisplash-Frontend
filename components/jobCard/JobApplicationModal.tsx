@@ -182,7 +182,6 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
               </Button>
             )
           }
-
         </div>
       </div>
     </Modal>

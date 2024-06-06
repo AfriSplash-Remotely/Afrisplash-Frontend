@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { NextPage } from "next";
 import PropTypes, { InferProps } from "prop-types";
-import Footer from "components/molecules/Footer/Footer";
+import Footer from "@/components/molecules/Footer/Footer";
 import Navigation from "components/molecules/Navigation/Navigation";
 import MobileNav from "@/components/molecules/Navigation/MobileNav";
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from "react";
 import Head from "next/head";
 import type { GetStaticProps, NextPage } from "next";
@@ -112,7 +113,7 @@ const Login: NextPage = () => {
             />
             {errors.email && (
               <p role="alert" className="error_message pl-2 py-2">
-                {(errors.email as any).message}
+                {(errors.email).message}
               </p>
             )}
           </div>
@@ -127,7 +128,7 @@ const Login: NextPage = () => {
             />
             {errors.password && (
               <p role="alert" className="error_message pl-2 py-2">
-                {(errors.password as any).message}
+                {(errors.password).message}
               </p>
             )}
           </div>

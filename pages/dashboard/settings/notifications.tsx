@@ -5,13 +5,11 @@ import { ACCOUNT_TYPE } from "@/utils";
 import { useSession } from "next-auth/react";
 
 function Notification(): JSX.Element {
-    const { data: session, status } = useSession()
+    const { data: session } = useSession()
     if (session && session.user && session.user.userType === ACCOUNT_TYPE.recruiter) {
         return <RecruiterNotification />
     }
     return <CandidateNotification />
-
 }
-
 
 export default Notification

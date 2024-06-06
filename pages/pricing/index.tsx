@@ -14,7 +14,7 @@ const Pricing: NextPage = () => {
   const router = useRouter();
   useEffect(() => {
     router.push("/")
-  }, []);
+  },[]);
   const [activeSlide, setActiveSlide] = React.useState<number>(0);
 
   const settings = {
@@ -25,7 +25,6 @@ const Pricing: NextPage = () => {
     dots: false,
     speed: 500,
     slidesToShow: 3,
-    // slidesToScroll: 3,
     initialSlide: 0,
     beforeChange: ({}, next: number) => setActiveSlide(next),
 

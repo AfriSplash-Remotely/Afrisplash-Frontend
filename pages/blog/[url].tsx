@@ -18,11 +18,11 @@ const ReadBlog: NextPage<Props> = () => {
     const router = useRouter();
     const url = router.query.url as string
 
-    const { data, isLoading, error } = useQuery(['blogPost'], async () => {
+    const { data } = useQuery(['blogPost'], async () => {
         const response = await getBlog(url)
         return response
     });
-    const sanitizedData = (html: any) => ({
+    const sanitizedData = (html: string | Node) => ({
         __html: DOMPurify.sanitize(html)
     })
     return (
