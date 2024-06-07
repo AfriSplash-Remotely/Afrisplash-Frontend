@@ -23,7 +23,7 @@ const SettingsLayout: NextPage<InferProps<typeof SettingLayoutProps>> = ({
           <h4 className={"font-normal mb-4 md:mb-6"}>SETTINGS</h4>
         </div>
 
-        <div className={`flex  w-full items-start gap-12`}>
+        <div className={`flex  md:w-full flex-wrap items-start gap-12`}>
           <div className={`flex flex-col items-start`}>
             <SettingsBtn btnItem={btns} />
           </div>
