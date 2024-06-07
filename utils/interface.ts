@@ -3,7 +3,11 @@ export interface responseMessage {
   data: string;
 }
 
-
+export interface ForgotPasswordI {
+  status:boolean;
+  message:string;
+  error:string;
+}
 export interface ProfileUpdate {
   last_name: string;
   first_name: string;
@@ -16,3 +20,4 @@ export enum ACCOUNT_TYPE{
   candidate="candidate",
   recruiter="recruiter"
 }
+

@@ -1,8 +1,39 @@
-import SettingsLayout from '@/layouts/settingsLayout';
 import React from 'react'
-
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useMutation } from '@tanstack/react-query';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { changePassword } from '@/api-endpoints/auth/auth.api';
+import SettingsLayout from '@/layouts/settingsLayout';
+import { ResetPasswordSchema } from '@/schema/resetPassword.schema';
 
 const Security = (): JSX.Element => {
+ const router = useRouter()
+  const { register, handleSubmit, formState: { errors } } = useForm<ResetPasswordSchema>({
+    resolver: yupResolver(ResetPasswordSchema)
+  })
+
+  const { mutate, isLoading } = useMutation(changePassword, {
+    onSuccess: (data) => {
+      toast.success(data?.message)
+      router.push("/auth/login")
+    },
+    onError: (error: any) => {
+      toast.error(error?.message)
+    }
+  })
+
+  const onSubmit = (data: ResetPasswordSchema) => {
+    const payloadObject = {
+      currentPassword: data.currentPassword,
+      newPassword: data.newPassword
+    }
+    mutate(payloadObject)
+  }
+
+
   return (
     <SettingsLayout>
       <div className={`w-full bg-white rounded-xl p-4 md:p-12 `}>
@@ -12,7 +43,7 @@ const Security = (): JSX.Element => {
         <p className={`text-[#292D32] opacity-[.52] text-[14px] pb-[21px]`}>
           Change or reset your password.
         </p>
-        <form className={`pb-[53px]`}>
+        <form className={`pb-[53px]`} onSubmit={handleSubmit(onSubmit)}>
           {/**Current Password */}
           <div className={`flex flex-col mb-[22px]`}>
             <label className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}>
@@ -21,42 +52,59 @@ const Security = (): JSX.Element => {
             <input
               type="password"
               className={`border border-solid border-[#979797] w-full md:w-[302px]  rounded-lg  h-[46px]`}
+              {...register("currentPassword")}
             />
-          </div>
-
-          {/**Current Password */}
-          <div className={`flex flex-col mb-[22px]`}>
-            <label className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}>
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              className={`border border-solid border-[#979797] w-full md:w-[302px]  rounded-lg  h-[46px]`}
-            />
+            {errors.currentPassword && (
+              <p className='error_message pl-2 py-2'>{errors.currentPassword.message}</p>
+            )}
           </div>
 
           {/**New Password */}
-          <div className={`flex flex-col`}>
+          <div className={`flex flex-col mb-[22px]`}>
             <label className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}>
               New Password
             </label>
             <input
               type="password"
               className={`border border-solid border-[#979797] w-full md:w-[302px]  rounded-lg  h-[46px]`}
+              {...register("newPassword")}
             />
+            {errors.newPassword && (
+              <p className='error_message pl-2 py-2'>{errors.newPassword.message}</p>
+            )}
+          </div>
+
+          {/**Confirm Password */}
+          <div className={`flex flex-col`}>
+            <label className={`text-[#292D32] text-[14px]  font-normal  pb-[6px]`}>
+              Confirm New Password
+            </label>
+            <input
+              type="password"
+              className={`border border-solid border-[#979797] w-full md:w-[302px]  rounded-lg  h-[46px]`}
+              {...register("confirmPassword")}
+            />
+            {errors.confirmPassword && (
+              <p className='error_message pl-2 py-2'>{errors.confirmPassword.message}</p>
+            )}
           </div>
 
           <div className={`flex flex-row gap-6 py-8`}>
             <button
+              type='submit'
               className={`border-0 rounded-lg text-[15px] font-light text-[white] bg-[#0D5520] py-2 px-6`}
             >
-              Change Password
+              {isLoading ? "Changing Password..." : "Change Password"}
+
             </button>
-            <button
-              className={`border border-solid border-[#0D5520] rounded-lg text-[#0D5520] py-2 px-6`}
-            >
-              Discard
-            </button>
+
+            <Link href={"/dashboard"}>
+              <button
+                className={`border border-solid border-[#0D5520] rounded-lg text-[#0D5520] py-2 px-6`}
+              >
+                Discard
+              </button>
+            </Link>
           </div>
         </form>
       </div>
