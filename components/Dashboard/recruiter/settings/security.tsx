@@ -95,7 +95,6 @@ const Security = (): JSX.Element => {
               className={`border-0 rounded-lg text-[15px] font-light text-[white] bg-[#0D5520] py-2 px-6`}
             >
               {isLoading ? "Changing Password..." : "Change Password"}
-
             </button>
 
             <Link href={"/dashboard"}>
