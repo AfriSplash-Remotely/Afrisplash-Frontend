@@ -9,5 +9,4 @@ export const ResetPasswordSchema = yup.object().shape({
         .oneOf([yup.ref("newPassword")], "Passwords must match"),
 })
 
-
 export type ResetPasswordSchema = yup.InferType<typeof ResetPasswordSchema>
