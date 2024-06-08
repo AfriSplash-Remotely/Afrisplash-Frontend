@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { postCaditateOnBoarding } from "@/api-endpoints/onboarding/onboarding.api";
 import styles from "styles/Onboarding.module.scss";
 import Bio from "@/components/onboarding/candidate/Bio";
@@ -43,11 +42,6 @@ const CandidateOnboarding = (): JSX.Element => {
         <div className={styles.bg}>
             <div className="max-w-5xl mx-auto mt-5 pb-10 bg-white shadow-xl rounded-xl px-3">
                 <div className="flex mb-14 justify-center items-center">
-                    <Link href="/">
-
-                        <ArrowLeftIcon className="w-6 ml-4" />
-
-                    </Link>
                     <div className="flex items-center justify-center flex-1">
                         <div className="w-12 h-12 relative">
                             <Image src={logo} fill alt="logo" />
