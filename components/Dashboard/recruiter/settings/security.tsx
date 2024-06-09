@@ -45,7 +45,7 @@ const Security = (): JSX.Element => {
         </p>
         <form className={`pb-[53px]`} onSubmit={handleSubmit(onSubmit)}>
           <div className={`flex flex-col mb-[22px]`}>
-            <label className={`text-dark_text text-[14px]  font-normal  pb-[6px]`}>
+            <label className={`text-dark_text text-sm  font-normal pb-1.5`}>
               Current Password
             </label>
             <input
@@ -58,7 +58,7 @@ const Security = (): JSX.Element => {
             )}
           </div>
           <div className={`flex flex-col mb-[22px]`}>
-            <label className={`text-dark_text text-[14px]  font-normal  pb-[6px]`}>
+            <label className={`text-dark_text text-sm  font-normal pb-1.5`}>
               New Password
             </label>
             <input
@@ -71,7 +71,7 @@ const Security = (): JSX.Element => {
             )}
           </div>
           <div className={`flex flex-col`}>
-            <label className={`text-dark_text text-[14px]  font-normal  pb-[6px]`}>
+            <label className={`text-dark_text text-sm  font-normal pb-1.5`}>
               Confirm New Password
             </label>
             <input
