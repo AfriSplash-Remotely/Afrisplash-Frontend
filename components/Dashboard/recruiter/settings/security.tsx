@@ -37,14 +37,13 @@ const Security = (): JSX.Element => {
   return (
     <SettingsLayout>
       <div className={`w-full bg-white rounded-xl p-4 md:p-12 `}>
-        <h3 className={`text-dark_text pb-[14px] text-[18px] font-medium`}>
+        <h3 className={`text-dark_text pb-3.5 text-lg font-medium`}>
           Security
         </h3>
         <p className={`text-dark_text opacity-[.52] text-[14px] pb-[21px]`}>
           Change or reset your password.
         </p>
         <form className={`pb-[53px]`} onSubmit={handleSubmit(onSubmit)}>
-          {/**Current Password */}
           <div className={`flex flex-col mb-[22px]`}>
             <label className={`text-dark_text text-[14px]  font-normal  pb-[6px]`}>
               Current Password
@@ -58,8 +57,6 @@ const Security = (): JSX.Element => {
               <p className='error_message pl-2 py-2'>{errors.currentPassword.message}</p>
             )}
           </div>
-
-          {/**New Password */}
           <div className={`flex flex-col mb-[22px]`}>
             <label className={`text-dark_text text-[14px]  font-normal  pb-[6px]`}>
               New Password
@@ -73,8 +70,6 @@ const Security = (): JSX.Element => {
               <p className='error_message pl-2 py-2'>{errors.newPassword.message}</p>
             )}
           </div>
-
-          {/**Confirm Password */}
           <div className={`flex flex-col`}>
             <label className={`text-dark_text text-[14px]  font-normal  pb-[6px]`}>
               Confirm New Password
