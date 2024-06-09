@@ -1,5 +1,5 @@
 import api from "@/utils/axios";
-import { responseMessage, ForgotPasswordI } from "@/utils";
+import { responseMessage, ChangePasswordI, ChangePasswordPayload } from "@/utils";
 
 export const signUp = async (payload: object): Promise<responseMessage> => {
   const { data } = await api.post("/auth/register", payload);
@@ -11,7 +11,7 @@ export const forgotPassword = async (email: string): Promise<responseMessage> =>
   return data;
 };
 
-export const changePassword = async (payload: object): Promise<ForgotPasswordI> => {
+export const changePassword = async (payload: ChangePasswordPayload): Promise<ChangePasswordI> => {
   const { data } = await api.put("/auth/change-password", payload)
   return data
 }

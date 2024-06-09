@@ -3,11 +3,17 @@ export interface responseMessage {
   data: string;
 }
 
-export interface ForgotPasswordI {
+export interface ChangePasswordI {
   status:boolean;
   message:string;
   error:string;
 }
+
+export interface ChangePasswordPayload{
+  currentPassword:string;
+  newPassword:string;
+}
+
 export interface ProfileUpdate {
   last_name: string;
   first_name: string;
