@@ -3,6 +3,16 @@ export interface responseMessage {
   data: string;
 }
 
+export interface ChangePasswordI {
+  status:boolean;
+  message:string;
+  error:string;
+}
+
+export interface ChangePasswordPayload{
+  currentPassword:string;
+  newPassword:string;
+}
 
 export interface ProfileUpdate {
   last_name: string;
@@ -16,3 +26,4 @@ export enum ACCOUNT_TYPE{
   candidate="candidate",
   recruiter="recruiter"
 }
+
