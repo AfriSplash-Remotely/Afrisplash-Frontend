@@ -260,7 +260,7 @@ export const currency = [
 ]
 
 export const payment = [
-    { value: "daily", label: "Daily" },
-    { value: "monthly", label: "Monthly" },
-    { value: "yearly", label: "Yearly" }
+    { value: "Daily", label: "Daily" },
+    { value: "Monthly", label: "Monthly" },
+    { value: "Yearly", label: "Yearly" }
   ]
