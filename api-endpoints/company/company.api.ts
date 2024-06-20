@@ -13,6 +13,6 @@ export const createCompany = async (companyPayload: object): Promise<singleCompa
     return data
 }
 export const verifyCompany = async (verifyPayload: object): Promise<singleCompanyResp> => {
-    const { data } = await api.post("/company/verify", verifyPayload)
+    const { data } = await api.patch("/company/verify", verifyPayload)
     return data
 }

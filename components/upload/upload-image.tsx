@@ -72,6 +72,8 @@ const UploadPhoto: React.FC<IFile> = ({ getFileUrl, setPreviewing }) => {
                         src={preview && preview}
                         alt="preview"
                         className="w-full h-full object-contain overflow-hidden"
+                        width={200}
+                        height={200}
                     />
                     {preview && success ? null : (
                         <div className="flex absolute justify-end items-center space-x-3 top-2 right-6 w-full ">
