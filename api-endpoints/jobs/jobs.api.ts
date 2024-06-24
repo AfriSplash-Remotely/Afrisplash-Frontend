@@ -2,7 +2,7 @@ import api from "@/utils/axios";
 import {
   IJobApiResponse, ICreateJobApiResponse, IJobDetailResponse,
   IJobApplyResponse, IRecruiterStatRespone, IRecruiterJobCreatedRes,
-  JobApplicants
+  JobApplicants, IXJobResponse
 } from "./jobs.interface";
 import { setApiHeaders } from "@/constants/setApiHeaders";
 
@@ -73,8 +73,11 @@ export const getJobsCreated = async (): Promise<IRecruiterJobCreatedRes> => {
 
 export const getApplicants = async (jobId: string, jwt: string): Promise<JobApplicants> => {
   setApiHeaders(jwt)
-
   const { data } = await api.get(`/jobs/form-applicants/${jobId}`)
+  return data
+}
 
+export const getXJobs = async (): Promise<IXJobResponse> => {
+  const { data } = await api.get('/xjobs/')
   return data
 }

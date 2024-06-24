@@ -192,3 +192,35 @@ export type JobApplicants = {
   }
 }
 
+interface XJob {
+  id: string;
+  title: string;
+  description: string;
+  companyName: string;
+  companyLogo: string;
+  minSalary: number | null;
+  maxSalary: number | null;
+  seniority: Array<string>;
+  categories: Array<string>;
+  publishedDate: string;
+  expiryDate: string;
+  applicationLink: string;
+  source: string;
+  __v: number;
+
+}
+
+export interface IXJobResponse {
+  status: boolean;
+  message: string;
+  totalDocs: number;
+  limit: number;
+  page:number;
+  totalPages: number;
+  pagingCounter: number;
+  hasPrevPage: boolean;
+  hasNextPage: boolean;
+  prevPage: number | null;
+  nextPage: number | null;
+  data: XJob[]
+}
