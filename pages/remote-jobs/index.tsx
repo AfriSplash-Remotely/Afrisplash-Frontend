@@ -1,17 +1,31 @@
+import { getXJobs } from "@/api-endpoints/jobs/jobs.api"
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query'
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import GeneralLayout from "layouts/generalLayout";
 import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
 import Filter from "../../components/filterComponent/Filter";
 import XJobCard from "@/components/jobCard/xJobCard";
-import { getXJobs } from "@/api-endpoints/jobs/jobs.api"
+import { useState } from "react";
 
 const RemoteJobs: NextPage = (): JSX.Element => {
-  const { data, isLoading } = useQuery(["xJobs"], getXJobs)
-  const externalJobs = data
-  
+  const [page, setPage] = useState<number>(1)
+  const { data, isLoading, isPlaceholderData, isError } = useQuery({
+    queryKey: ["xJobs", page],
+    queryFn: () => getXJobs(page),
+    keepPreviousData: true,
+  })
+  const externalJobs = data ;
+
+  if (isError) {
+    return (
+      <h5 className="text-xl font-medium mt-8 text-gray-300">
+        Error Loading Remote Jobs
+      </h5>
+    )
+  }
+
   return (
     <div>
       <Head>
@@ -64,17 +78,26 @@ const RemoteJobs: NextPage = (): JSX.Element => {
           <div className="flex justify-end pb-4 ">
             <div>
               <div className="flex items-center gap-2">
-                Page
-                <div className="border rounded-lg py-2 px-8">{externalJobs?.page}</div>
+                Page 
+                <div className="border rounded-lg py-2 px-8">{page}</div>
                 <div>of {' '} {externalJobs?.totalPages}</div>
-                <div className="border rounded-lg py-2 px-4 ">
+                <button className="border rounded-lg py-2 px-4"
+                  onMouseDown={() => setPage((old) => Math.max(old - 1, 0))}
+                  disabled={page === 1}>
                   {" "}
                   <ChevronLeftIcon className="w-6 h-6 mr-2" />
-                </div>
-                <div className="border rounded-lg py-2 px-4">
+                </button>
+                <button className="border rounded-lg py-2 px-4"
+                  onMouseDown={() => {
+                    if (!isPlaceholderData && externalJobs?.hasNextPage) {
+                      setPage((old) => old + 1)
+                    }
+                  }}
+                  disabled={isPlaceholderData || !externalJobs?.hasNextPage}
+                >
                   {" "}
                   <ChevronRightIcon className="w-6 h-6 mr-2" />
-                </div>
+                </button>
               </div>
             </div>
           </div>

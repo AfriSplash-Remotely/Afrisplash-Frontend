@@ -77,7 +77,7 @@ export const getApplicants = async (jobId: string, jwt: string): Promise<JobAppl
   return data
 }
 
-export const getXJobs = async (): Promise<IXJobResponse> => {
-  const { data } = await api.get('/xjobs/')
+export const getXJobs = async (page =1): Promise<IXJobResponse> => {
+  const { data } = await api.get(`/xjobs?page=${page}`)
   return data
 }
