@@ -1,12 +1,12 @@
-import { getXJobs } from "@/api-endpoints/jobs/jobs.api"
-import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import type { NextPage } from "next";
 import { useQuery } from '@tanstack/react-query'
+import { getXJobs } from "@/api-endpoints/jobs/jobs.api"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import GeneralLayout from "layouts/generalLayout";
 import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
 import XJobCard from "@/components/jobCard/xJobCard";
-import { useState } from "react";
 
 const RemoteJobs: NextPage = (): JSX.Element => {
   const [page, setPage] = useState<number>(1)
@@ -15,8 +15,15 @@ const RemoteJobs: NextPage = (): JSX.Element => {
     queryFn: () => getXJobs(page),
     keepPreviousData: true,
   })
+
   const externalJobs = data ;
 
+useEffect(() => {
+  if(!isLoading){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}, [page, isLoading])
+  
   if (isError) {
     return (
       <h5 className="text-xl font-medium mt-8 text-gray-300">
