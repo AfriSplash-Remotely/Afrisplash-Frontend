@@ -90,12 +90,12 @@ const XJobCard = ({
           <div className="flex flex-wrap gap-4 items-center sm:justify-between w-full md:w-auto my-4 md:my-0">
 
             <div className="flex gap-3 w-full  items-center md:w-auto">
-              <Button
-                text={"Apply"}
-                classes={
-                  "bg-[#0D5520] text-sm text-[white] px-6 py-1.5 rounded-lg w-1/2  md:w-auto"
-                }
-              />
+              <a className="bg-primary_green text-sm text-white px-6 py-1.5 rounded-lg w-1/2  md:w-auto"
+                target="_blank" rel="noopener noreferrer"
+                href={applicationLink as string}
+              >
+                Apply
+                </a>
             </div>
           </div>
         </div>

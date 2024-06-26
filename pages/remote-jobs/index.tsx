@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query'
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import GeneralLayout from "layouts/generalLayout";
 import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
-import Filter from "../../components/filterComponent/Filter";
 import XJobCard from "@/components/jobCard/xJobCard";
 import { useState } from "react";
 
@@ -36,15 +35,19 @@ const RemoteJobs: NextPage = (): JSX.Element => {
 
       <GeneralLayout>
         <div className="afri-container ">
+          <div className="space-y-0 py-2">
+          <h3 className="capitalize text-center text-2xl md:text-5xl font-semibold mb-4 md:mb-7">
+            Remote Jobs
+          </h3>
+            <p className="text-gray-700 text-center text-base lg:text-xl">
+              Find Remote Jobs that Tailor Fitted for just You
+            </p>
+          </div>
           <div className="relative flex justify-center w-full mt-12">
             <div className="w-full lg:w-1/3">
               <SearchTwo placeholder="Search jobs, keywords , and companies" />
             </div>
           </div>
-          <div>
-            <Filter />
-          </div>
-
           <div className="mt-12 flex items-center gap-8">
             <div className="my-8 font-medium text-lg text-gray-400">Found {externalJobs?.limit} Results of {externalJobs?.totalDocs}</div>
           </div>
@@ -68,6 +71,7 @@ const RemoteJobs: NextPage = (): JSX.Element => {
                         seniority={xjob?.seniority}
                         publishedDate={xjob?.publishedDate}
                         expiryDate={xjob?.expiryDate}
+                        applicationLink={xjob?.applicationLink}
                         />
                       </div>
                     );
