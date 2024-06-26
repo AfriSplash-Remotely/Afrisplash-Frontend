@@ -56,7 +56,11 @@ useEffect(() => {
             </div>
           </div>
           <div className="mt-12 flex items-center gap-8">
+            {isLoading ? '' : (
+              <>
             <div className="my-8 font-medium text-lg text-gray-400">Found {externalJobs?.limit} Results of {externalJobs?.totalDocs}</div>
+              </>
+            )}
           </div>
           <div className=" pb-12">
             {isLoading ? (
@@ -86,32 +90,36 @@ useEffect(() => {
             )}
 
           </div>
-          <div className="flex justify-end pb-4 ">
-            <div>
-              <div className="flex items-center gap-2">
-                Page 
-                <div className="border rounded-lg py-2 px-8">{page}</div>
-                <div>of {' '} {externalJobs?.totalPages}</div>
-                <button className="border rounded-lg py-2 px-4"
-                  onMouseDown={() => setPage((old) => Math.max(old - 1, 0))}
-                  disabled={page === 1}>
-                  {" "}
-                  <ChevronLeftIcon className="w-6 h-6 mr-2" />
-                </button>
-                <button className="border rounded-lg py-2 px-4"
-                  onMouseDown={() => {
-                    if (!isPlaceholderData && externalJobs?.hasNextPage) {
-                      setPage((old) => old + 1)
-                    }
-                  }}
-                  disabled={isPlaceholderData || !externalJobs?.hasNextPage}
-                >
-                  {" "}
-                  <ChevronRightIcon className="w-6 h-6 mr-2" />
-                </button>
+          {isLoading ? '' : (
+            <>
+              <div className="flex justify-end pb-4 ">
+                <div>
+                  <div className="flex items-center gap-2">
+                    Page
+                    <div className="border rounded-lg py-2 px-8">{page}</div>
+                    <div>of {' '} {externalJobs?.totalPages}</div>
+                    <button className="border rounded-lg py-2 px-4"
+                      onMouseDown={() => setPage((old) => Math.max(old - 1, 0))}
+                      disabled={page === 1}>
+                      {" "}
+                      <ChevronLeftIcon className="w-6 h-6 mr-2" />
+                    </button>
+                    <button className="border rounded-lg py-2 px-4"
+                      onMouseDown={() => {
+                        if (!isPlaceholderData && externalJobs?.hasNextPage) {
+                          setPage((old) => old + 1)
+                        }
+                      }}
+                      disabled={isPlaceholderData || !externalJobs?.hasNextPage}
+                    >
+                      {" "}
+                      <ChevronRightIcon className="w-6 h-6 mr-2" />
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </GeneralLayout>
     </div>
