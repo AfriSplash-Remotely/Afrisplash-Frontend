@@ -9,6 +9,16 @@ import { useQuery } from "@tanstack/react-query";
 import { getApplicants } from "@/api-endpoints/jobs/jobs.api";
 import { useSession } from "next-auth/react";
 
+export type ResumeModalInfo = {
+	firstName: string;
+	lastName: string;
+	email: string;
+	country: string;
+	phoneNumber: string;
+	resumeURL: string;
+	jobTitle?: string;
+};
+
 export const ApplicantAccordion = (
 	props: Partial<RecruiterJobData>
 ): JSX.Element => {
@@ -17,6 +27,7 @@ export const ApplicantAccordion = (
 	const [isModalOpen, setIsodalOpen] = useState<boolean>(false);
 	const [jobId, setJobId] = useState<string | null>(null);
 	const [applicants, setApplicants] = useState<Pick<JobApplicants, 'data'> | null>(null)
+	const [modalnfo, setModalInfo] = useState<ResumeModalInfo | null>(null)
 
 	const jwt = session?.user?.accessToken as unknown as string;
 
@@ -87,6 +98,11 @@ export const ApplicantAccordion = (
 													<div
 														key={index}
 														className="flex items-center space-x-3"
+														onClick={() => {
+															if (c) {
+																setModalInfo(c)
+															}
+														}}
 													>
 														<Image
 															src={pic9.src}
@@ -102,7 +118,6 @@ export const ApplicantAccordion = (
 															<button
 																onClick={() => {
 																	onClose();
-																	// console.log({ resumeid: c._id });
 																}}
 																className="text-xs md:text-xs font-thin underline text-black"
 															>
@@ -124,6 +139,7 @@ export const ApplicantAccordion = (
 				onClose={onClose}
 				open={isModalOpen}
 				setIsodalOpen={setIsodalOpen}
+				modalnfo={modalnfo}
 			/>
 		</>
 	);
