@@ -1,15 +1,33 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
 import { useQuery } from '@tanstack/react-query'
 import { getXJobs } from "@/api-endpoints/jobs/jobs.api"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import GeneralLayout from "layouts/generalLayout";
-import SearchTwo from "@/components/atoms/SearchTwo/SearchTwo";
 import XJobCard from "@/components/jobCard/xJobCard";
 
 const RemoteJobs: NextPage = (): JSX.Element => {
   const [page, setPage] = useState<number>(1)
+  const [searchTerm, setSearchTerm] = useState<string>('')
+
+  const filterExternalJobData = (data: any[], searchTerm: string) => {
+    if (!searchTerm) {
+      return data
+    }
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    return data.filter((job: { title: string; companyName: string; }) => {
+      const lowerCaseTitle = job.title.toLowerCase();
+      const lowerCaseCompany = job.companyName.toLowerCase();
+      return lowerCaseTitle.includes(lowerCaseSearchTerm) || lowerCaseCompany.includes(lowerCaseSearchTerm);
+
+    })
+  }
+
+  const handleSearchChange = (event: { target: { value: SetStateAction<string>; }; }) => {
+    setSearchTerm(event.target.value);
+  };
+
   const { data, isLoading, isPlaceholderData, isError } = useQuery({
     queryKey: ["xJobs", page],
     queryFn: () => getXJobs(page),
@@ -17,20 +35,13 @@ const RemoteJobs: NextPage = (): JSX.Element => {
   })
 
   const externalJobs = data ;
+  const filteredData = filterExternalJobData(data?.data || [], searchTerm);
 
 useEffect(() => {
   if(!isLoading){
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }, [page, isLoading])
-  
-  if (isError) {
-    return (
-      <h5 className="text-xl font-medium mt-8 text-gray-300">
-        Error Loading Remote Jobs
-      </h5>
-    )
-  }
 
   return (
     <div>
@@ -52,13 +63,17 @@ useEffect(() => {
           </div>
           <div className="relative flex justify-center w-full mt-12">
             <div className="w-full lg:w-1/3">
-              <SearchTwo placeholder="Search jobs, keywords , and companies" />
+              <div className="w-full flex  justify-around item-center border bg-white h-12 px-2 rounded-lg">
+                <input
+                  className="focus:outline-none w-full pr-2"
+                  type="text" value={searchTerm} onChange={handleSearchChange} placeholder="Search Jobs by Title or Company" />
+              </div>
             </div>
           </div>
           <div className="mt-12 flex items-center gap-8">
             {isLoading ? '' : (
               <>
-            <div className="my-8 font-medium text-lg text-gray-400">Found {externalJobs?.limit} Results of {externalJobs?.totalDocs}</div>
+                <div className="my-8 font-medium text-lg text-gray-400">Found {filteredData?.length} Results of {externalJobs?.totalDocs}</div>
               </>
             )}
           </div>
@@ -67,28 +82,35 @@ useEffect(() => {
               <h5 className="text-xl font-medium mt-8 text-gray-300">
                 Loading...
               </h5>
-            ) : (
-              <>
-                {externalJobs?.data?.flatMap((xjob): JSX.Element => {
-                  return (
-                      <div key={xjob?.id}>
-                        <XJobCard 
-                        title={xjob?.title}
-                        companyName={xjob?.companyName}
-                        companyLogo={xjob?.companyLogo}
-                        description={xjob?.description}
-                        minSalary={xjob?.minSalary || 0}
-                        maxSalary={xjob?.maxSalary || 0}
-                        seniority={xjob?.seniority}
-                        publishedDate={xjob?.publishedDate}
-                        expiryDate={xjob?.expiryDate}
-                        applicationLink={xjob?.applicationLink}
-                        />
-                      </div>
-                    );
-                  })}</>
-            )}
-
+            ) : isError ? (
+              <h5 className="text-xl font-medium mt-8 text-gray-300">
+                Error Loading Remote Jobs
+              </h5>
+              ) : filteredData.length  > 0 ? (
+                  <>
+                    {filteredData?.flatMap((xjob): JSX.Element => {
+                      return (
+                        <div key={xjob?.id}>
+                          <XJobCard
+                            title={xjob?.title}
+                            companyName={xjob?.companyName}
+                            companyLogo={xjob?.companyLogo}
+                            description={xjob?.description}
+                            minSalary={xjob?.minSalary || 0}
+                            maxSalary={xjob?.maxSalary || 0}
+                            seniority={xjob?.seniority}
+                            publishedDate={xjob?.publishedDate}
+                            expiryDate={xjob?.expiryDate}
+                            applicationLink={xjob?.applicationLink}
+                          />
+                        </div>
+                      );
+                    })}</>
+               ): (
+                    <h5 className="text-xl font-medium mt-8 text-gray-300">
+                      No Jobs Found.
+                    </h5>
+               )}
           </div>
           {isLoading ? '' : (
             <>
