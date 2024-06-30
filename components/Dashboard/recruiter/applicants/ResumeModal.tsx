@@ -34,7 +34,7 @@ export default function ResumeModal({
 	};
 
 	if (!modalnfo) {
-		return
+		return  <> </>
 	}
 
 
