@@ -17,6 +17,7 @@ const config = {
       "unsplash.com",
       "example.com",
       "firebasestorage.googleapis.com",
+      'twitter.com'
     ],
   },
 };
