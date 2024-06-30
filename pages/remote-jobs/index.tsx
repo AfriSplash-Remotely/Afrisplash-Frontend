@@ -11,6 +11,12 @@ const RemoteJobs: NextPage = (): JSX.Element => {
   const [page, setPage] = useState<number>(1)
   const [searchTerm, setSearchTerm] = useState<string>('')
 
+  const { data, isLoading, isPlaceholderData, isError } = useQuery({
+    queryKey: ["xJobs", page],
+    queryFn: () => getXJobs(page),
+    keepPreviousData: true,
+  })
+
   const filterExternalJobData = (data: any[], searchTerm: string) => {
     if (!searchTerm) {
       return data
@@ -20,22 +26,16 @@ const RemoteJobs: NextPage = (): JSX.Element => {
       const lowerCaseTitle = job.title.toLowerCase();
       const lowerCaseCompany = job.companyName.toLowerCase();
       return lowerCaseTitle.includes(lowerCaseSearchTerm) || lowerCaseCompany.includes(lowerCaseSearchTerm);
-
     })
   }
 
   const handleSearchChange = (event: { target: { value: SetStateAction<string>; }; }) => {
     setSearchTerm(event.target.value);
+    setPage(1)
   };
 
-  const { data, isLoading, isPlaceholderData, isError } = useQuery({
-    queryKey: ["xJobs", page],
-    queryFn: () => getXJobs(page),
-    keepPreviousData: true,
-  })
-
   const externalJobs = data ;
-  const filteredData = filterExternalJobData(data?.data || [], searchTerm);
+  const filteredData = filterExternalJobData(externalJobs?.data || [], searchTerm);
 
 useEffect(() => {
   if(!isLoading){
