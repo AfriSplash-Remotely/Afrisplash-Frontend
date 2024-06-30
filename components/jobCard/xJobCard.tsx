@@ -78,7 +78,7 @@ const XJobCard = ({
         >
           <div className="flex  flex-wrap sm:justify-between md:gap-40">
             <p className="font-semibold text-base w-full md:w-auto">
-              Salary : {minSalary} - {maxSalary}
+              Salary : USD  {minSalary} - {maxSalary}
             </p>
             <p className="font-semibold text-base w-full md:w-auto">
               Posted : {formatTimeAgo(publishedDate as string)}
