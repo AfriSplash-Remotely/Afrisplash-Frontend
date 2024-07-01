@@ -1,47 +1,33 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { FcApproval } from "react-icons/fc";
+import { useQuery } from "@tanstack/react-query";
 import { HiOutlineChevronUp, HiOutlineChevronDown } from "react-icons/hi2";
 import ResumeModal from "./ResumeModal";
-import { JobApplicants, RecruiterJobData } from "@/api-endpoints/jobs/jobs.interface";
+import {
+	JobApplicantUser,
+	RecruiterJobData,
+} from "@/api-endpoints/jobs/jobs.interface";
 import pic9 from "assets/images/pic9.png";
-import { useQuery } from "@tanstack/react-query";
 import { getApplicants } from "@/api-endpoints/jobs/jobs.api";
-import { useSession } from "next-auth/react";
-
-export type ResumeModalInfo = {
-	firstName: string;
-	lastName: string;
-	email: string;
-	country: string;
-	phoneNumber: string;
-	resumeURL: string;
-	jobTitle?: string;
-};
 
 export const ApplicantAccordion = (
 	props: Partial<RecruiterJobData>
 ): JSX.Element => {
-	const { data: session } = useSession();
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [isModalOpen, setIsodalOpen] = useState<boolean>(false);
 	const [jobId, setJobId] = useState<string | null>(null);
-	const [applicants, setApplicants] = useState<Pick<JobApplicants, 'data'> | null>(null)
-	const [modalnfo, setModalInfo] = useState<ResumeModalInfo | null>(null)
+	const [jobApplicant, setJobApplicant] = useState<JobApplicantUser | null>(
+		null
+	);
 
-	const jwt = session?.user?.accessToken as unknown as string;
-
-	useQuery({
+	const { data: allApplicants, isLoading } = useQuery({
 		queryKey: ["applicants", jobId],
 		queryFn: () => {
-			return getApplicants(jobId as string, jwt)
+			return getApplicants(jobId as string);
 		},
-		onSuccess: (data: Pick<JobApplicants, 'data'>) => {
-			if (data) {
-				setApplicants(data);
-			}
-		},
-		enabled: !!jobId
+		enabled: !!jobId,
+		refetchOnWindowFocus: true,
 	});
 
 	const onClose = () => {
@@ -81,52 +67,56 @@ export const ApplicantAccordion = (
 							List of candidates who applied for this job
 						</span>
 						<div>
-							{!applicants?.data ? (
+							{isLoading ? (
 								<h5 className="text-sm font-medium text-gray-300">
 									Loading...
 								</h5>
 							) : (
 								<>
-									{applicants?.data?.external_applicants.length === 0 ? (
+									{!isLoading &&
+									allApplicants &&
+									allApplicants?.applicants?.length === 0 ? (
 										<span className="text-xs font-medium text-gray-400">
 											No Applicants yet
 										</span>
 									) : (
 										<div className="transition-all duration-700  ease-in space-y-4">
-											{applicants?.data?.external_applicants?.map((c, index) => {
-												return (
-													<div
-														key={index}
-														className="flex items-center space-x-3"
-														onClick={() => {
-															if (c) {
-																setModalInfo(c)
-															}
-														}}
-													>
-														<Image
-															src={pic9.src}
-															width={200}
-															height={200}
-															alt=""
-															className="w-9 h-9 rounded-full aspect-square"
-														/>
-														<div className="flex flex-col items-start justify-between">
-															<span className="text-xs md:text-sm font-semibold">
-																{`${c.firstName} ${c.lastName}`}
-															</span>
-															<button
-																onClick={() => {
-																	onClose();
-																}}
-																className="text-xs md:text-xs font-thin underline text-black"
-															>
-																View Application
-															</button>
+											{!isLoading &&
+												allApplicants &&
+												allApplicants?.applicants?.map((applicant) => {
+													return (
+														<div
+															key={applicant._user._id}
+															className="flex items-center space-x-3"
+															onClick={() => {
+																if (applicant) {
+																	setJobApplicant(applicant._user);
+																}
+															}}
+														>
+															<Image
+																src={pic9.src}
+																width={200}
+																height={200}
+																alt=""
+																className="w-9 h-9 rounded-full aspect-square"
+															/>
+															<div className="flex flex-col items-start justify-between">
+																<span className="text-xs md:text-sm font-semibold">
+																	{`${applicant._user.first_name} ${applicant._user?.last_name}`}
+																</span>
+																<button
+																	onClick={() => {
+																		onClose();
+																	}}
+																	className="text-xs md:text-xs font-thin underline text-black"
+																>
+																	View Application
+																</button>
+															</div>
 														</div>
-													</div>
-												);
-											})}
+													);
+												})}
 										</div>
 									)}
 								</>
@@ -139,7 +129,7 @@ export const ApplicantAccordion = (
 				onClose={onClose}
 				open={isModalOpen}
 				setIsodalOpen={setIsodalOpen}
-				modalnfo={modalnfo}
+				modalnfo={jobApplicant}
 			/>
 		</>
 	);
