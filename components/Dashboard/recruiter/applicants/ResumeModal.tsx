@@ -6,14 +6,17 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Modal, { ModalT } from "@/components/molecules/Modal";
 import RejectionModal from "./RejectionModal";
 import { AttachSquare } from "@/assets/svg/AttachSquareIcon";
+import { JobApplicantUser } from "@/api-endpoints/jobs/jobs.interface";
 
 type ModalProps = {
+	modalnfo: JobApplicantUser | null
 	setIsodalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 } & Omit<ModalT, "children">;
 
 export default function ResumeModal({
 	open,
 	onClose,
+	modalnfo,
 	setIsodalOpen,
 }: ModalProps): JSX.Element {
 	const [isRejectionOpen, setOpenRejection] = useState<boolean>(false);
@@ -27,11 +30,14 @@ export default function ResumeModal({
 
 	const onCopyText = () => {
 		setIsEmailCopied(true);
-		setTimeout(() => setIsEmailCopied(false), 2000);
+		setTimeout(() => setIsEmailCopied(false), 1000);
 	};
+
+
 
 	return (
 		<>
+			{modalnfo && 
 			<Modal onClose={onClose} open={open}>
 				<div className="bg-white">
 					<div className="flex items-center overflow-hidden space-x-6 bg-white-smoke pt-6 pb-3 px-6">
@@ -39,7 +45,7 @@ export default function ResumeModal({
 							<AiOutlineClose className="text-lg font-medium" />
 						</button>
 						<span className="text-sm md:text-lg font-medium">
-							John’s resume
+							{modalnfo?.first_name} resume
 						</span>
 					</div>
 
@@ -49,9 +55,9 @@ export default function ResumeModal({
 								Personal Information
 							</span>
 							<div className="space-y-2">
-								<ItemCard title="First name" data="Precious" />
-								<ItemCard title="Last name" data="Francis" />
-								<ItemCard title="Email" data="deebiz@gmail.com" />
+								<ItemCard title="First name" data={modalnfo?.first_name} />
+								<ItemCard title="Last name" data={modalnfo?.last_name} />
+								<ItemCard title="Email" data={modalnfo?.email} />
 							</div>
 						</div>
 						<div className="space-y-4">
@@ -59,10 +65,10 @@ export default function ResumeModal({
 								Other Information
 							</span>
 							<div className="space-y-2">
-								<ItemCard title="Job Title" data="Product Designer" />
-								<ItemCard title="Country" data="Nigeria" />
-								<ItemCard title="Phone number" data="+234 112 567 8903" />
-								<ItemCard title="Expected salary" data="$40,000 - $200,000" />
+								<ItemCard title="Job Title" data="-" />
+								<ItemCard title="Country" data="-" />
+								<ItemCard title="Phone number" data="-" />
+								<ItemCard title="Expected salary" data="-" />
 							</div>
 						</div>
 						<div className="space-y-4">
@@ -95,10 +101,9 @@ export default function ResumeModal({
 							<CopyToClipboard text={copiedEmail} onCopy={onCopyText}>
 								<button
 									type="button"
-									onClick={() => setCopiedEmail("deebiz@gmail.com")}
-									className={`inline-flex items-center justify-center space-x-2 py-2 px-4 ${
-										isEmailCopied === true ? "bg-green-800/80" : "bg-green-800"
-									} text-white border border-green-800 rounded-lg text-sm md:text-base font-normal`}
+									onClick={() => setCopiedEmail(modalnfo?.email)}
+									className={`inline-flex items-center justify-center space-x-2 py-2 px-4 ${isEmailCopied === true ? "bg-green-800/80" : "bg-green-800"
+										} text-white border border-green-800 rounded-lg text-sm md:text-base font-normal`}
 								>
 									<MdOutlineMarkEmailRead />
 									<span className="text-sm">Copy email</span>
@@ -108,6 +113,7 @@ export default function ResumeModal({
 					</div>
 				</div>
 			</Modal>
+			}
 			<RejectionModal open={isRejectionOpen} onClose={handleOpenReject} />
 		</>
 	);
