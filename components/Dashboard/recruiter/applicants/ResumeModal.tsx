@@ -33,13 +33,11 @@ export default function ResumeModal({
 		setTimeout(() => setIsEmailCopied(false), 1000);
 	};
 
-	if (!modalnfo) {
-		return  <> </>
-	}
 
 
 	return (
 		<>
+		{modalnfo  && 
 			<Modal onClose={onClose} open={open}>
 				<div className="bg-white">
 					<div className="flex items-center overflow-hidden space-x-6 bg-white-smoke pt-6 pb-3 px-6">
@@ -115,6 +113,7 @@ export default function ResumeModal({
 					</div>
 				</div>
 			</Modal>
+			}
 			<RejectionModal open={isRejectionOpen} onClose={handleOpenReject} />
 		</>
 	);
