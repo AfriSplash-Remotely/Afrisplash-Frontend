@@ -1,8 +1,5 @@
-import { jobCat, toArrayOfObjects } from "utils/fakeData";
 import JobCard from "components/jobCard";
-import JobCategory from "components/molecules/jobCategory";
 import styles from "./styles.module.scss";
-import { generateUniqueId } from "@/utils/helper";
 import { TFunction } from "i18next";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllJobs } from "@/api-endpoints/jobs/jobs.api";
@@ -10,32 +7,13 @@ interface Props {
   translate: TFunction<["common", "home", "footer"], undefined>;
 }
 
-
 function HomeJobs({ translate }: Props): JSX.Element {
-
   const { data } = useQuery(["jobs"], fetchAllJobs);
-
   const homeJobs = data?.data
-  const homeJobCat = toArrayOfObjects(jobCat, 9);
 
   return (
     <section className={`w-full ${styles.bg_gray}`}>
       <div className="py-28 space-y-24 w-11/12 xl:w-10/12 mx-auto">
-        <section className="space-y-10">
-          <div className="text-center space-y-3 lg:space-y-5">
-            <h2 className="text-2xl lg:text-4xl font-semibold">
-              {translate("Popular job categories")}
-            </h2>
-            <p className="text-gray-500 lg:text-base text-base">
-              {translate("224 live")} | {translate("49 added today")}
-            </p>
-          </div>
-          <div className="w-full flex flex-wrap justify-between ">
-            {homeJobCat.map((data: any) => (
-              <JobCategory key={generateUniqueId()} data={data} />
-            ))}
-          </div>
-        </section>
         <section className="space-y-16 ">
           <div className="text-center  md:space-y-8">
             <h2 className=" text-2xl lg:text-5xl font-semibold mb-4 md:mb-7">
@@ -46,7 +24,7 @@ function HomeJobs({ translate }: Props): JSX.Element {
             </div>
           </div>
           <div className="w-full grid grid-cols-1">
-            {homeJobs?.map(
+            {homeJobs?.slice(0,5).map(
               (job): JSX.Element => (
                 <div key={job?._id}>
                   <JobCard
