@@ -6,7 +6,7 @@ import {
 	IJobApplyResponse,
 	IRecruiterStatRespone,
 	IRecruiterJobCreatedRes,
-	JobApplicants,
+	JobApplicants, IXJobResponse
 } from "./jobs.interface";
 
 export const fetchAllJobs = async (): Promise<IJobApiResponse> => {
@@ -88,6 +88,10 @@ export const getJobsCreated = async (): Promise<IRecruiterJobCreatedRes> => {
 	return data;
 };
 
+export const getXJobs = async (page =1): Promise<IXJobResponse> => {
+  const { data } = await api.get(`/xjobs?page=${page}`)
+  return data
+}
 export const getApplicants = async (jobId: string): Promise<JobApplicants> => {
 	const { data } = await api.get(`/jobs/v/${jobId}`);
 	return data;
