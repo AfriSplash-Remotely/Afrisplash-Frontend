@@ -64,6 +64,7 @@ const Hero = ({ translate }: Props): JSX.Element => {
                   color="white"
                   text={translate("join the community")}
                   classes="w-max px-5 h-12  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
+                  onClick={() => route.push("/auth/signup")}
                 />
                 {isUserSignedIn ? null : (
                   <button
