@@ -6,10 +6,10 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Modal, { ModalT } from "@/components/molecules/Modal";
 import RejectionModal from "./RejectionModal";
 import { AttachSquare } from "@/assets/svg/AttachSquareIcon";
-import { ResumeModalInfo } from "./ApplicantAccordion";
+import { JobApplicantUser } from "@/api-endpoints/jobs/jobs.interface";
 
 type ModalProps = {
-	modalnfo: ResumeModalInfo | null
+	modalnfo: JobApplicantUser | null
 	setIsodalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 } & Omit<ModalT, "children">;
 
@@ -37,7 +37,7 @@ export default function ResumeModal({
 
 	return (
 		<>
-		{modalnfo  && 
+			{modalnfo && 
 			<Modal onClose={onClose} open={open}>
 				<div className="bg-white">
 					<div className="flex items-center overflow-hidden space-x-6 bg-white-smoke pt-6 pb-3 px-6">
@@ -45,7 +45,7 @@ export default function ResumeModal({
 							<AiOutlineClose className="text-lg font-medium" />
 						</button>
 						<span className="text-sm md:text-lg font-medium">
-							{modalnfo?.firstName} resume
+							{modalnfo?.first_name} resume
 						</span>
 					</div>
 
@@ -55,8 +55,8 @@ export default function ResumeModal({
 								Personal Information
 							</span>
 							<div className="space-y-2">
-								<ItemCard title="First name" data={modalnfo?.firstName} />
-								<ItemCard title="Last name" data={modalnfo?.lastName} />
+								<ItemCard title="First name" data={modalnfo?.first_name} />
+								<ItemCard title="Last name" data={modalnfo?.last_name} />
 								<ItemCard title="Email" data={modalnfo?.email} />
 							</div>
 						</div>
@@ -66,8 +66,8 @@ export default function ResumeModal({
 							</span>
 							<div className="space-y-2">
 								<ItemCard title="Job Title" data="-" />
-								<ItemCard title="Country" data={modalnfo?.country} />
-								<ItemCard title="Phone number" data={modalnfo?.phoneNumber} />
+								<ItemCard title="Country" data="-" />
+								<ItemCard title="Phone number" data="-" />
 								<ItemCard title="Expected salary" data="-" />
 							</div>
 						</div>
