@@ -24,7 +24,12 @@ interface ApplyModalProps {
   open: boolean;
   salaryType: string | any;
   onClose: () => void;
-  isApplied?: boolean
+  isApplied?: boolean;
+}
+
+enum Tabs {
+  "Overview",
+  "Application",
 }
 
 const JobApplicationModal: React.FC<ApplyModalProps> = ({
@@ -42,41 +47,44 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   isApplied,
   onClose,
 }) => {
+  const [tab, setTab] = React.useState<Tabs>(Tabs.Overview);
 
+  const handleTabSwitch = (currentTab: Tabs): void => {
+    setTab(currentTab);
+  };
 
   const { mutate: applyMutation, isLoading: applyLoading } = useMutation({
     mutationFn: (jobId: string) => applyForJob(jobId),
     onSuccess: () => {
-      toast.success("Job applied successfully ")
-      onClose()
+      toast.success("Job applied successfully ");
+      onClose();
     },
     onError: (error: AxiosError<{ error: any }>) => {
       toast.error(error?.response?.data?.error);
-    }
-  })
+    },
+  });
 
   const { mutate: saveMutation, isLoading: saveLoading } = useMutation({
     mutationFn: (jobId: string) => saveJob(jobId),
     onSuccess: () => {
-      toast.success("Job saved successfully")
-      onClose()
+      toast.success("Job saved successfully");
+      onClose();
       // Additional logic after saving the job
     },
     onError: (error: AxiosError<{ error: any }>) => {
       toast.error(error?.response?.data?.error);
-
-    }
-  })
+    },
+  });
 
   const onApplyForJob = () => {
-    const jobId = sessionStorage.getItem("jobId")
-    applyMutation(jobId as string)
-  }
+    const jobId = sessionStorage.getItem("jobId");
+    applyMutation(jobId as string);
+  };
 
   const onSaveJob = () => {
-    const jobId = sessionStorage.getItem("jobId")
-    saveMutation(jobId as string)
-  }
+    const jobId = sessionStorage.getItem("jobId");
+    saveMutation(jobId as string);
+  };
 
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
@@ -89,100 +97,191 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
             {title}
           </p>
         </div>
-        <div className="mt-8 flex justify-around">
-          <div>
-            <div className="flex gap-2">
-              <Image src={locateIcon} alt="icon" />
-              <span className="text-grey_3 text-lg">Location</span>
+        {tab == Tabs.Overview ? (
+          <div className="mt-8 flex justify-around">
+            <div>
+              <div className="flex gap-2">
+                <Image src={locateIcon} alt="icon" />
+                <span className="text-grey_3 text-lg">Location</span>
+              </div>
+              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+                {location}
+              </p>
             </div>
-            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
-              {location}
-            </p>
-          </div>
-          <div>
-            <div className="flex gap-2">
-              <Image src={locateIcon} alt="icon" />
-              <span className="text-grey_3 text-lg">Level</span>
+            <div>
+              <div className="flex gap-2">
+                <Image src={locateIcon} alt="icon" />
+                <span className="text-grey_3 text-lg">Level</span>
+              </div>
+              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+                {level}
+              </p>
             </div>
-            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
-              {level}
-            </p>
-          </div>
-          <div>
-            <div className="flex gap-2">
-              <Image src={typeIcon} alt="icon" />
-              <span className="text-grey_3 text-lg">Type</span>
+            <div>
+              <div className="flex gap-2">
+                <Image src={typeIcon} alt="icon" />
+                <span className="text-grey_3 text-lg">Type</span>
+              </div>
+              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+                {type}
+              </p>
             </div>
-            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
-              {type}
-            </p>
-          </div>
-          <div>
-            <div className="flex gap-2">
-              <Image src={locateIcon} alt="icon" />
-              <span className="text-grey_3 text-lg">Salary</span>
+            <div>
+              <div className="flex gap-2">
+                <Image src={locateIcon} alt="icon" />
+                <span className="text-grey_3 text-lg">Salary</span>
+              </div>
+              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+                {salaryType && (
+                  <span>
+                    {salaryType === "range"
+                      ? `${salary?.min} - ${salary?.max}`
+                      : ` ${salary?.amount}`}
+                  </span>
+                )}
+              </p>
             </div>
-            <p className="text-primary_green font-bold text-lg ml-8 mt-1">
-              {
-                salaryType && (<span>
-                  {
-                    salaryType === "range" ? `${salary?.min} - ${salary?.max}` : ` ${salary?.amount}`
-                  }
-                </span>
-                )
-              }
-            </p>
           </div>
-        </div>
+        ) : (
+          <React.Fragment></React.Fragment>
+        )}
 
-        <div className="py-12 px-12">
-          <div className="py-4">
-            <h3 className="text-dark_black font-bold text-base">
-              JOB DESCRIPTION
-            </h3>
-            <p className="text-base text-dark_black mt-2">
-              {description}
-            </p>
-          </div>
-          <div className="py-4">
-            <h3 className="text-dark_black font-bold text-base">
-              REQUIREMENTS
-            </h3>
-            <p className="text-base text-dark_black mt-2">
-              {requirement}
-            </p>
-          </div>
-          <div className="py-4">
-            <h3 className="text-dark_black font-bold text-base">BENEFITS</h3>
-            <p className="text-base text-dark_black mt-2">
-              {benefit}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-4 flex gap-3 items-center">
-          <Button
-            text={"Save"}
-            onClick={onSaveJob}
-            classes={
-              "border border-solid text-sm border-[#0D5520] px-12 py-2 rounded-lg w-1/2  md:w-auto"
-            }
+        <div className="flex items-center justify-center gap-2 px-12 mt-12">
+          <div
+            onClick={() => handleTabSwitch(Tabs.Overview)}
+            className="w-full text-center space-y-1 cursor-pointer"
           >
-            <span className="flex gap-4 mx-auto item-center justify-center">{saveLoading && <LoadingIcon />} Save</span>
-          </Button>
-          {
-            !isApplied && (
+            <div
+              className={`${tab === Tabs.Overview ? "bg-primary_green" : "bg-grey_2"
+                } rounded-full h-1`}
+            ></div>
+            <p className="font-medium text-sm text-grey_5">OVERVIEW</p>
+          </div>
+          <div
+            onClick={() => handleTabSwitch(Tabs.Application)}
+            className="w-full text-center space-y-1 cursor-pointer"
+          >
+            <div
+              className={`${tab === Tabs.Application ? "bg-primary_green" : "bg-grey_2"
+                } rounded-full h-1`}
+            ></div>
+            <p className="font-medium text-sm text-grey_5">APPLICATION</p>
+          </div>
+        </div>
+
+        {tab === Tabs.Overview ? (
+          <div className="px-12">
+            <div className="py-12">
+              <div className="py-4">
+                <h3 className="text-dark_black font-bold text-base">
+                  JOB DESCRIPTION
+                </h3>
+                <p className="text-base text-dark_black mt-2">{description}</p>
+              </div>
+              <div className="py-4">
+                <h3 className="text-dark_black font-bold text-base">
+                  REQUIREMENTS
+                </h3>
+                <p className="text-base text-dark_black mt-2">{requirement}</p>
+              </div>
+              <div className="py-4">
+                <h3 className="text-dark_black font-bold text-base">
+                  BENEFITS
+                </h3>
+                <p className="text-base text-dark_black mt-2">{benefit}</p>
+              </div>
+            </div>
+            <div className="mt-4 flex gap-3 items-center">
               <Button
-                onClick={onApplyForJob}
+                text={"Save"}
+                onClick={onSaveJob}
                 classes={
-                  "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
+                  "border border-solid text-sm border-[#0D5520] px-12 py-2 rounded-lg w-1/2  md:w-auto"
                 }
               >
-                <span className="flex gap-4 mx-auto item-center justify-center">{applyLoading && <LoadingIcon />} Apply</span>
+                <span className="flex gap-4 mx-auto item-center justify-center">
+                  {saveLoading && <LoadingIcon />} Save
+                </span>
               </Button>
-            )
-          }
-        </div>
+              {!isApplied && (
+                <Button
+                  onClick={() => handleTabSwitch(Tabs.Application)}
+                  classes={
+                    "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
+                  }
+                >
+                  <span className="flex gap-4 mx-auto item-center justify-center">
+                    {applyLoading && <LoadingIcon />} Apply
+                  </span>
+                </Button>
+              )}
+            </div>
+          </div>
+        ) : (
+          <React.Fragment></React.Fragment>
+        )}
+        {tab === Tabs.Application ? (
+          <div className="px-4 mt-12">
+            <form className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-full flex flex-col space-y-1">
+                  <label htmlFor="first name" className="text-dark_blue">
+                    First name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="First name"
+                    className="p-4 border rounded-md"
+                  />
+                </div>
+                <div className="w-full flex flex-col space-y-1">
+                  <label htmlFor="first name" className="text-dark_blue">
+                    Last name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Last name"
+                    className="p-4 border rounded-md"
+                  />
+                </div>
+              </div>
+              <div className="w-full flex flex-col space-y-1">
+                <label htmlFor="first name" className="text-dark_blue">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="email@someone.com"
+                  className="p-4 border rounded-md"
+                />
+              </div>
+              <div className="w-full flex flex-col space-y-1">
+                <label htmlFor="first name" className="text-dark_blue">
+                  Job Title
+                </label>
+                <select disabled defaultValue={title} name="job title" id="job title" className="px-4 py-5 bg-white border rounded-md">
+                  <option value={title}>{title}</option>
+                </select>
+              </div>
+              <div className="w-full flex flex-col space-y-1">
+                <label htmlFor="first name" className="text-dark_blue">
+                  Country
+                </label>
+                <select name="country" id="country" className="px-4 py-5 bg-white border rounded-md">
+                  <option value="nigeria">Nigeria</option>
+                  <option value="ghana">Ghana</option>
+                </select>
+              </div>
+
+              <div className="flex gap-4 items-center mt-12 justify-end w-40">
+                <button>Clear</button>
+                <button>Submit</button>
+              </div>
+            </form>
+          </div>
+        ) : (
+          <React.Fragment></React.Fragment>
+        )}
       </div>
     </Modal>
   );
