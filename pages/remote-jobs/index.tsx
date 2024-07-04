@@ -46,8 +46,8 @@ useEffect(() => {
   return (
     <div>
       <Head>
-        <title>Afrisplash</title>
-        <meta name="description" content="Afrisplash Remotely | Remote Jobs" />
+        <title>Afrisplash | Remote Job</title>
+        <meta name="description" content="The Gateway To Africa'S Remote Workforce" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
