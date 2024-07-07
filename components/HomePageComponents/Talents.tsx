@@ -42,7 +42,7 @@ function Talents({ translate }: Props): JSX.Element {
             <div className="grid gap-6  s:grid-cols-1 lg:grid-cols-4">
               {data && data.length > 0 ? (
                 data &&
-                data.map((candidate, index) => {
+                data.slice(0,11).map((candidate, index) => {
                   const fullName = `${candidate.first_name} ${candidate.last_name}`;
                   return (
                     <React.Fragment key={candidate._id}>
@@ -121,7 +121,7 @@ function Talents({ translate }: Props): JSX.Element {
             </div>
           </div>
           <div className="w-max mx-auto">
-            <Link href="/" className=" text-gray-400 leading-8 border-b-2">
+            <Link href="/candidates" className=" text-gray-400 leading-8 border-b-2">
               {translate("View more")}
             </Link>
           </div>
