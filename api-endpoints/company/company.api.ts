@@ -4,7 +4,7 @@ import api from "@/utils/axios";
 import { CreateCompanyProps, singleCompanyResp } from "./company.interfaces";
 
 export const fetchAllCompanies = async (): Promise<singleCompanyResp[]> => {
-    const { data } = await api.get("/jobs");
+    const { data } = await api.get("/company");
     return data;
 };
 
