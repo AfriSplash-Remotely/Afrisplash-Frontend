@@ -1,13 +1,14 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { TFunction } from "i18next";
+import Button from "../../atoms/Button/Button";
 import card_1 from "assets/home-page/card_1.png";
 import card_2 from "assets/home-page/card_2.png";
 import card_3 from "assets/home-page/card_3.png";
 import styles from "./Hero.module.scss";
-import Button from "../../atoms/Button/Button";
-import { motion } from "framer-motion";
-import { useRouter } from "next/router";
-import { TFunction } from "i18next";
 
 interface Props {
   translate: TFunction<"home", undefined>;
@@ -15,6 +16,9 @@ interface Props {
 
 const Hero = ({ translate }: Props): JSX.Element => {
   const route = useRouter();
+  const { data: session, status } = useSession()
+  const isUserSignedIn = session?.user?.accessToken && status === 'authenticated';
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -60,16 +64,19 @@ const Hero = ({ translate }: Props): JSX.Element => {
                   color="white"
                   text={translate("join the community")}
                   classes="w-max px-5 h-12  md:px-3 xl:px-5 rounded-md text-sm capitalize text-white bg-dark_blue hover:bg-primary_green"
+                  onClick={() => route.push("/auth/signup")}
                 />
-                <button
-                  onClick={() => route.push("/post-jobs/jobs")}
-                  className="flex space-x-2 items-center text-dark_blue hover:text-primary_green hover:font-semibold"
-                >
-                  <span>{translate("Post a job")}</span>
+                {isUserSignedIn ? null : (
+                  <button
+                  onClick={() => route.push("/auth/login")}
+                  className="flex space-x-2 items-center font-semibold text-dark_blue hover:text-primary_green"
+                  >
+                  <span>{translate("Sign In")}</span>
                   <span>
                     <ArrowRightIcon className="w-5 h-4 " />
                   </span>
                 </button>
+                )}
               </motion.div>
             </motion.div>
           </motion.div>
