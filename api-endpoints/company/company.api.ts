@@ -1,6 +1,6 @@
 import api from "@/utils/axios";
 
-import { setApiHeaders } from "@/constants/setApiHeaders";
+
 import { CreateCompanyProps, singleCompanyResp } from "./company.interfaces";
 
 export const fetchAllCompanies = async (): Promise<singleCompanyResp[]> => {
