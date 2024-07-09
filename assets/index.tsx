@@ -1,9 +1,10 @@
+import React from "react";
 interface svgProps {
     width?: string;
     height?: string;
 }
 
-export const UploadImage = ({ width, height }: svgProps) => {
+export const UploadImage : React.FC = ({ width, height }: svgProps) => {
     return (
         <svg
             width={width ? width : "181"}
@@ -32,7 +33,7 @@ export const UploadImage = ({ width, height }: svgProps) => {
         </svg>
     );
 };
-export const CancelIcon = () => {
+export const CancelIcon : React.FC = () => {
     return (
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.9993 29.3334C23.3327 29.3334 29.3327 23.3334 29.3327 16.0001C29.3327 8.66675 23.3327 2.66675 15.9993 2.66675C8.66602 2.66675 2.66602 8.66675 2.66602 16.0001C2.66602 23.3334 8.66602 29.3334 15.9993 29.3334Z" stroke="#63685E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -43,7 +44,7 @@ export const CancelIcon = () => {
     )
 }
 
-export const CalenderIcon = () => {
+export const CalenderIcon : React.FC = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 2V5" stroke="#979797" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -61,7 +62,7 @@ export const CalenderIcon = () => {
     )
 }
 
-export const SearchIcon = () => {
+export const SearchIcon : React.FC = () => {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#63685E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

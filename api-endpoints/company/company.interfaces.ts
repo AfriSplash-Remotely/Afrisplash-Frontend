@@ -30,3 +30,26 @@ export interface singleCompanyResp   {
     data? : any;
 
 };
+
+export interface Social  {
+    platform: string;
+    handle: string;
+    link: string;
+};
+
+export interface CreateCompanyProps  {
+    name: string;
+    role: string;
+    company_email: string;
+    company_phone: string;
+    description: string;
+    one_Line_Pitch: string;
+    staff: number;
+    website: string;
+    industry: string;
+    location: string;
+    thumbnail: string;
+    logo: string;
+    market: string[];
+    socials: Social[];
+};

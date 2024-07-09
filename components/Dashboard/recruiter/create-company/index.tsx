@@ -16,7 +16,7 @@ import checked from "assets/candidateOnboarding/checked.svg";
 import SocialInput from './social-input';
 import { createCompany, verifyCompany } from '@/api-endpoints/company/company.api';
 import LoadingIcon from '@/components/atoms/LoaingIcon';
-import { singleCompanyResp } from '@/api-endpoints/company/company.interfaces';
+import { CreateCompanyProps, singleCompanyResp } from '@/api-endpoints/company/company.interfaces';
 import { AxiosError } from 'axios';
 
 interface Social {
@@ -78,7 +78,7 @@ export default function CreateCompany(): JSX.Element {
     }
 
     const { mutate, isLoading,data } = useMutation({
-        mutationFn: (payload: object) => createCompany(payload),
+        mutationFn: (payload: CreateCompanyProps) => createCompany(payload),
         onSuccess: () => {
          
             setCurrentStep(2);
@@ -106,7 +106,7 @@ export default function CreateCompany(): JSX.Element {
         verifyCompanyMutation(id);
     }
 
-    console.log({formOneValues})
+   
 
     const onSubmit = (data: StepOne, e: any) => {
         e?.preventDefault();
