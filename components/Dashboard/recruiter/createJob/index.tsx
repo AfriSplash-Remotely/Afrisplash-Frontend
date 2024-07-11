@@ -68,8 +68,18 @@ export default function CreateJobs(): JSX.Element {
   })
 
   const onSubmit = (data: StepThree, e: any) => {
-    e.preventDefault()
-    const completedSteps = { ...data, ...formOneValues, ...formTwoValues }
+    e.preventDefault();
+    // Note that the otherData are details that is not tracked on the ui but the backend requires it for us to be able to create a Job 
+    const otherData = {
+      "redirect": false,
+      "redirect_url": "http://example.com/job_redirect",
+      "private": false,
+      "promoted": false,
+      "publish": true,
+      "salaryType": "range",
+      "status": "Active",
+    }
+    const completedSteps = { ...data, ...formOneValues, ...formTwoValues,...otherData }
     mutate(completedSteps)
   }
 
@@ -228,12 +238,12 @@ export default function CreateJobs(): JSX.Element {
               <div className='mt-2 mb-2'>
                 <label htmlFor='benefit'>Benefits</label>
                 <textarea
-                  {...form2.register("benefits")}
+                  {...form2.register("benefit")}
                   placeholder='Type the job benefits here|'
                   className="border-2 border-gray-300 rounded-md mb-2 w-full h-40 py-2 pl-4 outline-none"
                 />
-                {form2.formState.errors.benefits &&
-                  <p className='text-red-800'>{form2.formState.errors?.benefits?.message}</p>
+                {form2.formState.errors.benefit &&
+                  <p className='text-red-800'>{form2.formState.errors?.benefit?.message}</p>
                 }
               </div>
             </form>
@@ -318,18 +328,26 @@ export default function CreateJobs(): JSX.Element {
               <div className=' flex justify-between items-center gap-8'>
                 <div className='w-full mt-2 mb-2'>
                   <label htmlFor="salaryMin">Min Salary</label>
-                  <input type='text' id='salaryMin'
+                  <input type='number' id='salaryMin'
                     className='input-el mt-2' placeholder='Minimum Salary for this job'
-                    {...form3.register('salary.min')}
+                    {...form3.register('salary.min', {
+                      required: 'Max salary is required',
+                      valueAsNumber: true,
+                      
+                    })}
                   />
                   {form3.formState.errors.salary?.min &&
                     <p className='text-red-800'>{form3.formState.errors?.salary?.min?.message}</p>}
                 </div>
                 <div className='w-full mt-2 mb-2'>
                   <label htmlFor="salaryMax">Max Salary</label>
-                  <input type='text' id='salaryMax'
+                  <input type='number' id='salaryMax'
                     className='input-el mt-2' placeholder='Maximum Salary for this job'
-                    {...form3.register('salary.max')}
+                    {...form3.register('salary.max', {
+                      required: 'Max salary is required',
+                      valueAsNumber: true,
+                      
+                    })}
                   />
                   {form3.formState.errors.salary?.max &&
                     <p className='text-red-800'>{form3.formState.errors?.salary?.max?.message}</p>}

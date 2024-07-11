@@ -2,8 +2,9 @@ import React from 'react'
 import Image from "next/image";
 import ConfirmationBackgroundImage from "assets/confirmation.svg";
 import Button from '@/components/atoms/Button/Button';
-
-export default function Confirmation():JSX.Element {
+import { useRouter } from 'next/router';
+export default function Confirmation(): JSX.Element {
+  const router = useRouter();
   return (
     <div>
       <div className='w-6/12 mx-auto'>
@@ -26,11 +27,13 @@ export default function Confirmation():JSX.Element {
             color="dark_blue"
             text="Manage jobs"
             classes="w-36 md:w-28 xl:w-36 rounded-md capitalize h-10 text-sm text-dark_blue border border-dark_blue hover:bg-dark_blue hover:text-white  hover:opacity-80"
+            onClick={() => router.push("/dashboard")}
           />
           <Button
             type="filled"
             color="white"
             text="View jobs"
+            onClick={() => router.push("/dashboard")}
             classes="w-36 h-10  md:w-28 xl:w-36 rounded-md text-sm capitalize text-white bg-primary_green hover:opacity-80"
           />
         </div>
