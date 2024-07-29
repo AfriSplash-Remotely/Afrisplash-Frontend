@@ -11,15 +11,15 @@ export const CreateJobSchema = {
     requirement: yup.string().required('Job Requirement is required'),
     experience: yup.string().required('Experience level is required'),
     type:yup.string().required('Job Type is required'),
-    benefits:yup.string().required('Benefits is required'),
+    benefit:yup.string().required('Benefits is required'),
   
   }),
   stepThree:yup.object().shape({
     location:yup.string().required('Job Location is required'),
     gender:yup.string().required('Gender is required'),
     salary: yup.object().shape({
-      min: yup.string().required('Minimum Salary is required'),
-      max: yup.string().required('Maximum Salary is required'),
+      min: yup.number().required('Minimum Salary is required'),
+      max: yup.number().required('Maximum Salary is required'),
       currency: yup.string().required('Currency is required'),
       period:yup.string().required('Payment Period is required')
     }),
