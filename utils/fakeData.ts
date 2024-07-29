@@ -558,7 +558,7 @@ export const coWorkingSpaceData = [
     amount: "0.99",
     details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
     src: workSpace2,
-    id:2
+    id: 2
   },
   {
     name: "Nairobi Garage",
@@ -603,78 +603,88 @@ export const nearbyCardData = [
 ]
 
 export const availableSpaceTabsData = [
-    { id: 1, title: "ALL" },
-    { id: 2, title: "PRIVATE DESK" },
-    { id: 3, title: "DEDICATED DESK" },
-    { id: 4, title: "SUITE" },
-    { id: 5, title: "VIRTUAL OFFICE" },
-  ];
+  { id: 1, title: "ALL" },
+  { id: 2, title: "PRIVATE DESK" },
+  { id: 3, title: "DEDICATED DESK" },
+  { id: 4, title: "SUITE" },
+  { id: 5, title: "VIRTUAL OFFICE" },
+];
 
-  export const availableSpacesTableData = [
-    { id: 1, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 2, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 3, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 4, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 5, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 6, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-  ];
+export const availableSpacesTableData = [
+  { id: 1, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 2, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 3, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 4, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 5, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 6, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+];
 
-   export const businessHoursData = [
-    { id: 1, day: "Monday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 2, day: "Tuesday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 3, day: "Wednesday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 4, day: "Thursday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 5, day: "Friday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 6, day: "Saturday",},
-      { id: 7, day: "Sunday",},
-  ];
+export const businessHoursData = [
+  {
+    id: 1, day: "Monday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 2, day: "Tuesday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 3, day: "Wednesday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 4, day: "Thursday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 5, day: "Friday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  { id: 6, day: "Saturday", },
+  { id: 7, day: "Sunday", },
+];
 
-   export const facilitiesData = [
-    { id: 1, value: "Kitchen", label:  "Kitchen"},
-    { id: 2, value: "personalLockers", label:  "Personal Lockers"},
-    { id: 3, value: "eventSpace", label:  "Event Space" },
-    { id: 4, value: "nearbyAirbnb", label:  "Nearby Airbnb"},
-  ]; 
+export const facilitiesData = [
+  { id: 1, value: "Kitchen", label: "Kitchen" },
+  { id: 2, value: "personalLockers", label: "Personal Lockers" },
+  { id: 3, value: "eventSpace", label: "Event Space" },
+  { id: 4, value: "nearbyAirbnb", label: "Nearby Airbnb" },
+];
 
-   export const classicBasicsData = [
-    { id: 1, value: "highSpeedWIFI", label:  "High-Speed WIFI"},
-    { id: 2, value: "airConditioning", label:  "Air Conditioning"},
-  ];
+export const classicBasicsData = [
+  { id: 1, value: "highSpeedWIFI", label: "High-Speed WIFI" },
+  { id: 2, value: "airConditioning", label: "Air Conditioning" },
+];
 
-  export const relaxZonesData = [
-    { id: 1, value: "loungeChillOutArea", label:  "Lounge / Chill-out Area"},
-    { id: 2, value: "outdoorTerrace", label:  "Outdoor Terrace"},
-    { id: 3, value: "napRoom", label:  "Nap Room" },
-  ]; 
+export const relaxZonesData = [
+  { id: 1, value: "loungeChillOutArea", label: "Lounge / Chill-out Area" },
+  { id: 2, value: "outdoorTerrace", label: "Outdoor Terrace" },
+  { id: 3, value: "napRoom", label: "Nap Room" },
+];
 
-   export const cateringData = [
-    { id: 1, value: "freeDrinkingWater", label:  "Free Drinking Water"},
-    { id: 2, value: "catteringKitchen", label:  "Cattering Kitchen"},
-    { id: 3, value: "snacksAvailable ", label:  "Snacks Available " },
-    { id: 4, value: "freeCoffee", label:  "Free Coffee"},
-    { id: 5, value: "freeTea", label:  "Free Tea"},
-    { id: 6, value: "outsiteCafe", label:  "Outsite Cafe"},
-  ];
+export const cateringData = [
+  { id: 1, value: "freeDrinkingWater", label: "Free Drinking Water" },
+  { id: 2, value: "catteringKitchen", label: "Cattering Kitchen" },
+  { id: 3, value: "snacksAvailable ", label: "Snacks Available " },
+  { id: 4, value: "freeCoffee", label: "Free Coffee" },
+  { id: 5, value: "freeTea", label: "Free Tea" },
+  { id: 6, value: "outsiteCafe", label: "Outsite Cafe" },
+];
 
-  export const equipmentData = [
-    { id: 1, value: "dualSingleMonitors", label:  "Dual / Single Monitors"},
-    { id: 2, value: "printer", label:  "Printer"},
-    { id: 3, value: "scanner ", label:  "Scanner" },
-    { id: 4, value: "photocopier", label:  "Photocopier"},
-    { id: 5, value: "computersWindows", label:  "Computers (Windows)"},
-    { id: 6, value: "computersMacs", label:  "Computers (Macs)"},
-    { id: 6, value: "ergonomicChairs", label:  "Ergonomic Chairs"},
-  ];
+export const equipmentData = [
+  { id: 1, value: "dualSingleMonitors", label: "Dual / Single Monitors" },
+  { id: 2, value: "printer", label: "Printer" },
+  { id: 3, value: "scanner ", label: "Scanner" },
+  { id: 4, value: "photocopier", label: "Photocopier" },
+  { id: 5, value: "computersWindows", label: "Computers (Windows)" },
+  { id: 6, value: "computersMacs", label: "Computers (Macs)" },
+  { id: 6, value: "ergonomicChairs", label: "Ergonomic Chairs" },
+];
 type ProfileT = {
   fullName: string;
   email: string;
@@ -788,18 +798,135 @@ export const fieldsOfStudy = [
 ];
 
 export const techJobTypes = [
-    "Software Developer",
-    "Web Developer",
-    "Mobile App Developer",
-    "Data Scientist",
-    "Data Analyst",
-    "Database Administrator",
-    "Network Engineer",
-    "Systems Analyst",
-    "UI/UX Designer",
-    "DevOps Engineer",
-    "QA Engineer",
-    "Cybersecurity Analyst",
-    "Cloud Architect",
+  "Software Developer",
+  "Web Developer",
+  "Mobile App Developer",
+  "Data Scientist",
+  "Data Analyst",
+  "Database Administrator",
+  "Network Engineer",
+  "Systems Analyst",
+  "UI/UX Designer",
+  "DevOps Engineer",
+  "QA Engineer",
+  "Cybersecurity Analyst",
+  "Cloud Architect",
 
-  ];
+];
+
+export const countryCodes = [
+  { label: '+93', value: '+93' },    // Afghanistan
+  { label: '+355', value: '+355' },  // Albania
+  { label: '+213', value: '+213' },  // Algeria
+  { label: '+376', value: '+376' },  // Andorra
+  { label: '+244', value: '+244' },  // Angola
+  { label: '+1-268', value: '+1-268' }, // Antigua and Barbuda
+  { label: '+54', value: '+54' },    // Argentina
+  { label: '+374', value: '+374' },  // Armenia
+  { label: '+61', value: '+61' },    // Australia
+  { label: '+43', value: '+43' },    // Austria
+  { label: '+994', value: '+994' },  // Azerbaijan
+  { label: '+1-242', value: '+1-242' }, // Bahamas
+  { label: '+973', value: '+973' },  // Bahrain
+  { label: '+880', value: '+880' },  // Bangladesh
+  { label: '+1-246', value: '+1-246' }, // Barbados
+  { label: '+375', value: '+375' },  // Belarus
+  { label: '+32', value: '+32' },    // Belgium
+  { label: '+501', value: '+501' },  // Belize
+  { label: '+229', value: '+229' },  // Benin
+  { label: '+975', value: '+975' },  // Bhutan
+  { label: '+591', value: '+591' },  // Bolivia
+  { label: '+387', value: '+387' },  // Bosnia and Herzegovina
+  { label: '+267', value: '+267' },  // Botswana
+  { label: '+55', value: '+55' },    // Brazil
+  { label: '+673', value: '+673' },  // Brunei Darussalam
+  { label: '+359', value: '+359' },  // Bulgaria
+  { label: '+226', value: '+226' },  // Burkina Faso
+  { label: '+257', value: '+257' },  // Burundi
+  { label: '+238', value: '+238' },  // Cabo Verde
+  { label: '+855', value: '+855' },  // Cambodia
+  { label: '+237', value: '+237' },  // Cameroon
+  { label: '+1', value: '+1' },      // Canada
+  { label: '+236', value: '+236' },  // Central African Republic
+  { label: '+235', value: '+235' },  // Chad
+  { label: '+56', value: '+56' },    // Chile
+  { label: '+86', value: '+86' },    // China
+  { label: '+57', value: '+57' },    // Colombia
+  { label: '+269', value: '+269' },  // Comoros
+  { label: '+243', value: '+243' },  // Congo, Democratic Republic of the
+  { label: '+242', value: '+242' },  // Congo, Republic of the
+  { label: '+506', value: '+506' },  // Costa Rica
+  { label: '+385', value: '+385' },  // Croatia
+  { label: '+53', value: '+53' },    // Cuba
+  { label: '+357', value: '+357' },  // Cyprus
+  { label: '+420', value: '+420' },  // Czech Republic
+  { label: '+45', value: '+45' },    // Denmark
+  { label: '+253', value: '+253' },  // Djibouti
+  { label: '+1-767', value: '+1-767' }, // Dominica
+  { label: '+1-809', value: '+1-809' }, // Dominican Republic
+  { label: '+593', value: '+593' },  // Ecuador
+  { label: '+20', value: '+20' },    // Egypt
+  { label: '+503', value: '+503' },  // El Salvador
+  { label: '+240', value: '+240' },  // Equatorial Guinea
+  { label: '+291', value: '+291' },  // Eritrea
+  { label: '+372', value: '+372' },  // Estonia
+  { label: '+268', value: '+268' },  // Eswatini
+  { label: '+251', value: '+251' },  // Ethiopia
+  { label: '+679', value: '+679' },  // Fiji
+  { label: '+358', value: '+358' },  // Finland
+  { label: '+33', value: '+33' },    // France
+  { label: '+241', value: '+241' },  // Gabon
+  { label: '+220', value: '+220' },  // Gambia
+  { label: '+995', value: '+995' },  // Georgia
+  { label: '+49', value: '+49' },    // Germany
+  { label: '+233', value: '+233' },  // Ghana
+  { label: '+30', value: '+30' },    // Greece
+  { label: '+1-473', value: '+1-473' }, // Grenada
+  { label: '+502', value: '+502' },  // Guatemala
+  { label: '+224', value: '+224' },  // Guinea
+  { label: '+245', value: '+245' },  // Guinea-Bissau
+  { label: '+592', value: '+592' },  // Guyana
+  { label: '+509', value: '+509' },  // Haiti
+  { label: '+504', value: '+504' },  // Honduras
+  { label: '+36', value: '+36' },    // Hungary
+  { label: '+354', value: '+354' },  // Iceland
+  { label: '+91', value: '+91' },    // India
+  { label: '+62', value: '+62' },    // Indonesia
+  { label: '+98', value: '+98' },    // Iran
+  { label: '+964', value: '+964' },  // Iraq
+  { label: '+353', value: '+353' },  // Ireland
+  { label: '+972', value: '+972' },  // Israel
+  { label: '+39', value: '+39' },    // Italy
+  { label: '+1-876', value: '+1-876' }, // Jamaica
+  { label: '+81', value: '+81' },    // Japan
+  { label: '+962', value: '+962' },  // Jordan
+  { label: '+7', value: '+7' },      // Kazakhstan
+  { label: '+254', value: '+254' },  // Kenya
+  { label: '+686', value: '+686' },  // Kiribati
+  { label: '+850', value: '+850' },  // Korea, North
+  { label: '+82', value: '+82' },    // Korea, South
+  { label: '+965', value: '+965' },  // Kuwait
+  { label: '+996', value: '+996' },  // Kyrgyzstan
+  { label: '+856', value: '+856' },  // Laos
+  { label: '+371', value: '+371' },  // Latvia
+  { label: '+961', value: '+961' },  // Lebanon
+  { label: '+266', value: '+266' },  // Lesotho
+  { label: '+231', value: '+231' },  // Liberia
+  { label: '+218', value: '+218' },  // Libya
+  { label: '+423', value: '+423' },  // Liechtenstein
+  { label: '+370', value: '+370' },  // Lithuania
+  { label: '+352', value: '+352' },  // Luxembourg
+  { label: '+261', value: '+261' },  // Madagascar
+  { label: '+265', value: '+265' },  // Malawi
+  { label: '+60', value: '+60' },    // Malaysia
+  { label: '+960', value: '+960' },  // Maldives
+  { label: '+223', value: '+223' },  // Mali
+  { label: '+356', value: '+356' },  // Malta
+  { label: '+692', value: '+692' },  // Marshall Islands
+  { label: '+222', value: '+222' },  // Mauritania
+  { label: '+230', value: '+230' },  // Mauritius
+  { label: '+52', value: '+52' },    // Mexico
+  { label: '+691', value: '+691' },  // Micronesia
+  { label: '+373', value: '+373' },  // Moldova
+  { label: '+377', value: '+377' },
+]

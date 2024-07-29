@@ -11,6 +11,7 @@ import { Salary } from "@/api-endpoints/jobs/jobs.interface";
 import typeIcon from "../../assets/icons/type.svg";
 import locateIcon from "../../assets/icons/locate.svg";
 import { Location } from "../Dashboard/recruiter/createJob/jobsData";
+import { countryCodes } from "@/utils";
 
 interface ApplyModalProps {
   company?: string;
@@ -274,20 +275,20 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                 </select>
               </div>
               <div className="flex ">
-                <div className="flex flex-col space-y-1">
+                <div className="w-1/4 flex flex-col space-y-1">
                   <label htmlFor="first name" className="text-dark_blue">
                     Country code
                   </label>
                   <select name="country" id="country" className="px-4 py-4 bg-white border rounded-md w-3/4">
-                    {Location.map((locate: any) => (
-                      <option key={locate.label} value={locate.value}>{locate.label}</option>
+                    {countryCodes.map((country: any) => (
+                      <option key={country.label} value={country.value}>{country.label}</option>
 
                     ))}
                   </select>
                 </div>
 
                 <div className="w-full flex flex-col space-y-1">
-                  <label htmlFor="job title" className="text-dark_blue">
+                  <label htmlFor="phone number" className="text-dark_blue">
                     Phone number
                   </label>
                   <input type="text" className="p-4 border rounded-md " />
@@ -295,7 +296,14 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
 
               </div>
 
-              <div>resume uploader</div>
+              <div className="w-full flex flex-col space-y-1">
+                <label htmlFor="upload resume" className="text-dark_blue">
+                  Upload resume
+                </label>
+                <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer">
+                  <p className="text-md text-grey_3">Drag & drop your files here or <span className="underline font-semibold cursor-pointer">browse</span></p>
+                </div>
+              </div>
 
               <div className="flex gap-4 items-center pt-12 justify-end">
                 <Button
