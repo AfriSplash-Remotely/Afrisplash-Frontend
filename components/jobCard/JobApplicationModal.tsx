@@ -10,6 +10,7 @@ import { applyForJob, saveJob } from "@/api-endpoints/jobs/jobs.api";
 import { Salary } from "@/api-endpoints/jobs/jobs.interface";
 import typeIcon from "../../assets/icons/type.svg";
 import locateIcon from "../../assets/icons/locate.svg";
+import { Location } from "../Dashboard/recruiter/createJob/jobsData";
 
 interface ApplyModalProps {
   company?: string;
@@ -235,7 +236,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   />
                 </div>
                 <div className="w-full flex flex-col space-y-1">
-                  <label htmlFor="first name" className="text-dark_blue">
+                  <label htmlFor="last name" className="text-dark_blue">
                     Last name
                   </label>
                   <input
@@ -246,7 +247,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                 </div>
               </div>
               <div className="w-full flex flex-col space-y-1">
-                <label htmlFor="first name" className="text-dark_blue">
+                <label htmlFor="email" className="text-dark_blue">
                   Email
                 </label>
                 <input
@@ -256,26 +257,66 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                 />
               </div>
               <div className="w-full flex flex-col space-y-1">
-                <label htmlFor="first name" className="text-dark_blue">
+                <label htmlFor="job title" className="text-dark_blue">
                   Job Title
                 </label>
-                <select disabled defaultValue={title} name="job title" id="job title" className="px-4 py-5 bg-white border rounded-md">
-                  <option value={title}>{title}</option>
-                </select>
+                <input type="text" className="p-4 border rounded-md capitalize" disabled defaultValue={title} />
               </div>
               <div className="w-full flex flex-col space-y-1">
-                <label htmlFor="first name" className="text-dark_blue">
+                <label htmlFor="country" className="text-dark_blue">
                   Country
                 </label>
                 <select name="country" id="country" className="px-4 py-5 bg-white border rounded-md">
-                  <option value="nigeria">Nigeria</option>
-                  <option value="ghana">Ghana</option>
+                  {Location.map((locate: any) => (
+                    <option key={locate.label} value={locate.value}>{locate.label}</option>
+
+                  ))}
                 </select>
               </div>
+              <div className="flex ">
+                <div className="flex flex-col space-y-1">
+                  <label htmlFor="first name" className="text-dark_blue">
+                    Country code
+                  </label>
+                  <select name="country" id="country" className="px-4 py-4 bg-white border rounded-md w-3/4">
+                    {Location.map((locate: any) => (
+                      <option key={locate.label} value={locate.value}>{locate.label}</option>
 
-              <div className="flex gap-4 items-center mt-12 justify-end w-40">
-                <button>Clear</button>
-                <button>Submit</button>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="w-full flex flex-col space-y-1">
+                  <label htmlFor="job title" className="text-dark_blue">
+                    Phone number
+                  </label>
+                  <input type="text" className="p-4 border rounded-md " />
+                </div>
+
+              </div>
+
+              <div>resume uploader</div>
+
+              <div className="flex gap-4 items-center pt-12 justify-end">
+                <Button
+                  classes={
+                    "border border-solid text-sm border-[#0D5520] px-12 py-2 rounded-lg w-1/2  md:w-auto"
+                  }
+                >
+                  <span className="flex gap-4 mx-auto item-center justify-center">
+                    Clear
+                  </span>
+                </Button>
+
+                <Button
+                  classes={
+                    "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
+                  }
+                >
+                  <span className="flex gap-4 mx-auto item-center justify-center">
+                    Submit
+                  </span>
+                </Button>
               </div>
             </form>
           </div>
