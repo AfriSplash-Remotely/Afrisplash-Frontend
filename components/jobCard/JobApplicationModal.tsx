@@ -50,7 +50,17 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   onClose,
 }) => {
   const [tab, setTab] = React.useState<Tabs>(Tabs.Overview);
+  const [fileName, setFileName] = React.useState<string>("")
 
+  const handleFileChange = (e: any) => {
+    const file = e.target.files[0]
+    if (file) {
+      setFileName(file.name)
+    }
+  }
+  const triggerFileUpload = () => {
+    document.getElementById("fileInput")?.click()
+  }
   const handleTabSwitch = (currentTab: Tabs): void => {
     setTab(currentTab);
   };
@@ -301,9 +311,18 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   Upload resume
                 </label>
                 <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer">
-                  <p className="text-md text-grey_3">Drag & drop your files here or <span className="underline font-semibold cursor-pointer">browse</span></p>
+                  <input id="fileInput"
+                    type="file" className="hidden" accept=".pdf, .doc, .docx" onChange={handleFileChange}
+                  />
+                  <p className="text-md text-grey_3">Drag & drop your files here or <span className="underline font-semibold cursor-pointer" onClick={triggerFileUpload}>browse</span></p>
                 </div>
               </div>
+              {fileName && (
+                <div className="space-y-1">
+                  <p className="text-primary font-bold">My Resume: {fileName}</p>
+                </div>
+              )}
+
 
               <div className="flex gap-4 items-center pt-12 justify-end">
                 <Button
