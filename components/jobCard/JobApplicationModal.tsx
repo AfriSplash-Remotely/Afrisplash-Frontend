@@ -12,6 +12,9 @@ import typeIcon from "../../assets/icons/type.svg";
 import locateIcon from "../../assets/icons/locate.svg";
 import { Location } from "../Dashboard/recruiter/createJob/jobsData";
 import { countryCodes } from "@/utils";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ApplyJobSchema } from "@/schema/applyJob.schema";
 
 interface ApplyModalProps {
   company?: string;
@@ -65,6 +68,10 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     setTab(currentTab);
   };
 
+  const { handleSubmit, register, formState: { errors } } = useForm<ApplyJobSchema>({
+    resolver: yupResolver(ApplyJobSchema)
+  })
+
   const { mutate: applyMutation, isLoading: applyLoading } = useMutation({
     mutationFn: (jobId: string) => applyForJob(jobId),
     onSuccess: () => {
@@ -98,6 +105,13 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     saveMutation(jobId as string);
   };
 
+
+  const onSubmit = (data: ApplyJobSchema) => {
+    // query mutations
+    console.log({ data });
+
+
+  }
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
       <div className="px-12 py-6">
@@ -234,7 +248,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
         )}
         {tab === Tabs.Application ? (
           <div className="px-4 mt-12">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
               <div className="flex items-start gap-3">
                 <div className="w-full flex flex-col space-y-1">
                   <label htmlFor="first name" className="text-dark_blue">
@@ -244,7 +258,13 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                     type="text"
                     placeholder="First name"
                     className="p-4 border rounded-md"
+                    {...register("firstName")}
                   />
+                  {errors.firstName && (
+                    <p role="alert" className="error_message pl-2 py-2">
+                      {(errors.firstName).message}
+                    </p>
+                  )}
                 </div>
                 <div className="w-full flex flex-col space-y-1">
                   <label htmlFor="last name" className="text-dark_blue">
@@ -254,7 +274,13 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                     type="text"
                     placeholder="Last name"
                     className="p-4 border rounded-md"
+                    {...register("lastName")}
                   />
+                  {errors.lastName && (
+                    <p role="alert" className="error_message pl-2 py-2">
+                      {(errors.lastName).message}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="w-full flex flex-col space-y-1">
@@ -265,43 +291,64 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   type="email"
                   placeholder="email@someone.com"
                   className="p-4 border rounded-md"
+                  {...register("email")}
                 />
+                {errors.email && (
+                  <p role="alert" className="error_message pl-2 py-2">
+                    {(errors.email).message}
+                  </p>
+                )}
               </div>
               <div className="w-full flex flex-col space-y-1">
                 <label htmlFor="job title" className="text-dark_blue">
                   Job Title
                 </label>
-                <input type="text" className="p-4 border rounded-md capitalize" disabled defaultValue={title} />
+                <input type="text" className="p-4 border rounded-md capitalize" disabled defaultValue={title} {...register("jobTitle")} />
               </div>
               <div className="w-full flex flex-col space-y-1">
                 <label htmlFor="country" className="text-dark_blue">
                   Country
                 </label>
-                <select name="country" id="country" className="px-4 py-5 bg-white border rounded-md">
+                <select id="country" className="px-4 py-5 bg-white border rounded-md" {...register("country")}>
                   {Location.map((locate: any) => (
                     <option key={locate.label} value={locate.value}>{locate.label}</option>
 
                   ))}
                 </select>
+                {errors.country && (
+                  <p role="alert" className="error_message pl-2 py-2">
+                    {(errors.country).message}
+                  </p>
+                )}
               </div>
               <div className="flex ">
                 <div className="w-1/4 flex flex-col space-y-1">
                   <label htmlFor="first name" className="text-dark_blue">
                     Country code
                   </label>
-                  <select name="country" id="country" className="px-4 py-4 bg-white border rounded-md w-3/4">
+                  <select {...register("countryCode")} id="country" className="px-4 py-4 bg-white border rounded-md w-3/4">
                     {countryCodes.map((country: any) => (
                       <option key={country.label} value={country.value}>{country.label}</option>
 
                     ))}
                   </select>
+                  {errors.countryCode && (
+                    <p role="alert" className="error_message pl-2 py-2">
+                      {(errors.countryCode).message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="w-full flex flex-col space-y-1">
                   <label htmlFor="phone number" className="text-dark_blue">
                     Phone number
                   </label>
-                  <input type="text" className="p-4 border rounded-md " />
+                  <input type="text" className="p-4 border rounded-md " {...register("phone")} />
+                  {errors.phone && (
+                    <p role="alert" className="error_message pl-2 py-2">
+                      {(errors.phone).message}
+                    </p>
+                  )}
                 </div>
 
               </div>
@@ -311,11 +358,16 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   Upload resume
                 </label>
                 <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer">
-                  <input id="fileInput"
+                  <input id="fileInput" {...register("resume")}
                     type="file" className="hidden" accept=".pdf, .doc, .docx" onChange={handleFileChange}
                   />
                   <p className="text-md text-grey_3">Drag & drop your files here or <span className="underline font-semibold cursor-pointer" onClick={triggerFileUpload}>browse</span></p>
                 </div>
+                {errors.resume && (
+                  <p role="alert" className="error_message pl-2 py-2">
+                    {(errors.resume).message}
+                  </p>
+                )}
               </div>
               {fileName && (
                 <div className="space-y-1">
@@ -336,6 +388,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                 </Button>
 
                 <Button
+                  type="submit"
                   classes={
                     "bg-[#0D5520] text-sm text-[white] px-12 py-2 rounded-lg w-1/2  md:w-auto"
                   }
