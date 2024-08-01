@@ -35,6 +35,11 @@ export const applyForJob = async (
 	return data;
 };
 
+export const applyForJobForm = async ({ jobId, payload }: { jobId: string, payload: object }): Promise<IJobApplyResponse> => {
+	const { data } = await api.post(`/jobs/form-apply/${jobId}`, payload)
+	return data;
+}
+
 export const saveJob = async (jobId: string): Promise<IJobApplyResponse> => {
 	const { data } = await api.patch(`/candidate/job/save/${jobId}`);
 	return data;
@@ -88,9 +93,9 @@ export const getJobsCreated = async (): Promise<IRecruiterJobCreatedRes> => {
 	return data;
 };
 
-export const getXJobs = async (page =1): Promise<IXJobResponse> => {
-  const { data } = await api.get(`/xjobs?page=${page}`)
-  return data
+export const getXJobs = async (page = 1): Promise<IXJobResponse> => {
+	const { data } = await api.get(`/xjobs?page=${page}`)
+	return data
 }
 export const getApplicants = async (jobId: string): Promise<JobApplicants> => {
 	const { data } = await api.get(`/jobs/v/${jobId}`);

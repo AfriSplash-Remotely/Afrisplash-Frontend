@@ -1,17 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { AxiosError } from "axios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import LoadingIcon from "../atoms/LoaingIcon";
 import Modal from "../atoms/Modal/Modal";
 import Button from "../atoms/Button/Button";
-import { applyForJob, saveJob } from "@/api-endpoints/jobs/jobs.api";
+import { applyForJobForm, saveJob } from "@/api-endpoints/jobs/jobs.api";
 import { Salary } from "@/api-endpoints/jobs/jobs.interface";
 import typeIcon from "../../assets/icons/type.svg";
 import locateIcon from "../../assets/icons/locate.svg";
 import { Location } from "../Dashboard/recruiter/createJob/jobsData";
-import { countryCodes } from "@/utils";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ApplyJobSchema } from "@/schema/applyJob.schema";
@@ -54,67 +53,98 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
 }) => {
   const [tab, setTab] = React.useState<Tabs>(Tabs.Overview);
   const [fileName, setFileName] = React.useState<string>("")
+  const [isDragging, setIsDragging] = React.useState<boolean>(false);
+
+
+  const { handleSubmit, register, setValue, formState: { errors } } = useForm<ApplyJobSchema>({
+    resolver: yupResolver(ApplyJobSchema)
+  })
 
   const handleFileChange = (e: any) => {
     const file = e.target.files[0]
     if (file) {
       setFileName(file.name)
+      setValue('resumeURL', file)
     }
   }
   const triggerFileUpload = () => {
     document.getElementById("fileInput")?.click()
   }
+  const handleDragOver = (event: any) => {
+    event.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleDrop = (event: any) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    if (file) {
+      setFileName(file.name);
+    }
+    setIsDragging(false);
+  };
   const handleTabSwitch = (currentTab: Tabs): void => {
     setTab(currentTab);
   };
-
-  const { handleSubmit, register, formState: { errors } } = useForm<ApplyJobSchema>({
-    resolver: yupResolver(ApplyJobSchema)
-  })
-
-  const { mutate: applyMutation, isLoading: applyLoading } = useMutation({
-    mutationFn: (jobId: string) => applyForJob(jobId),
-    onSuccess: () => {
-      toast.success("Job applied successfully ");
-      onClose();
-    },
-    onError: (error: AxiosError<{ error: any }>) => {
-      toast.error(error?.response?.data?.error);
-    },
-  });
 
   const { mutate: saveMutation, isLoading: saveLoading } = useMutation({
     mutationFn: (jobId: string) => saveJob(jobId),
     onSuccess: () => {
       toast.success("Job saved successfully");
       onClose();
-      // Additional logic after saving the job
     },
     onError: (error: AxiosError<{ error: any }>) => {
       toast.error(error?.response?.data?.error);
     },
   });
 
-  const onApplyForJob = () => {
-    const jobId = sessionStorage.getItem("jobId");
-    applyMutation(jobId as string);
-  };
+  const useApplyForJob = () => {
+    const queryClient = useQueryClient()
+    return useMutation(applyForJobForm, {
+      onSuccess: (data) => {
+        queryClient.invalidateQueries(['applyJob', data.success])
+        toast.success("Job applied successfully ");
+        onClose();
+      },
+      onError: (error: AxiosError<{ error: any }>) => {
+        toast.error(error?.response?.data?.error);
+      },
+    })
+  }
+
+  const mutation = useApplyForJob()
 
   const onSaveJob = () => {
     const jobId = sessionStorage.getItem("jobId");
     saveMutation(jobId as string);
   };
 
+  const onSubmit = async (data: ApplyJobSchema) => {
 
-  const onSubmit = (data: ApplyJobSchema) => {
-    // query mutations
+    const formData = new FormData()
+    for (const key in data) {
+      formData.append(key, data[key])
+    }
+
+    const jobId = sessionStorage.getItem("jobId") as string;
+    const payload = data
     console.log({ data });
+    try {
+      await mutation.mutateAsync({ jobId, payload });
+      console.log('Data posted successfully');
+    } catch (error) {
+      console.error('Error posting data', error);
+    }
 
 
   }
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
-      <div className="px-12 py-6">
+      <div className="md:px-12 py-6">
         <div>
           <h1 className="text-dark_black font-medium  text-lg md:text-5xl text-center">
             {company}
@@ -124,40 +154,40 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
           </p>
         </div>
         {tab == Tabs.Overview ? (
-          <div className="mt-8 flex justify-around">
+          <div className="py-4 space-y-2 space-x-2  flex items-center  md:justify-around flex-wrap">
             <div>
               <div className="flex gap-2">
                 <Image src={locateIcon} alt="icon" />
-                <span className="text-grey_3 text-lg">Location</span>
+                <span className="text-grey_3 text-sm md:text-lg">Location</span>
               </div>
-              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+              <p className="text-primary_green font-bold text-sm md:text-lg ml-8 mt-1">
                 {location}
               </p>
             </div>
             <div>
               <div className="flex gap-2">
                 <Image src={locateIcon} alt="icon" />
-                <span className="text-grey_3 text-lg">Level</span>
+                <span className="text-grey_3 text-sm md:text-lg">Level</span>
               </div>
-              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+              <p className="text-primary_green font-bold text-sm md:text-lg ml-8 mt-1">
                 {level}
               </p>
             </div>
             <div>
               <div className="flex gap-2">
                 <Image src={typeIcon} alt="icon" />
-                <span className="text-grey_3 text-lg">Type</span>
+                <span className="text-grey_3 text-sm md:text-lg">Type</span>
               </div>
-              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+              <p className="text-primary_green font-bold text-sm md:text-lg ml-8 mt-1">
                 {type}
               </p>
             </div>
             <div>
               <div className="flex gap-2">
                 <Image src={locateIcon} alt="icon" />
-                <span className="text-grey_3 text-lg">Salary</span>
+                <span className="text-grey_3 text-sm md:text-lg">Salary</span>
               </div>
-              <p className="text-primary_green font-bold text-lg ml-8 mt-1">
+              <p className="text-primary_green font-bold text-sm md:text-lg ml-8 mt-1">
                 {salaryType && (
                   <span>
                     {salaryType === "range"
@@ -172,7 +202,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
           <React.Fragment></React.Fragment>
         )}
 
-        <div className="flex items-center justify-center gap-2 px-12 mt-12">
+        <div className="flex items-center justify-center gap-2 md:px-12 mt-12">
           <div
             onClick={() => handleTabSwitch(Tabs.Overview)}
             className="w-full text-center space-y-1 cursor-pointer"
@@ -196,7 +226,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
         </div>
 
         {tab === Tabs.Overview ? (
-          <div className="px-12">
+          <div className="md:px-12">
             <div className="py-12">
               <div className="py-4">
                 <h3 className="text-dark_black font-bold text-base">
@@ -237,7 +267,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   }
                 >
                   <span className="flex gap-4 mx-auto item-center justify-center">
-                    {applyLoading && <LoadingIcon />} Apply
+                    {mutation.isLoading && <LoadingIcon />} Apply
                   </span>
                 </Button>
               )}
@@ -247,9 +277,9 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
           <React.Fragment></React.Fragment>
         )}
         {tab === Tabs.Application ? (
-          <div className="px-4 mt-12">
+          <div className="md:px-4 mt-12">
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 flex-wrap md:flex-nowrap">
                 <div className="w-full flex flex-col space-y-1">
                   <label htmlFor="first name" className="text-dark_blue">
                     First name
@@ -321,32 +351,15 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   </p>
                 )}
               </div>
-              <div className="flex ">
-                <div className="w-1/4 flex flex-col space-y-1">
-                  <label htmlFor="first name" className="text-dark_blue">
-                    Country code
-                  </label>
-                  <select {...register("countryCode")} id="country" className="px-4 py-4 bg-white border rounded-md w-3/4">
-                    {countryCodes.map((country: any) => (
-                      <option key={country.label} value={country.value}>{country.label}</option>
-
-                    ))}
-                  </select>
-                  {errors.countryCode && (
-                    <p role="alert" className="error_message pl-2 py-2">
-                      {(errors.countryCode).message}
-                    </p>
-                  )}
-                </div>
-
+              <div className="flex">
                 <div className="w-full flex flex-col space-y-1">
                   <label htmlFor="phone number" className="text-dark_blue">
                     Phone number
                   </label>
-                  <input type="text" className="p-4 border rounded-md " {...register("phone")} />
-                  {errors.phone && (
+                  <input type="text" className="p-4 border rounded-md " {...register("phoneNumber")} />
+                  {errors.phoneNumber && (
                     <p role="alert" className="error_message pl-2 py-2">
-                      {(errors.phone).message}
+                      {(errors.phoneNumber).message}
                     </p>
                   )}
                 </div>
@@ -357,15 +370,17 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                 <label htmlFor="upload resume" className="text-dark_blue">
                   Upload resume
                 </label>
-                <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer">
-                  <input id="fileInput" {...register("resume")}
+                <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer" onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleDrop}>
+                  <input id="fileInput" {...register("resumeURL")}
                     type="file" className="hidden" accept=".pdf, .doc, .docx" onChange={handleFileChange}
                   />
-                  <p className="text-md text-grey_3">Drag & drop your files here or <span className="underline font-semibold cursor-pointer" onClick={triggerFileUpload}>browse</span></p>
+                  <p className="text-md text-grey_3 text-center">Drag & drop your files here or <span className="underline font-semibold cursor-pointer" onClick={triggerFileUpload}>browse</span></p>
                 </div>
-                {errors.resume && (
+                {errors.resumeURL && (
                   <p role="alert" className="error_message pl-2 py-2">
-                    {(errors.resume).message}
+                    {(errors.resumeURL).message}
                   </p>
                 )}
               </div>
@@ -394,7 +409,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   }
                 >
                   <span className="flex gap-4 mx-auto item-center justify-center">
-                    Submit
+                    {mutation.isLoading && <LoadingIcon />} Submit
                   </span>
                 </Button>
               </div>
