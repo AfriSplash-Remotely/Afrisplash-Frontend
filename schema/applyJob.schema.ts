@@ -8,8 +8,7 @@ export const ApplyJobSchema = yup.object().shape({
     jobTitle: yup.string(),
     country: yup.string().required("country is required"),
     phoneNumber: yup.string().required("phone number is required"),
-    resumeURL: yup.mixed().required("resume is required")
-
+    resumeURL: yup.string().required("resume is required"),
 })
 
 

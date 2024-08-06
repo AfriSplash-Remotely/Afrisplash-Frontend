@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import Image from "next/image";
 import { AxiosError } from "axios";
@@ -53,7 +55,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
 }) => {
   const [tab, setTab] = React.useState<Tabs>(Tabs.Overview);
   const [fileName, setFileName] = React.useState<string>("")
-  const [isDragging, setIsDragging] = React.useState<boolean>(false);
+  const [, setIsDragging] = React.useState<boolean>(false);
 
 
   const { handleSubmit, register, setValue, formState: { errors } } = useForm<ApplyJobSchema>({
@@ -111,7 +113,14 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
         onClose();
       },
       onError: (error: AxiosError<{ error: any }>) => {
-        toast.error(error?.response?.data?.error);
+        if (error.status === 409) {
+          toast.error("User already applied for this job")
+        } else if (error.status === 400) {
+          toast.error("An Error occured applying for this job")
+        } else {
+          toast.error(error?.response?.data?.error);
+        }
+
       },
     })
   }
@@ -124,10 +133,11 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   };
 
   const onSubmit = async (data: ApplyJobSchema) => {
+    type DataKeys = keyof typeof data
 
     const formData = new FormData()
     for (const key in data) {
-      formData.append(key, data[key])
+      formData.append(key, data[key as DataKeys]!)
     }
 
     const jobId = sessionStorage.getItem("jobId") as string;
@@ -139,7 +149,6 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     } catch (error) {
       console.error('Error posting data', error);
     }
-
 
   }
   return (
