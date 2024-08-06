@@ -558,7 +558,7 @@ export const coWorkingSpaceData = [
     amount: "0.99",
     details: "Find new places to work, take a break, or even network. Get time off your daily commute and have your time back. ",
     src: workSpace2,
-    id:2
+    id: 2
   },
   {
     name: "Nairobi Garage",
@@ -603,78 +603,88 @@ export const nearbyCardData = [
 ]
 
 export const availableSpaceTabsData = [
-    { id: 1, title: "ALL" },
-    { id: 2, title: "PRIVATE DESK" },
-    { id: 3, title: "DEDICATED DESK" },
-    { id: 4, title: "SUITE" },
-    { id: 5, title: "VIRTUAL OFFICE" },
-  ];
+  { id: 1, title: "ALL" },
+  { id: 2, title: "PRIVATE DESK" },
+  { id: 3, title: "DEDICATED DESK" },
+  { id: 4, title: "SUITE" },
+  { id: 5, title: "VIRTUAL OFFICE" },
+];
 
-  export const availableSpacesTableData = [
-    { id: 1, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 2, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 3, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 4, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 5, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-    { id: 6, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
-  ];
+export const availableSpacesTableData = [
+  { id: 1, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 2, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 3, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 4, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 5, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+  { id: 6, capacity: 4, duration: "1 Month", price: "$200", availability: "ENQUIRE" },
+];
 
-   export const businessHoursData = [
-    { id: 1, day: "Monday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 2, day: "Tuesday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 3, day: "Wednesday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 4, day: "Thursday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 5, day: "Friday",
-      startTime: "09:00 AM",
-      endTime: "06:00 PM", },
-    { id: 6, day: "Saturday",},
-      { id: 7, day: "Sunday",},
-  ];
+export const businessHoursData = [
+  {
+    id: 1, day: "Monday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 2, day: "Tuesday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 3, day: "Wednesday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 4, day: "Thursday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  {
+    id: 5, day: "Friday",
+    startTime: "09:00 AM",
+    endTime: "06:00 PM",
+  },
+  { id: 6, day: "Saturday", },
+  { id: 7, day: "Sunday", },
+];
 
-   export const facilitiesData = [
-    { id: 1, value: "Kitchen", label:  "Kitchen"},
-    { id: 2, value: "personalLockers", label:  "Personal Lockers"},
-    { id: 3, value: "eventSpace", label:  "Event Space" },
-    { id: 4, value: "nearbyAirbnb", label:  "Nearby Airbnb"},
-  ]; 
+export const facilitiesData = [
+  { id: 1, value: "Kitchen", label: "Kitchen" },
+  { id: 2, value: "personalLockers", label: "Personal Lockers" },
+  { id: 3, value: "eventSpace", label: "Event Space" },
+  { id: 4, value: "nearbyAirbnb", label: "Nearby Airbnb" },
+];
 
-   export const classicBasicsData = [
-    { id: 1, value: "highSpeedWIFI", label:  "High-Speed WIFI"},
-    { id: 2, value: "airConditioning", label:  "Air Conditioning"},
-  ];
+export const classicBasicsData = [
+  { id: 1, value: "highSpeedWIFI", label: "High-Speed WIFI" },
+  { id: 2, value: "airConditioning", label: "Air Conditioning" },
+];
 
-  export const relaxZonesData = [
-    { id: 1, value: "loungeChillOutArea", label:  "Lounge / Chill-out Area"},
-    { id: 2, value: "outdoorTerrace", label:  "Outdoor Terrace"},
-    { id: 3, value: "napRoom", label:  "Nap Room" },
-  ]; 
+export const relaxZonesData = [
+  { id: 1, value: "loungeChillOutArea", label: "Lounge / Chill-out Area" },
+  { id: 2, value: "outdoorTerrace", label: "Outdoor Terrace" },
+  { id: 3, value: "napRoom", label: "Nap Room" },
+];
 
-   export const cateringData = [
-    { id: 1, value: "freeDrinkingWater", label:  "Free Drinking Water"},
-    { id: 2, value: "catteringKitchen", label:  "Cattering Kitchen"},
-    { id: 3, value: "snacksAvailable ", label:  "Snacks Available " },
-    { id: 4, value: "freeCoffee", label:  "Free Coffee"},
-    { id: 5, value: "freeTea", label:  "Free Tea"},
-    { id: 6, value: "outsiteCafe", label:  "Outsite Cafe"},
-  ];
+export const cateringData = [
+  { id: 1, value: "freeDrinkingWater", label: "Free Drinking Water" },
+  { id: 2, value: "catteringKitchen", label: "Cattering Kitchen" },
+  { id: 3, value: "snacksAvailable ", label: "Snacks Available " },
+  { id: 4, value: "freeCoffee", label: "Free Coffee" },
+  { id: 5, value: "freeTea", label: "Free Tea" },
+  { id: 6, value: "outsiteCafe", label: "Outsite Cafe" },
+];
 
-  export const equipmentData = [
-    { id: 1, value: "dualSingleMonitors", label:  "Dual / Single Monitors"},
-    { id: 2, value: "printer", label:  "Printer"},
-    { id: 3, value: "scanner ", label:  "Scanner" },
-    { id: 4, value: "photocopier", label:  "Photocopier"},
-    { id: 5, value: "computersWindows", label:  "Computers (Windows)"},
-    { id: 6, value: "computersMacs", label:  "Computers (Macs)"},
-    { id: 6, value: "ergonomicChairs", label:  "Ergonomic Chairs"},
-  ];
+export const equipmentData = [
+  { id: 1, value: "dualSingleMonitors", label: "Dual / Single Monitors" },
+  { id: 2, value: "printer", label: "Printer" },
+  { id: 3, value: "scanner ", label: "Scanner" },
+  { id: 4, value: "photocopier", label: "Photocopier" },
+  { id: 5, value: "computersWindows", label: "Computers (Windows)" },
+  { id: 6, value: "computersMacs", label: "Computers (Macs)" },
+  { id: 6, value: "ergonomicChairs", label: "Ergonomic Chairs" },
+];
 type ProfileT = {
   fullName: string;
   email: string;
@@ -788,18 +798,18 @@ export const fieldsOfStudy = [
 ];
 
 export const techJobTypes = [
-    "Software Developer",
-    "Web Developer",
-    "Mobile App Developer",
-    "Data Scientist",
-    "Data Analyst",
-    "Database Administrator",
-    "Network Engineer",
-    "Systems Analyst",
-    "UI/UX Designer",
-    "DevOps Engineer",
-    "QA Engineer",
-    "Cybersecurity Analyst",
-    "Cloud Architect",
+  "Software Developer",
+  "Web Developer",
+  "Mobile App Developer",
+  "Data Scientist",
+  "Data Analyst",
+  "Database Administrator",
+  "Network Engineer",
+  "Systems Analyst",
+  "UI/UX Designer",
+  "DevOps Engineer",
+  "QA Engineer",
+  "Cybersecurity Analyst",
+  "Cloud Architect",
 
-  ];
+];
