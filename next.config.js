@@ -7,19 +7,20 @@ const { i18n } = require("./next-i18next.config");
 const isProduction = process.env.NODE_ENV === "production";
 
 const config = {
-	// here goes your Next.js configuration
-	reactStrictMode: true,
-	i18n,
-	images: {
-		domains: [
-			"images.unsplash.com",
-			"source.unsplash.com",
-			"unsplash.com",
-			"example.com",
-			"firebasestorage.googleapis.com",
-			"twitter.com",
-		],
-	},
+  // here goes your Next.js configuration
+  reactStrictMode: true,
+  i18n,
+  images: {
+    domains: [
+      "images.unsplash.com",
+      "source.unsplash.com",
+      "unsplash.com",
+      "example.com",
+      "firebasestorage.googleapis.com",
+      "twitter.com",
+      "cdn-images.himalayas.app",
+    ],
+  },
 };
 
 const nextConfig = withPWA({

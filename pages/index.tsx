@@ -19,7 +19,7 @@ import {
   HomeJobs,
   MapWorkSpace,
   Newsletter,
-  Talents,
+  Talents, ExternalHomeJobs
 } from "@/components/HomePageComponents";
 
 const Home: NextPage = () => {
@@ -65,6 +65,7 @@ const Home: NextPage = () => {
       </section>
       <HomeJobs translate={translate} />
       <Talents translate={translate} />
+      <ExternalHomeJobs translate={translate}/>
       <MapWorkSpace translate={translate} />
       <Faq translate={translate} />
       <Newsletter translate={translate} />
