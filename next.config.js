@@ -19,6 +19,8 @@ const config = {
       "firebasestorage.googleapis.com",
       "twitter.com",
       "cdn-images.himalayas.app",
+      "storage.googleapis.com",
+
     ],
   },
 };

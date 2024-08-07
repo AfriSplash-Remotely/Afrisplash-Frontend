@@ -15,6 +15,10 @@ export const addEducation = async (body: object[]): Promise<IGetUserProfileApiRe
     const { data } = await api.put("/candidate/edit/add/education", body)
     return data
 }
+export const updateUser = async (body: object): Promise<IGetUserProfileApiResponse> => {
+    const { data } = await api.put("/candidate/edit/user", body)
+    return data
+}
 export const removeEducation = async (id: string): Promise<IGetUserProfileApiResponse> => {
     const { data } = await api.delete(`/candidate/edit/remove/education/${id}`)
     return data
