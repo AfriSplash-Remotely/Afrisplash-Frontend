@@ -16,3 +16,5 @@ export const verifyCompany = async (verifyPayload: {id:string}): Promise<singleC
     const { data } = await api.patch("/company/verify", verifyPayload)
     return data
 }
+
+

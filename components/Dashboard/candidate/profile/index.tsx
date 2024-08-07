@@ -7,7 +7,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { AwardSvg, AvatarTick, BriefCase, ClockSvg } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
 import { useSession } from "next-auth/react";
-import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile, addSkill, addLanguage, removeLanguage, removeExperience, removeEducation } from "@/api-endpoints/user-profile/user-profile.api";
+import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile, addSkill, addLanguage, removeLanguage, removeExperience, removeEducation, updateUser } from "@/api-endpoints/user-profile/user-profile.api";
 import AddEducationModal from "./add-education-modal";
 import AddExperienceModal from "./add-experience-modal";
 import toast from "react-hot-toast";
@@ -18,6 +18,7 @@ import UpdateSkillModal from "./update-skills-modal";
 import AddLanguage from "./add-language-modal";
 import { FiDelete } from "react-icons/fi";
 import LoadingComponent from "@/components/atoms/Loading/loading-component";
+import UpdateProfileModal from "./update-profile";
 
 export interface contactProps { email: string; phone: string; location: string }
 
@@ -28,13 +29,16 @@ const Candidate = (): JSX.Element => {
     const [openBio, setOpenBio] = useState<boolean>(false);
     const [openLanguage, setOpenLanguage] = useState<boolean>(false);
     const [openSkills, setOpenSkills] = useState<boolean>(false);
-    const { data: session } = useSession();
+    // const { data: session } = useSession();
     const [educationData, setEducationData] = useState<object[]>([]);
     const [bio, setBio] = useState<string>("");
     const [experienceData, setExperienceData] = useState<object[]>([]);
     const [contactData, setContactData] = useState<contactProps>({ email: "", phone: "", location: "" });
     const [bioData, setBioData] = useState([]);
     const [skillData, setSkillsData] = useState<any>([]);
+    const [profileData, setProfileData] = useState<any>({});
+    const [openProfile, setOpenProfile] = useState<boolean>(false);
+
     const [langData, setLangData] = useState<any>([]);
 
     const { data, refetch } = useQuery(["candidateProfile"], async () => {
@@ -58,7 +62,7 @@ const Candidate = (): JSX.Element => {
 
 
 
-
+    // start
     const { mutate: updateEducationMutation, isLoading: educationLoading } = useMutation({
         mutationFn: (body: object[]) => addEducation(body),
         onSuccess: () => {
@@ -78,6 +82,32 @@ const Candidate = (): JSX.Element => {
         const body = educationData;
         updateEducationMutation(body);
     }
+    // end
+
+    // start
+    const { mutate: updateProfileMutation, isLoading: profileLoading } = useMutation({
+        mutationFn: (body: object) => updateUser(body),
+        onSuccess: () => {
+            toast.success("profile updated successfully ");
+            setProfileData({});
+            setOpenProfile(false);
+            refetch();
+
+        },
+        onError: (error: AxiosError<{ error: any }>) => {
+            toast.error(error?.response?.data?.error);
+        }
+    })
+
+    const handleUpdateProfile = () => {
+
+        const body = profileData;
+        updateProfileMutation(body);
+    }
+    // end
+
+
+
     const { mutate: updateExperienceMutation, isLoading: experienceLoading } = useMutation({
         mutationFn: (body: object[]) => addExperience(body),
         onSuccess: () => {
@@ -133,7 +163,7 @@ const Candidate = (): JSX.Element => {
         const body = bioData;
         updateBioMutation(body);
     }
-    const { mutate: updateSkillMutation} = useMutation({
+    const { mutate: updateSkillMutation } = useMutation({
         mutationFn: (body: object[]) => addSkill(body),
         onSuccess: () => {
             toast.success("contact updated successfully ");
@@ -224,10 +254,11 @@ const Candidate = (): JSX.Element => {
                         <div className="flex items-center space-x-4">
                             <div className="relative w-20 h-20">
                                 <Image
-                                    src={`${pic9.src}`}
+                                    src={`${data?.profile_image ?? pic9.src}`}
                                     fill
-                                    alt=""
-                                    className="w-14 h-14 rounded-full"
+                                    alt="image"
+                                    className="w-14 h-14 rounded-full cursor-pointer object-cover"
+                                    onClick={() => setOpenProfile(true)}
                                 />
                                 <span className="top-0 left-14 absolute rounded-full">
                                     <AvatarTick />
@@ -476,6 +507,7 @@ const Candidate = (): JSX.Element => {
             <EditContactDetails data={contactData} open={openContact} setOpen={setOpenContact} onClick={handleEditContact} setData={setContactData} loading={contactLoading} />
             <EditBio bio={bio} setBio={setBio} open={openBio} setOpen={setOpenBio} onClick={handleEditBio} setData={setBioData} loading={bioLoading} />
             <UpdateSkillModal data={skillData} open={openSkills} setOpen={setOpenSkills} onClick={handleAddSkill} setData={setSkillsData} loading={bioLoading} />
+            <UpdateProfileModal userData={data} open={openProfile} setOpen={setOpenProfile} onClick={handleUpdateProfile} setData={setProfileData} loading={profileLoading} />
             <AddLanguage open={openLanguage} setOpen={setOpenLanguage} onClick={handleAddLanguage} setData={setLangData} loading={langLoading} />
         </AdminLayout>
     )

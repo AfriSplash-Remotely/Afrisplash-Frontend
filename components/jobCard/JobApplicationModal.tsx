@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { AxiosError } from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -16,6 +16,7 @@ import { Location } from "../Dashboard/recruiter/createJob/jobsData";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ApplyJobSchema } from "@/schema/applyJob.schema";
+import FileUpload from "../Upload/upload-file";
 
 interface ApplyModalProps {
   company?: string;
@@ -56,7 +57,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   const [tab, setTab] = React.useState<Tabs>(Tabs.Overview);
   const [fileName, setFileName] = React.useState<string>("")
   const [, setIsDragging] = React.useState<boolean>(false);
-
+  const [fileUrl, setFileUrl] = useState<string>("");
 
   const { handleSubmit, register, setValue, formState: { errors } } = useForm<ApplyJobSchema>({
     resolver: yupResolver(ApplyJobSchema)
@@ -141,8 +142,9 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     }
 
     const jobId = sessionStorage.getItem("jobId") as string;
+    data.resumeURL = fileUrl;
     const payload = data
-    console.log({ data });
+   
     try {
       await mutation.mutateAsync({ jobId, payload });
       console.log('Data posted successfully');
@@ -151,6 +153,8 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     }
 
   }
+ 
+
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
       <div className="md:px-12 py-6">
@@ -379,14 +383,15 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                 <label htmlFor="upload resume" className="text-dark_blue">
                   Upload resume
                 </label>
-                <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer" onDragOver={handleDragOver}
+                {/* <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer" onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
                   onDrop={handleDrop}>
                   <input id="fileInput" {...register("resumeURL")}
                     type="file" className="hidden" accept=".pdf, .doc, .docx" onChange={handleFileChange}
                   />
                   <p className="text-md text-grey_3 text-center">Drag & drop your files here or <span className="underline font-semibold cursor-pointer" onClick={triggerFileUpload}>browse</span></p>
-                </div>
+                </div> */}
+                <FileUpload fileUrl={fileUrl} setFileUrl={setFileUrl} />
                 {errors.resumeURL && (
                   <p role="alert" className="error_message pl-2 py-2">
                     {(errors.resumeURL).message}
