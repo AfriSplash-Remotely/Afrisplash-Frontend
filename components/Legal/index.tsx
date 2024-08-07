@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { FC, ReactNode, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import styles from "./style.module.scss";

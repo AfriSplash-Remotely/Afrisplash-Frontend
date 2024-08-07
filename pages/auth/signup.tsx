@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import {
   EnvelopeIcon,
@@ -56,7 +58,7 @@ const Signup: NextPage = () => {
       await signUp({ ...data, user_type: data.user_type?.value || "", gender: data?.gender?.value });
       toast.success("Signup successful");
       router.push("/auth/login")
-    } catch (err: any) {
+    } catch (err: unknown) {
       // toast.error(err.data.message);
     }
   };

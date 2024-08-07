@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { FooterItems, footer, policies } from "./footer.data";

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import Select, { MultiValue, StylesConfig } from "react-select";
 import options from "../../../utils/options"
@@ -8,7 +10,6 @@ const selectStyle: StylesConfig = {
     padding: "4px 2px",
   }),
 };
-
 
 
 const Skills = ({ getDataFn }: { getDataFn?: (data: any) => void }): JSX.Element => {

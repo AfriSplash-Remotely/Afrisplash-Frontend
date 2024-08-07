@@ -16,7 +16,6 @@ export const Button : React.FC<buttonProps> = ({
     name,
     type,
     loading,
-    altText,
     disabled,
     onClick,
     className,

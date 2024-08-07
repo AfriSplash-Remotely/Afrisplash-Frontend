@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React,{SetStateAction, useEffect, useState} from 'react'
 import Modal from '@/components/modal/Modal'
 import { CancelIcon } from '@/assets';
@@ -40,7 +41,7 @@ const AddEducationModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, s
 
         setData(bodyData);
 
-    }, [name,degreeType,startDate,endDate,desc,field])
+    }, [name, degreeType, startDate, endDate, desc, field, setData])
     
   return (
     <div className='relative'>

@@ -15,8 +15,7 @@ const AllBlogCardProp = {
   views: PropTypes.number.isRequired,
 };
 
-
-const AllBlogCard = ({ url, title, summary, views, categories, read_time, createdAt, _author, cover_image }: InferProps<typeof AllBlogCardProp>): JSX.Element => {
+const AllBlogCard = ({ url, title, summary, categories, read_time, createdAt, cover_image }: InferProps<typeof AllBlogCardProp>): JSX.Element => {
   return (
     <article className="relative flex flex-col">
       <div className="relative h-60">

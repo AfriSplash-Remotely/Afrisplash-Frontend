@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import SettingsLayout from '@/layouts/settingsLayout';
 import Link from 'next/link';

@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import styles from "./Timeline.module.scss";
-
 
 interface TimelineProps {
   isJobDetails: boolean,

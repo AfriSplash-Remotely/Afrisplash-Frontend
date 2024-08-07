@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { fetchJobDetails } from "@/api-endpoints/jobs/jobs.api";
 import { useQuery } from "@tanstack/react-query";
-
 import {
   CheckCircleIcon,
   ChevronRightIcon,
@@ -10,10 +9,7 @@ import {
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
 import { HiBolt } from "react-icons/hi2";
-import Button from "components/atoms/Button/Button";
-import { capitalizeFirstLetter, formatTimeAgo, formatCurrency } from "@/utils/helper";
-import { ACCOUNT_TYPE } from "@/utils";
-import { useSession } from "next-auth/react";
+import { capitalizeFirstLetter, formatTimeAgo } from "@/utils/helper";
 import JobApplicationModal from "./JobApplicationModal";
 
 const jobDataProps = {
@@ -23,11 +19,6 @@ const jobDataProps = {
   service: PropTypes.string,
   employees: PropTypes.number,
   offer: PropTypes.string.isRequired,
-  // salary: PropTypes.shape({
-  //   amount: PropTypes.number,
-  //   currency: PropTypes.string,
-  //   period: PropTypes.string,
-  // }),
   salary: PropTypes.string.isRequired,
   postDate: PropTypes.string.isRequired,
   alt: PropTypes.string,
@@ -47,7 +38,6 @@ const JobCard = ({
   service,
   employees,
   offer,
-  salary,
   postDate,
   alt,
   isDirectApply,
@@ -56,24 +46,16 @@ const JobCard = ({
   promoted,
   forDashboard = false,
 }: InferProps<typeof jobDataProps>): JSX.Element => {
-  const { data: session } = useSession()
   const [open, setOpen] = useState<boolean>(false)
-
   const { data, refetch } = useQuery(["jobDet"], async () => {
     const data = await fetchJobDetails(_id as string)
     return data
   }, { enabled: false })
-
   const handleModalOpen = () => {
     sessionStorage.setItem("jobId", _id as string)
     setOpen(!open)
     refetch()
   }
-
-
-
-
-
   return (
     <>
       <div className="bg-white rounded-xl border cursor-pointer border-gray-200 p-3  mt-5" onClick={handleModalOpen}>
@@ -158,25 +140,6 @@ const JobCard = ({
             <p className="font-[400] text-xs hidden md:block">
               {formatTimeAgo(postDate)}
             </p>
-            {/* {session && session.user && session.user.userType === ACCOUNT_TYPE.candidate ?
-              <>
-                <div className="flex gap-3 w-full  items-center md:w-auto">
-                  <Button
-                    text={"Save"}
-                    classes={
-                      "border border-solid text-sm border-[#0D5520] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
-                    }
-                  />
-                  <Button
-                 
-                    text={"Apply"}
-                    classes={
-                      "bg-[#0D5520] text-sm text-[white] px-4 py-1.5 rounded-lg w-1/2  md:w-auto"
-                    }
-                  />
-                </div>
-              </> : null} */}
-
           </div>
           <div className="font-normal text-xs block md:hidden ">
             {formatTimeAgo(postDate)}

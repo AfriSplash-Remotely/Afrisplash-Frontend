@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { fetchJobDetails } from "@/api-endpoints/jobs/jobs.api";
 import { useQuery } from "@tanstack/react-query";
-
 import {
     CheckCircleIcon,
     ChevronRightIcon,
@@ -10,10 +9,7 @@ import {
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
 import { HiBolt } from "react-icons/hi2";
-import Button from "components/atoms/Button/Button";
-import { capitalizeFirstLetter, formatTimeAgo, formatCurrency } from "@/utils/helper";
-
-import { useSession } from "next-auth/react";
+import { capitalizeFirstLetter, formatTimeAgo } from "@/utils/helper";
 import JobApplicationModal from "./JobApplicationModal";
 
 const jobDataProps = {
@@ -23,11 +19,6 @@ const jobDataProps = {
     service: PropTypes.string,
     employees: PropTypes.number,
     offer: PropTypes.string.isRequired,
-    // salary: PropTypes.shape({
-    //   amount: PropTypes.number,
-    //   currency: PropTypes.string,
-    //   period: PropTypes.string,
-    // }),
     salary: PropTypes.string.isRequired,
     postDate: PropTypes.string.isRequired,
     alt: PropTypes.string,
@@ -48,7 +39,6 @@ const ApplyJobCard = ({
     service,
     employees,
     offer,
-    salary,
     postDate,
     alt,
     isDirectApply,
@@ -58,9 +48,7 @@ const ApplyJobCard = ({
     isApplied,
     forDashboard = false,
 }: InferProps<typeof jobDataProps>): JSX.Element => {
-    const { data: session } = useSession()
     const [open, setOpen] = useState<boolean>(false)
-
     const { data, refetch } = useQuery(["jobDet"], async () => {
         const data = await fetchJobDetails(_id as string)
         return data

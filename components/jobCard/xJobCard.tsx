@@ -1,13 +1,10 @@
 import React from "react";
 import {
   CheckCircleIcon,
-  ChevronRightIcon,
-  UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PropTypes, { InferProps } from "prop-types";
-import Button from "components/atoms/Button/Button";
-import { capitalizeFirstLetter, formatTimeAgo, formatCurrency } from "@/utils/helper";
+import { capitalizeFirstLetter, formatTimeAgo } from "@/utils/helper";
 
 const xJobDataProps = {
   id: PropTypes.string,
@@ -32,7 +29,6 @@ const XJobCard = ({
   publishedDate, expiryDate,
   applicationLink
 }: InferProps<typeof xJobDataProps>): JSX.Element => {
-
 
   return (
     <>

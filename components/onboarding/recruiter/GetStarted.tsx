@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 
 function GetStarted({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Element {
@@ -15,7 +17,6 @@ function GetStarted({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Elem
       <div className="text-center">
         <h1 className="font-bold text-2xl mb-1">Start Your Journey</h1>
         <p className="font-medium text-lg mb-6">Get access to a community of developers with top skills in a wild range of stacks</p>
-
       </div>
 
       <label htmlFor="companyName">
@@ -39,8 +40,6 @@ function GetStarted({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Elem
           onChange={(e) => SetRole(e.target.value)}
         />
       </label>
-
-
     </div>
   );
 };

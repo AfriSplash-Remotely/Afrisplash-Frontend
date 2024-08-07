@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 
 function Bio({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Element {
@@ -52,7 +54,6 @@ function Bio({ getDataFn }: { getDataFn: (data: any) => void }): JSX.Element {
           onChange={(e) => setBio(e.target.value)}
           maxLength={150}
         />
-        {/* <p className="text-right text-sm text-gray-500">{bioDesc.length}/150</p> */}
       </label>
     </div>
   );

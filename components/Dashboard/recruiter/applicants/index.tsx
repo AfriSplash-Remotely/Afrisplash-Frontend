@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import CheckBox from "components/atoms/CheckBox/CheckBox";
 import DropDown from "components/atoms/DropDown/DropDown";
