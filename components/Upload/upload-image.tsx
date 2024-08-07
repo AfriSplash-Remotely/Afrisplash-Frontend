@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, ChangeEvent, useEffect } from "react";
 import axios from "axios";
 
