@@ -10,6 +10,7 @@ const Candidate = (): JSX.Element => {
     const strUser = session?.user?.email
     const userName = strUser?.substring(0, strUser.indexOf('@'))
 
+
     const { data, isLoading, isError } = useQuery(["jobs"], fetchAllJobs)
     const recommendJobs = data?.data
 
