@@ -3,4 +3,6 @@ import MapWorkSpace from "./MapWorkSpace";
 import Newsletter from "./NewLetter";
 import Talents from "./Talents";
 import HomeJobs from "./HomeJobs";
-export { Faq, MapWorkSpace, Newsletter, Talents, HomeJobs };
+import ExternalHomeJobs from "./ExternalHomeJobs";
+
+export { Faq, MapWorkSpace, Newsletter, Talents, HomeJobs, ExternalHomeJobs };

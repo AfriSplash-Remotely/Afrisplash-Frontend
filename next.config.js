@@ -20,6 +20,7 @@ const config = {
       "twitter.com",
       "cdn-images.himalayas.app",
       "storage.googleapis.com",
+
     ],
   },
 };
