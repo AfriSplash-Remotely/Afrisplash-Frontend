@@ -55,41 +55,12 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
   onClose,
 }) => {
   const [tab, setTab] = React.useState<Tabs>(Tabs.Overview);
-  const [fileName, setFileName] = React.useState<string>("")
-  const [, setIsDragging] = React.useState<boolean>(false);
   const [fileUrl, setFileUrl] = useState<string>("");
 
-  const { handleSubmit, register, setValue, formState: { errors } } = useForm<ApplyJobSchema>({
+  const { handleSubmit, register, formState: { errors } } = useForm<ApplyJobSchema>({
     resolver: yupResolver(ApplyJobSchema)
   })
 
-  const handleFileChange = (e: any) => {
-    const file = e.target.files[0]
-    if (file) {
-      setFileName(file.name)
-      setValue('resumeURL', file)
-    }
-  }
-  const triggerFileUpload = () => {
-    document.getElementById("fileInput")?.click()
-  }
-  const handleDragOver = (event: any) => {
-    event.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = () => {
-    setIsDragging(false);
-  };
-
-  const handleDrop = (event: any) => {
-    event.preventDefault();
-    const file = event.dataTransfer.files[0];
-    if (file) {
-      setFileName(file.name);
-    }
-    setIsDragging(false);
-  };
   const handleTabSwitch = (currentTab: Tabs): void => {
     setTab(currentTab);
   };
@@ -125,9 +96,7 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
       },
     })
   }
-
   const mutation = useApplyForJob()
-
   const onSaveJob = () => {
     const jobId = sessionStorage.getItem("jobId");
     saveMutation(jobId as string);
@@ -144,16 +113,14 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
     const jobId = sessionStorage.getItem("jobId") as string;
     data.resumeURL = fileUrl;
     const payload = data
-   
+
     try {
       await mutation.mutateAsync({ jobId, payload });
       console.log('Data posted successfully');
     } catch (error) {
       console.error('Error posting data', error);
     }
-
   }
- 
 
   return (
     <Modal isOpen={open} setIsOpen={onClose} dialogPanelClass="w-2xl max-w-2xl">
@@ -383,14 +350,6 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                 <label htmlFor="upload resume" className="text-dark_blue">
                   Upload resume
                 </label>
-                {/* <div className="border-2 border-dashed bg-white rounded-md py-12 px-4 flex justify-center items-center cursor-pointer" onDragOver={handleDragOver}
-                  onDragLeave={handleDragLeave}
-                  onDrop={handleDrop}>
-                  <input id="fileInput" {...register("resumeURL")}
-                    type="file" className="hidden" accept=".pdf, .doc, .docx" onChange={handleFileChange}
-                  />
-                  <p className="text-md text-grey_3 text-center">Drag & drop your files here or <span className="underline font-semibold cursor-pointer" onClick={triggerFileUpload}>browse</span></p>
-                </div> */}
                 <FileUpload fileUrl={fileUrl} setFileUrl={setFileUrl} />
                 {errors.resumeURL && (
                   <p role="alert" className="error_message pl-2 py-2">
@@ -398,12 +357,6 @@ const JobApplicationModal: React.FC<ApplyModalProps> = ({
                   </p>
                 )}
               </div>
-              {fileName && (
-                <div className="space-y-1">
-                  <p className="text-primary font-bold">My Resume: {fileName}</p>
-                </div>
-              )}
-
 
               <div className="flex gap-4 items-center pt-12 justify-end">
                 <Button
