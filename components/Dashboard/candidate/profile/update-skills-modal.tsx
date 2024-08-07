@@ -1,4 +1,5 @@
-import React, { useEffect, useState,KeyboardEvent, SetStateAction } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useState, KeyboardEvent, SetStateAction } from 'react';
 import Modal from '@/components/modal/Modal';
 import { CancelIcon } from '@/assets';
 import { Button, OutlineBtn } from '@/components/button';
@@ -10,17 +11,17 @@ interface modalcompProps {
     setData: React.Dispatch<SetStateAction<string[]>>;
     data: string[];
 }
-const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,data }) => {
+const UpdateSkillModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading, data }) => {
     const [keyword, setKeyword] = useState("");
     const [list, setList] = useState<any>([]);
-  
+
     useEffect(() => {
         setList(data)
     }, [data])
-  
+
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
-            const newList:any = [...list];
+            const newList: any = [...list];
             newList.push(keyword);
             setKeyword("");
             setList(newList)
@@ -44,10 +45,10 @@ const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, s
 
                         <div className="w-full mt-8    gap-4 flex flex-col  ">
                             <label htmlFor="">
-                                Add skill set 
+                                Add skill set
                             </label>
                             <div className="w-full  h-[56px] rounded-[15px] px-2 flex items-center gap-2 border border-grey">
-                             
+
                                 <input
                                     type="text"
                                     className="border-none outline-none focus:outline-none flex-grow placeholder:text-xs bg-transparent placeholder:text-placeholder"
@@ -65,30 +66,20 @@ const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, s
                                     <SingleItem
                                         key={index}
                                         item={item}
-                                    
+
                                         services={list}
                                         setServices={setList}
                                     />
                                 );
                             })}
                         </div>
-
-
                         <div className="w-full flex flex-col md:justify-center gap-4 items-center lg:items-center md:flex-row mt-12">
                             <span>
                                 <OutlineBtn name='Cancel' onClick={() => setOpen(false)} />
                             </span>
                             <Button name={'Update'} loading={loading} onClick={onClick} disabled={loading} />
                         </div>
-
-
-
-
-
-
-
                     </div>
-
                 </div>
             </Modal>
         </div>
@@ -98,7 +89,7 @@ const UpdateSkillModal : React.FC<modalcompProps> = ({ open, setOpen, onClick, s
 export default UpdateSkillModal
 
 
-const SingleItem = ({ index, item,  services, setServices }: any) => {
+const SingleItem = ({ index, item, services, setServices }: any) => {
     const [active, setActive] = useState(false);
     const addItem = (item: any) => {
         if (services.includes(item)) {

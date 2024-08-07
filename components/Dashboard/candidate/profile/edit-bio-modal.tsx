@@ -1,7 +1,8 @@
-import { SetStateAction, useEffect, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { SetStateAction, useEffect } from 'react';
 import Modal from '@/components/modal/Modal';
 import { CancelIcon } from '@/assets';
-import { Input } from '@/components/Input';
 import { Button, OutlineBtn } from '@/components/button';
 interface modalcompProps {
     open: boolean;
@@ -10,11 +11,11 @@ interface modalcompProps {
     loading: boolean;
     setData: any;
     bio: string,
-    setBio:React.Dispatch<SetStateAction<string>>
+    setBio: React.Dispatch<SetStateAction<string>>
 }
 
-const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,bio,setBio }) => {
-  
+const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading, bio, setBio }) => {
+
     useEffect(() => {
         const bodyData =
         {
@@ -22,7 +23,6 @@ const EditBio: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, lo
         }
         setData(bodyData);
     }, [bio])
-
 
     return (
         <div className='relative'>

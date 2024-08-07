@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useEffect, useState } from "react";
 import { AxiosError } from "axios";
@@ -6,7 +7,6 @@ import Image from "next/image";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { AwardSvg, AvatarTick, BriefCase, ClockSvg } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
-import { useSession } from "next-auth/react";
 import { addEducation, addExperience, editBio, editContactDetails, getCandidateProfile, addSkill, addLanguage, removeLanguage, removeExperience, removeEducation, updateUser } from "@/api-endpoints/user-profile/user-profile.api";
 import AddEducationModal from "./add-education-modal";
 import AddExperienceModal from "./add-experience-modal";
@@ -29,7 +29,6 @@ const Candidate = (): JSX.Element => {
     const [openBio, setOpenBio] = useState<boolean>(false);
     const [openLanguage, setOpenLanguage] = useState<boolean>(false);
     const [openSkills, setOpenSkills] = useState<boolean>(false);
-    // const { data: session } = useSession();
     const [educationData, setEducationData] = useState<object[]>([]);
     const [bio, setBio] = useState<string>("");
     const [experienceData, setExperienceData] = useState<object[]>([]);
@@ -38,12 +37,9 @@ const Candidate = (): JSX.Element => {
     const [skillData, setSkillsData] = useState<any>([]);
     const [profileData, setProfileData] = useState<any>({});
     const [openProfile, setOpenProfile] = useState<boolean>(false);
-
     const [langData, setLangData] = useState<any>([]);
-
     const { data, refetch } = useQuery(["candidateProfile"], async () => {
         const response = await getCandidateProfile()
-
         return response.data[0];
     });
 
@@ -58,10 +54,6 @@ const Candidate = (): JSX.Element => {
             setSkillsData(data?.skills);
         }
     }, [data?.skills, data?.email, data?.phone_number, data?.location, data?.bio, data, openSkills]);
-
-
-
-
     // start
     const { mutate: updateEducationMutation, isLoading: educationLoading } = useMutation({
         mutationFn: (body: object[]) => addEducation(body),
@@ -70,7 +62,6 @@ const Candidate = (): JSX.Element => {
             setEducationData([]);
             setOpenEducation(false);
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -78,12 +69,10 @@ const Candidate = (): JSX.Element => {
     })
 
     const handleAddEduction = () => {
-
         const body = educationData;
         updateEducationMutation(body);
     }
     // end
-
     // start
     const { mutate: updateProfileMutation, isLoading: profileLoading } = useMutation({
         mutationFn: (body: object) => updateUser(body),
@@ -92,7 +81,6 @@ const Candidate = (): JSX.Element => {
             setProfileData({});
             setOpenProfile(false);
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -100,14 +88,10 @@ const Candidate = (): JSX.Element => {
     })
 
     const handleUpdateProfile = () => {
-
         const body = profileData;
         updateProfileMutation(body);
     }
     // end
-
-
-
     const { mutate: updateExperienceMutation, isLoading: experienceLoading } = useMutation({
         mutationFn: (body: object[]) => addExperience(body),
         onSuccess: () => {
@@ -115,7 +99,6 @@ const Candidate = (): JSX.Element => {
             setExperienceData([]);
             setOpenExperience(false);
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -123,9 +106,7 @@ const Candidate = (): JSX.Element => {
     })
 
     const handleAddExperience = () => {
-
         const body = experienceData;
-
         updateExperienceMutation(body);
     }
     const { mutate: updateContactMutation, isLoading: contactLoading } = useMutation({
@@ -135,7 +116,6 @@ const Candidate = (): JSX.Element => {
             setContactData({ location: "", phone: "", email: "" });
             setOpenContact(false);
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -170,7 +150,6 @@ const Candidate = (): JSX.Element => {
             setSkillsData([]);
             setOpenSkills(false);
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -188,7 +167,6 @@ const Candidate = (): JSX.Element => {
             setLangData([]);
             setOpenLanguage(false);
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -196,9 +174,7 @@ const Candidate = (): JSX.Element => {
     })
 
     const handleAddLanguage = () => {
-
         const body = langData;
-
         updateLanguageMutation(body);
     }
     const { mutate: removeLanguageMutation, isLoading: removelangLoading } = useMutation({
@@ -434,7 +410,6 @@ const Candidate = (): JSX.Element => {
                         )
                     }
 
-
                     <div className="w-full flex justify-center items-center mt-6 mb-8 ">
                         <button className="h-[56px] rounded-[16px] min-w-[204px] cursor-pointer border border-[#D9DEDC] text-[#1C1D36] font-semibold" onClick={() => setOpenExperience(true)}>
                             <span className="text-[#0D5520]">+</span>
@@ -442,7 +417,6 @@ const Candidate = (): JSX.Element => {
                         </button>
                     </div>
                 </div>
-
                 {/* user education */}
                 <div className="bg-white rounded-xl">
                     <div className="flex items-center space-x-2 p-4 pb-0">

@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 
 interface MapProps {
     address: string;
 }
-
 
 const LocateMap: React.FC<MapProps> = ({ address }) => {
     const mapRef = useRef<HTMLDivElement>(null);

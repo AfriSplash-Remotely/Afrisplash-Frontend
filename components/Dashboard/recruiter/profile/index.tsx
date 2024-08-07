@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -8,7 +11,6 @@ import Tooltip from "@/components/atoms/Tooltip";
 import { addEducationRecruiter, addExperienceRecruiter, addLanguageRecruiter, addSkillRecruiter, editBioRecruiter, editContactDetailsRecruiter, getRecruiterProfile, removeEducationRecruiter, removeExperienceRecruiter, removeLanguageRecruiter, updateHiringStatusRecruiter, updatePrivacyStatusRecruiter, updateUserRecruiter } from "@/api-endpoints/recruiter-profile/recruiter-profile.api";
 import { AvatarTick, AwardSvg, BriefCase, ClockSvg, Pencil } from "@/assets/profile";
 import pic9 from "assets/images/pic9.png";
-import { useSession } from "next-auth/react";
 import { contactProps } from "../../candidate/profile";
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
@@ -33,7 +35,6 @@ const Recruiter = (): JSX.Element => {
     const [openBio, setOpenBio] = useState<boolean>(false);
     const [openLanguage, setOpenLanguage] = useState<boolean>(false);
     const [openSkills, setOpenSkills] = useState<boolean>(false);
-    const { data: session } = useSession();
     const [educationData, setEducationData] = useState<object[]>([]);
     const [bio, setBio] = useState<string>("");
     const [experienceData, setExperienceData] = useState<object[]>([]);
@@ -56,10 +57,6 @@ const Recruiter = (): JSX.Element => {
         }
     }, [data?.skills, data?.email, data?.phone_number, data?.location, data?.bio, data, openSkills]);
 
-
-
-
-
     const { mutate: updateEducationMutation, isLoading: educationLoading } = useMutation({
         mutationFn: (body: object[]) => addEducationRecruiter(body),
         onSuccess: () => {
@@ -67,7 +64,6 @@ const Recruiter = (): JSX.Element => {
             setEducationData([]);
             setOpenEducation(false);
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -75,7 +71,6 @@ const Recruiter = (): JSX.Element => {
     })
 
     const handleAddEduction = () => {
-
         const body = educationData;
         updateEducationMutation(body);
     }
@@ -94,9 +89,7 @@ const Recruiter = (): JSX.Element => {
     })
 
     const handleAddExperience = () => {
-
         const body = experienceData;
-
         updateExperienceMutation(body);
     }
     const { mutate: updateContactMutation, isLoading: contactLoading } = useMutation({
@@ -168,9 +161,7 @@ const Recruiter = (): JSX.Element => {
     })
 
     const handleAddLanguage = () => {
-
         const body = langData;
-
         updateLanguageMutation(body);
     }
     // END OF THE EDU
@@ -212,9 +203,7 @@ const Recruiter = (): JSX.Element => {
         mutationFn: (body: {privateMode:boolean}) => updatePrivacyStatusRecruiter(body),
         onSuccess: () => {
             toast.success("Privacy status updated successfully ");
-       
             refetch();
-
         },
         onError: (error: AxiosError<{ error: any }>) => {
             toast.error(error?.response?.data?.error);
@@ -222,9 +211,7 @@ const Recruiter = (): JSX.Element => {
     })
 
     const handleUpdatePrivacy = () => {
-
         const body = {privateMode:isPrivate};
-
         updatePrivacyMutation(body);
     }
     
@@ -235,12 +222,9 @@ const Recruiter = (): JSX.Element => {
             prevIsPrivateRef.current = isPrivate; // Update the previous state
         }
     }, [isPrivate]);
-    // useEffect(() => {
-    //     handleUpdateHiring();
-    // }, [isHiring])
     
     // END OF THE EDU
-    const { mutate: removeLanguageMutation, isLoading: removelangLoading } = useMutation({
+    const { mutate: removeLanguageMutation } = useMutation({
         mutationFn: (id: string) => removeLanguageRecruiter(id as string),
         onSuccess: () => {
             toast.success("Language removed successfully ");

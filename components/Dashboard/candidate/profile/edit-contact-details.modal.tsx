@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { SetStateAction, useEffect, useState } from 'react'
 import Modal from '@/components/modal/Modal'
 import { CancelIcon } from '@/assets';

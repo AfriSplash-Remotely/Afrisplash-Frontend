@@ -3,7 +3,6 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import PropTypes, { InferProps } from "prop-types";
 import Link from "next/link";
 
-
 const PricingCardProps = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
@@ -18,7 +17,6 @@ export default function PricingCard({
   description,
   price,
   offers,
-  isPopular,
   activeSlide,
 }: InferProps<typeof PricingCardProps>): JSX.Element {
   return (

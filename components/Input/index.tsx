@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useRef } from "react";
 import { CalenderIcon } from "../../assets";
 interface dateProps {
     date: string;
@@ -31,7 +32,6 @@ export const Input : React.FC<InputProps> = ({
     value,
     setValue,
     type,
-    placeholder,
     height,
     ...props
 
@@ -54,11 +54,9 @@ export const Input : React.FC<InputProps> = ({
 
 
 const  UrlInput : React.FC<UrlProps> = ({
-    className,
     label,
     value,
     setValue,
-    type,
     placeholder,
     preUrl
 } ) => {

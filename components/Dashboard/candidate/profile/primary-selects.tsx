@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* This example requires Tailwind CSS v2.0+ */
 import React from "react";
 import { Listbox, Transition } from "@headlessui/react";
-
 import { Fragment } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 interface selectProps {
@@ -16,8 +16,7 @@ interface selectProps {
 function classNames(...classes: any) {
     return classes.filter(Boolean).join(" ");
 }
-
- const   PrimarySelect : React.FC<selectProps> = ({
+const PrimarySelect: React.FC<selectProps> = ({
     label,
     selected,
     setSelected,
@@ -25,8 +24,6 @@ function classNames(...classes: any) {
     name,
     height,
 }) => {
-    // const [selected, setSelected] = useState(people[3])
-
     return (
         <Listbox value={selected} onChange={setSelected}>
             {({ open }) => (

@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { SetStateAction, useEffect, useState } from 'react'
 import Modal from '@/components/modal/Modal'
 import { CancelIcon } from '@/assets';
@@ -119,15 +121,7 @@ const AddExperienceModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                             </span>
                             <Button name={'Update'} loading={loading} onClick={onClick} disabled={loading} />
                         </div>
-
-
-
-
-
-
-
                     </div>
-
                 </div>
             </Modal>
         </div>

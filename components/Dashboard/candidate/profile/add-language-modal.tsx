@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SetStateAction, useEffect, useState, ChangeEvent, KeyboardEvent } from 'react';
 import Modal from '@/components/modal/Modal';
 import { CancelIcon } from '@/assets';
-import { Input } from '@/components/Input';
 import { Button, OutlineBtn } from '@/components/button';
 interface modalcompProps {
     open: boolean;
@@ -9,19 +10,14 @@ interface modalcompProps {
     onClick: () => void;
     loading: boolean;
     setData: any;
-   
 }
-
 interface Language {
     name: string;
     level: string;
 }
-const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading,  }) => {
-
-
+const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData, loading, }) => {
     const [languages, setLanguages] = useState<Language[]>([]);
     const [inputValue, setInputValue] = useState<string>('');
-
     const handleAddLanguage = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter' && inputValue.trim()) {
             setLanguages([...languages, { name: inputValue, level: 'beginner' }]);
@@ -42,10 +38,9 @@ const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData
     };
 
     useEffect(() => {
-      
         setData(languages)
     }, [languages])
-    
+
     return (
         <div className='relative'>
             <Modal open={open} setOpen={setOpen} >
@@ -62,10 +57,10 @@ const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData
 
                         <div className="w-full mt-8 grid grid-cols-1   gap-4  ">
                             <div className={`w-full flex flex-col  `}>
-                               
+
                                 <input
-                                    type={ "text"}
-                                    className={`   px-3 py-[15px] flex items-center border border-grey outline-none  placeholder:text-opacity-50 bg-transparent focus:bg-transparent placeholder:text-sm text-black text-sm placeholder:grey_3  h-[56px] rounded-[10px] `} 
+                                    type={"text"}
+                                    className={`   px-3 py-[15px] flex items-center border border-grey outline-none  placeholder:text-opacity-50 bg-transparent focus:bg-transparent placeholder:text-sm text-black text-sm placeholder:grey_3  h-[56px] rounded-[10px] `}
                                     value={inputValue}
                                     onChange={(e: ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
                                     onKeyDown={handleAddLanguage}
@@ -116,9 +111,6 @@ const AddLanguage: React.FC<modalcompProps> = ({ open, setOpen, onClick, setData
                                 </li>
                             ))}
                         </ul>
-
-
-
                         <div className="w-full flex flex-col md:justify-center gap-4 items-center lg:items-center md:flex-row mt-12">
                             <span>
                                 <OutlineBtn name='Cancel' onClick={() => setOpen(false)} />

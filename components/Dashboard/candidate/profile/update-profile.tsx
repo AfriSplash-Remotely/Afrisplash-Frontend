@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { SetStateAction, useEffect, useState } from 'react';
 import Modal from '@/components/modal/Modal';
 import { CancelIcon } from '@/assets';
@@ -26,7 +28,6 @@ const UpdateProfileModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
         setRole(userData?.role);
     }, [])
     
-
     useEffect(() => {
         const bodyData = {
             "profile_image": imageUrl,
@@ -35,8 +36,6 @@ const UpdateProfileModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
             "first_name": firstName,
             "last_name": lastName
         };
-        
-
         setData(bodyData);
 
     }, [firstName, lastName, role, imageUrl])
@@ -54,13 +53,11 @@ const UpdateProfileModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                         <h1 className='text-black text-2xl lg:text-4xl font-bold'>
                             Update Profile
                         </h1>
-
                         <div className="w-full mt-8 ">
                             <Input label={'First Name'} value={firstName} setValue={setFirstName} />
                         </div>
                         <div className="w-full grid grid-cols-1 lg:grid-cols-1 gap-x-4 gap-y-4 mt-4">
                             <div>
-
                                 <Input label={'Last Name'} value={lastName} setValue={setLastName} />
                             </div>
                             <div>
@@ -72,8 +69,6 @@ const UpdateProfileModal: React.FC<modalcompProps> = ({ open, setOpen, onClick, 
                             </div>
 
                         </div>
-
-
                         <div className="w-full flex flex-col md:justify-center gap-4 items-center lg:items-center md:flex-row mt-12">
                             <span>
                                 <OutlineBtn name='Cancel' onClick={() => setOpen(false)} />
